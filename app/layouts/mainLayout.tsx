@@ -12,7 +12,7 @@ export default function MainLayout({
     <div className="">
       <Header />
       <TopMenu />
-      <div className="w-[70%] mx-auto bg-slate-400">{children}</div>
+      <div className="w-[70%] mx-auto bg-[whitesmoke]">{children}</div>
     </div>
   );
 }

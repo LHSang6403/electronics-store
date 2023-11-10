@@ -9,7 +9,7 @@ export default function ShowMore(props: any): JSX.Element {
   return (
     <button
       onClick={onClick}
-      className="w-20 h-6 mt-1 flex flex-row justify-center items-center bg-[whitesmoke] hover:text-primary"
+      className="w-20 h-6 mt-1 flex flex-row justify-center items-center hover:text-primary"
     >
       Show more
     </button>
