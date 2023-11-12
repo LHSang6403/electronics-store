@@ -1,43 +1,73 @@
 "user client";
 import MainLayout from "./layouts/mainLayout";
 import CarouselSlider from "./components/carouselSlider";
+import Cards from "./components/cards";
+import Top2Items from "./components/top2Items";
+import TrendingCategories from "./components/trendingCategories";
+import ItemsContainer from "./components/itemsContainer";
 
 export default function Home(): ReturnType<React.FC> {
   return (
     <>
-      <MainLayout>
-        <main className="flex h-auto min-h-screen flex-col items-center justify-start">
-          <div className="w-full h-[500px] bg-slate-200 flex flex-row">
-            <div className="w-2/5 h-full pl-12 py-8 flex flex-col">
-              <h1 className="w-[88%] text-[36px] font-bold">
-                Your go-to destination for top-quality electronic products in
-                Vietnam!
-              </h1>
-              <div className="w-full flex flex-row justify-start items-center">
-                <button className="w-28 h-8 my-2 bg-primary text-lg pt-1">
-                  Shop now
-                </button>
-                <hr className="w-[280px] h-[2px] ml-2 bg-primary rounded"></hr>
-              </div>
-              <p className="w-[84%] mt-1 text-justify">
-                At{" "}
-                <p className="inline font-bold text-secondary">
-                  Electrical Store
-                </p>
-                , we take pride in being a trustworthy destination for tech
-                enthusiasts and electronic lovers. With a professional and
-                dedicated team, we are committed to providing customers with the
-                best shopping experience.
-              </p>
+      <main className="flex h-auto min-h-screen flex-col items-center justify-start">
+        <div className="w-full h-[500px] flex flex-row">
+          <div className="w-2/5 h-full pl-12 flex flex-col justify-center items-center">
+            <h1 className="w-[88%] text-[36px] font-bold">
+              Your go-to destination for top-quality electronic products in
+              Vietnam!
+            </h1>
+            <div className="w-full flex flex-row justify-start items-center">
+              <button className="w-28 h-8 my-2 bg-primary text-lg">
+                Shop now
+              </button>
+              <hr className="w-[280px] h-[2px] ml-2 bg-primary rounded"></hr>
             </div>
-            <div className="w-3/5 h-full">
-              <CarouselSlider />
+            <div className="w-[84%] mt-1 text-justify">
+              At{" "}
+              <p className="inline font-bold text-secondary">
+                Electrical Store
+              </p>
+              , we take pride in being a trustworthy destination for tech
+              enthusiasts and electronic lovers. With a professional and
+              dedicated team, we are committed to providing customers with the
+              best shopping experience.
             </div>
           </div>
-          <div className="w-full h-[350px] bg-red-200">top 4</div>
-          <div className="w-full h-[150px] bg-yellow-100">banner</div>
-        </main>
-      </MainLayout>
+          <div className="w-3/5 h-full shadow-md">
+            <CarouselSlider />
+          </div>
+        </div>
+        <div className="w-full h-[300px] flex flex-col">
+          <div className="w-full mt-4 p-2 flex flex-row justify-center items-center text-3xl font-semibold">
+            Why choose us
+          </div>
+          <div className="w-full h-full">
+            <Cards />
+          </div>
+        </div>
+        <div className="w-full h-[250px] shadow-lg overflow-hidden my-4 bg-slate-300">
+          <img
+            className="w-full h-fit -mt-14 object-cover"
+            alt="banner-img"
+            src="https://viofo.vn/wp-content/uploads/2023/08/Viofo-A139-PRO-Banner.jpg"
+          ></img>
+        </div>
+        <div className="w-full h-[250px] mt-4">
+          <Top2Items />
+        </div>
+        <div className="w-full h-fit my-4 flex flex-col items-center">
+          <div className="w-full p-2 flex flex-row justify-center items-center text-3xl font-semibold">
+            Trending Categories
+          </div>
+          <TrendingCategories />
+        </div>
+        <div className="w-full h-auto my-4">
+          <div className="w-[90%] h-12 mx-auto pt-4 text-3xl font-semibold bg-primary rounded-t-3xl flex flex-row justify-center items-center">
+            Electrical Store
+          </div>
+          <ItemsContainer />
+        </div>
+      </main>
     </>
   );
 }

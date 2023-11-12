@@ -1,8 +1,9 @@
 import SearchBar from "../../components/searchBar";
+import Link from "next/link";
 
 export default function Header(): ReturnType<React.FC> {
   return (
-    <div className="px-[15%] h-12 flex flex-row justify-between bg-white">
+    <header className="px-[15%] h-12 flex flex-row justify-between bg-white">
       <img
         className="w-[150px] h-9 mt-1 object-cover"
         alt="logo"
@@ -12,21 +13,27 @@ export default function Header(): ReturnType<React.FC> {
         <SearchBar />
       </div>
       <div className="w-fit flex flex-row justify-center items-center">
-        <button>
-          <img
-            className="w-6 mx-2"
-            alt="cart-icon"
-            src="/assets/love-icon.png"
-          ></img>
-        </button>
-        <button>
-          <img
-            className="w-6 mx-2"
-            alt="cart-icon"
-            src="/assets/cart-icon.png"
-          ></img>
-        </button>
+        <ul className="flex flex-row justify-center items-center list-none">
+          <li>
+            <Link href="#">
+              <img
+                className="w-6 mx-2"
+                alt="cart-icon"
+                src="/assets/love-icon.png"
+              ></img>
+            </Link>
+          </li>
+          <li>
+            <Link href="#">
+              <img
+                className="w-6 mx-2"
+                alt="cart-icon"
+                src="/assets/cart-icon.png"
+              ></img>
+            </Link>
+          </li>
+        </ul>
       </div>
-    </div>
+    </header>
   );
 }
