@@ -1,5 +1,7 @@
 "use client";
 
+import items from "../dummyApi/top2Items";
+
 interface TopItem {
   id: number;
   name: string;
@@ -10,37 +12,19 @@ interface TopItem {
 }
 
 export default function Top2Items(): JSX.Element {
-  const items: TopItem[] = [
-    {
-      id: 1,
-      name: "Arduino V1",
-      price: 300000,
-      feature: "circut",
-      description:
-        "Arduino V1, a pinnacle in open-source electronics, offers intuitive electronic platforms for enthusiasts and innovators.",
-      image: "/assets/arduino.png",
-    },
-    {
-      id: 2,
-      name: "Arduino V3",
-      price: 500000,
-      feature: "circut",
-      description:
-        "Fuel creativity with our Arduino modules—compact, powerful, and perfect for tech enthusiasts to bring their ideas to life.",
-      image: "/assets/arduino.png",
-    },
-  ];
+  const data: TopItem[] = items;
+
   return (
     <div className="w-full h-full flex flex-row justify-center items-center">
-      {items.map((item) => (
+      {data.map((item) => (
         <div
           className="w-[600px] h-full shadow-md bg-[#EEEEEE] mx-2 flex flex-row justify-center items-center"
-          key={items[0].id}
+          key={item.id}
         >
           <img
             className="w-1/2 ml-4"
-            alt={`img-${items[0].id}`}
-            src={items[0].image}
+            alt={`img-${data[0].id}`}
+            src={item.image}
           ></img>
           <div className="w-1/2 h-full pl-4 flex flex-col justify-center items-start overflow-hidden">
             <div className="w-2/3 my-1">

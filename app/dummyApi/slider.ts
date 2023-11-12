@@ -3,6 +3,7 @@ interface SliderImgs {
   title: string;
   description: string;
 }
+
 const sliderImgs: SliderImgs[] = [
   {
     image: "/assets/slider/img1.jpg",

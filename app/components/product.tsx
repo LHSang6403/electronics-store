@@ -10,6 +10,7 @@ interface ProductData {
 
 export default function Product(props: ProductData): JSX.Element {
   const data: ProductData = props;
+
   return (
     <div className="w-36 h-48 mx-2 my-4 rounded-xl shadow-lg flex flex-col items-center justify-start bg-[#EEEEEE]">
       <div className="p-1 pb-0">

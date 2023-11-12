@@ -6,6 +6,7 @@ ShowMore.propTypes = {
 
 export default function ShowMore(props: any): JSX.Element {
   const { onClick } = props;
+
   return (
     <button
       onClick={onClick}

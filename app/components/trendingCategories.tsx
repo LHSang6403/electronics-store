@@ -1,40 +1,17 @@
+import trendingCategories from "../dummyApi/trendingCategories";
+
 interface TrendingCategory {
   id: number;
   name: string;
   image: string;
 }
+
 export default function TrendingCategories(): JSX.Element {
-  const trendingCategories: TrendingCategory[] = [
-    {
-      id: 1,
-      name: "Laptop",
-      image: "/assets/trendingCategories/trending-category-1.png",
-    },
-    {
-      id: 2,
-      name: "Smartphone",
-      image: "/assets/trendingCategories/trending-category-1.png",
-    },
-    {
-      id: 3,
-      name: "Tablet",
-      image: "/assets/trendingCategories/trending-category-1.png",
-    },
-    {
-      id: 4,
-      name: "Smartwatch",
-      image: "/assets/trendingCategories/trending-category-1.png",
-    },
-    {
-      id: 5,
-      name: "Headphone",
-      image: "/assets/trendingCategories/trending-category-1.png",
-    },
-  ];
+  const data: TrendingCategory[] = trendingCategories;
 
   return (
     <div className="w-full h-full mt-4 flex flex-row justify-center items-center">
-      {trendingCategories.map((item, index) => (
+      {data.map((item, index) => (
         <div
           className="w-44 h-52 mx-2 shadow-md flex flex-col justify-center items-center bg-[#EEEEEE]"
           key={item.id}

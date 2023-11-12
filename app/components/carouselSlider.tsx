@@ -33,6 +33,7 @@ function CarouselSlider(): JSX.Element {
       </div>
     ),
   };
+
   return (
     <div className="h-full w-full">
       <Zoom {...zoomInProperties}>

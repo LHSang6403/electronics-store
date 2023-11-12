@@ -1,5 +1,7 @@
 "use client";
 
+import cards from "../dummyApi/cards";
+
 interface Card {
   id: number;
   title: string;
@@ -8,37 +10,11 @@ interface Card {
 }
 
 export default function Cards(): JSX.Element {
-  const cards: Card[] = [
-    {
-      id: 1,
-      title: "Best quality",
-      description: "Our commitment to excellence shines through all products.",
-      image: "/assets/cards/quality-icon.png",
-    },
-    {
-      id: 2,
-      title: "Best price",
-      description: "Discover unbeatable value without compromising on quality.",
-      image: "/assets/cards/price-icon.png",
-    },
-    {
-      id: 3,
-      title: "Guarantee",
-      description:
-        "Shop with confidence knowing that your satisfaction is top priority.",
-      image: "/assets/cards/guarantee-icon.png",
-    },
-    {
-      id: 4,
-      title: "Best service",
-      description:
-        "Experience personalized service that goes beyond the transaction.",
-      image: "/assets/cards/service-icon.png",
-    },
-  ];
+  const data: Card[] = cards;
+
   return (
     <div className="w-full h-full flex flex-row justify-center items-center">
-      {cards.map((card) => (
+      {data.map((card) => (
         <div
           key={card.id}
           className="group w-48 h-36 shadow-md rounded-lg border border-black mx-8"
