@@ -1,7 +1,7 @@
 "user client";
-import MainLayout from "./layouts/mainLayout";
 import CarouselSlider from "./components/carouselSlider";
 import Cards from "./components/cards";
+import Banner from "./components/banner";
 import Top2Items from "./components/top2Items";
 import TrendingCategories from "./components/trendingCategories";
 import ItemsContainer from "./components/itemsContainer";
@@ -11,26 +11,25 @@ export default function Home(): ReturnType<React.FC> {
     <>
       <main className="flex h-auto min-h-screen flex-col items-center justify-start">
         <div className="w-full h-[500px] flex flex-row">
-          <div className="w-2/5 h-full pl-12 flex flex-col justify-center items-center">
-            <h1 className="w-[88%] text-[36px] font-bold">
+          <div className="w-2/5 h-full pl-2 overflow-hidden flex flex-col justify-center items-center">
+            <h1 className="w-[88%] text-2xl font-bold">
               Your go-to destination for top-quality electronic products in
               Vietnam!
             </h1>
-            <div className="w-full flex flex-row justify-start items-center">
+            <div className="w-full pl-5 flex flex-row justify-start items-center">
               <button className="w-28 h-8 my-2 bg-primary text-lg">
                 Shop now
               </button>
-              <hr className="w-[280px] h-[2px] ml-2 bg-primary rounded"></hr>
+              <hr className="w-[100px] h-[2px] ml-2 bg-primary rounded"></hr>
             </div>
             <div className="w-[84%] mt-1 text-justify">
               At{" "}
-              <p className="inline font-bold text-secondary">
+              <p className="inline text-sm font-bold text-secondary">
                 Electrical Store
               </p>
-              , we take pride in being a trustworthy destination for tech
-              enthusiasts and electronic lovers. With a professional and
-              dedicated team, we are committed to providing customers with the
-              best shopping experience.
+              , we take pride in being a destination for tech enthusiasts and
+              electronic lovers. With a professional and dedicated team, we are
+              committed to provide the best shopping experience.
             </div>
           </div>
           <div className="w-3/5 h-full shadow-md">
@@ -45,12 +44,8 @@ export default function Home(): ReturnType<React.FC> {
             <Cards />
           </div>
         </div>
-        <div className="w-full h-[250px] shadow-lg overflow-hidden my-4 bg-slate-300">
-          <img
-            className="w-full h-fit -mt-14 object-cover"
-            alt="banner-img"
-            src="https://viofo.vn/wp-content/uploads/2023/08/Viofo-A139-PRO-Banner.jpg"
-          ></img>
+        <div className="w-full h-[250px] shadow-lg overflow-hidden my-4">
+          <Banner />
         </div>
         <div className="w-full h-[250px] mt-4">
           <Top2Items />
@@ -62,7 +57,7 @@ export default function Home(): ReturnType<React.FC> {
           <TrendingCategories />
         </div>
         <div className="w-full h-auto my-4">
-          <div className="w-[90%] h-12 mx-auto pt-4 text-3xl font-semibold bg-primary rounded-t-3xl flex flex-row justify-center items-center">
+          <div className="w-[90%] h-12 mx-auto pt-2 text-3xl font-semibold bg-primary rounded-t-3xl flex flex-row justify-center items-center">
             Electrical Store
           </div>
           <ItemsContainer />

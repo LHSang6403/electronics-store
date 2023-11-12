@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Header(): ReturnType<React.FC> {
   return (
-    <header className="px-[15%] h-12 flex flex-row justify-between bg-white">
+    <header className="w-full px-[calc((100%-1050px)_/_2)] h-12 flex flex-row justify-between bg-white">
       <img
         className="w-[150px] h-9 mt-1 object-cover"
         alt="logo"

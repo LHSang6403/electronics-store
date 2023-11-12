@@ -36,7 +36,7 @@ export default function ItemsContainer(): JSX.Element {
         for (let i = 0; i < 4; i++) {
           sections.push(
             <div className="mb-2" key={i}>
-              <div className="w-auto h-8 mx-24 flex flex-row justify-between items-center">
+              <div className="w-auto h-8 mx-14 flex flex-row justify-between items-center">
                 <div className="w-fit h-fit flex flex-row items-center">
                   <h2 className="w-fit h-fit py-2 text-center text-2xl">
                     {categories[i]}
@@ -55,7 +55,7 @@ export default function ItemsContainer(): JSX.Element {
                   ))}
                 </div>
               </div>
-              <hr className="w-auto h-[1px] mx-24 border-none rounded bg-black"></hr>
+              <hr className="w-auto h-[1px] mx-14 border-none rounded bg-black"></hr>
               <div className="w-full h-full flex flex-row justify-center items-center">
                 <img
                   className="w-5 h-5 opacity-70 hover:opacity-100 hover:cursor-pointer"

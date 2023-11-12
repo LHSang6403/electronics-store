@@ -38,22 +38,22 @@ export default function Top2Items(): JSX.Element {
           key={items[0].id}
         >
           <img
-            className="w-56 ml-4"
+            className="w-1/2 ml-4"
             alt={`img-${items[0].id}`}
             src={items[0].image}
           ></img>
-          <div className="w-1/2 h-full flex flex-col justify-center items-start">
-            <div className="w-2/3 ml-6 my-1">
+          <div className="w-1/2 h-full pl-4 flex flex-col justify-center items-start overflow-hidden">
+            <div className="w-2/3 my-1">
               <h1 className="text-2xl">{item.name}</h1>
               <hr className="w-full h-[1px] border-none bg-black"></hr>
             </div>
-            <div className="flex flex-col justify-center items-center">
-              <p className="w-[80%] text-justify text-[14px]">
+            <div className="flex flex-col justify-center items-start pr-4">
+              <p className="w-full text-justify text-[14px]">
                 {item.description}
               </p>
               <button
                 onClick={() => {}}
-                className="w-[100px] h-[40px] my-2 bg-primary"
+                className="w-[100px] h-[40px] mx-auto my-2 bg-primary"
               >
                 Buy now
               </button>

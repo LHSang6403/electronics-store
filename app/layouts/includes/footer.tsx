@@ -1,6 +1,6 @@
 export default function Footer(): JSX.Element {
   return (
-    <footer className="bg-[#EEEEEE] text-black py-8">
+    <footer className="w-full px-[calc((100%-1050px)_/_2)] bg-[#EEEEEE] text-black py-8">
       <div className="container mx-auto flex items-center justify-between">
         <div>
           <img
@@ -12,7 +12,7 @@ export default function Footer(): JSX.Element {
           <p className="mt-2">123 Street, Ho Chi Minh City, Vietnam</p>
         </div>
         <div className="w-fit h-fit flex flex-row justify-center items-center">
-          <div className="w-40 h-40 border-black rounded-xl shadow-xl overflow-hidden">
+          <div className="w-36 h-36 border-black rounded-xl shadow-xl overflow-hidden">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31355.769673958013!2d106.67776295497266!3d10.775176369892032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f38f9ed887b%3A0x14aded5703768989!2zUXXhuq1uIDEsIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1698481663133!5m2!1svi!2s"
               width="100%"

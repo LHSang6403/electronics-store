@@ -8,12 +8,13 @@ interface URL {
 export default function TopMenu(): ReturnType<React.FC> {
   const menu: URL[] = [
     { name: "Home", url: "/" },
+    { name: "All products", url: "/all-products" },
     { name: "Cart", url: "/cart" },
-    { name: "Blog", url: "/blog" },
+
     { name: "About", url: "/about" },
   ];
   return (
-    <div className="w-full h-8 px-[15%] flex flex-row justify-start items-center bg-white">
+    <div className="w-full px-[calc((100%-1050px)_/_2)] h-8 flex flex-row justify-start items-center bg-white">
       <div className="w-[204px] border-r-[1px] border-[#d0d1d2]">
         <button className="flex flex-row items-center gap-1" onClick={() => {}}>
           <img

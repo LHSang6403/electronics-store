@@ -23,7 +23,7 @@ export default function Cards(): JSX.Element {
     },
     {
       id: 3,
-      title: "Nice guarantee",
+      title: "Guarantee",
       description:
         "Shop with confidence knowing that your satisfaction is top priority.",
       image: "/assets/cards/guarantee-icon.png",

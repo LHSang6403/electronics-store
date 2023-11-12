@@ -45,7 +45,7 @@ export default function TrendingCategories(): JSX.Element {
             src={item.image}
           ></img>
           <p className="h-8 text-xl">{item.name}</p>
-          <button className="w-28 h-8 bg-primary text-">Select</button>
+          <button className="w-24 h-8 bg-primary text-">Select</button>
         </div>
       ))}
     </div>
