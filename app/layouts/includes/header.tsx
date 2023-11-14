@@ -24,7 +24,7 @@ export default function Header(): ReturnType<React.FC> {
             </Link>
           </li>
           <li>
-            <Link href="#">
+            <Link href="/cart">
               <img
                 className="w-6 mx-2"
                 alt="cart-icon"

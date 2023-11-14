@@ -30,7 +30,7 @@ export default function ItemsContainer(): JSX.Element {
   ];
 
   return (
-    <div className="w-[90%] h-full mx-auto pb-5 rounded-b-3xl bg-primary">
+    <div className="w-[90%] h-full mx-auto py-5 rounded-b-3xl border-4 border-t-0 border-black">
       {(() => {
         const sections = [];
         for (let i = 0; i < 4; i++) {

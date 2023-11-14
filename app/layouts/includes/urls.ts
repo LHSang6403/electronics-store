@@ -5,7 +5,7 @@ interface URL {
 
 const menu: URL[] = [
   { name: "Home", url: "/" },
-  { name: "All products", url: "/all-products" },
+  { name: "All products", url: "/products" },
   { name: "Cart", url: "/cart" },
   { name: "About", url: "/about" },
 ];

@@ -64,7 +64,7 @@ const products: ProductData[] = [
     category: "Electronics",
     description:
       "Experience the thrill of gaming with the powerful Gaming Console X.",
-    image: "gaming_console_x.jpg",
+    image: "/assets/products/smartphone.png",
     rating: 4.9,
   },
   {
@@ -74,7 +74,7 @@ const products: ProductData[] = [
     category: "Electronics",
     description:
       "Stay connected and track your fitness with the sleek Smart Watch Pro.",
-    image: "smart_watch_pro.jpg",
+    image: "/assets/products/smartphone.png",
     rating: 4.4,
   },
   {
@@ -84,7 +84,7 @@ const products: ProductData[] = [
     category: "Electronics",
     description:
       "Enjoy premium sound quality with these cutting-edge noise-canceling earbuds.",
-    image: "noise_canceling_earbuds.jpg",
+    image: "/assets/products/smartphone.png",
     rating: 4.5,
   },
   {
@@ -94,7 +94,7 @@ const products: ProductData[] = [
     category: "Electronics",
     description:
       "Keep your home secure with the latest in smart home security technology.",
-    image: "home_security_camera.jpg",
+    image: "/assets/products/smartphone.png",
     rating: 4.7,
   },
   {
@@ -104,7 +104,7 @@ const products: ProductData[] = [
     category: "Electronics",
     description:
       "Boost your productivity with the high-performance Tablet Pro, perfect for work and play.",
-    image: "tablet_pro.jpg",
+    image: "/assets/products/smartphone.png",
     rating: 4.6,
   },
   {
@@ -114,7 +114,7 @@ const products: ProductData[] = [
     category: "Electronics",
     description:
       "Elevate your audio experience with this portable and stylish Bluetooth speaker.",
-    image: "bluetooth_speaker.jpg",
+    image: "/assets/products/smartphone.png",
     rating: 4.3,
   },
   {
