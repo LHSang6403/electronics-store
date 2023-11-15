@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Table,
   TableBody,
@@ -11,65 +13,93 @@ import {
 
 import products from "../dummyApi/product";
 
+function formatNumberWithCommas(number: number): string {
+  // Chuyển số thành chuỗi và ngược lại
+  const numberWithCommas = number
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  return numberWithCommas;
+}
+
 export default function CartTable(): JSX.Element {
-  const data = products.slice(0, 10);
+  const data = products.slice(0, 5);
 
   return (
     <Table className="w-fit h-fit mx-auto">
       {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
-      <TableHeader className="w-full h-10">
+      <TableHeader className="w-full h-16">
         <TableRow>
-          <TableHead className="w-40 text-xl">Image</TableHead>
-          <TableHead className="w-60 text-xl">Name</TableHead>
-          <TableHead className="w-28 text-xl">Category</TableHead>
-          <TableHead className="w-fit text-xl">Number</TableHead>
-          <TableHead className="w-28 text-right text-xl">Price</TableHead>
+          <TableHead className="w-[150px] text-lg text-center">Image</TableHead>
+          <TableHead className="w-60 text-lg text-left">Name</TableHead>
+          <TableHead className="w-28 text-lg">Category</TableHead>
+          <TableHead className="w-fit text-lg">Number</TableHead>
+          <TableHead className="w-28 text-right text-lg">Price</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {data.map((line) => (
           <TableRow key={line.id}>
-            <TableCell className="h-[120px] border-b-2">
+            <TableCell className="h-[120px]">
               <img
                 className="w-[90px] mx-auto scale-125 object-cover rounded-lg"
                 alt={`img-${line.id}`}
                 src={line.image}
               ></img>
             </TableCell>
-            <TableCell className="h-[120px] border-b-2 text-xl font-medium leading-10">
+            <TableCell className="text-lg font-semibold leading-10 overflow-hidden whitespace-nowrap overflow-ellipsis">
               {line.name}
+              {line.sale !== "" && (
+                <div className="w-fit h-fit flex flex-row -mt-1 pr-2 text-base text-primary ">
+                  <img
+                    className="w-5 h-5 relative -top-0.5"
+                    alt="sale-tag"
+                    src="/assets/sale-tag.png"
+                  ></img>
+                  <p className="max-w-[280px] overflow-hidden whitespace-nowrap overflow-ellipsis -ml-3 border-[1px] border-primary rounded-lg px-2">
+                    {line.sale}
+                  </p>
+                </div>
+              )}
             </TableCell>
-            <TableCell className="h-16 border-b-2 text-center text-xl leading-10">
+            <TableCell className="text-center text-lg leading-10">
               {line.category}
             </TableCell>
-            <TableCell className="h-16 border-b-2 text-center text-xl">
-              <div className="flex flex-row justify-center items-center gap-3">
-                <img
-                  className="w-4"
-                  alt="minus-icon"
-                  src="/assets/minus-icon.png"
-                ></img>
+            <TableCell className="text-center text-lg">
+              <div className="flex flex-row justify-center items-center gap-2">
+                <button onClick={() => {}}>
+                  <img
+                    className="w-3.5"
+                    alt="minus-icon"
+                    src="/assets/minus-icon.png"
+                  ></img>
+                </button>
                 <p className="text-xl">1</p>
-                <img
-                  className="w-4"
-                  alt="plus-icon"
-                  src="/assets/plus-icon.png"
-                ></img>
+                <button onClick={() => {}}>
+                  <img
+                    className="w-3.5"
+                    alt="plus-icon"
+                    src="/assets/plus-icon.png"
+                  ></img>
+                </button>
               </div>
             </TableCell>
-            <TableCell className="h-16 border-b-2 text-right text-xl">
-              {line.price} VND
+            <TableCell className="text-right text-lg">
+              <p className="mr-2">{formatNumberWithCommas(line.price)} VND</p>
             </TableCell>
           </TableRow>
         ))}
       </TableBody>
       <TableFooter>
-        <TableRow className="h-16 text-xl">
+        <TableRow className="text-lg">
           <TableCell colSpan={4}>
-            <div className="mx-10">Total price</div>
+            <div className="h-[120px] w-fit flex flex-row justify-center items-center ml-10">
+              Total price
+            </div>
           </TableCell>
           <TableCell className="text-right">
-            <div className="">2.500.000 VND</div>
+            <div className="h-[120px] w-fit flex flex-row justify-center items-center mr-2">
+              {formatNumberWithCommas(2500000)} VND
+            </div>
           </TableCell>
         </TableRow>
       </TableFooter>

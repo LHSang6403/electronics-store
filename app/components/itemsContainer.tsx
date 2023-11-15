@@ -9,6 +9,7 @@ interface ProductData {
   description: string;
   image: string;
   rating: number;
+  sale?: string;
 }
 
 export default function ItemsContainer(): JSX.Element {
