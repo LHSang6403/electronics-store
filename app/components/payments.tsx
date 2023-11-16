@@ -29,7 +29,7 @@ export default function Payments(): JSX.Element {
   ];
 
   return (
-    <div className="w-full h-full rounded-xl border-2 border-black overflow-hidden flex flex-col justify-cente items-start">
+    <div className="w-full h-fit rounded-xl border-2 border-black overflow-hidden flex flex-col justify-cente items-start">
       <p className="w-full h-12 pl-4 flex flex-row justify-start items-center text-xl font-medium">
         Your bill: 2.500.000 VND
       </p>

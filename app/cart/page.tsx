@@ -1,24 +1,43 @@
 import CartTable from "../components/cartTable";
 import Payments from "../components/payments";
+import SquareBanner from "../components/squareBanner";
+
+interface SquareBannerProps {
+  image: string;
+  title: string;
+  description: string;
+}
+
+const bannerData: SquareBannerProps = {
+  image:
+    "https://img.freepik.com/premium-vector/mega-sale-banner-white-black-colors-free-vector_363897-72.jpg?w=2000",
+  title: "Explore our sale now",
+  description: "Sale description",
+};
 
 export default function Cart(): JSX.Element {
   return (
     <div className="w-full h-auto">
-      <div className="w-full h-fit py-1.5 flex flex-row justify-center items-center text-3xl font-semibold">
-        Put sth here
+      <div className="w-full h-fit flex flex-row justify-center items-center text-3xl font-semibold">
+        <img
+          className="w-full h-[320px] mt-2 object-contain"
+          src="https://c8.alamy.com/comp/2F6P67R/square-black-friday-sale-banner-template-in-black-and-white-color-combination-minimal-modern-geometric-layout-for-social-media-ads-vector-illustrati-2F6P67R.jpg"
+        ></img>
       </div>
-      <div className="w-full h-fit py-1.5 flex flex-row justify-center items-center text-3xl font-semibold">
-        Your cart
+      <div className="w-full h-fit mt-6 py-4 flex flex-row justify-center items-center text-3xl font-semibold">
+        Your cart (edit p new line)
       </div>
-      <div className="w-[90%] max-w-full h-fit pr-4 mx-auto overflow-hidden rounded-xl border-2 border-black">
+      <div className="w-[90%] max-w-full h-fit mt-6 pr-4 mx-auto overflow-hidden rounded-xl border-2 border-black">
         <CartTable />
       </div>
       <div className="w-full h-fit bg-primary mt-8 py-4 flex flex-row justify-center items-center text-3xl font-semibold">
         Payment
       </div>
-      <div className="w-[90%] h-fit mt-8 pb-8 mx-auto flex flex-row justify-center">
-        <div className="w-1/2 h-full">Voucher, sale</div>
-        <div className="w-1/2 h-full">
+      <div className="w-[90%] h-[530px] mt-4 pb-4 mx-auto flex flex-row justify-center gap-4">
+        <div className="w-1/2 h-full flex flex-col justify-center items-center">
+          <SquareBanner data={bannerData} />
+        </div>
+        <div className="w-1/2 h-full flex flex-col justify-center items-center">
           <Payments />
         </div>
       </div>
