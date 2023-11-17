@@ -3,6 +3,7 @@
 module.exports = {
   darkMode: ["class"],
   content: [
+    "./node_modules/flowbite-react/**/*.js",
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
@@ -59,7 +60,7 @@ module.exports = {
         none: "0",
       },
       keyframes: {
-        "show": {
+        show: {
           from: { opacity: 0 },
           to: { opacity: 100 },
         },
@@ -69,10 +70,10 @@ module.exports = {
         },
       },
       animation: {
-        "show": "show 0.4s ease-in-out",
+        show: "show 0.4s ease-in-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("flowbite/plugin")],
 };

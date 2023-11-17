@@ -29,11 +29,17 @@ export default function CartTable(): JSX.Element {
       {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
       <TableHeader className="w-full h-16">
         <TableRow>
-          <TableHead className="w-[150px] text-lg text-center">Image</TableHead>
-          <TableHead className="w-60 text-lg text-left">Name</TableHead>
-          <TableHead className="w-28 text-lg">Category</TableHead>
-          <TableHead className="w-fit text-lg">Number</TableHead>
-          <TableHead className="w-28 text-right text-lg">Price</TableHead>
+          <TableHead className="w-[150px] text-black text-lg text-center">
+            Image
+          </TableHead>
+          <TableHead className="w-60 text-black text-lg text-left">
+            Name
+          </TableHead>
+          <TableHead className="w-28 text-black text-lg">Category</TableHead>
+          <TableHead className="w-fit text-black text-lg">Number</TableHead>
+          <TableHead className="w-28 text-black text-right text-lg">
+            Price
+          </TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -92,12 +98,12 @@ export default function CartTable(): JSX.Element {
       <TableFooter>
         <TableRow className="text-lg">
           <TableCell colSpan={4}>
-            <div className="h-[120px] w-fit flex flex-row justify-center items-center ml-10">
+            <div className="h-[80px] w-fit flex flex-row justify-center items-center ml-5">
               Total price
             </div>
           </TableCell>
           <TableCell className="text-right">
-            <div className="h-[120px] w-fit flex flex-row justify-center items-center mr-2">
+            <div className="h-[80px] w-fit flex flex-row justify-center items-center mr-2">
               {formatNumberWithCommas(2500000)} VND
             </div>
           </TableCell>

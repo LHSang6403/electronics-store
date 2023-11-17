@@ -1,5 +1,6 @@
 import SquareBanner from "../components/squareBanner";
 import PersonCard from "../components/personCard";
+import TimeLine from "../components/timeLine";
 
 interface HighlightCartProps {
   title: string;
@@ -72,7 +73,7 @@ function HighlightCart({ title, content }: HighlightCartProps): JSX.Element {
   return (
     <div className="w-full h-full p-1 flex flex-col justify-center items-center">
       <h2 className="text-primary text-xl font-medium">{title}</h2>
-      <p className="h-10 text-center text-[12px]">{content}</p>
+      <p className="h-10 text-center text-[14px]">{content}</p>
     </div>
   );
 }
@@ -82,7 +83,7 @@ export default function About(): JSX.Element {
     <div className="w-full h-auto">
       <div className="w-full h-fit pt-2 flex flex-row justify-center items-center">
         <div className="w-fit h-[460px] transform skew-x-[20deg] overflow-hidden flex justify-center items-center p-2">
-          <div className="rounded-3xl overflow-hidden transform skew-x-[-20deg]">
+          <div className="transform skew-x-[-20deg]">
             <SquareBanner data={bannerData} />
           </div>
         </div>
@@ -90,7 +91,7 @@ export default function About(): JSX.Element {
           <h1 className="w-[90%] text-3xl font-semibold">
             I am [Founder&apos;s Name] - founder of this store
           </h1>
-          <p className="w-[90%] text-justify">
+          <p className="w-[90%] font-light text-justify">
             At the helm of our electronic haven is [Founder&apos;s Name], a tech
             trailblazer who has dedicated years to shaping the landscape of
             online electronics retail. [Founder&apos;s Name]&apos;s commitment
@@ -108,20 +109,53 @@ export default function About(): JSX.Element {
           <hr className="w-[90%] h-[1px] my-2 border-none bg-black"></hr>
         </div>
       </div>
-      <div className="w-full h-fit mt-6 py-4 flex flex-row justify-center items-center text-3xl font-medium">
-        Meet Our Team
-      </div>
-      <div className="w-full h-screen mt-8 bg-red-200 pt-2 flex flex-row justify-center items-center">
-        {personCardList.map((each, index) => (
-          <div className="mx-2" key={index}>
-            <PersonCard data={each} />
-          </div>
-        ))}
-      </div>
-      <div className="w-full h-fit mt-6 py-4 flex flex-row justify-center items-center text-3xl font-medium">
+      <div className="w-full h-fit mt-4 py-4 flex flex-row justify-center items-center text-3xl font-medium">
         Our Story
       </div>
-      <div className="w-full h-screen mt-8 bg-yellow-200 pt-2 flex flex-row justify-center items-center"></div>
+      <div className="w-full h-fit mt-8 px-20 font-light text-justify">
+        At our electronic store, we embarked on a journey driven by a passion
+        for technology and a commitment to providing a seamless and innovative
+        shopping experience. Recognizing the ever-growing demand for
+        cutting-edge gadgets and electronics, we established this store as a
+        haven for tech enthusiasts, offering a curated selection of the latest
+        products. Our mission is to not only meet but exceed the expectations of
+        our customers by combining expert guidance, exclusive deals, and a
+        dedication to staying at the forefront of technological advancements.
+        Welcome to our electronic emporium, where we believe that technology
+        should be accessible, exciting, and tailored to enhance every aspect of
+        your life.
+      </div>
+      <div className="w-full h-fit mt-6 py-4 flex flex-row justify-center items-center text-3xl font-medium">
+        Meet Our Cores
+      </div>
+      <div className="w-auto h-fit mx-2 overflow-hidden pt-2 flex flex-row justify-center items-end">
+        <div className="w-fit h-fit py-8 flex flex-row justify-center items-end gap-4">
+          <div className="w-52 h-[370px]" key="0">
+            <PersonCard data={personCardList[personCardList.length - 1]} />
+          </div>
+          {personCardList.map((each, index) => (
+            <div
+              className={`w-52 mx-auto ${
+                index === Math.floor(personCardList.length / 2)
+                  ? "h-[450px]"
+                  : "h-[420px]"
+              }`}
+              key={index}
+            >
+              <PersonCard data={each} />
+            </div>
+          ))}
+          <div className="w-52 h-[400px]" key="4">
+            <PersonCard data={personCardList[0]} />
+          </div>
+        </div>
+      </div>
+      <div className="w-full h-fit py-4 flex flex-row justify-center items-center text-3xl font-medium">
+        Our Story
+      </div>
+      <div className="w-full h-fit mt-8 px-32 pb-8 flex flex-row justify-center items-center">
+        <TimeLine />
+      </div>
     </div>
   );
 }

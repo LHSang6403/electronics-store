@@ -12,14 +12,14 @@ export default function SquareBanner({ data }: SquareBannerProps): JSX.Element {
   const { title, image, description } = data;
 
   return (
-    <div className="w-full h-fit flex flex-col justify-center items-center">
+    <div className="group w-full h-fit flex flex-col justify-center items-center">
       {title !== "" && (
         <h1 className="w-full h-8 mb-2 flex flex-row justify-center items-center text-2xl font-medium">
           {title}
         </h1>
       )}
       <img
-        className="w-[400px] h-[400px] object-cover rounded-xl"
+        className="w-[400px] h-[400px] object-cover rounded-3xl [transition:transform_0.5s_ease] group-hover:scale-[1.04]"
         src={image}
         alt="sale-square-banner"
       />

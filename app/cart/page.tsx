@@ -12,7 +12,7 @@ const bannerData: SquareBannerProps = {
   image:
     "https://img.freepik.com/premium-vector/mega-sale-banner-white-black-colors-free-vector_363897-72.jpg?w=2000",
   title: "Explore our sale now",
-  description: "Sale description",
+  description: "",
 };
 
 export default function Cart(): JSX.Element {

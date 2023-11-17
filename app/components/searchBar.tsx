@@ -100,7 +100,7 @@ const SearchBar = (props: any): ReturnType<React.FC> => {
         </div>
         <div className="border border-primary w-[1px] m-1 rounded relative right-[1px] "></div>
         <input
-          className="w-full pl-1 text-base hover:outline-0 focus:outline-0"
+          className="w-full pl-1 text-base border-none outline-0 hover:outline-0 focus:outline-0"
           type="text"
           placeholder="Search product"
           autoComplete="off"
