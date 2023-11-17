@@ -20,14 +20,14 @@ export default function Cart(): JSX.Element {
     <div className="w-full h-auto">
       <div className="w-full h-fit flex flex-row justify-center items-center text-3xl font-semibold">
         <img
-          className="w-full h-[320px] mt-2 object-contain"
-          src="https://c8.alamy.com/comp/2F6P67R/square-black-friday-sale-banner-template-in-black-and-white-color-combination-minimal-modern-geometric-layout-for-social-media-ads-vector-illustrati-2F6P67R.jpg"
+          className="w-full h-[350px] mt-2 object-cover hover:cursor-pointer"
+          src="https://static.vecteezy.com/system/resources/previews/001/338/096/non_2x/black-friday-sale-banner-free-vector.jpg"
         ></img>
       </div>
       <div className="w-full h-fit mt-6 py-4 flex flex-row justify-center items-center text-3xl font-semibold">
         Your cart (edit p new line)
       </div>
-      <div className="w-[90%] max-w-full h-fit mt-6 pr-4 mx-auto overflow-hidden rounded-xl border-2 border-black">
+      <div className="w-[90%] max-w-full h-fit mt-6 mx-auto overflow-hidden rounded-xl border-2 border-black">
         <CartTable />
       </div>
       <div className="w-full h-fit bg-primary mt-8 py-4 flex flex-row justify-center items-center text-3xl font-semibold">

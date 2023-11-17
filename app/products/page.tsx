@@ -1,3 +1,20 @@
+import ItemsContainer from "../components/itemsContainer";
+import Banner from "../components/banner";
+import Top2Items from "../components/top2Items";
+
 export default function AllProducts(): JSX.Element {
-  return <div className="w-full h-screen bg-slate-200"></div>;
+  return (
+    <div className="w-full h-fit">
+      <div className="w-full h-[250px] shadow-lg overflow-hidden">
+        <Banner />
+      </div>
+      <div className="w-full h-[250px] mt-8">
+        <Top2Items />
+      </div>
+      <div className="w-[90%] h-[70px] mt-8 bg-primary mx-auto text-3xl font-semibold border-4 border-b-0 border-black rounded-t-3xl flex flex-row justify-center items-center">
+        Electrical Store
+      </div>
+      <ItemsContainer check={{ isAllProducts: true }} />
+    </div>
+  );
 }

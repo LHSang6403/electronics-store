@@ -23,7 +23,7 @@ export default function Home(): ReturnType<React.FC> {
               </button>
               <hr className="w-[100px] h-[2px] ml-2 bg-primary rounded"></hr>
             </div>
-            <div className="w-[84%] mt-1 text-justify">
+            <div className="w-[84%] mt-1 font-light text-justify">
               At{" "}
               <p className="inline text-sm font-bold text-secondary">
                 Electrical Store
@@ -61,7 +61,7 @@ export default function Home(): ReturnType<React.FC> {
           <div className="w-[90%] h-[70px] bg-primary mx-auto text-3xl font-semibold border-4 border-b-0 border-black rounded-t-3xl flex flex-row justify-center items-center">
             Electrical Store
           </div>
-          <ItemsContainer />
+          <ItemsContainer check={{ isAllProducts: false }} />
         </div>
       </main>
     </>

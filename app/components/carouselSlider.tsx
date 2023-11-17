@@ -47,7 +47,7 @@ function CarouselSlider(): JSX.Element {
             <div className="relative w-[80%] mx-auto -top-40 text-justify z-10 text-3xl font-bold text-black">
               <p className="w-fit ml-5 px-5 py-1 bg-primary">{each.title}</p>
             </div>
-            <p className="relative w-[80%] mx-auto -top-36 text-justify z-10 text-white">
+            <p className="relative w-[80%] mx-auto -top-36 z-10 text-white">
               {each.description}
             </p>
           </div>

@@ -19,7 +19,7 @@ export default function SquareBanner({ data }: SquareBannerProps): JSX.Element {
         </h1>
       )}
       <img
-        className="w-[400px] h-[400px] object-cover rounded-3xl [transition:transform_0.5s_ease] group-hover:scale-[1.04]"
+        className="w-[400px] h-[400px] object-cover rounded-3xl [transition:transform_0.5s_ease] group-hover:scale-[1.01]"
         src={image}
         alt="sale-square-banner"
       />

@@ -12,7 +12,7 @@ interface ProductData {
 const products: ProductData[] = [
   {
     id: 1,
-    name: "Smartphone XYZ",
+    name: "Smartphone iPhone 14 Pro Max 1TB Natual Titanium",
     price: 599000,
     category: "Electronics",
     description: "A feature-packed smartphone with advanced functionalities.",
@@ -22,7 +22,7 @@ const products: ProductData[] = [
   },
   {
     id: 2,
-    name: "Laptop ABC",
+    name: "Laptop Macbook Pro M3Pro 2023 max-options 96GB/ 8TB Space Black",
     price: 1299000,
     category: "Electronics",
     description: "High-performance laptop for work and entertainment.",
@@ -32,7 +32,7 @@ const products: ProductData[] = [
   },
   {
     id: 3,
-    name: "Wireless Headphones",
+    name: "Wireless Headphones Sony 1000XM-5 Anti-Noise",
     price: 89000,
     category: "Electronics",
     description:
@@ -43,7 +43,7 @@ const products: ProductData[] = [
   },
   {
     id: 4,
-    name: "4K Smart TV",
+    name: "4K LG Smart TV 65-inch",
     price: 799000,
     category: "Electronics",
     description:
@@ -54,7 +54,7 @@ const products: ProductData[] = [
   },
   {
     id: 5,
-    name: "Digital Camera",
+    name: "Digital Camera Canon R6ii",
     price: 499000,
     category: "Electronics",
     description:
@@ -136,7 +136,7 @@ const products: ProductData[] = [
     category: "Electronics",
     description:
       "Effortlessly maintain a clean home with the intelligent Robot Vacuum.",
-    image: "robot_vacuum.jpg",
+    image: "/assets/products/smartphone.png",
     rating: 4.8,
     sale: "",
   },

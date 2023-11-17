@@ -3,18 +3,17 @@
 import {
   Table,
   TableBody,
-  TableCaption,
+  // TableCaption,
   TableCell,
   TableFooter,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "../../shadcn-custom/table-custom";
 
-import products from "../dummyApi/product";
+import products from "../dummyApi/products";
 
 function formatNumberWithCommas(number: number): string {
-  // Chuyển số thành chuỗi và ngược lại
   const numberWithCommas = number
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -52,10 +51,12 @@ export default function CartTable(): JSX.Element {
                 src={line.image}
               ></img>
             </TableCell>
-            <TableCell className="text-lg font-semibold leading-10 overflow-hidden whitespace-nowrap overflow-ellipsis">
-              {line.name}
+            <TableCell className="text-base font-semibold leading-10 overflow-hidden">
+              <p className="w-max-60 break-words line-clamp-3 leading-6">
+                {line.name}
+              </p>
               {line.sale !== "" && (
-                <div className="w-fit h-fit flex flex-row -mt-1 pr-2 text-base text-primary ">
+                <div className="w-fit h-fit flex flex-row mt-1 pr-2 text-base text-primary">
                   <img
                     className="w-5 h-5 relative -top-0.5"
                     alt="sale-tag"
@@ -98,12 +99,12 @@ export default function CartTable(): JSX.Element {
       <TableFooter>
         <TableRow className="text-lg">
           <TableCell colSpan={4}>
-            <div className="h-[80px] w-fit flex flex-row justify-center items-center ml-5">
+            <div className="h-[80px] w-fit text-primary text-xl flex flex-row justify-center items-center ml-5">
               Total price
             </div>
           </TableCell>
           <TableCell className="text-right">
-            <div className="h-[80px] w-fit flex flex-row justify-center items-center mr-2">
+            <div className="h-[80px] w-fit text-primary flex flex-row justify-center items-center mr-2">
               {formatNumberWithCommas(2500000)} VND
             </div>
           </TableCell>

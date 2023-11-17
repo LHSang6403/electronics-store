@@ -28,7 +28,7 @@ export default function Top2Items(): JSX.Element {
           ></img>
           <div className="w-1/2 h-full pl-4 flex flex-col justify-center items-start overflow-hidden">
             <div className="w-2/3 my-1">
-              <h1 className="text-2xl">{item.name}</h1>
+              <h1 className="text-[26px]">{item.name}</h1>
               <hr className="w-full h-[1px] border-none bg-black"></hr>
             </div>
             <div className="flex flex-col justify-center items-start pr-4">

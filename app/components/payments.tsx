@@ -65,7 +65,10 @@ export default function Payments(): JSX.Element {
       <div className="w-fit h-fit ml-6 my-4">
         <RadiosGroup options={options} />
       </div>
-      <button className="w-full h-10 bg-primary" onClick={() => {}}>
+      <button
+        className="w-full h-10 text-lg font-bold bg-primary"
+        onClick={() => {}}
+      >
         Check out
       </button>
     </div>

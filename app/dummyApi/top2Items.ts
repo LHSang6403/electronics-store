@@ -23,7 +23,7 @@ const items: TopItem[] = [
     price: 500000,
     feature: "circut",
     description:
-      "Fuel creativity with our Arduino modules—compact, powerful, and perfect for tech enthusiasts to bring their ideas to life.",
+      "Fuel creativity with our Arduino modules—compact and perfect for tech enthusiasts to bring their ideas to life.",
     image: "/assets/arduino.png",
   },
 ];

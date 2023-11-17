@@ -1,5 +1,6 @@
 import Product from "./product";
-import products from "../dummyApi/product";
+import products from "../dummyApi/products";
+import Combobox from "./comboBox";
 
 interface ProductData {
   id: number;
@@ -12,8 +13,14 @@ interface ProductData {
   sale?: string;
 }
 
-export default function ItemsContainer(): JSX.Element {
-  const data: ProductData[] = products.slice(0, 4);
+interface ItemsContainerProps {
+  check: { isAllProducts: boolean };
+}
+
+export default function ItemsContainer({
+  check: { isAllProducts },
+}: ItemsContainerProps): JSX.Element {
+  const data: ProductData[] = products;
   const categories: string[] = ["Laptop", "Phone", "Tablet", "Watch", "TV"];
   const top4brands: string[] = [
     "Apple",
@@ -30,6 +37,8 @@ export default function ItemsContainer(): JSX.Element {
     top4brands,
   ];
 
+  const filters: string[] = ["Price", "Brand", "Rating", "Sale", "Functions"];
+
   return (
     <div className="w-[90%] h-full mx-auto py-5 rounded-b-3xl border-4 border-t-0 border-black">
       {(() => {
@@ -37,20 +46,32 @@ export default function ItemsContainer(): JSX.Element {
         for (let i = 0; i < 4; i++) {
           sections.push(
             <div className="mb-2" key={i}>
+              <div className="w-full h-fit flex flex-row justify-center items-center">
+                {filters.map((filter, index) => (
+                  <div key={index}>
+                    <Combobox />
+                  </div>
+                ))}
+              </div>
               <div className="w-auto h-8 mx-14 flex flex-row justify-between items-center">
-                <div className="w-fit h-fit flex flex-row items-center">
+                <div className="w-fit h-fit flex flex-row items-center hover:cursor-pointer">
                   <h2 className="w-fit h-fit py-2 text-center text-2xl">
                     {categories[i]}
                   </h2>
-                  <img
-                    className="w-4 h-4 ml-1"
-                    alt="nav-icon"
-                    src="/assets/nav-icon.png"
-                  ></img>
+                  {!isAllProducts && (
+                    <img
+                      className="w-4 h-4 ml-1"
+                      alt="nav-icon"
+                      src="/assets/nav-icon.png"
+                    ></img>
+                  )}
                 </div>
                 <div className="flex flex-row">
                   {brandsLines[i].map((brand, index) => (
-                    <p className="mx-2" key={`brand-${i}-${index}`}>
+                    <p
+                      className="mx-2 hover:cursor-pointer"
+                      key={`brand-${i}-${index}`}
+                    >
                       {brand}
                     </p>
                   ))}
@@ -58,32 +79,49 @@ export default function ItemsContainer(): JSX.Element {
               </div>
               <hr className="w-auto h-[1px] mx-14 border-none rounded bg-black"></hr>
               <div className="w-full h-full flex flex-row justify-center items-center">
-                <img
-                  className="w-5 h-5 opacity-70 hover:opacity-100 hover:cursor-pointer"
-                  alt="left-arrow"
-                  src="/assets/black-arrow-left.png"
-                ></img>
-                {data.map((prod: ProductData) => (
-                  <div key={prod.id}>
-                    <Product {...prod} />
+                {!isAllProducts && (
+                  <img
+                    className="w-5 h-5 opacity-70 hover:opacity-100 hover:cursor-pointer"
+                    alt="left-arrow"
+                    src="/assets/black-arrow-left.png"
+                  ></img>
+                )}
+                {!isAllProducts ? (
+                  data.slice(0, 4).map((prod: ProductData) => (
+                    <div key={prod.id}>
+                      <Product {...prod} />
+                    </div>
+                  ))
+                ) : (
+                  <div className="grid grid-cols-4 grid-rows-3">
+                    {data.slice(0, 12).map((prod: ProductData) => (
+                      <div key={prod.id}>
+                        <Product {...prod} />
+                      </div>
+                    ))}
                   </div>
-                ))}
-                <img
-                  className="w-5 h-5 opacity-70 hover:opacity-100 hover:cursor-pointer"
-                  alt="right-arrow"
-                  src="/assets/black-arrow-right.png"
-                ></img>
+                )}
+
+                {!isAllProducts && (
+                  <img
+                    className="w-5 h-5 opacity-70 hover:opacity-100 hover:cursor-pointer"
+                    alt="right-arrow"
+                    src="/assets/black-arrow-right.png"
+                  ></img>
+                )}
               </div>
             </div>
           );
         }
         return sections;
       })()}
-      <div className="w-full h-8 flex flex-row justify-center">
-        <button className="w-28 h-8 rounded-lg shadow-xl bg-[#EEEEEE]">
-          Show all
-        </button>
-      </div>
+      {!isAllProducts && (
+        <div className="w-full h-8 flex flex-row justify-center">
+          <button className="w-28 h-8 rounded-lg shadow-xl bg-[#EEEEEE]">
+            Show all
+          </button>
+        </div>
+      )}
     </div>
   );
 }
