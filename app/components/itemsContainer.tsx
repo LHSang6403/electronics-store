@@ -41,18 +41,20 @@ export default function ItemsContainer({
 
   return (
     <div className="w-[90%] h-full mx-auto py-5 rounded-b-3xl border-4 border-t-0 border-black">
+      {isAllProducts && (
+        <div className="w-full h-fit mx-14 mb-2 -mt-2 flex flex-row justify-start items-center gap-2">
+          {filters.map((filter, index) => (
+            <div className="" key={index}>
+              <Combobox data={{ title: filter }} />
+            </div>
+          ))}
+        </div>
+      )}
       {(() => {
         const sections = [];
         for (let i = 0; i < 4; i++) {
           sections.push(
             <div className="mb-2" key={i}>
-              <div className="w-full h-fit flex flex-row justify-center items-center">
-                {filters.map((filter, index) => (
-                  <div key={index}>
-                    <Combobox />
-                  </div>
-                ))}
-              </div>
               <div className="w-auto h-8 mx-14 flex flex-row justify-between items-center">
                 <div className="w-fit h-fit flex flex-row items-center hover:cursor-pointer">
                   <h2 className="w-fit h-fit py-2 text-center text-2xl">

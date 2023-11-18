@@ -14,7 +14,9 @@ export default function AllProducts(): JSX.Element {
       <div className="w-[90%] h-[70px] mt-8 bg-primary mx-auto text-3xl font-semibold border-4 border-b-0 border-black rounded-t-3xl flex flex-row justify-center items-center">
         Electrical Store
       </div>
-      <ItemsContainer check={{ isAllProducts: true }} />
+      <div className="pb-8">
+        <ItemsContainer check={{ isAllProducts: true }} />
+      </div>
     </div>
   );
 }

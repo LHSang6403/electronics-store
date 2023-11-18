@@ -4,7 +4,7 @@ import * as React from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { Button } from "../../shadcn-custom/button-custom";
 import {
   Command,
   CommandEmpty,
@@ -20,30 +20,49 @@ import {
 
 const frameworks = [
   {
-    value: "next.js",
-    label: "Next.js",
+    value: "all",
+    label: "All",
   },
   {
-    value: "sveltekit",
-    label: "SvelteKit",
+    value: "switch",
+    label: "Switch",
   },
   {
-    value: "nuxt.js",
-    label: "Nuxt.js",
+    value: "motor",
+    label: "Motor",
   },
   {
-    value: "remix",
-    label: "Remix",
+    value: "circuit",
+    label: "Circuit",
   },
   {
-    value: "astro",
-    label: "Astro",
+    value: "toolkit",
+    label: "Toolkit",
+  },
+  {
+    value: "gauges",
+    label: "Gauges",
+  },
+  {
+    value: "fan",
+    label: "Fan",
+  },
+  {
+    value: "light",
+    label: "Light",
   },
 ];
 
-export default function Combobox(): JSX.Element {
+interface ComboboxProps {
+  data: {
+    title: string;
+  };
+}
+
+export default function Combobox({ data }: ComboboxProps): JSX.Element {
+  const { title } = data;
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
+  const [value, setValue] = React.useState<string>("");
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -52,18 +71,18 @@ export default function Combobox(): JSX.Element {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[150px] justify-between"
+          className="w-fit justify-between"
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label
-            : "Select framework..."}
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+            : title}
+          <ChevronsUpDown className="h-4 w-4 ml-2 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
-          <CommandInput placeholder="Search framework..." />
-          <CommandEmpty>No framework found.</CommandEmpty>
+          {/* <CommandInput placeholder="Search framework..." /> */}
+          {/* <CommandEmpty>No framework found.</CommandEmpty> */}
           <CommandGroup>
             {frameworks.map((framework) => (
               <CommandItem

@@ -25,7 +25,7 @@ export default function Cart(): JSX.Element {
         ></img>
       </div>
       <div className="w-full h-fit mt-6 py-4 flex flex-row justify-center items-center text-3xl font-semibold">
-        Your cart (edit p new line)
+        Your cart
       </div>
       <div className="w-[90%] max-w-full h-fit mt-6 mx-auto overflow-hidden rounded-xl border-2 border-black">
         <CartTable />
