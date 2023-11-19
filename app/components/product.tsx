@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface ProductData {
   id: number;
   name: string;
@@ -14,12 +16,15 @@ export default function Product(props: ProductData): JSX.Element {
   return (
     <div className="w-36 h-48 mx-2 my-4 rounded-xl shadow-lg flex flex-col items-center justify-start bg-[#EEEEEE] hover:cursor-pointer">
       <div className="p-1 pb-0">
-        <img
-          className="w-36 h-32 object-cover rounded-[12px] shadow-lg bg-black"
-          alt={`img-${data.id}`}
-          src={data.image}
-        ></img>
+        <Link href={`/product/${data.id}`}>
+          <img
+            className="w-36 h-32 object-cover rounded-[12px] shadow-lg bg-black"
+            alt={`img-${data.id}`}
+            src={data.image}
+          ></img>
+        </Link>
       </div>
+
       <div className="w-full h-full flex flex-col justify-center items-center">
         <h1 className="w-full px-2  text-lg overflow-hidden whitespace-nowrap overflow-ellipsis">
           {data.name}

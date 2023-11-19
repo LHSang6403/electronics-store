@@ -11,6 +11,17 @@ interface ProductData {
 
 const products: ProductData[] = [
   {
+    id: 0,
+    name: "Smartphone Samsung Galaxy S22 Ultra 1TB Ultra-black",
+    price: 599000,
+    category: "Electronics",
+    description:
+      "A water-resistant phone with a great camera and long battery life.",
+    image: "/assets/products/smartphone.png",
+    rating: 4.5,
+    sale: "",
+  },
+  {
     id: 1,
     name: "Smartphone iPhone 14 Pro Max 1TB Natual Titanium",
     price: 599000,
@@ -22,10 +33,11 @@ const products: ProductData[] = [
   },
   {
     id: 2,
-    name: "Laptop Macbook Pro M3Pro 2023 max-options 96GB/ 8TB Space Black",
+    name: "Laptop Macbook Pro M3Pro 2023 max options 96GB/ 8TB SSD Space Black",
     price: 1299000,
     category: "Electronics",
-    description: "High-performance laptop for work and entertainment.",
+    description:
+      "The MacBook Pro, a flagship laptop by Apple, blends sleek design with powerful performance. Featuring a stunning Retina display and driven by Intel processors or Apple's M1 chip, it excels in speed and efficiency.",
     image: "/assets/products/smartphone.png",
     rating: 4.8,
     sale: "Hot sale 11/11 - x2 items",

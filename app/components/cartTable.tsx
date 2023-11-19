@@ -1,5 +1,7 @@
 "use client";
 
+import formatCurrencyWithCommas from "../utils/formatCurrency";
+
 import {
   Table,
   TableBody,
@@ -12,13 +14,6 @@ import {
 } from "../../shadcn-custom/table-custom";
 
 import products from "../dummyApi/products";
-
-function formatNumberWithCommas(number: number): string {
-  const numberWithCommas = number
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  return numberWithCommas;
-}
 
 export default function CartTable(): JSX.Element {
   const data = products.slice(0, 5);
@@ -91,7 +86,7 @@ export default function CartTable(): JSX.Element {
               </div>
             </TableCell>
             <TableCell className="text-right text-lg">
-              <p className="mr-2">{formatNumberWithCommas(line.price)} VND</p>
+              <p className="mr-2">{formatCurrencyWithCommas(line.price)} VND</p>
             </TableCell>
           </TableRow>
         ))}
@@ -105,7 +100,7 @@ export default function CartTable(): JSX.Element {
           </TableCell>
           <TableCell className="text-right">
             <div className="h-[80px] w-fit text-primary flex flex-row justify-center items-center mr-2">
-              {formatNumberWithCommas(2500000)} VND
+              {formatCurrencyWithCommas(2500000)} VND
             </div>
           </TableCell>
         </TableRow>
