@@ -17,7 +17,7 @@ export default function RadiosGroup({
   options,
 }: RadiosGroupProps): JSX.Element {
   return (
-    <div className="w-fit h-fit mx-auto">
+    <div className="w-fit h-fit">
       <RadioGroup defaultValue="default">
         {options.map((item, index) => (
           <div key={`radio-${index}`} className="flex items-center space-x-2">

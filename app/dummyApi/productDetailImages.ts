@@ -29,7 +29,7 @@ const productDetailImages: ProductDetailImages[] = [
     images: [
       "https://www.sammyfans.com/wp-content/uploads/2023/01/s23-series-render-leak-img.jpg",
       "/assets/products/vertical-smartphone.png",
-      "https://www.sammyfans.com/wp-content/uploads/2023/01/s23-series-render-leak-img.jpg",
+      "/assets/products/vertical-smartphone.png",
       "https://www.sammyfans.com/wp-content/uploads/2023/01/s23-series-render-leak-img.jpg",
       "https://www.sammyfans.com/wp-content/uploads/2023/01/s23-series-render-leak-img.jpg",
     ],

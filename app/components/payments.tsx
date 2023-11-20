@@ -2,6 +2,15 @@
 
 import RadiosGroup from "./radiosGroup";
 import { useForm } from "react-hook-form";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 export interface Option {
   name: string;
@@ -29,11 +38,16 @@ export default function Payments(): JSX.Element {
   ];
 
   return (
-    <div className="w-full h-fit rounded-xl border-2 border-black overflow-hidden flex flex-col justify-cente items-start">
-      <p className="w-full h-12 pl-4 flex flex-row justify-start items-center text-xl font-medium">
-        Your bill: 2.500.000 VND
-      </p>
-      <div className="w-[90%] h-fit mx-auto">
+    <Card className="w-full h-fit bg-[#FCFCFC] flex flex-col justify-cente items-start">
+      <CardHeader>
+        <CardTitle>Payment</CardTitle>
+        <CardDescription>
+          <p className="w-full h-fit text-xl font-medium">
+            Your bill: 2.500.000 VND
+          </p>{" "}
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="w-full h-fit flex flex-col justify-start mx-auto">
         <form
           onSubmit={() => handleSubmit(onSubmit)}
           className="w-full h-full flex flex-col gap-2 justify-start  overflow-hidden"
@@ -61,16 +75,15 @@ export default function Payments(): JSX.Element {
             {...register("address")}
           />
         </form>
-      </div>
-      <div className="w-fit h-fit ml-6 my-4">
-        <RadiosGroup options={options} />
-      </div>
-      <button
-        className="w-full h-10 text-lg font-bold bg-primary"
-        onClick={() => {}}
-      >
-        Check out
-      </button>
-    </div>
+        <div className="w-full h-fit mt-4">
+          <RadiosGroup options={options} />
+        </div>
+      </CardContent>
+      <CardFooter>
+        <Button className="h-9 bg-primary" onClick={() => {}}>
+          Check out
+        </Button>
+      </CardFooter>
+    </Card>
   );
 }
