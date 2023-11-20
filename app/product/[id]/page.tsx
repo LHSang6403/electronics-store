@@ -80,13 +80,13 @@ export default function Product({
 }: {
   params: { id: string };
 }): JSX.Element {
-  const productsData: ProductData = products[Number(params.id)];
+  const productData: ProductData = products[Number(params.id)];
   const productDetailImagesData: ProductDetailImages[] = productDetailImages;
   const productDetailDescriptionsData: ProductDetailDescription[] =
     productDetailDescriptions;
 
   const squareBannerData: SquareBannerProps =
-    mapProductToSquareBanner(productsData);
+    mapProductToSquareBanner(productData);
 
   return (
     <div className="w-full h-auto pb-8">
@@ -135,23 +135,23 @@ export default function Product({
           </div>
           <div className="w-full h-full right-0 flex flex-col">
             <h2 className="text-2xl font-semibold break-words line-clamp-3 leading-8">
-              {productsData.name}
+              {productData.name}
             </h2>
-            {productsData.sale !== "" && (
+            {productData.sale !== "" && (
               <div className="w-fit max-w-[400px] h-fit font-semibold px-2 py-1 text-primary rounded-lg shadow-lg bg-black">
-                {productsData.sale}
+                {productData.sale}
               </div>
             )}
             <h3 className="text-lg text-primary mt-4 -mb-2">
-              <RatingStars rating={productsData.rating} />
+              <RatingStars rating={productData.rating} />
             </h3>
             <h3 className="text-2xl font-semibold text-primary">
-              {formatCurrencyWithCommas(productsData.price)} VND
+              {formatCurrencyWithCommas(productData.price)} VND
             </h3>
             <div className="bg-black text-white rounded-2xl shadow-lg p-4 mt-2">
-              <h4 className="text-xl ">{productsData.category}</h4>
+              <h4 className="text-xl ">{productData.category}</h4>
               <p className="text-sm text-justify break-words line-clamp-3 leading-5">
-                {productsData.description}
+                {productData.description}
               </p>
             </div>
             <button className="w-28 h-10 mt-4 ml-10 text-xl bg-primary shadow-lg font-semibold">
@@ -179,12 +179,12 @@ export default function Product({
               <button className="">Review</button>
             </TabsTrigger>
           </TabsList>
+          <h2 className="px-5 text-2xl font-semibold break-words line-clamp-3 leading-8">
+            {productData.name}
+          </h2>
           <TabsContent value="description">
             <div>
-              <h2 className="px-5 text-2xl font-semibold break-words line-clamp-3 leading-8">
-                {productsData.name}
-              </h2>
-              <p className="mt-5 text-justify">{productsData.description}</p>
+              <p className="mt-5 text-justify">{productData.description}</p>
               <img
                 className="w-full p-5"
                 alt="prod-description-0"
@@ -214,7 +214,7 @@ export default function Product({
           </TabsContent>
           <TabsContent value="warranty">
             <div>
-              <h2 className="px-5 text-2xl font-semibold break-words line-clamp-3 leading-8">
+              <p className="mt-5 text-justify">
                 At [Your Company Name], our comprehensive warranty service is
                 tailored to safeguard your investment and ensure that you
                 experience worry-free ownership of our products. Our commitment
@@ -224,8 +224,7 @@ export default function Product({
                 providing you with protection against manufacturing defects,
                 malfunctions, and unexpected issues that may arise during the
                 covered period.
-              </h2>
-              <p className="mt-5 text-justify">{productsData.description}</p>
+              </p>
               <img
                 className="w-full p-5"
                 alt="prod-description-0"

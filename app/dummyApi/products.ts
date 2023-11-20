@@ -12,7 +12,7 @@ interface ProductData {
 const products: ProductData[] = [
   {
     id: 0,
-    name: "Smartphone Samsung Galaxy S22 Ultra 1TB Ultra-black",
+    name: "Samsung Galaxy S22 Ultra 1TB Ultra-black",
     price: 599000,
     category: "Electronics",
     description:
@@ -23,7 +23,7 @@ const products: ProductData[] = [
   },
   {
     id: 1,
-    name: "Smartphone iPhone 14 Pro Max 1TB Natual Titanium",
+    name: "iPhone 14 Pro Max 1TB Natual Titanium",
     price: 599000,
     category: "Electronics",
     description: "A feature-packed smartphone with advanced functionalities.",
@@ -33,7 +33,7 @@ const products: ProductData[] = [
   },
   {
     id: 2,
-    name: "Laptop Macbook Pro M3Pro 2023 max options 96GB/ 8TB SSD Space Black",
+    name: "Macbook Pro M3Pro 2023 max options 96GB/ 8TB SSD Space Black",
     price: 1299000,
     category: "Electronics",
     description:

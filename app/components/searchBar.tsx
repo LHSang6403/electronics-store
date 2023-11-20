@@ -44,7 +44,7 @@ const SearchBar = (props: any): ReturnType<React.FC> => {
   };
 
   return (
-    <div className="w-[670px] h-[40px]">
+    <div className="w-[670px] lg:w-[500px] h-[40px]">
       <form
         onSubmit={() => handleSubmit(onSubmit)}
         className="h-full flex flex-row justify-start border-2 border-primary rounded-3xl overflow-hidden"
@@ -53,12 +53,15 @@ const SearchBar = (props: any): ReturnType<React.FC> => {
           setQuery(target.value);
         }}
       >
-        <div className="w-[270px] ml-2 text-lg">
+        <div className="w-[300px] ml-2 text-lg">
           <Select>
             <SelectTrigger className="w-full h-full text-base pl-1 border-none focus:outline-0">
               <SelectValue placeholder="All Category" />
             </SelectTrigger>
-            <SelectContent className="max-h-[350px] mt-1 rounded-xl shadow-lg border-none bg-transparent overflow-scroll-y">
+            <SelectContent
+              className="max-h-[350px] mt-1 rounded-xl shadow-lg border-none bg-transparent overflow-scroll-y
+            lg:relative lg:-left-16"
+            >
               <div className="w-auto h-9 text-lg font-normal bg-primary rounded-t-xl pl-3 flex flex-row justify-between items-center">
                 Our products:
                 <div className="w-12 h-7 rounded mr-1 flex items-center justify-center hover:cursor-pointer">
@@ -110,7 +113,7 @@ const SearchBar = (props: any): ReturnType<React.FC> => {
             setQuery("");
           }}
         />
-        <div className="w-[180px] flex flex-row justify-center items-center bg-primary">
+        <div className="w-[180px] px-2 flex justify-center items-center bg-primary">
           <button type="submit" className="text-lg">
             Search
           </button>

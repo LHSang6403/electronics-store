@@ -14,7 +14,7 @@ function CarouselSlider(): JSX.Element {
       <div className="ml-4 top-48">
         <button>
           <img
-            className="w-8 opacity-50 cursor-pointer"
+            className="w-8 sm:w-6 opacity-50 cursor-pointer"
             alt="arrow-left"
             src="/assets/arrow-left.png"
           ></img>
@@ -25,7 +25,7 @@ function CarouselSlider(): JSX.Element {
       <div className="mr-4 top-48">
         <button>
           <img
-            className="w-8 opacity-50 cursor-pointer"
+            className="w-8 sm:w-6 opacity-50 cursor-pointer"
             alt="arrow-right"
             src="/assets/arrow-right.png"
           ></img>
@@ -44,10 +44,12 @@ function CarouselSlider(): JSX.Element {
               alt={`slider-img-${index}`}
               src={each.image}
             />
-            <div className="relative w-[80%] mx-auto -top-40 text-justify z-10 text-3xl font-bold text-black">
-              <p className="w-fit ml-5 px-5 py-1 bg-primary">{each.title}</p>
+            <div className="relative w-[80%] mx-auto -top-36  z-10  text-black">
+              <p className="w-fit ml-5 sm:ml-0 px-5 py-1 bg-primary text-justify text-3xl sm:text-xl font-bold">
+                {each.title}
+              </p>
             </div>
-            <p className="relative w-[80%] mx-auto -top-36 z-10 text-white">
+            <p className="relative w-[80%] mx-auto -top-32 z-10 text-white sm:text-sm">
               {each.description}
             </p>
           </div>

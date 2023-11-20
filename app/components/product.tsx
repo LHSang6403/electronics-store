@@ -1,4 +1,5 @@
 import Link from "next/link";
+import formatCurrencyWithCommas from "../utils/formatCurrency";
 
 interface ProductData {
   id: number;
@@ -14,7 +15,7 @@ export default function Product(props: ProductData): JSX.Element {
   const data: ProductData = props;
 
   return (
-    <div className="w-36 h-48 mx-2 my-4 rounded-xl shadow-lg flex flex-col items-center justify-start bg-[#EEEEEE] hover:cursor-pointer">
+    <div className="w-36 h-48 xl:w-[156px] sm:w-32 sm:h-48 mx-2 xl:mx-1 my-4 sm:mx-1 sm:my-2 rounded-xl shadow-lg flex flex-col items-center justify-start bg-[#EEEEEE] hover:cursor-pointer">
       <div className="p-1 pb-0">
         <Link href={`/product/${data.id}`}>
           <img
@@ -24,21 +25,22 @@ export default function Product(props: ProductData): JSX.Element {
           ></img>
         </Link>
       </div>
-
       <div className="w-full h-full flex flex-col justify-center items-center">
-        <h1 className="w-full px-2  text-lg overflow-hidden whitespace-nowrap overflow-ellipsis">
+        <h1 className="w-full px-2 text-lg xl:text-base sm:text-base overflow-hidden whitespace-nowrap overflow-ellipsis">
           {data.name}
         </h1>
-        <div className="w-full px-3 flex flex-row justify-between flex-start">
+        <div className="w-full px-2 flex flex-row justify-between flex-start">
           <div className="text-sm flex flex-row justify-center items-center">
-            <p>{data.rating}</p>
+            <p className="text-sm">{data.rating}</p>
             <img
               className="w-3 h-3 ml-0.5"
               alt="star"
               src="/assets/star.png"
             ></img>
           </div>
-          <h2 className="text-sm">{data.price}</h2>
+          <h2 className="text-sm text-primary">
+            {formatCurrencyWithCommas(data.price)}
+          </h2>
         </div>
       </div>
     </div>

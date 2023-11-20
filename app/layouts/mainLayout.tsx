@@ -13,7 +13,9 @@ export default function MainLayout({
     <div className="">
       <Header />
       <TopMenu />
-      <div className="w-[1050px] mx-auto bg-[#f5f5f555]">{children}</div>
+      <div className="w-[1050px] xl:w-full lg:w-full sm:w-full xl:px-6 lg:px-6 sm:px-0 mx-auto bg-[#f5f5f555]">
+        {children}
+      </div>
       <Footer />
     </div>
   );

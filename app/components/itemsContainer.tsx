@@ -22,14 +22,7 @@ export default function ItemsContainer({
 }: ItemsContainerProps): JSX.Element {
   const data: ProductData[] = products;
   const categories: string[] = ["Laptop", "Phone", "Tablet", "Watch", "TV"];
-  const top4brands: string[] = [
-    "Apple",
-    "Samsung",
-    "Xiaomi",
-    "Huawei",
-    "Sony",
-    "...",
-  ];
+  const top4brands: string[] = ["Apple", "Samsung", "Xiaomi", "Sony", "..."];
   const brandsLines: string[][] = [
     top4brands,
     top4brands,
@@ -40,7 +33,7 @@ export default function ItemsContainer({
   const filters: string[] = ["Price", "Brand", "Rating", "Sale", "Functions"];
 
   return (
-    <div className="w-[90%] h-full mx-auto py-5 rounded-b-3xl border-4 border-t-0 border-black">
+    <div className="w-[90%] h-full mx-auto py-5 sm:pb-4 xl:pt-3 sm:pt-2 rounded-b-3xl border-2 border-t-0 border-black">
       {isAllProducts && (
         <div className="w-full h-fit mx-14 mb-2 -mt-2 flex flex-row justify-start items-center gap-2">
           {filters.map((filter, index) => (
@@ -55,20 +48,20 @@ export default function ItemsContainer({
         for (let i = 0; i < 4; i++) {
           sections.push(
             <div className="mb-2" key={i}>
-              <div className="w-auto h-8 mx-14 flex flex-row justify-between items-center">
+              <div className="w-auto h-8 mx-14 xl:mx-5 sm:mx-3 flex flex-row justify-between items-center">
                 <div className="w-fit h-fit flex flex-row items-center hover:cursor-pointer">
-                  <h2 className="w-fit h-fit py-2 text-center text-2xl">
+                  <h2 className="w-fit h-fit py-2 text-center text-2xl xl:text-xl">
                     {categories[i]}
                   </h2>
                   {!isAllProducts && (
                     <img
-                      className="w-4 h-4 ml-1"
+                      className="w-4 h-4 xl:w-3 xl:h-3 ml-1"
                       alt="nav-icon"
                       src="/assets/nav-icon.png"
                     ></img>
                   )}
                 </div>
-                <div className="flex flex-row">
+                <div className="flex flex-row sm:hidden">
                   {brandsLines[i].map((brand, index) => (
                     <p
                       className="mx-2 hover:cursor-pointer"
@@ -79,21 +72,28 @@ export default function ItemsContainer({
                   ))}
                 </div>
               </div>
-              <hr className="w-auto h-[1px] mx-14 border-none rounded bg-black"></hr>
-              <div className="w-full h-full flex flex-row justify-center items-center">
-                {!isAllProducts && (
+              <hr className="w-auto h-[1px] mx-14 xl:mx-4 sm:mx-2 border-none rounded bg-black"></hr>
+              <div>
+                {/* {!isAllProducts && (
                   <img
-                    className="w-5 h-5 opacity-70 hover:opacity-100 hover:cursor-pointer"
+                    className="w-5 h-5 sm:hidden opacity-70 hover:opacity-100 hover:cursor-pointer"
                     alt="left-arrow"
                     src="/assets/black-arrow-left.png"
                   ></img>
-                )}
+                )} */}
                 {!isAllProducts ? (
-                  data.slice(0, 4).map((prod: ProductData) => (
-                    <div key={prod.id}>
-                      <Product {...prod} />
-                    </div>
-                  ))
+                  <div
+                    className="
+                  flex flex-row justify-center items-center
+                  
+                  sm:grid sm:grid-cols-2 sm:mx-0"
+                  >
+                    {data.slice(0, 4).map((prod: ProductData) => (
+                      <div key={prod.id}>
+                        <Product {...prod} />
+                      </div>
+                    ))}
+                  </div>
                 ) : (
                   <div className="grid grid-cols-4 grid-rows-3">
                     {data.slice(0, 12).map((prod: ProductData) => (
@@ -104,13 +104,13 @@ export default function ItemsContainer({
                   </div>
                 )}
 
-                {!isAllProducts && (
+                {/* {!isAllProducts && (
                   <img
-                    className="w-5 h-5 opacity-70 hover:opacity-100 hover:cursor-pointer"
+                    className="w-5 h-5 sm:hidden opacity-70 hover:opacity-100 hover:cursor-pointer"
                     alt="right-arrow"
                     src="/assets/black-arrow-right.png"
                   ></img>
-                )}
+                )} */}
               </div>
             </div>
           );
