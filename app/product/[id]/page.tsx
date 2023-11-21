@@ -2,6 +2,7 @@
 
 import formatCurrencyWithCommas from "../../utils/formatCurrency";
 import SquareBanner from "../../components/squareBanner";
+import Banner from "../../components/banner";
 import RatingStars from "../../components/ratingStars";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -18,9 +19,7 @@ import { Label } from "@/components/ui/label";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -30,7 +29,6 @@ import Link from "next/link";
 import products from "../../dummyApi/products";
 import productDetailImages from "../../dummyApi/productDetailImages";
 import productDetailDescriptions from "../../dummyApi/productDetailDescriptions";
-import { type ReactNode } from "react";
 
 interface SquareBannerProps {
   image: string;
@@ -90,42 +88,42 @@ export default function Product({
 
   return (
     <div className="w-full h-auto pb-8">
-      <div className="w-full h-auto flex flex-row justify-center items-center">
-        <div className="w-[40%] h-[500px] ">
+      <div className="w-full h-auto flex flex-row sm:flex-col justify-center items-center">
+        <div className="w-[40%] sm:w-full h-[500px]">
           <div className="w-[70%] h-[94%] my-[3%] pt-[calc((470px_-_250px)_/_2)] rounded-r-2xl bg-black">
-            <div className="w-fit h-[250px] border-[1px] ml-8 rounded-lg border-white flex flex-col justify-center items-center">
-              <button>
+            <ul className="w-fit h-[250px] border-[1px] ml-8 xl:ml-4 rounded-lg border-white flex flex-col justify-center items-center">
+              <li>
                 <img
                   className="w-12 h-12 mr-1"
                   src={squareBannerData.image}
                 ></img>
-              </button>
-              <button>
+              </li>
+              <li>
                 <img
                   className="w-12 h-12 mr-1"
                   src={squareBannerData.image}
                 ></img>
-              </button>
-              <button>
+              </li>
+              <li>
                 <img
                   className="w-12 h-12 mr-1"
                   src={squareBannerData.image}
                 ></img>
-              </button>
-              <button>
+              </li>
+              <li>
                 <img
                   className="w-12 h-12 mr-1"
                   src={squareBannerData.image}
                 ></img>
-              </button>
-            </div>
-            <div className="w-[400px] h-[400px] relative left-12 -top-[330px]">
+              </li>
+            </ul>
+            <div className="w-[400px] sm:w-[300px] h-[400px] sm:h-[300px] relative left-12 xl:left-5 sm:left-16 -top-[330px]">
               <SquareBanner data={squareBannerData} />
             </div>
           </div>
         </div>
-        <div className="w-[60%] h-[500px] px-10 flex flex-col justify-between">
-          <div className="w-full h-16  pt-3 flex flex-row justify-center items-center">
+        <div className="w-[60%] sm:w-full h-[500px] sm:h-fit px-10 sm:px-4 flex flex-col justify-between">
+          <div className="w-full h-16 pt-3 sm:p-0 flex flex-row justify-center items-center">
             <Link
               href="/"
               className="w-fit h-fit px-2 text-[14px] shadow-lg rounded border-[1px] border-black font-light hover:bg-black hover:text-white"
@@ -133,7 +131,7 @@ export default function Product({
               Go back
             </Link>
           </div>
-          <div className="w-full h-full right-0 flex flex-col">
+          <div className="w-full h-full xl:ml-8 sm:m-0 flex flex-col">
             <h2 className="text-2xl font-semibold break-words line-clamp-3 leading-8">
               {productData.name}
             </h2>
@@ -154,19 +152,16 @@ export default function Product({
                 {productData.description}
               </p>
             </div>
-            <button className="w-28 h-10 mt-4 ml-10 text-xl bg-primary shadow-lg font-semibold">
+            <button className="w-28 h-10 mt-4 ml-10 sm:mx-auto text-xl bg-primary shadow-lg font-semibold">
               Buy now
             </button>
           </div>
         </div>
       </div>
-      <div className="w-auto h-fit mx-8 my-12">
-        <img
-          className="w-full h-[350px] mt-2 object-cover hover:cursor-pointer"
-          src="https://static.vecteezy.com/system/resources/previews/001/338/096/non_2x/black-friday-sale-banner-free-vector.jpg"
-        ></img>
+      <div className="w-full h-[250px] sm:h-fit shadow-lg overflow-hidden mt-4">
+        <Banner />
       </div>
-      <div className="w-full h-auto p-10 pt-4 mt-8 rounded-[36px] bg-[whitesmoke]">
+      <div className="w-full h-auto p-10 sm:p-4 pt-4 mt-8 rounded-[36px] bg-[whitesmoke]">
         <Tabs defaultValue="description" className="w-full">
           <TabsList className="flex flex-row justify-center">
             <TabsTrigger value="description">
@@ -298,7 +293,7 @@ export default function Product({
           </TabsContent>
           <TabsContent value="review">
             <div className="w-full h-fit flex flex-row justify-center gap-4">
-              <div className="w-[600px] h-[410px] overflow-auto px-4 py-2 border rounded-lg border-[#E5E7EB] bg-[#FCFCFC]">
+              <div className="w-[600px] xl:w-1/2 h-[410px] overflow-auto px-4 py-2 border rounded-lg border-[#E5E7EB] bg-[#FCFCFC]">
                 <Table className="w-fit h-fit mx-auto">
                   <TableHeader>
                     <TableRow>
@@ -414,7 +409,7 @@ export default function Product({
                   </TableBody>
                 </Table>
               </div>
-              <Card className="w-[350px] h-[410px] bg-[#FCFCFC]">
+              <Card className="w-[350px] xl:w-1/2 h-[410px] bg-[#FCFCFC]">
                 <CardHeader>
                   <CardTitle>Send us</CardTitle>
                   <CardDescription>
@@ -471,19 +466,19 @@ function DescribeIn2Cols({
 }: DescribeIn2ColsProps): JSX.Element {
   return (
     <div
-      className={`w-full h-fit mt-5 flex ${
+      className={`w-full h-fit flex py-10 sm:py-8 ${
         isReverse
-          ? "flex-row-reverse bg-black rounded-3xl shadow-lg text-white pl-10"
-          : "flex-row pr-10"
-      } justify-center items-center gap-4`}
+          ? "flex-row-reverse sm:flex-col-reverse bg-black rounded-3xl shadow-lg text-white pl-10"
+          : "flex-row sm:flex-col pr-10"
+      } sm:px-2 justify-center items-center gap-4`}
     >
       <img
-        className="w-80 mx-6"
+        className="w-1/2 sm:w-full mx-6 sm:m-0"
         alt="prod-description-1"
         // src={productDetailImagesData[parseInt(params.id)].images[1]}
         src={image}
       ></img>
-      <p className="w-full h-auto text-justify">
+      <p className="w-1/2 sm:w-full h-auto text-justify">
         {/* {productDetailDescriptionsData[parseInt(params.id)].description} */}
         {description}
       </p>

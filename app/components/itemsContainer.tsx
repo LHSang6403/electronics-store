@@ -33,9 +33,13 @@ export default function ItemsContainer({
   const filters: string[] = ["Price", "Brand", "Rating", "Sale", "Functions"];
 
   return (
-    <div className="w-[90%] h-full mx-auto py-5 sm:pb-4 xl:pt-3 sm:pt-2 rounded-b-3xl border-2 border-t-0 border-black">
+    <div className="w-[90%] h-full mx-auto py-5 xl:pb-0 sm:pb-4 xl:pt-3 sm:pt-2 rounded-b-3xl xl:rounded-b-2xl sm:rounded-b-2xl border-2 border-t-0 border-black">
       {isAllProducts && (
-        <div className="w-full h-fit mx-14 mb-2 -mt-2 flex flex-row justify-start items-center gap-2">
+        <div
+          className="w-fit sm:w-auto h-fit mx-14 xl:mx-5 sm:mx-3 mb-2 -mt-2 xl:-mt-0 
+        flex flex-row justify-start items-center gap-2
+        sm:grid sm:grid-cols-2"
+        >
           {filters.map((filter, index) => (
             <div className="" key={index}>
               <Combobox data={{ title: filter }} />
@@ -47,7 +51,7 @@ export default function ItemsContainer({
         const sections = [];
         for (let i = 0; i < 4; i++) {
           sections.push(
-            <div className="mb-2" key={i}>
+            <div className="mb-2 xl:-mb-2 sm:-mb-4" key={i}>
               <div className="w-auto h-8 mx-14 xl:mx-5 sm:mx-3 flex flex-row justify-between items-center">
                 <div className="w-fit h-fit flex flex-row items-center hover:cursor-pointer">
                   <h2 className="w-fit h-fit py-2 text-center text-2xl xl:text-xl">
@@ -72,7 +76,7 @@ export default function ItemsContainer({
                   ))}
                 </div>
               </div>
-              <hr className="w-auto h-[1px] mx-14 xl:mx-4 sm:mx-2 border-none rounded bg-black"></hr>
+              <hr className="w-auto h-[1px] mx-14 xl:mx-4 sm:mx-3 border-none rounded bg-black"></hr>
               <div>
                 {/* {!isAllProducts && (
                   <img
@@ -85,7 +89,6 @@ export default function ItemsContainer({
                   <div
                     className="
                   flex flex-row justify-center items-center
-                  
                   sm:grid sm:grid-cols-2 sm:mx-0"
                   >
                     {data.slice(0, 4).map((prod: ProductData) => (
@@ -95,7 +98,10 @@ export default function ItemsContainer({
                     ))}
                   </div>
                 ) : (
-                  <div className="grid grid-cols-4 grid-rows-3">
+                  <div
+                    className="grid grid-cols-4 grid-rows-3
+                  sm:grid-cols-2 sm:grid-rows-6"
+                  >
                     {data.slice(0, 12).map((prod: ProductData) => (
                       <div key={prod.id}>
                         <Product {...prod} />

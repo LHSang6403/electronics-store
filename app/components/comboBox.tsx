@@ -6,17 +6,15 @@ import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "../../shadcn-custom/button-custom";
 import {
-  Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
 } from "@/components/ui/command";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { PopoverTrigger } from "@/components/ui/popover";
+import { PopoverContent } from "../../shadcn-custom/popover-content-custom";
+import { Popover } from "../../shadcn-custom/popover-custom";
+import { Command } from "../../shadcn-custom/command-custom";
 
 const frameworks = [
   {
@@ -79,7 +77,7 @@ export default function Combobox({ data }: ComboboxProps): JSX.Element {
           <ChevronsUpDown className="h-4 w-4 ml-2 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-[180px] mx-2">
         <Command>
           {/* <CommandInput placeholder="Search framework..." /> */}
           {/* <CommandEmpty>No framework found.</CommandEmpty> */}
