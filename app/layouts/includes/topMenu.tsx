@@ -13,7 +13,7 @@ export default function TopMenu(): ReturnType<React.FC> {
 
   return (
     <div
-      className="w-full px-[calc((100%-1050px)_/_2)] xl:px-6 lg:px-6 sm:px-4 h-8 flex xl:flex-row justify-start xl:items-center bg-white
+      className="w-full px-[calc((100%-1050px)_/_2)] xl:px-6 sm:px-4 h-8 flex xl:flex-row justify-start xl:items-center bg-white
     sm:flex-col sm:items-start"
     >
       <div
