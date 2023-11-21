@@ -18,7 +18,7 @@ export interface Option {
 }
 
 export default function Payments(): JSX.Element {
-  const { register, handleSubmit, reset, setValue, setFocus } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: { name: "", phone: "", address: "" },
   });
 

@@ -5,12 +5,7 @@ import { Check, ChevronsUpDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "../../shadcn-custom/button-custom";
-import {
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-} from "@/components/ui/command";
+import { CommandGroup, CommandItem } from "@/components/ui/command";
 import { PopoverTrigger } from "@/components/ui/popover";
 import { PopoverContent } from "../../shadcn-custom/popover-content-custom";
 import { Popover } from "../../shadcn-custom/popover-custom";
@@ -71,7 +66,7 @@ export default function Combobox({ data }: ComboboxProps): JSX.Element {
           aria-expanded={open}
           className="w-fit justify-between"
         >
-          {value
+          {value === ""
             ? frameworks.find((framework) => framework.value === value)?.label
             : title}
           <ChevronsUpDown className="h-4 w-4 ml-2 shrink-0 opacity-50" />
