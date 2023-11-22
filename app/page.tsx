@@ -36,7 +36,7 @@ export default function Home(): ReturnType<React.FC> {
           </div>
         </div>
         <div className="w-full h-[300px] lg:h-[520px] lg:px-20 sm:px-0 sm:h-fit mt-8 flex flex-col">
-          <div className="w-full p-2 mb-4 flex flex-row justify-center items-center text-3xl font-semibold">
+          <div className="w-full p-2 mb-8 flex flex-row justify-center items-center text-3xl font-semibold">
             Why choose us
           </div>
           <div className="w-full h-full sm:px-4">
@@ -49,13 +49,13 @@ export default function Home(): ReturnType<React.FC> {
         <div className="w-full h-[250px] sm:h-fit mt-8">
           <Top2Items />
         </div>
-        <div className="w-full h-fit mt-8 flex flex-col items-center">
-          <div className="w-full mb-4 p-2 flex flex-row justify-center items-center text-3xl font-semibold">
+        <div className="w-full h-fit mt-8 bg-slate-300 flex flex-col items-center">
+          <div className="w-full mb-8 p-2 flex flex-row justify-center items-center text-3xl font-semibold">
             Trending Categories
           </div>
           <TrendingCategories />
         </div>
-        <div className="w-full h-auto mt-10 mb-8">
+        <div className="w-full h-auto mt-8">
           {/* <div className="w-[90%] h-[70px] bg-primary mx-auto text-3xl font-semibold border-2 border-b-0 border-black rounded-t-3xl flex flex-row justify-center items-center">
             Electrical Store
           </div> */}

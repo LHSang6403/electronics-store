@@ -92,7 +92,7 @@ export default function ItemsContainer({
                   <div
                     className="
                   flex flex-row justify-center items-center gap-2
-                  sm:grid sm:grid-cols-2 sm:place-items-center sm:gap-1"
+                  sm:grid sm:grid-cols-2 sm:place-items-center"
                   >
                     {data.slice(0, 4).map((prod: ProductData) => (
                       <div className="" key={prod.id}>
@@ -103,7 +103,7 @@ export default function ItemsContainer({
                 ) : (
                   <div
                     className="grid grid-cols-4 grid-rows-3 gap-2
-                  sm:grid-cols-2 sm:grid-rows-6 sm:place-items-center sm:gap-1"
+                  sm:grid-cols-2 sm:grid-rows-6 sm:place-items-center"
                   >
                     {data.slice(0, 12).map((prod: ProductData) => (
                       <div className="" key={prod.id}>
