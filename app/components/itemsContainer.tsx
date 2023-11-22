@@ -99,11 +99,11 @@ export default function ItemsContainer({
                   </div>
                 ) : (
                   <div
-                    className="grid grid-cols-4 grid-rows-3 bg-blue-100
+                    className="grid grid-cols-4 grid-rows-3
                   sm:grid-cols-2 sm:grid-rows-6 sm:place-items-center"
                   >
                     {data.slice(0, 12).map((prod: ProductData) => (
-                      <div className="w-[94%] bg-red-200" key={prod.id}>
+                      <div className="" key={prod.id}>
                         <Product {...prod} />
                       </div>
                     ))}
