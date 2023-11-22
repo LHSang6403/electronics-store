@@ -16,7 +16,7 @@ export default function TopMenu(): ReturnType<React.FC> {
       className="w-full px-[calc((100%-1050px)_/_2)] xl:px-6 sm:px-4 h-8 flex justify-start bg-white
     "
     >
-      <ul className="sm:w-full flex flex-row justify-center sm:justify-start items-center gap-2">
+      <ul className="sm:w-full flex flex-row justify-center sm:justify-start items-center gap-3">
         <li>
           <Link
             href="#"
