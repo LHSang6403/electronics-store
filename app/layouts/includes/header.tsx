@@ -5,7 +5,7 @@ export default function Header(): ReturnType<React.FC> {
   return (
     <header className="w-full px-[calc((100%-1050px)_/_2)] xl:px-6 sm:px-4 h-12 flex flex-row justify-between items-center bg-white">
       <img
-        className="w-[150px] h-fit xl:w-[120px] sm:w-[100px] object-cover"
+        className="w-[150px] h-fit xl:w-[120px] xl:h-fit sm:w-[100px] sm:h-fit object-cover"
         alt="logo"
         src="/assets/logo.png"
       ></img>
