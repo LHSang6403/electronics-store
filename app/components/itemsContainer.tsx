@@ -33,7 +33,7 @@ export default function ItemsContainer({
   const filters: string[] = ["Price", "Brand", "Rating", "Sale", "Functions"];
 
   return (
-    <div className="w-fit h-full overflow-hidden mt-4 mx-auto xl:pb-0 sm:pb-6 rounded-3xl xl:rounded-2xl sm:rounded-2xl border-2 border-black">
+    <div className="w-fit h-full overflow-hidden mt-4 mx-auto sm:pb-6 rounded-3xl xl:rounded-2xl sm:rounded-2xl border-2 border-black">
       <div className="w-full h-[70px] mb-4 bg-primary text-3xl font-semibold flex justify-center items-center">
         Electrical Store
       </div>
@@ -91,7 +91,7 @@ export default function ItemsContainer({
                 {!isAllProducts ? (
                   <div
                     className="
-                  flex flex-row justify-center items-center gap-2
+                  flex flex-row justify-center items-center gap-2 px-4
                   sm:grid sm:grid-cols-2 sm:place-items-center"
                   >
                     {data.slice(0, 4).map((prod: ProductData) => (
@@ -102,7 +102,7 @@ export default function ItemsContainer({
                   </div>
                 ) : (
                   <div
-                    className="grid grid-cols-4 grid-rows-3 gap-2
+                    className="grid grid-cols-4 grid-rows-3 gap-2 px-4
                   sm:grid-cols-2 sm:grid-rows-6 sm:place-items-center"
                   >
                     {data.slice(0, 12).map((prod: ProductData) => (
