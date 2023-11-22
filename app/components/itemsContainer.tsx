@@ -1,3 +1,5 @@
+"use client";
+
 import Product from "./product";
 import products from "../dummyApi/products";
 import Combobox from "./comboBox";
@@ -127,7 +129,7 @@ export default function ItemsContainer({
         return sections;
       })()}
       {!isAllProducts && (
-        <div className="w-full h-8 flex justify-center mt-2 xl:mb-4 sm:mb-0">
+        <div className="w-full h-8 flex justify-center mt-2 mb-4 sm:mb-0">
           <button className="w-28 h-full rounded-lg shadow-lg bg-[#EEEEEE]">
             Show all
           </button>

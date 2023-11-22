@@ -130,7 +130,6 @@ const SearchBar = (props: any): ReturnType<React.FC> => {
           >
             Suggested items:
           </div>
-          {/* <hr className="w-[94%] h-[1px] mx-auto border-none rounded bg-black"></hr> */}
           {filteredItems.map((item, index) => (
             <div key={index} onClick={() => {}}>
               <div

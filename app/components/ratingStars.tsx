@@ -6,10 +6,6 @@ export default function RatingStars({ rating }: RatingStarsProps): JSX.Element {
   const wholeNumber = Math.floor(rating);
   const decimalNumber = rating - wholeNumber;
 
-  // number = 5.6
-  // whole = 5
-  // decimal = 0.6
-
   const stars = Array.from({ length: wholeNumber }, (_, i) => (
     <img
       className="w-5 h-5"

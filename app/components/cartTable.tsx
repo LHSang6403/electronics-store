@@ -5,7 +5,6 @@ import formatCurrencyWithCommas from "../utils/formatCurrency";
 import {
   Table,
   TableBody,
-  // TableCaption,
   TableCell,
   TableFooter,
   TableHead,
@@ -20,7 +19,6 @@ export default function CartTable(): JSX.Element {
 
   return (
     <Table className="w-fit h-fit mx-auto">
-      {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
       <TableHeader className="w-full h-16">
         <TableRow>
           <TableHead className="w-[150px] text-black text-lg text-center">

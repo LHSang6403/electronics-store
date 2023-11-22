@@ -74,8 +74,6 @@ export default function Combobox({ data }: ComboboxProps): JSX.Element {
       </PopoverTrigger>
       <PopoverContent className="w-[180px] mx-2">
         <Command>
-          {/* <CommandInput placeholder="Search framework..." /> */}
-          {/* <CommandEmpty>No framework found.</CommandEmpty> */}
           <CommandGroup>
             {frameworks.map((framework) => (
               <CommandItem
