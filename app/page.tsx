@@ -43,7 +43,7 @@ export default function Home(): ReturnType<React.FC> {
             <Cards />
           </div>
         </div>
-        <div className="w-full h-[250px] sm:h-fit shadow-lg overflow-hidden mt-8">
+        <div className="w-full h-[250px] sm:h-[150px] shadow-lg overflow-hidden mt-8">
           <Banner />
         </div>
         <div className="w-full h-[250px] sm:h-fit mt-8">
