@@ -92,18 +92,18 @@ export default function ItemsContainer({
                   sm:grid sm:grid-cols-2 sm:place-items-center sm:mx-0"
                   >
                     {data.slice(0, 4).map((prod: ProductData) => (
-                      <div key={prod.id}>
+                      <div className="" key={prod.id}>
                         <Product {...prod} />
                       </div>
                     ))}
                   </div>
                 ) : (
                   <div
-                    className="grid grid-cols-4 grid-rows-3
+                    className="grid grid-cols-4 grid-rows-3 bg-blue-100
                   sm:grid-cols-2 sm:grid-rows-6 sm:place-items-center"
                   >
                     {data.slice(0, 12).map((prod: ProductData) => (
-                      <div key={prod.id}>
+                      <div className="w-full bg-red-200" key={prod.id}>
                         <Product {...prod} />
                       </div>
                     ))}
