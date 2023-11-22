@@ -19,7 +19,7 @@ const bannerData: SquareBannerProps = {
 export default function Cart(): JSX.Element {
   return (
     <div className="w-full h-auto">
-      <div className="w-full h-[250px] sm:h-[150px] shadow-lg overflow-hidden">
+      <div className="w-full h-[250px] sm:h-fit shadow-lg overflow-hidden">
         <Banner />
       </div>
       <div className="w-full h-fit mt-6 py-4 flex flex-row justify-center items-center text-3xl font-semibold">

@@ -10,7 +10,7 @@ export default function Banner(): JSX.Element {
     <div>
       <Link href="#">
         <img
-          className="w-full h-fit object-cover sm:scale-110"
+          className="w-full h-fit sm:h-[150px] object-cover"
           alt="banner-img"
           src={url}
         ></img>
