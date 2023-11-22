@@ -55,7 +55,7 @@ export default function ItemsContainer({
         for (let i = 0; i < 4; i++) {
           sections.push(
             <div className="w-fit" key={i}>
-              <div className="w-auto h-8 mx-14 xl:mx-5 sm:mx-3 flex flex-row justify-between items-center">
+              <div className="w-auto h-8 mx-14 xl:mx-5 sm:mx-5 flex flex-row justify-between items-center">
                 <div className="w-fit h-fit flex flex-row items-center hover:cursor-pointer">
                   <h2 className="w-fit h-fit py-2 text-center text-2xl xl:text-xl">
                     {categories[i]}
@@ -79,7 +79,7 @@ export default function ItemsContainer({
                   ))}
                 </div>
               </div>
-              <hr className="w-auto h-[1px] mx-14 xl:mx-4 sm:mx-3 border-none rounded bg-black"></hr>
+              <hr className="w-auto h-[1px] mx-14 xl:mx-4 sm:mx-5 border-none rounded bg-black"></hr>
               <div className="px-2">
                 {/* {!isAllProducts && (
                   <img

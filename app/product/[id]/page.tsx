@@ -1,10 +1,14 @@
 "use client";
 
 import formatCurrencyWithCommas from "../../utils/formatCurrency";
-import SquareBanner from "../../components/squareBanner";
 import Banner from "../../components/banner";
 import RatingStars from "../../components/ratingStars";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "../../../shadcn-custom/tabs-custom";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -117,8 +121,12 @@ export default function Product({
                 ></img>
               </li>
             </ul>
-            <div className="w-[400px] sm:w-[300px] h-[400px] sm:h-[300px] relative left-12 xl:left-5 sm:left-16 -top-[330px]">
-              <SquareBanner data={squareBannerData} />
+            <div className="w-[400px] h-[400px] bg-yellow-00 relative left-16 xl:left-6 sm:left-8 -top-[330px]">
+              <img
+                className="w-full h-full object-cover rounded-3xl [transition:transform_0.5s_ease] group-hover:scale-[1.01]"
+                src={squareBannerData.image}
+                alt="sale-square-banner"
+              />
             </div>
           </div>
         </div>
@@ -152,27 +160,21 @@ export default function Product({
                 {productData.description}
               </p>
             </div>
-            <button className="w-28 h-10 mt-4 ml-10 sm:mx-auto text-xl bg-primary shadow-lg font-semibold">
+            <button className="w-28 h-10 mt-8 ml-10 sm:mx-auto text-xl bg-primary shadow-lg font-semibold">
               Buy now
             </button>
           </div>
         </div>
       </div>
-      <div className="w-full h-[250px] sm:h-fit shadow-lg overflow-hidden mt-4">
+      <div className="w-full h-[250px] sm:h-fit shadow-lg overflow-hidden mt-8">
         <Banner />
       </div>
       <div className="w-full h-auto p-10 sm:p-4 pt-4 mt-8 rounded-[36px] bg-[whitesmoke]">
         <Tabs defaultValue="description" className="w-full">
           <TabsList className="flex flex-row justify-center">
-            <TabsTrigger value="description">
-              <button className="">Description</button>
-            </TabsTrigger>
-            <TabsTrigger value="warranty">
-              <button className="">Warranty</button>
-            </TabsTrigger>
-            <TabsTrigger value="review">
-              <button className="">Review</button>
-            </TabsTrigger>
+            <TabsTrigger value="description">Description</TabsTrigger>
+            <TabsTrigger value="warranty">Warranty</TabsTrigger>
+            <TabsTrigger value="review">Review</TabsTrigger>
           </TabsList>
           <h2 className="px-5 text-2xl font-semibold break-words line-clamp-3 leading-8">
             {productData.name}
@@ -292,8 +294,8 @@ export default function Product({
             </div>
           </TabsContent>
           <TabsContent value="review">
-            <div className="w-full h-fit flex flex-row justify-center gap-4">
-              <div className="w-[600px] xl:w-1/2 h-[410px] overflow-auto px-4 py-2 border rounded-lg border-[#E5E7EB] bg-[#FCFCFC]">
+            <div className="w-full h-fit flex flex-row sm:flex-col justify-center gap-4">
+              <div className="w-[600px] xl:w-1/2 sm:w-full h-[410px] overflow-auto px-4 py-2 border rounded-lg border-[#E5E7EB] bg-[#FCFCFC]">
                 <Table className="w-fit h-fit mx-auto">
                   <TableHeader>
                     <TableRow>
@@ -409,7 +411,7 @@ export default function Product({
                   </TableBody>
                 </Table>
               </div>
-              <Card className="w-[350px] xl:w-1/2 h-[410px] bg-[#FCFCFC]">
+              <Card className="w-[350px] sm:w-full xl:w-1/2 h-[410px] bg-[#FCFCFC]">
                 <CardHeader>
                   <CardTitle>Send us</CardTitle>
                   <CardDescription>
