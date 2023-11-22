@@ -15,7 +15,7 @@ export default function Top2Items(): JSX.Element {
   const data: TopItem[] = items;
 
   return (
-    <div className="w-full h-full px-4 xl:px-0 sm:px-4 flex flex-row sm:flex-col gap-4 justify-center items-center">
+    <div className="w-full h-full px-4 xl:px-0 sm:px-4 flex flex-row sm:flex-col gap-4 sm:gap-8 justify-center items-center">
       {data.map((item) => (
         <div
           className="w-[600px] h-full sm:w-full sm:h-[220px] shadow-md bg-[#EEEEEE] flex flex-row justify-center items-center"

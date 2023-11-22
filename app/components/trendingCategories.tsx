@@ -18,7 +18,7 @@ export default function TrendingCategories(): JSX.Element {
     >
       {data.map((item, index) => (
         <div
-          className={`w-44 xl:w-auto sm:w-[170px] h-52 ${
+          className={`w-44 xl:w-auto sm:w-full h-52 ${
             index === data.length - 1 || index === data.length - 2
               ? "xl:col-span-3"
               : "xl:col-span-2"

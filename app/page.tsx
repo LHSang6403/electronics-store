@@ -1,5 +1,3 @@
-"user client";
-
 import CarouselSlider from "./components/carouselSlider";
 import Cards from "./components/cards";
 import Banner from "./components/banner";

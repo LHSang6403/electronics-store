@@ -51,7 +51,7 @@ export default function ItemsContainer({
         const sections = [];
         for (let i = 0; i < 4; i++) {
           sections.push(
-            <div className="mb-2 xl:-mb-2 sm:-mb-4" key={i}>
+            <div key={i}>
               <div className="w-auto h-8 mx-14 xl:mx-5 sm:mx-3 flex flex-row justify-between items-center">
                 <div className="w-fit h-fit flex flex-row items-center hover:cursor-pointer">
                   <h2 className="w-fit h-fit py-2 text-center text-2xl xl:text-xl">
@@ -89,7 +89,7 @@ export default function ItemsContainer({
                   <div
                     className="
                   flex flex-row justify-center items-center
-                  sm:grid sm:grid-cols-2 sm:mx-0"
+                  sm:grid sm:grid-cols-2 sm:place-items-center sm:mx-0"
                   >
                     {data.slice(0, 4).map((prod: ProductData) => (
                       <div key={prod.id}>
@@ -100,7 +100,7 @@ export default function ItemsContainer({
                 ) : (
                   <div
                     className="grid grid-cols-4 grid-rows-3
-                  sm:grid-cols-2 sm:grid-rows-6"
+                  sm:grid-cols-2 sm:grid-rows-6 sm:place-items-center"
                   >
                     {data.slice(0, 12).map((prod: ProductData) => (
                       <div key={prod.id}>
@@ -124,8 +124,8 @@ export default function ItemsContainer({
         return sections;
       })()}
       {!isAllProducts && (
-        <div className="w-full h-8 flex flex-row justify-center">
-          <button className="w-28 h-8 rounded-lg shadow-xl bg-[#EEEEEE]">
+        <div className="w-full h-8 flex justify-center mt-2 xl:mb-4 sm:mb-0">
+          <button className="w-28 h-full rounded-lg shadow-lg bg-[#EEEEEE]">
             Show all
           </button>
         </div>

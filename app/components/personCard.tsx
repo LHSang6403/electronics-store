@@ -9,7 +9,7 @@ interface PersonCardProps {
 export default function PersonCard({ data }: PersonCardProps): JSX.Element {
   const { name, image, description } = data;
   return (
-    <div className="w-52 xl:w-56 sm:w-48 h-full shadow-lg overflow-hidden flex flex-col justify-end items-end hover:cursor-pointer bg-white [transition:transform_0.5s_ease] hover:scale-[1.02]">
+    <div className="w-52 xl:w-56 sm:w-64 h-full shadow-lg overflow-hidden flex flex-col justify-end items-end hover:cursor-pointer bg-white [transition:transform_0.5s_ease] hover:scale-[1.02]">
       <img
         className="w-full h-full object-cover [transition:transform_0.5s_ease] hover:scale-[1.04]"
         src={image}

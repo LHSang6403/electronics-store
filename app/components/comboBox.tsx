@@ -66,7 +66,7 @@ export default function Combobox({ data }: ComboboxProps): JSX.Element {
           aria-expanded={open}
           className="w-fit justify-between"
         >
-          {value === ""
+          {value === null
             ? frameworks.find((framework) => framework.value === value)?.label
             : title}
           <ChevronsUpDown className="h-4 w-4 ml-2 shrink-0 opacity-50" />
