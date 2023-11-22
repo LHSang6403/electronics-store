@@ -294,7 +294,7 @@ export default function Product({
             </div>
           </TabsContent>
           <TabsContent value="review">
-            <div className="w-full h-fit flex flex-row sm:flex-col justify-center gap-4">
+            <div className="w-full h-fit flex flex-row sm:flex-col justify-center gap-4 sm:pb-4">
               <div className="w-[600px] xl:w-1/2 sm:w-full h-[410px] overflow-auto px-4 py-2 border rounded-lg border-[#E5E7EB] bg-[#FCFCFC]">
                 <Table className="w-fit h-fit mx-auto">
                   <TableHeader>
@@ -477,13 +477,9 @@ function DescribeIn2Cols({
       <img
         className="w-1/2 sm:w-full mx-6 sm:m-0"
         alt="prod-description-1"
-        // src={productDetailImagesData[parseInt(params.id)].images[1]}
         src={image}
       ></img>
-      <p className="w-1/2 sm:w-full h-auto text-justify">
-        {/* {productDetailDescriptionsData[parseInt(params.id)].description} */}
-        {description}
-      </p>
+      <p className="w-1/2 sm:w-full h-auto text-justify">{description}</p>
     </div>
   );
 }
