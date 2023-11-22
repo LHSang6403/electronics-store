@@ -56,9 +56,9 @@ export default function Home(): ReturnType<React.FC> {
           <TrendingCategories />
         </div>
         <div className="w-full h-auto mt-10 mb-8">
-          <div className="w-[90%] h-[70px] bg-primary mx-auto text-3xl font-semibold border-2 border-b-0 border-black rounded-t-3xl flex flex-row justify-center items-center">
+          {/* <div className="w-[90%] h-[70px] bg-primary mx-auto text-3xl font-semibold border-2 border-b-0 border-black rounded-t-3xl flex flex-row justify-center items-center">
             Electrical Store
-          </div>
+          </div> */}
           <ItemsContainer check={{ isAllProducts: false }} />
         </div>
       </main>

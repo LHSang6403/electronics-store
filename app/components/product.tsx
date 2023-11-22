@@ -15,7 +15,7 @@ export default function Product(props: ProductData): JSX.Element {
   const data: ProductData = props;
 
   return (
-    <div className="w-36 h-48 xl:w-[156px] sm:w-[170px] sm:h-48 mx-2 xl:mx-auto my-4 sm:my-2 rounded-xl shadow-lg flex flex-col items-center justify-start bg-[#EEEEEE] hover:cursor-pointer">
+    <div className="w-36 h-48 xl:w-[156px] sm:w-32 sm:h-48 mx-2 xl:mx-auto my-4 sm:my-2 rounded-xl shadow-lg flex flex-col items-center justify-start bg-[#EEEEEE] hover:cursor-pointer">
       <div className="p-1 pb-0">
         <Link href={`/product/${data.id}`}>
           <img

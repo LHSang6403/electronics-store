@@ -33,7 +33,10 @@ export default function ItemsContainer({
   const filters: string[] = ["Price", "Brand", "Rating", "Sale", "Functions"];
 
   return (
-    <div className="w-[90%] h-full mx-auto py-5 xl:pb-0 sm:pb-4 xl:pt-3 sm:pt-2 rounded-b-3xl xl:rounded-b-2xl sm:rounded-b-2xl border-2 border-t-0 border-black">
+    <div className="w-fit h-full overflow-hidden mt-4 mx-auto xl:pb-0 sm:pb-6 rounded-3xl xl:rounded-2xl sm:rounded-2xl border-2 border-black">
+      <div className="w-full h-[70px] mb-4 bg-primary text-3xl font-semibold flex justify-center items-center">
+        Electrical Store
+      </div>
       {isAllProducts && (
         <div
           className="w-fit sm:w-auto h-fit mx-14 xl:mx-5 sm:mx-3 mb-2 -mt-2 xl:-mt-0 
@@ -51,7 +54,7 @@ export default function ItemsContainer({
         const sections = [];
         for (let i = 0; i < 4; i++) {
           sections.push(
-            <div key={i}>
+            <div className="w-fit" key={i}>
               <div className="w-auto h-8 mx-14 xl:mx-5 sm:mx-3 flex flex-row justify-between items-center">
                 <div className="w-fit h-fit flex flex-row items-center hover:cursor-pointer">
                   <h2 className="w-fit h-fit py-2 text-center text-2xl xl:text-xl">
@@ -77,7 +80,7 @@ export default function ItemsContainer({
                 </div>
               </div>
               <hr className="w-auto h-[1px] mx-14 xl:mx-4 sm:mx-3 border-none rounded bg-black"></hr>
-              <div>
+              <div className="px-2">
                 {/* {!isAllProducts && (
                   <img
                     className="w-5 h-5 sm:hidden opacity-70 hover:opacity-100 hover:cursor-pointer"
@@ -88,8 +91,8 @@ export default function ItemsContainer({
                 {!isAllProducts ? (
                   <div
                     className="
-                  flex flex-row justify-center items-center
-                  sm:grid sm:grid-cols-2 sm:place-items-center sm:mx-0"
+                  flex flex-row justify-center items-center gap-2
+                  sm:grid sm:grid-cols-2 sm:place-items-center sm:gap-1"
                   >
                     {data.slice(0, 4).map((prod: ProductData) => (
                       <div className="" key={prod.id}>
@@ -99,8 +102,8 @@ export default function ItemsContainer({
                   </div>
                 ) : (
                   <div
-                    className="grid grid-cols-4 grid-rows-3
-                  sm:grid-cols-2 sm:grid-rows-6 sm:place-items-center"
+                    className="grid grid-cols-4 grid-rows-3 gap-2
+                  sm:grid-cols-2 sm:grid-rows-6 sm:place-items-center sm:gap-1"
                   >
                     {data.slice(0, 12).map((prod: ProductData) => (
                       <div className="" key={prod.id}>
