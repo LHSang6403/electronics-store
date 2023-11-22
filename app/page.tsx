@@ -50,7 +50,7 @@ export default function Home(): ReturnType<React.FC> {
           <Top2Items />
         </div>
         <div className="w-full h-fit mt-8 bg-slate-300 flex flex-col items-center">
-          <div className="w-full mb-8 p-2 flex flex-row justify-center items-center text-3xl font-semibold">
+          <div className="w-full h-fit mb-8 p-2 flex flex-row justify-center items-center text-3xl font-semibold">
             Trending Categories
           </div>
           <TrendingCategories />
