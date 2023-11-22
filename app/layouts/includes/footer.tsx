@@ -7,7 +7,7 @@ export default function Footer(): JSX.Element {
       >
         <div className="w-full">
           <img
-            className="w-[150px] h-fit xl:w-[120px] sm:w-[100px]"
+            className="w-[150px] h-[47px] xl:w-[120px] xl:h-[37px] sm:w-[100px] sm:h-[31px]"
             alt="logo"
             src="/assets/logo.png"
           ></img>
