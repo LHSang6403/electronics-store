@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Providers } from "../redux/provider";
-import MainLayout from "./layouts/mainLayout";
+import { Providers } from "@redux/provider";
 
 export const metadata: Metadata = {
   title: "Electronics store",
-  description: "No description",
+  description: "An online store for electronics products in Vietnam",
 };
 
 export default function RootLayout({
@@ -15,10 +14,8 @@ export default function RootLayout({
 }): ReturnType<React.FC> {
   return (
     <html lang="en">
-      <body className="">
-        <Providers>
-          <MainLayout>{children}</MainLayout>
-        </Providers>
+      <body>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
