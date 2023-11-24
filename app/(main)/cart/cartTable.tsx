@@ -12,7 +12,6 @@ import {
 } from "../../../components/ui_shadcn/table-custom";
 import products from "@dummyApi/products";
 import Sale from "./sale";
-import { Underline } from "lucide-react";
 import QuantityButton from "./quantityButton";
 
 export default function CartTable(): JSX.Element {
