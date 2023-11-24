@@ -12,13 +12,13 @@ export default function People(): JSX.Element {
   return (
     <div className="w-full h-full rounded-b-[36px] bg-black py-2">
       <div className="w-auto mx-4 h-fit overflow-hidden flex flex-row  justify-center items-end">
-        <ul className="w-fit h-fit py-8 flex flex-row sm:flex-col justify-center items-end gap-8">
+        <ul className="w-[90%] h-fit py-8 flex flex-row sm:flex-col justify-center items-end gap-8">
           <li className="w-fit h-[370px] sm:hidden" key="0">
             <PersonCard data={personCardList[personCardList.length - 1]} />
           </li>
           {personCardList.map((each, index) => (
             <li
-              className={`w-fit mx-auto ${
+              className={`w-[90%] mx-auto ${
                 index === Math.floor(personCardList.length / 2)
                   ? "h-[450px]"
                   : "h-[420px]"

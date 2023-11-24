@@ -17,14 +17,14 @@ export default function About(): JSX.Element {
   const bannerData: SquareBannerProps = banner;
 
   return (
-    <div className="w-full h-auto">
+    <div className="w-full h-auto flex flex-col gap-8 pb-8">
       <div className="w-full overflow-hidden h-fit pt-2 flex flex-row sm:flex-col justify-center items-center sm:gap-4">
         <div className="w-fit h-fit transform skew-x-[20deg] overflow-hidden flex justify-center items-center p-2 sm:pt-0 sm:px-4">
           <div className="transform skew-x-[-20deg]">
             <SquareBanner data={bannerData} />
           </div>
         </div>
-        <div className="w-1/2 xl:w-full h-[460px] sm:h-fit flex flex-col justify-center items-center p-2 pl-0">
+        <div className="w-1/2 xl:w-full h-fit sm:h-fit flex flex-col justify-center items-center p-2 pl-0">
           <TopProfile />
           <hr className="w-[90%] h-[1px] my-2 border-none bg-black"></hr>
           <HighlightCards />
@@ -32,15 +32,17 @@ export default function About(): JSX.Element {
         </div>
       </div>
       <Story />
-      <Mission />
-      <div className="w-full h-fit bg-black text-white pt-6 py-4 flex flex-row justify-center items-center text-3xl font-medium">
-        Meet Our Cores
+      <div>
+        <Mission />
+        <div className="w-full h-fit bg-black text-white py-6 flex flex-row justify-center items-center text-3xl font-medium">
+          Meet Our Cores
+        </div>
+        <People />
       </div>
-      <People />
-      <div className="w-full h-fit pt-8 pb-2 flex flex-row justify-center items-center text-3xl font-medium">
+      <div className="w-full h-fit py-6 flex flex-row justify-center items-center text-3xl font-medium">
         Our Journey
       </div>
-      <div className="w-full h-fit mt-8 px-32 sm:px-4 pb-8 flex flex-row justify-center items-center">
+      <div className="w-full h-fit px-32 sm:px-4 flex flex-row justify-center items-center">
         <TimeLine />
       </div>
     </div>

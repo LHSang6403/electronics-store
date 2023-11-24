@@ -1,10 +1,10 @@
 export default function Story(): JSX.Element {
   return (
     <>
-      <div className="w-full h-fit mt-4 py-4 flex flex-row justify-center items-center text-3xl font-medium">
+      <div className="w-full h-fit py-4 flex flex-row justify-center items-center text-3xl font-medium">
         Our Story
       </div>
-      <div className="w-full h-fit mt-8 px-20 sm:px-4 font-light text-justify">
+      <div className="w-full h-fit px-20 sm:px-4 font-light text-justify">
         At our electronic store, we embarked on a journey driven by a passion
         for technology and a commitment to providing a seamless and innovative
         shopping experience. Recognizing the ever-growing demand for

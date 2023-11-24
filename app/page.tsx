@@ -13,8 +13,8 @@ export default function Home(): ReturnType<React.FC> {
     <>
       <Header />
       <TopMenu />
-      <div className="w-[1050px] xl:w-full lg:w-full sm:w-full xl:px-6 lg:px-6 sm:px-0 mx-auto bg-[#f5f5f555]">
-        <main className="flex h-auto min-h-screen flex-col items-center justify-start">
+      <main className="w-[1050px] xl:w-full lg:w-full sm:w-full xl:px-6 lg:px-6 sm:px-0 mx-auto bg-[#f5f5f555]">
+        <div className="flex h-auto min-h-screen flex-col items-center justify-start">
           <div className="w-full h-[500px] sm:h-fit flex flex-row sm:flex-col xl:gap-4 sm:gap-4">
             <div className="w-2/5 sm:w-full h-full pl-2 xl:pl-0 sm:pl-0 overflow-hidden flex flex-col justify-center items-center xl:items-start">
               <h1 className="w-[88%] xl:w-full sm:px-4 text-2xl xl:text-xl sm:text-xl font-bold">
@@ -56,7 +56,7 @@ export default function Home(): ReturnType<React.FC> {
             <Top2Items />
           </div>
           <div className="w-full h-auto mt-8 flex flex-col items-center">
-            <div className="w-full mb-8 p-2 flex flex-row justify-center items-center text-3xl font-semibold">
+            <div className="w-full p-2 mb-8 flex flex-row justify-center items-center text-3xl font-semibold">
               Trending Categories
             </div>
             <TrendingCategories />
@@ -64,8 +64,8 @@ export default function Home(): ReturnType<React.FC> {
           <div className="w-full h-auto my-8">
             <ItemsContainer check={{ isAllProducts: false }} />
           </div>
-        </main>
-      </div>
+        </div>
+      </main>
       <Footer />
     </>
   );

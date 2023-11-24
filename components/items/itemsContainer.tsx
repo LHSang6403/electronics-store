@@ -35,7 +35,7 @@ export default function ItemsContainer({
   const filters: string[] = ["Price", "Brand", "Rating", "Sale", "Functions"];
 
   return (
-    <div className="w-fit h-full overflow-hidden mt-4 mx-auto sm:pb-6 rounded-3xl xl:rounded-2xl sm:rounded-2xl border-2 border-black">
+    <div className="w-fit h-full overflow-hidden mt-4 mx-auto rounded-3xl xl:rounded-2xl sm:rounded-2xl border-2 border-black">
       <div className="w-full h-[70px] mb-4 bg-primary text-3xl font-semibold flex justify-center items-center">
         Electrical Store
       </div>
@@ -57,7 +57,7 @@ export default function ItemsContainer({
         for (let i = 0; i < 4; i++) {
           sections.push(
             <div className="w-fit" key={i}>
-              <div className="w-auto h-8 mx-14 xl:mx-5 sm:mx-5 flex flex-row justify-between items-center">
+              <div className="w-auto h-8 mt-2 mx-14 xl:mx-5 sm:mx-5 flex flex-row justify-between items-center">
                 <div className="w-fit h-fit flex flex-row items-center hover:cursor-pointer">
                   <h2 className="w-fit h-fit py-2 text-center text-2xl xl:text-xl">
                     {categories[i]}
@@ -93,7 +93,7 @@ export default function ItemsContainer({
                 {!isAllProducts ? (
                   <div
                     className="
-                  flex flex-row justify-center items-center gap-2 px-4
+                  flex flex-row justify-center items-center gap-2 p-2
                   sm:grid sm:grid-cols-2 sm:place-items-center"
                   >
                     {data.slice(0, 4).map((prod: ProductData) => (
@@ -104,7 +104,7 @@ export default function ItemsContainer({
                   </div>
                 ) : (
                   <div
-                    className="grid grid-cols-4 grid-rows-3 gap-2 px-4
+                    className="grid grid-cols-4 grid-rows-3 gap-2 p-2
                   sm:grid-cols-2 sm:grid-rows-6 sm:place-items-center"
                   >
                     {data.slice(0, 12).map((prod: ProductData) => (
@@ -114,7 +114,6 @@ export default function ItemsContainer({
                     ))}
                   </div>
                 )}
-
                 {/* {!isAllProducts && (
                   <img
                     className="w-5 h-5 sm:hidden opacity-70 hover:opacity-100 hover:cursor-pointer"
@@ -129,7 +128,7 @@ export default function ItemsContainer({
         return sections;
       })()}
       {!isAllProducts && (
-        <div className="w-full h-8 flex justify-center mt-2 mb-4 sm:mb-0">
+        <div className="w-full h-8 flex justify-center mt-2 mb-4">
           <button className="w-28 h-full rounded-lg shadow-lg bg-[#EEEEEE]">
             Show all
           </button>

@@ -8,7 +8,7 @@ export default function HighlightCards(): JSX.Element {
   const highlightCartList: HighlightCartProps[] = highlightCard;
 
   return (
-    <div className="w-[90%] h-fit sm:pb-2 sm:overflow-auto flex flex-row justify-start items-center gap-2">
+    <div className="w-[90%] h-fit sm:overflow-auto flex flex-row justify-start items-center gap-2">
       {highlightCartList.map((each, index) => (
         <div className="w-fit h-fit rounded-lg" key={index}>
           <HighlightCart title={each.title} content={each.content} />
@@ -22,7 +22,7 @@ function HighlightCart({ title, content }: HighlightCartProps): JSX.Element {
   return (
     <div className="w-full h-full p-1 flex flex-col justify-center items-center">
       <h2 className="text-primary text-xl sm:text-base font-medium">{title}</h2>
-      <p className="h-10 text-center text-[14px]">{content}</p>
+      <p className="w-fit h-fit text-center text-[14px]">{content}</p>
     </div>
   );
 }
