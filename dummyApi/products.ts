@@ -40,7 +40,7 @@ const products: ProductData[] = [
       "The MacBook Pro, a flagship laptop by Apple, blends sleek design with powerful performance. Featuring a stunning Retina display and driven by Intel processors or Apple's M1 chip, it excels in speed and efficiency.",
     image: "/assets/products/smartphone.png",
     rating: 4.8,
-    sale: "Hot sale 11/11 - x2 items",
+    sale: "Hot sale ",
   },
   {
     id: 3,
@@ -62,7 +62,7 @@ const products: ProductData[] = [
       "Transform your entertainment experience with this stunning 4K Smart TV.",
     image: "/assets/products/smartphone.png",
     rating: 4.7,
-    sale: "Sale off 20%",
+    sale: "Sale off",
   },
   {
     id: 5,
@@ -73,7 +73,7 @@ const products: ProductData[] = [
       "Capture moments in crystal-clear detail with this advanced digital camera.",
     image: "/assets/products/smartphone.png",
     rating: 4.6,
-    sale: "Free shipping",
+    sale: "Free ship",
   },
   {
     id: 6,

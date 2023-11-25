@@ -18,7 +18,7 @@ const bannerData: SquareBannerProps = {
 
 export default function Cart(): JSX.Element {
   return (
-    <div className="w-full h-auto flex flex-col gap-8 pb-8">
+    <>
       <div className="w-full h-[250px] sm:h-fit shadow-lg overflow-hidden">
         <Banner />
       </div>
@@ -31,7 +31,7 @@ export default function Cart(): JSX.Element {
       <div className="w-full h-fit bg-primary py-4 flex flex-row justify-center items-center text-3xl font-semibold">
         Payment
       </div>
-      <div className="w-[90%] h-[600px] sm:h-fit pb-8 mx-auto flex flex-row sm:flex-col-reverse justify-center gap-4">
+      <div className="w-[90%] h-fit mx-auto flex flex-row sm:flex-col-reverse justify-center items-center gap-4">
         <div className="w-1/2 sm:w-full h-full flex flex-col justify-center items-center">
           <SquareBanner data={bannerData} />
         </div>
@@ -39,6 +39,6 @@ export default function Cart(): JSX.Element {
           <Payments />
         </div>
       </div>
-    </div>
+    </>
   );
 }

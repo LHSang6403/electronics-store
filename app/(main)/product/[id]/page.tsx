@@ -71,7 +71,7 @@ export default function Product({
   const squareBannerData: SquareBanner = mapProductToSquareBanner(productData);
 
   return (
-    <div className="w-full h-auto flex flex-col gap-8 pb-8">
+    <>
       <ProductInfo
         data={{
           squareBannerData,
@@ -81,9 +81,9 @@ export default function Product({
       <div className="w-full h-[250px] sm:h-fit shadow-lg overflow-hidden">
         <Banner />
       </div>
-      <div className="w-full h-auto p-10 sm:p-4 pt-4 rounded-[36px] bg-[whitesmoke]">
+      <div className="w-full h-auto p-10 sm:p-4 pt-2 rounded-[36px] bg-[whitesmoke]">
         <Tabs defaultValue="description" className="w-full">
-          <TabsList className="flex flex-row justify-center">
+          <TabsList className="flex flex-row justify-center gap-1 my-2">
             <TabsTrigger value="description">Description</TabsTrigger>
             <TabsTrigger value="warranty">Warranty</TabsTrigger>
             <TabsTrigger value="review">Review</TabsTrigger>
@@ -109,6 +109,6 @@ export default function Product({
           </TabsContent>
         </Tabs>
       </div>
-    </div>
+    </>
   );
 }

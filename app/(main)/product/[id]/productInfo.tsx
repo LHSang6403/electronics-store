@@ -13,6 +13,7 @@ interface ProductData {
   name: string;
   price: number;
   category: string;
+  description: string;
   image: string;
   rating: number;
   sale?: string;
@@ -30,9 +31,9 @@ export default function ProductInfo({
 }: ProductInfoProps): JSX.Element {
   return (
     <div className="w-full h-auto flex flex-row sm:flex-col justify-center items-center">
-      <div className="w-[40%] sm:w-full h-[500px]">
+      <div className="w-[40%] sm:w-full h-[500px] sm:overflow-hidden">
         <div className="w-[70%] h-[94%] my-[3%] pt-[calc((470px_-_250px)_/_2)] rounded-r-2xl bg-black">
-          <ul className="w-fit h-[250px] border-[1px] ml-8 xl:ml-4 rounded-lg border-white flex flex-col justify-center items-center">
+          <ul className="w-fit h-[70%] border-[1px] ml-8 xl:ml-4 rounded-lg border-white flex flex-col justify-center items-center">
             <li>
               <img
                 className="w-12 h-12 mr-1"
@@ -58,7 +59,7 @@ export default function ProductInfo({
               ></img>
             </li>
           </ul>
-          <div className="w-[400px] h-[400px] bg-yellow-00 relative left-16 xl:left-6 sm:left-8 -top-[330px]">
+          <div className="w-[130%] h-full relative scale-125 xl:scale-110 left-16 sm:left-9 -top-[86%]">
             <img
               className="w-full h-full object-cover rounded-3xl [transition:transform_0.5s_ease] group-hover:scale-[1.01]"
               src={squareBannerData.image}

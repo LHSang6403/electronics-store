@@ -56,7 +56,7 @@ export default function ItemsContainer({
         const sections = [];
         for (let i = 0; i < 4; i++) {
           sections.push(
-            <div className="w-fit" key={i}>
+            <div className="w-fit pb-3" key={i}>
               <div className="w-auto h-8 mt-2 mx-14 xl:mx-5 sm:mx-5 flex flex-row justify-between items-center">
                 <div className="w-fit h-fit flex flex-row items-center hover:cursor-pointer">
                   <h2 className="w-fit h-fit py-2 text-center text-2xl xl:text-xl">
@@ -128,7 +128,7 @@ export default function ItemsContainer({
         return sections;
       })()}
       {!isAllProducts && (
-        <div className="w-full h-8 flex justify-center mt-2 mb-4">
+        <div className="w-full h-8 flex justify-center mb-5">
           <button className="w-28 h-full rounded-lg shadow-lg bg-[#EEEEEE]">
             Show all
           </button>

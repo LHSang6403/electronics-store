@@ -49,7 +49,7 @@ export default function CartTable(): JSX.Element {
               ></img>
             </TableCell>
             <TableCell className="text-base font-semibold leading-10 overflow-hidden">
-              <p className="max-w-[100%] break-words line-clamp-3 sm:line-clamp-2 leading-6">
+              <p className="max-w-[100%] break-words line-clamp-3 sm:line-clamp-4 leading-6">
                 {line.name}
               </p>
               <div className="hidden sm:flex flex-row items-center gap-3">
@@ -60,10 +60,14 @@ export default function CartTable(): JSX.Element {
                 ></img>
                 <p className="text-sm font-light">{line.category}</p>
               </div>
-              {line.sale !== undefined && line.sale !== "" && (
-                <div className="sm:hidden">
+              {line.sale !== undefined && line.sale !== "" ? (
+                <div className="sm:hidden xl:font-light">
                   <Sale data={line.sale} />
                 </div>
+              ) : (
+                <p className="hidden xl:block sm:hidden text-sm font-light ml-2">
+                  {line.category}
+                </p>
               )}
             </TableCell>
             <TableCell className="text-center text-lg leading-10 xl:hidden">
@@ -78,8 +82,8 @@ export default function CartTable(): JSX.Element {
                   <Sale data={line.sale} />
                 </div>
               )}
-              {formatCurrencyWithCommas(line.price)}
-              <div className="hidden sm:block">
+              <p className="sm:mt-1">{formatCurrencyWithCommas(line.price)}</p>
+              <div className="hidden xl:block">
                 <QuantityButton />
               </div>
             </TableCell>
@@ -90,10 +94,10 @@ export default function CartTable(): JSX.Element {
         <TableRow className="text-lg">
           <TableCell className="sm:hidden"></TableCell>
           <TableCell>
-            <p className="text-xl flex flex-row items-center">Total price</p>
+            <p className="flex flex-row items-center">Total price</p>
           </TableCell>
-          <TableCell className="sm:hidden"></TableCell>
-          <TableCell className="sm:hidden"></TableCell>
+          <TableCell className="xl:hidden"></TableCell>
+          <TableCell className="xl:hidden"></TableCell>
           <TableCell className="text-right sm:text-base">
             {formatCurrencyWithCommas(2500000)}
           </TableCell>

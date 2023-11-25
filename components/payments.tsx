@@ -80,7 +80,7 @@ export default function Payments(): JSX.Element {
         </div>
       </CardContent>
       <CardFooter>
-        <Button className="h-9 bg-primary" onClick={() => {}}>
+        <Button className="h-9 bg-primary text-black" onClick={() => {}}>
           Check out
         </Button>
       </CardFooter>

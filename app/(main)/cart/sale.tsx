@@ -4,13 +4,17 @@ interface SaleProps {
 
 export default function Sale({ data }: SaleProps): JSX.Element {
   return (
-    <div className="w-fit h-fit flex flex-row mt-1 text-base text-primary">
+    <div className="w-fit h-fit flex flex-row mt-1 text-base sm:text-sm text-primary">
       <img
-        className="w-5 h-5 relative -top-0.5"
+        className="w-5 h-5 relative -top-0.5 left-2"
         alt="sale-tag"
         src="/assets/sale-tag.png"
       ></img>
-      <p className="sm:max-w-[150px] sm:text-base overflow-hidden whitespace-nowrap overflow-ellipsis -ml-3 border-[1px] border-primary sm:border-none rounded-lg px-2">
+      <p
+        className="sm:w-fit sm:max-w-[130px]
+       overflow-hidden whitespace-nowrap overflow-ellipsis
+       -ml-1 border-[1px] border-primary rounded-lg px-2 sm:px-1"
+      >
         {data}
       </p>
     </div>

@@ -17,7 +17,7 @@ export default function About(): JSX.Element {
   const bannerData: SquareBannerProps = banner;
 
   return (
-    <div className="w-full h-auto flex flex-col gap-8 pb-8">
+    <>
       <div className="w-full overflow-hidden h-fit pt-2 flex flex-row sm:flex-col justify-center items-center sm:gap-4">
         <div className="w-fit h-fit transform skew-x-[20deg] overflow-hidden flex justify-center items-center p-2 sm:pt-0 sm:px-4">
           <div className="transform skew-x-[-20deg]">
@@ -45,6 +45,6 @@ export default function About(): JSX.Element {
       <div className="w-full h-fit px-32 sm:px-4 flex flex-row justify-center items-center">
         <TimeLine />
       </div>
-    </div>
+    </>
   );
 }
