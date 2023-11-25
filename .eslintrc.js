@@ -26,12 +26,7 @@ module.exports = {
     "react/prop-types": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
-    "react/no-unknown-property": [
-      2,
-      {
-        ignore: ["jsx"],
-      },
-    ],
+    "react/no-unknown-property": "off",
   },
   settings: {
     react: {
