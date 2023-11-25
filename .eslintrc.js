@@ -24,6 +24,8 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off",
     "react/prop-types": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
   },
   settings: {
     react: {
