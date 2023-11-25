@@ -26,6 +26,7 @@ module.exports = {
     "react/prop-types": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
+    "react/no-unknown-property": ["error", { ignore: ["css"] }],
   },
   settings: {
     react: {
