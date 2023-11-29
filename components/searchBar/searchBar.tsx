@@ -59,7 +59,7 @@ const SearchBar = (props: any): ReturnType<React.FC> => {
               <SelectValue placeholder="All Category" />
             </SelectTrigger>
             <SelectContent
-              className="max-h-[350px] mt-1 rounded-xl shadow-lg border-2 border-black bg-transparent overflow-scroll-y
+              className="max-h-[350px] mt-1 rounded-xl shadow-lg border-[1px] border-[#EEEEEE] bg-transparent overflow-scroll-y
             lg:relative lg:-left-16"
             >
               <div className="w-auto h-9 text-lg font-normal bg-primary rounded-t-2 pl-3 flex flex-row justify-between items-center">
@@ -121,7 +121,7 @@ const SearchBar = (props: any): ReturnType<React.FC> => {
         {}
       </form>
       {query !== "" && filteredItems.length !== 0 && (
-        <div className="absolute left-[calc((100vw_-_600px)_/_2)] h-auto pb-1 max-h-[600px] overflow-y-auto w-[600px] mt-1 z-50 border-2 border-black rounded-xl shadow-lg bg-[whitesmoke]">
+        <div className="absolute left-[calc((100vw_-_600px)_/_2)] h-auto pb-1 max-h-[600px] overflow-y-auto w-[600px] mt-1 z-50 border-[1px] border-[#EEEEEE] rounded-xl shadow-lg bg-[whitesmoke]">
           <div
             className="w-full h-11 bg-primary pl-4 text-lg font-normal flex flex-row items-center"
             onMouseEnter={() => {
@@ -151,7 +151,7 @@ const SearchBar = (props: any): ReturnType<React.FC> => {
                     </p>
                   </div>
                 </div>
-                <div className="w-fit h-4/6 pl-2 text-sm pt-1.5">
+                <div className="w-fit h-4/6 pl-2 font-normal text-base pt-1.5">
                   {item.price} VND
                 </div>
               </div>

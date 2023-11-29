@@ -30,9 +30,9 @@ export default function Cards(): JSX.Element {
               alt={`img-card-${card.id}`}
               src={card.image}
             ></img>
-            <h2 className="w-fit h-fit mx-auto text-2xl xl:text-xl sm:text-xl">
+            <p className="w-fit h-fit mx-auto text-2xl xl:text-xl sm:text-xl">
               {card.title}
-            </h2>
+            </p>
             <p className="w-[94%] h-20 mx-auto text-center text-[12px]">
               {card.description}
             </p>
@@ -49,9 +49,9 @@ export default function Cards(): JSX.Element {
                 alt={`img-card-${card.id}`}
                 src={card.image}
               ></img>
-              <h1 className="w-fit h-fit mx-auto mb-1 sm:mb-2 font-semibold text-[26px]">
+              <p className="w-fit h-fit mx-auto mb-1 sm:mb-2 font-semibold text-[26px]">
                 {card.title}
-              </h1>
+              </p>
               <button
                 onClick={() => {}}
                 className="w-[130px] h-[36px] sm:text-sm rounded-lg text-white bg-primary"

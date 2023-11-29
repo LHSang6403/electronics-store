@@ -1,7 +1,12 @@
+"use client";
+
 import { configureStore } from "@reduxjs/toolkit";
+import cartActionsReducer from "./actions/cart";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    cartReducer: cartActionsReducer,
+  },
   //   devTools: process.env.NODE_ENV !== "production",
 });
 

@@ -26,7 +26,7 @@ export default function Product(props: ProductData): JSX.Element {
         </Link>
       </div>
       <div className="w-full h-full flex flex-col justify-center items-center">
-        <h1 className="w-full px-2 text-lg xl:text-base sm:text-base overflow-hidden whitespace-nowrap overflow-ellipsis">
+        <h1 className="w-full px-2 text-base xl:text-base sm:text-base overflow-hidden whitespace-nowrap overflow-ellipsis">
           {data.name}
         </h1>
         <div className="w-full px-2 flex flex-row justify-between flex-start">

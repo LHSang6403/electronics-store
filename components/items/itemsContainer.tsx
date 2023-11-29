@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import Product from "./product";
 import products from "@dummyApi/products";
 import Combobox from "../buttons/comboBox";
@@ -128,10 +130,13 @@ export default function ItemsContainer({
         return sections;
       })()}
       {!isAllProducts && (
-        <div className="w-full h-8 flex justify-center mb-5">
-          <button className="w-28 h-full rounded-lg shadow-lg bg-[#EEEEEE]">
+        <div className="w-full h-fit flex justify-center mb-5">
+          <Link
+            href="/products"
+            className="w-28 h-8 flex justify-center items-center rounded-lg shadow-lg bg-[#EEEEEE]"
+          >
             Show all
-          </button>
+          </Link>
         </div>
       )}
     </div>

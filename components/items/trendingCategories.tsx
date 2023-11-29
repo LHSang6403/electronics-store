@@ -1,4 +1,7 @@
+"use client";
+
 import trendingCategories from "@dummyApi/trendingCategories";
+import PrimaryButton from "@components/buttons/primaryButton";
 
 interface TrendingCategory {
   id: number;
@@ -31,7 +34,7 @@ export default function TrendingCategories(): JSX.Element {
             src={item.image}
           ></img>
           <p className="h-8 text-xl sm:text-lg">{item.name}</p>
-          <button className="w-24 h-8 bg-primary sm:text-base">Select</button>
+          <PrimaryButton name="See more" onClick={() => {}} />
         </div>
       ))}
     </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import items from "@dummyApi/top2Items";
+import PrimaryButton from "@components/buttons/primaryButton";
 
 interface TopItem {
   id: number;
@@ -35,12 +36,7 @@ export default function Top2Items(): JSX.Element {
               <p className="w-full text-justify text-[14px]">
                 {item.description}
               </p>
-              <button
-                onClick={() => {}}
-                className="w-[100px] h-[40px] mx-auto my-2 bg-primary"
-              >
-                Buy now
-              </button>
+              <PrimaryButton name={"Buy now"} onClick={() => {}} />
             </div>
           </div>
         </div>

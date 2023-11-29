@@ -1,6 +1,12 @@
+"use client";
+
 import RatingStars from "@components/buttons/ratingStars";
 import formatCurrencyWithCommas from "@utils/formatCurrency";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+import { useDispatch } from "react-redux";
+import { addProd } from "@redux/actions/cart";
 
 interface SquareBanner {
   image: string;
@@ -29,6 +35,15 @@ interface ProductInfoProps {
 export default function ProductInfo({
   data: { squareBannerData, productData },
 }: ProductInfoProps): JSX.Element {
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const handleOnBuyNow = () => {
+    console.log("buy now");
+    dispatch(addProd(productData));
+    router.push("/cart");
+  };
+
   return (
     <div className="w-full h-auto flex flex-row sm:flex-col justify-center items-center">
       <div className="w-[40%] sm:w-full h-[500px] sm:overflow-hidden">
@@ -98,9 +113,22 @@ export default function ProductInfo({
               {productData.description}
             </p>
           </div>
-          <button className="w-28 h-10 mt-8 ml-10 sm:mx-auto text-xl bg-primary shadow-lg font-semibold">
-            Buy now
-          </button>
+          <div className="flex flex-row justify-start gap-6">
+            <button
+              className="w-28 h-10 mt-8 ml-10 sm:mx-auto text-xl bg-primary shadow-lg font-semibold"
+              onClick={() => {
+                handleOnBuyNow();
+              }}
+            >
+              Buy now
+            </button>
+            <button
+              className="w-28 h-10 mt-8 sm:mx-auto text-xl bg-primary shadow-lg font-semibold"
+              onClick={() => dispatch(addProd(productData))}
+            >
+              Add cart
+            </button>
+          </div>
         </div>
       </div>
     </div>
