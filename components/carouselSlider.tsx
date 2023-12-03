@@ -4,7 +4,13 @@ import "react-slideshow-image/dist/styles.css";
 import { Zoom } from "react-slideshow-image";
 import sliderImgs from "@dummyApi/slider";
 
-function CarouselSlider(): JSX.Element {
+async function waiting(): Promise<void> {
+  await new Promise((resolve) => setTimeout(resolve, 0));
+}
+
+async function CarouselSlider(): Promise<JSX.Element> {
+  await waiting();
+
   const zoomInProperties = {
     scale: 1,
     duration: 5000,

@@ -1,4 +1,4 @@
-import Banner from "@components/banners/banner";
+import Banner from "@components/banners/Banner";
 import {
   Tabs,
   TabsContent,
@@ -6,43 +6,17 @@ import {
   TabsTrigger,
 } from "@components/ui_shadcn/tabs-custom";
 
-import ProductInfo from "./productInfo";
-import ProductDescription from "./productDescription";
-import Warranty from "./warranty";
-import Review from "./review";
+import ProductInfo from "./ProductInfo";
+import ProductDescription from "./ProductDescription";
+import Warranty from "./Warranty";
+import Review from "./Review";
 
-import products from "@dummyApi/products";
-import productDetailImages from "@dummyApi/productDetailImages";
-import productDetailDescriptions from "@dummyApi/productDetailDescriptions";
+import { readProductById, readCategoryById } from "@app/actions/productActions";
 
-interface SquareBanner {
-  image: string;
-  title: string;
-  description: string;
-}
+import { type ProductData } from "@app/interface";
+import { type SquareBanner } from "@app/(main)/product/[id]/interface";
 
-interface ProductData {
-  id: number;
-  name: string;
-  price: number;
-  category: string;
-  description: string;
-  image: string;
-  rating: number;
-  sale?: string;
-}
-
-interface ProductDetailImages {
-  id: number;
-  images: string[];
-}
-
-interface ProductDetailDescription {
-  id: number;
-  name: string;
-  category: string;
-  description: string;
-}
+import { waiting } from "@utils/setTimeOut";
 
 function mapProductToSquareBanner(product: ProductData): SquareBanner {
   return product !== undefined
@@ -58,24 +32,27 @@ function mapProductToSquareBanner(product: ProductData): SquareBanner {
       };
 }
 
-export default function Product({
+export default async function Product({
   params,
 }: {
   params: { id: string };
-}): JSX.Element {
-  const productData: ProductData = products[Number(params.id)];
-  const productDetailImagesData: ProductDetailImages[] = productDetailImages;
-  const productDetailDescriptionsData: ProductDetailDescription[] =
-    productDetailDescriptions;
+}): Promise<JSX.Element> {
+  await waiting(20000);
+
+  const { data: productDatas } = await readProductById(params.id);
+  const productData = productDatas[0] as ProductData;
+
+  const { data: category } = await readCategoryById(params.id);
+  const categoryName = category[0].name as string;
 
   const squareBannerData: SquareBanner = mapProductToSquareBanner(productData);
-
   return (
     <>
       <ProductInfo
         data={{
           squareBannerData,
           productData,
+          categoryName,
         }}
       />
       <div className="w-full h-[250px] sm:h-fit shadow-lg overflow-hidden">
@@ -94,11 +71,8 @@ export default function Product({
           <TabsContent value="description">
             <ProductDescription
               data={{
-                productDetailImagesData,
-                productDetailDescriptionsData,
                 productData,
               }}
-              params={{ id: params.id }}
             />
           </TabsContent>
           <TabsContent value="warranty">

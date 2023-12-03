@@ -1,10 +1,7 @@
-"use client";
-
 import Link from "next/link";
-
-import Product from "./product";
-import products from "@dummyApi/products";
-import Combobox from "../buttons/comboBox";
+import Product from "./Product";
+import Combobox from "../buttons/ComboBox";
+import { readProducts } from "@app/actions/productActions";
 
 interface ProductData {
   id: number;
@@ -21,10 +18,13 @@ interface ItemsContainerProps {
   check: { isAllProducts: boolean };
 }
 
-export default function ItemsContainer({
+export default async function ItemsContainer({
   check: { isAllProducts },
-}: ItemsContainerProps): JSX.Element {
-  const data: ProductData[] = products;
+}: ItemsContainerProps): Promise<JSX.Element> {
+  const { data: products } = await readProducts({
+    check: { isAllProducts },
+  });
+
   const categories: string[] = ["Laptop", "Phone", "Tablet", "Watch", "TV"];
   const top4brands: string[] = ["Apple", "Samsung", "Xiaomi", "Sony", "..."];
   const brandsLines: string[][] = [
@@ -92,14 +92,15 @@ export default function ItemsContainer({
                     src="/assets/black-arrow-left.png"
                   ></img>
                 )} */}
+
                 {!isAllProducts ? (
                   <div
                     className="
                   flex flex-row justify-center items-center gap-2 p-2
                   sm:grid sm:grid-cols-2 sm:place-items-center"
                   >
-                    {data.slice(0, 4).map((prod: ProductData) => (
-                      <div className="" key={prod.id}>
+                    {products?.slice(0, 4).map((prod: ProductData) => (
+                      <div key={prod.id}>
                         <Product {...prod} />
                       </div>
                     ))}
@@ -109,13 +110,14 @@ export default function ItemsContainer({
                     className="grid grid-cols-4 grid-rows-3 gap-2 p-2
                   sm:grid-cols-2 sm:grid-rows-6 sm:place-items-center"
                   >
-                    {data.slice(0, 12).map((prod: ProductData) => (
-                      <div className="" key={prod.id}>
+                    {products?.slice(0, 12).map((prod: ProductData) => (
+                      <div key={prod.id}>
                         <Product {...prod} />
                       </div>
                     ))}
                   </div>
                 )}
+
                 {/* {!isAllProducts && (
                   <img
                     className="w-5 h-5 sm:hidden opacity-70 hover:opacity-100 hover:cursor-pointer"

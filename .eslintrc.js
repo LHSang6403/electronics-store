@@ -27,6 +27,13 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
     "react/no-unknown-property": "off",
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        checksVoidReturn: false,
+      },
+    ],
+    "@typescript-eslint/no-non-null-assertion": "off",
   },
   settings: {
     react: {

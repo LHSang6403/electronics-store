@@ -1,17 +1,13 @@
-import SquareBanner from "@components/banners/squareBanner";
-import TimeLine from "@components/timeLine";
-import TopProfile from "./topProfile";
-import Story from "./story";
-import People from "./people";
-import Mission from "./mission";
+import SquareBanner from "@components/banners/SquareBanner";
+import TimeLine from "@components/TimeLine";
+import TopProfile from "./TopProfile";
+import Story from "./Story";
+import People from "./People";
+import Mission from "./Mission";
 import HighlightCards from "@components/cards/highlightCards";
 import { bannerData as banner } from "@dummyApi/about";
 
-interface SquareBannerProps {
-  image: string;
-  title: string;
-  description: string;
-}
+import { type SquareBannerProps } from "@app/(main)/about/interface";
 
 export default function About(): JSX.Element {
   const bannerData: SquareBannerProps = banner;

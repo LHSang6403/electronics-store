@@ -1,40 +1,16 @@
 "use client";
 
-import RatingStars from "@components/buttons/ratingStars";
-import formatCurrencyWithCommas from "@utils/formatCurrency";
+import RatingStars from "@components/buttons/RatingStars";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-
 import { useDispatch } from "react-redux";
 import { addProd } from "@redux/actions/cart";
 
-interface SquareBanner {
-  image: string;
-  title: string;
-  description: string;
-}
+import { type ProductInfoProps } from "@app/(main)/product/[id]/interface";
 
-interface ProductData {
-  id: number;
-  name: string;
-  price: number;
-  category: string;
-  description: string;
-  image: string;
-  rating: number;
-  sale?: string;
-}
-
-interface ProductInfoProps {
-  data: {
-    squareBannerData: SquareBanner;
-    productData: ProductData;
-  };
-}
-
-export default function ProductInfo({
-  data: { squareBannerData, productData },
-}: ProductInfoProps): JSX.Element {
+export default async function ProductInfo({
+  data: { squareBannerData, productData, categoryName },
+}: ProductInfoProps): Promise<JSX.Element> {
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -84,7 +60,7 @@ export default function ProductInfo({
         </div>
       </div>
       <div className="w-[60%] sm:w-full h-[500px] sm:h-fit px-10 sm:px-4 flex flex-col justify-between">
-        <div className="w-full h-16 pt-3 sm:p-0 flex flex-row justify-center items-center">
+        <div className="w-full h-16 pt-3 mb-1 sm:p-0 flex flex-row justify-center items-center">
           <Link
             href="/"
             className="w-fit h-fit px-2 text-[14px] shadow-lg rounded border-[1px] border-black font-light hover:bg-black hover:text-white"
@@ -96,7 +72,7 @@ export default function ProductInfo({
           <h2 className="text-2xl font-semibold break-words line-clamp-3 leading-8">
             {productData.name}
           </h2>
-          {productData.sale !== "" && (
+          {productData.sale && (
             <div className="w-fit max-w-[400px] h-fit font-semibold px-2 py-1 text-primary rounded-lg shadow-lg bg-black">
               {productData.sale}
             </div>
@@ -105,17 +81,17 @@ export default function ProductInfo({
             <RatingStars rating={productData.rating} />
           </h3>
           <h3 className="text-2xl font-semibold text-primary">
-            {formatCurrencyWithCommas(productData.price)} VND
+            {productData.price}.000 VND
           </h3>
-          <div className="bg-black text-white rounded-2xl shadow-lg p-4 mt-2">
-            <h4 className="text-xl ">{productData.category}</h4>
+          <div className="bg-black h-44 text-white rounded-2xl shadow-lg p-4 mt-2">
+            <h4 className="text-xl">{categoryName}</h4>
             <p className="text-sm text-justify break-words line-clamp-3 leading-5">
               {productData.description}
             </p>
           </div>
-          <div className="flex flex-row justify-start gap-6">
+          <div className="flex flex-row justify-start gap-6 pt-6">
             <button
-              className="w-28 h-10 mt-8 ml-10 sm:mx-auto text-xl bg-primary shadow-lg font-semibold"
+              className="w-28 h-10 ml-10 sm:mx-auto text-xl bg-primary shadow-lg font-semibold"
               onClick={() => {
                 handleOnBuyNow();
               }}
@@ -123,7 +99,7 @@ export default function ProductInfo({
               Buy now
             </button>
             <button
-              className="w-28 h-10 mt-8 sm:mx-auto text-xl bg-primary shadow-lg font-semibold"
+              className="w-28 h-10 sm:mx-auto text-xl bg-primary shadow-lg font-semibold"
               onClick={() => dispatch(addProd(productData))}
             >
               Add cart

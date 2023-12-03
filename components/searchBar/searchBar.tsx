@@ -12,7 +12,8 @@ import {
 
 import categories from "@dummyApi/category";
 import suggestions from "@dummyApi/suggestion";
-import ShowMore from "../buttons/showMore";
+import ShowMore from "../buttons/ShowMore";
+import formatCurrencyWithCommas from "@utils/formatCurrency";
 
 interface Suggestion {
   id: number;
@@ -23,7 +24,7 @@ interface Suggestion {
   discription: string;
 }
 
-const SearchBar = (props: any): ReturnType<React.FC> => {
+export default function SearchBar(props: any): JSX.Element {
   const { register, handleSubmit, reset, setValue, setFocus } = useForm({
     defaultValues: { search: "" },
   });
@@ -74,7 +75,6 @@ const SearchBar = (props: any): ReturnType<React.FC> => {
                   </button>
                 </div>
               </div>
-              {/* <hr className="w-full h-[1.5px] border-none bg-black"></hr> */}
               <div className="grid grid-cols-3 bg-[#ececec]">
                 {categories.map((category, index) => (
                   <div key={category.id}>
@@ -123,7 +123,7 @@ const SearchBar = (props: any): ReturnType<React.FC> => {
       {query !== "" && filteredItems.length !== 0 && (
         <div className="absolute left-[calc((100vw_-_600px)_/_2)] h-auto pb-1 max-h-[600px] overflow-y-auto w-[600px] mt-1 z-50 border-[1px] border-[#EEEEEE] rounded-xl shadow-lg bg-[whitesmoke]">
           <div
-            className="w-full h-11 bg-primary pl-4 text-lg font-normal flex flex-row items-center"
+            className="w-full h-11 mb-1 bg-primary pl-4 text-lg font-normal flex flex-row items-center"
             onMouseEnter={() => {
               setValue("search", "");
             }}
@@ -133,7 +133,7 @@ const SearchBar = (props: any): ReturnType<React.FC> => {
           {filteredItems.map((item, index) => (
             <div key={index} onClick={() => {}}>
               <div
-                className="h-12 px-4 flex flex-row items-center justify-between rounded-xl font-light overflow-hidden whitespace-nowrap overflow-ellipsis hover:cursor-pointer hover:bg-[white]"
+                className="h-12 px-4 flex flex-row items-center justify-between font-light overflow-hidden whitespace-nowrap overflow-ellipsis hover:cursor-pointer hover:bg-[#EEEEEE]"
                 onMouseEnter={() => {
                   setValue("search", item.name);
                 }}
@@ -152,7 +152,7 @@ const SearchBar = (props: any): ReturnType<React.FC> => {
                   </div>
                 </div>
                 <div className="w-fit h-4/6 pl-2 font-normal text-base pt-1.5">
-                  {item.price} VND
+                  {formatCurrencyWithCommas(item.price)} VND
                 </div>
               </div>
               {item !== filteredItems[filteredItems.length - 1] && (
@@ -164,6 +164,4 @@ const SearchBar = (props: any): ReturnType<React.FC> => {
       )}
     </div>
   );
-};
-
-export default SearchBar;
+}

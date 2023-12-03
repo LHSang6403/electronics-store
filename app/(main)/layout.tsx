@@ -1,6 +1,6 @@
-import Header from "@components/layouts/public/header";
-import TopMenu from "@components/layouts/public/topMenu";
-import Footer from "@components/layouts/public/footer";
+import Header from "@components/layouts/public/Header";
+import TopMenu from "@components/layouts/public/TopMenu";
+import Footer from "@components/layouts/public/Footer";
 
 export default function MainLayout({
   children,

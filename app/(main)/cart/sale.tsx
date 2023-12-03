@@ -1,6 +1,4 @@
-interface SaleProps {
-  data: string;
-}
+import { type SaleProps } from "@app/(main)/cart/interface";
 
 export default function Sale({ data }: SaleProps): JSX.Element {
   return (

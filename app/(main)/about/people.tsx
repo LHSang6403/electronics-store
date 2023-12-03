@@ -1,11 +1,7 @@
 import PersonCard from "@components/cards/personCard";
 import { personCardList as personCardListData } from "@dummyApi/about";
 
-interface PersonCardProps {
-  name: string;
-  image: string;
-  description: string;
-}
+import { type PersonCardProps } from "@app/(main)/about/interface";
 
 export default function People(): JSX.Element {
   const personCardList: PersonCardProps[] = personCardListData;

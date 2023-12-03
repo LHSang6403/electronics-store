@@ -1,10 +1,7 @@
 import { useDispatch } from "react-redux";
 import { increaseQuantity, decreaseQuantity } from "@redux/actions/cart";
 
-interface QuantityButtonProps {
-  id: number;
-  quantity: number;
-}
+import { type QuantityButtonProps } from "@app/(main)/cart/interface";
 
 export default function QuantityButton({
   id,

@@ -8,7 +8,7 @@ export default function RatingStars({ rating }: RatingStarsProps): JSX.Element {
 
   const stars = Array.from({ length: wholeNumber }, (_, i) => (
     <img
-      className="w-5 h-5"
+      className="w-4 h-4"
       key={i}
       alt={`star-${i}`}
       src="/assets/stars/whole-star.png"
@@ -18,7 +18,7 @@ export default function RatingStars({ rating }: RatingStarsProps): JSX.Element {
   if (decimalNumber !== 0) {
     stars.push(
       <img
-        className="w-5 h-5"
+        className="w-4 h-4"
         key={Math.ceil(rating)}
         alt={`star-${Math.ceil(rating)}`}
         src="/assets/stars/half-star.png"

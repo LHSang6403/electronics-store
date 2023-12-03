@@ -1,15 +1,17 @@
-import CarouselSlider from "@components/carouselSlider";
+import CarouselSlider from "@components/CarouselSlider";
 import Cards from "@components/cards/cards";
-import Banner from "@components/banners/banner";
-import Top2Items from "@components/items/top2Items";
-import TrendingCategories from "@components/items/trendingCategories";
-import ItemsContainer from "@components/items/itemsContainer";
-import Header from "@components/layouts/public/header";
-import TopMenu from "@components/layouts/public/topMenu";
-import Footer from "@components/layouts/public/footer";
-import IntroHome from "@components/introHome";
+import Banner from "@components/banners/Banner";
+import Top2Items from "@components/items/Top2Items";
+import TrendingCategories from "@components/items/TrendingCategories";
+import ItemsContainer from "@components/items/ItemsContainer";
+import Header from "@components/layouts/public/Header";
+import TopMenu from "@components/layouts/public/TopMenu";
+import Footer from "@components/layouts/public/Footer";
+import IntroHome from "@components/IntroHome";
+import { Suspense } from "react";
+import Loading from "./loading";
 
-export default function Home(): ReturnType<React.FC> {
+export default function Home(): JSX.Element {
   return (
     <>
       <Header />
@@ -23,7 +25,9 @@ export default function Home(): ReturnType<React.FC> {
             <IntroHome />
           </div>
           <div className="w-3/5 h-full xl:h-[500px] sm:w-full sm:h-[500px] shadow-md">
-            <CarouselSlider />
+            <Suspense fallback={<Loading />}>
+              <CarouselSlider />
+            </Suspense>
           </div>
         </div>
         <div className="w-full h-[300px] lg:h-[520px] lg:px-20 sm:px-0 sm:h-fit flex flex-col">

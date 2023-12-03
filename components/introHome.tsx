@@ -1,6 +1,6 @@
 "use client";
 
-import PrimaryButton from "./buttons/primaryButton";
+import PrimaryButton from "./buttons/PrimaryButton";
 
 export default function IntroHome(): JSX.Element {
   return (

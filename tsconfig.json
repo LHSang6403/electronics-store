@@ -34,7 +34,8 @@
       "@styles/*": ["./styles/*"],
       "@utils/*": ["./utils/*"],
       "@dummyApi/*": ["./dummyApi/*"],
-      "@redux/*": ["./redux/*"]
+      "@redux/*": ["./redux/*"],
+      "@supabase/*": ["./supabase/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

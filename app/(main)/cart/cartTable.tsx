@@ -1,7 +1,6 @@
 "use client";
 
 import { useAppSelector } from "@redux/hooks";
-import formatCurrencyWithCommas from "@utils/formatCurrency";
 import {
   Table,
   TableBody,
@@ -11,27 +10,12 @@ import {
   TableHeader,
   TableRow,
 } from "../../../components/ui_shadcn/table-custom";
+import Sale from "./Sale";
+import QuantityButton from "./QuantityButton";
 
-// import products from "@dummyApi/products";
-import Sale from "./sale";
-import QuantityButton from "./quantityButton";
-
-interface ProductData {
-  id: number;
-  name: string;
-  price: number;
-  category: string;
-  description: string;
-  image: string;
-  sale?: string;
-  rating: number;
-}
-export interface CartItem extends ProductData {
-  quantity: number;
-}
+import { type CartItem } from "@app/(main)/cart/interface";
 
 export default function CartTable(): JSX.Element {
-  // const data = products.slice(0, 5);
   const data: CartItem[] = useAppSelector(
     (state) => state.cartReducer.cartList
   );
@@ -100,15 +84,13 @@ export default function CartTable(): JSX.Element {
                 <TableCell className="text-center text-lg xl:hidden">
                   <QuantityButton id={line.id} quantity={line.quantity} />
                 </TableCell>
-                <TableCell className="text-right text-lg">
+                <TableCell className="text-center text-lg">
                   {line.sale !== undefined && line.sale !== "" && (
                     <div className="hidden sm:flex justify-end">
                       <Sale data={line.sale} />
                     </div>
                   )}
-                  <p className="sm:mt-1">
-                    {formatCurrencyWithCommas(line.price)}
-                  </p>
+                  <p className="sm:mt-1">{line.price}.000</p>
                   <div className="hidden xl:block">
                     <QuantityButton id={line.id} quantity={line.quantity} />
                   </div>
@@ -122,10 +104,8 @@ export default function CartTable(): JSX.Element {
               <TableCell>Total Price</TableCell>
               <TableCell className="xl:hidden"></TableCell>
               <TableCell className="xl:hidden"></TableCell>
-              <TableCell className="text-right sm:text-base">
-                {totalPrice > 0 && (
-                  <p className="w-24">{formatCurrencyWithCommas(totalPrice)}</p>
-                )}
+              <TableCell className="text-center sm:text-base">
+                {totalPrice > 0 && <p className="w-24">{totalPrice}.000</p>}
               </TableCell>
             </TableRow>
           </TableFooter>

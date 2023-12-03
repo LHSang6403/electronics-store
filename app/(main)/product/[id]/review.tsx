@@ -31,7 +31,7 @@ export default function Review(): JSX.Element {
               <TableHead className="w-60 text-black text-lg">Review</TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody className="h-fit max-h-[300px] overflow-y-scroll">
+          <TableBody className="h-fit max-h-[300px]">
             <TableRow>
               <TableCell>
                 <p className="w-20 break-words line-clamp-1 text-left text-base ">
