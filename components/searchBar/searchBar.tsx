@@ -12,7 +12,7 @@ import {
 
 import categories from "@dummyApi/category";
 import suggestions from "@dummyApi/suggestion";
-import ShowMore from "../buttons/ShowMore";
+import ShowMore from "../buttons/showMore";
 import formatCurrencyWithCommas from "@utils/formatCurrency";
 
 interface Suggestion {

@@ -1,10 +1,10 @@
-import SquareBanner from "@components/banners/SquareBanner";
-import TimeLine from "@components/TimeLine";
-import TopProfile from "./TopProfile";
-import Story from "./Story";
-import People from "./People";
-import Mission from "./Mission";
-import HighlightCards from "@components/cards/HighlightCards";
+import SquareBanner from "@components/banners/squareBanner";
+import TimeLine from "@components/timeLine";
+import TopProfile from "./topProfile";
+import Story from "./story";
+import People from "./people";
+import Mission from "./mission";
+import HighlightCards from "@components/cards/highlightCards";
 import { bannerData as banner } from "@dummyApi/about";
 
 import { type SquareBannerProps } from "@app/(main)/about/interface";

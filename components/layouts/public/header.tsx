@@ -1,4 +1,4 @@
-import SearchBar from "../../searchBar/SearchBar";
+import SearchBar from "../../searchBar/searchBar";
 import Link from "next/link";
 import { readUserSession } from "@app/auth/actions";
 

@@ -1,4 +1,4 @@
-import Banner from "@components/banners/Banner";
+import Banner from "@components/banners/banner";
 import {
   Tabs,
   TabsContent,
@@ -6,10 +6,10 @@ import {
   TabsTrigger,
 } from "@components/ui_shadcn/tabs-custom";
 
-import ProductInfo from "./ProductInfo";
-import ProductDescription from "./ProductDescription";
-import Warranty from "./Warranty";
-import Review from "./Review";
+import ProductInfo from "./productInfo";
+import ProductDescription from "./productDescription";
+import Warranty from "./warranty";
+import Review from "./review";
 
 import { readProductById, readCategoryById } from "@app/actions/productActions";
 

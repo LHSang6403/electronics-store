@@ -10,8 +10,8 @@ import {
   TableHeader,
   TableRow,
 } from "../../../components/ui_shadcn/table-custom";
-import Sale from "./Sale";
-import QuantityButton from "./QuantityButton";
+import Sale from "./sale";
+import QuantityButton from "./quantityButton";
 
 import { type CartItem } from "@app/(main)/cart/interface";
 

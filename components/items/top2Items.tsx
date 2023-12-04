@@ -1,7 +1,7 @@
 "use client";
 
 import items from "@dummyApi/top2Items";
-import PrimaryButton from "@components/buttons/PrimaryButton";
+import PrimaryButton from "@components/buttons/primaryButton";
 
 interface TopItem {
   id: number;

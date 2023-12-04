@@ -1,7 +1,7 @@
-import CartTable from "@app/(main)/cart/CartTable";
-import Payments from "@components/Payments";
-import SquareBanner from "@components/banners/SquareBanner";
-import Banner from "@components/banners/Banner";
+import CartTable from "@app/(main)/cart/cartTable";
+import Payments from "@components/payments";
+import SquareBanner from "@components/banners/squareBanner";
+import Banner from "@components/banners/banner";
 
 import { type SquareBannerProps } from "@app/(main)/cart/interface";
 

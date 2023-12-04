@@ -1,6 +1,6 @@
 import { Skeleton } from "@mui/material";
-import Header from "@components/layouts/public/Header";
-import TopMenu from "@components/layouts/public/TopMenu";
+import Header from "@components/layouts/public/header";
+import TopMenu from "@components/layouts/public/topMenu";
 
 export default function Loading() {
   return (

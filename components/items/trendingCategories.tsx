@@ -1,7 +1,7 @@
 "use client";
 
 import trendingCategories from "@dummyApi/trendingCategories";
-import PrimaryButton from "@components/buttons/PrimaryButton";
+import PrimaryButton from "@components/buttons/primaryButton";
 
 interface TrendingCategory {
   id: number;

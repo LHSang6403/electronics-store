@@ -2,7 +2,7 @@ import {
   readProductDetailDescriptionById,
   readProductDetailImageById,
 } from "@app/actions/productActions";
-import DescribeIn2Cols from "./DescribeIn2Cols";
+import DescribeIn2Cols from "./describeIn2Cols";
 
 import {
   type ProductDetailDescription,

@@ -1,6 +1,6 @@
 "use client";
 
-import RatingStars from "@components/buttons/RatingStars";
+import RatingStars from "@components/buttons/ratingStars";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";

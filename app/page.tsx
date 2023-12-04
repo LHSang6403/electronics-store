@@ -1,13 +1,13 @@
-import CarouselSlider from "@components/CarouselSlider";
-import Cards from "@components/cards/Cards";
-import Banner from "@components/banners/Banner";
-import Top2Items from "@components/items/Top2Items";
-import TrendingCategories from "@components/items/TrendingCategories";
-import ItemsContainer from "@components/items/ItemsContainer";
-import Header from "@components/layouts/public/Header";
-import TopMenu from "@components/layouts/public/TopMenu";
-import Footer from "@components/layouts/public/Footer";
-import IntroHome from "@components/IntroHome";
+import CarouselSlider from "@components/carouselSlider";
+import Cards from "@components/cards/cards";
+import Banner from "@components/banners/banner";
+import Top2Items from "@components/items/top2Items";
+import TrendingCategories from "@components/items/trendingCategories";
+import ItemsContainer from "@components/items/itemsContainer";
+import Header from "@components/layouts/public/header";
+import TopMenu from "@components/layouts/public/topMenu";
+import Footer from "@components/layouts/public/footer";
+import IntroHome from "@components/introHome";
 import { Suspense } from "react";
 import Loading from "./loading";
 

@@ -1,6 +1,6 @@
-import ItemsContainer from "@components/items/ItemsContainer";
-import Banner from "@components/banners/Banner";
-import Top2Items from "@components/items/Top2Items";
+import ItemsContainer from "@components/items/itemsContainer";
+import Banner from "@components/banners/banner";
+import Top2Items from "@components/items/top2Items";
 
 export default function AllProducts(): JSX.Element {
   return (

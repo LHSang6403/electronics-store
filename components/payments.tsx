@@ -1,6 +1,6 @@
 "use client";
 
-import RadiosGroup from "./buttons/RadiosGroup";
+import RadiosGroup from "./buttons/radiosGroup";
 import { useForm } from "react-hook-form";
 import {
   Card,
