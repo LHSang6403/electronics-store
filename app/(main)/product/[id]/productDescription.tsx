@@ -1,7 +1,7 @@
 import {
   readProductDetailDescriptionById,
   readProductDetailImageById,
-} from "@app/actions/productActions";
+} from "@app/_actions/productActions";
 import DescribeIn2Cols from "@app/(main)/product/[id]/describeIn2Cols";
 
 import {

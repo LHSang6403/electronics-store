@@ -11,7 +11,10 @@ import ProductDescription from "@app/(main)/product/[id]/productDescription";
 import Warranty from "@app/(main)/product/[id]/warranty";
 import Review from "@app/(main)/product/[id]/review";
 
-import { readProductById, readCategoryById } from "@app/actions/productActions";
+import {
+  readProductById,
+  readCategoryById,
+} from "@app/_actions/productActions";
 
 import { type ProductData } from "@app/interface";
 import { type SquareBanner } from "@app/(main)/product/[id]/interface";

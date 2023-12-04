@@ -1,6 +1,6 @@
 import SearchBar from "../../searchBar/searchBar";
 import Link from "next/link";
-import { readUserSession } from "@app/auth/actions";
+import { readUserSession } from "@app/auth/_actions";
 
 export default async function Header(): Promise<JSX.Element> {
   const { data } = await readUserSession();

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Product from "./product";
 import Combobox from "../buttons/comboBox";
-import { readProducts } from "@app/actions/productActions";
+import { readProducts } from "@app/_actions/productActions";
 
 interface ProductData {
   id: number;

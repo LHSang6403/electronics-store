@@ -16,7 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-import { signInWithEmailAndPassword } from "./actions";
+import { signInWithEmailAndPassword } from "./_actions";
 import GoogleOAuthForm from "../OAuth/GoogleOAuth";
 
 const FormSchema = z.object({
