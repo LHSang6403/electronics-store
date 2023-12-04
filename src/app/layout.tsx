@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "@styles/globals.css";
-import { ReduxProvider } from "@/redux/provider";
+// import { ReduxProvider } from "@/redux/provider";
 import Header from "@/components/layouts/public/header";
 import TopMenu from "@/components/layouts/public/topMenu";
 import Footer from "@/components/layouts/public/footer";
@@ -18,12 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ReduxProvider>
-          <Header />
-          <TopMenu />
-          {children}
-          <Footer />
-        </ReduxProvider>
+        <Header />
+        <TopMenu />
+        {children}
+        <Footer />
       </body>
     </html>
   );

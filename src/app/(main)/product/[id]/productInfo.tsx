@@ -3,21 +3,20 @@
 import RatingStars from "@/components/buttons/ratingStars";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useDispatch } from "react-redux";
-import { addProd } from "@/redux/actions/cart";
 import formatCurrencyWithCommas from "@/utils/formatCurrency";
+import { useCartStore } from "@zustand/useCartStore";
 
 import { type ProductInfoProps } from "@/app/(main)/product/[id]/interface";
 
 export default async function ProductInfo({
   data: { squareBannerData, productData },
 }: ProductInfoProps): Promise<JSX.Element> {
-  const dispatch = useDispatch();
   const router = useRouter();
+  const { addProd } = useCartStore() as { addProd: any };
 
   const handleOnBuyNow = () => {
     console.log("buy now");
-    dispatch(addProd(productData));
+    addProd(productData);
     router.push("/cart");
   };
 
@@ -101,7 +100,7 @@ export default async function ProductInfo({
             </button>
             <button
               className="w-28 h-10 sm:mx-auto text-xl bg-primary shadow-lg font-semibold"
-              onClick={() => dispatch(addProd(productData))}
+              onClick={() => addProd(productData)}
             >
               Add cart
             </button>

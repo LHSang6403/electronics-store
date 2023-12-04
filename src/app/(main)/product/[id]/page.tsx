@@ -36,6 +36,9 @@ export default async function Product({
   params: { id: string };
 }): Promise<JSX.Element> {
   const { data: product } = await readProductById(params.id);
+  if (!product) {
+    throw new Error("Product not found");
+  }
   const productData = product[0] as ProductData;
 
   const squareBannerData: SquareBanner = mapProductToSquareBanner(productData);

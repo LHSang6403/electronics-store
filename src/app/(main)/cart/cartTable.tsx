@@ -1,6 +1,5 @@
 "use client";
 
-import { useAppSelector } from "@/redux/hooks";
 import {
   Table,
   TableBody,
@@ -14,15 +13,15 @@ import Sale from "./sale";
 import QuantityButton from "@/app/(main)/cart/quantityButton";
 import formatCurrencyWithCommas from "@/utils/formatCurrency";
 
+import { useCartStore } from "@zustand/useCartStore";
+
 import { type CartItem } from "@/app/(main)/cart/interface";
 
 export default async function CartTable(): Promise<JSX.Element> {
-  const data: CartItem[] = useAppSelector(
-    (state) => state.cartReducer.cartList
-  );
-  const totalPrice: number = useAppSelector(
-    (state) => state.cartReducer.totalPrice
-  );
+  const { cartList: data, totalPrice } = useCartStore() as {
+    cartList: CartItem[];
+    totalPrice: number;
+  };
 
   return (
     <div>

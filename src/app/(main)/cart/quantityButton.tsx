@@ -1,32 +1,32 @@
 "use client";
 
-import { useAppSelector, useAppDispatch } from "@/redux/hooks";
-import { increaseQuantity, decreaseQuantity } from "@/redux/actions/cart";
+import { useCartStore } from "@zustand/useCartStore";
 
 import {
   type QuantityButtonProps,
   type CartItem,
 } from "@/app/(main)/cart/interface";
 
-function getQuantityFromId(id: string) {
-  const data: CartItem[] = useAppSelector(
-    (state) => state.cartReducer.cartList
-  );
-  const item = data.find((item) => item.id === id);
+function getQuantityFromId(cartList: CartItem[], id: string): string {
+  const item = cartList.find((item) => item.id === id);
   const quantity = item ? item.quantity : 0;
-  return quantity;
+  return quantity.toString();
 }
 
 export default function QuantityButton({
   id,
 }: QuantityButtonProps): JSX.Element {
-  const dispatch = useAppDispatch();
+  const { cartList, increaseQuantity, decreaseQuantity } = useCartStore() as {
+    cartList: CartItem[];
+    increaseQuantity: any;
+    decreaseQuantity: any;
+  };
 
   return (
     <div className="flex flex-row justify-end items-center gap-2 sm:gap-3">
       <div
         className="hover:cursor-pointer"
-        onClick={() => dispatch(decreaseQuantity(id))}
+        onClick={() => decreaseQuantity(id)}
       >
         <img
           className="w-3.5"
@@ -34,10 +34,10 @@ export default function QuantityButton({
           src="/assets/icons/minus-icon.png"
         ></img>
       </div>
-      <p className="text-lg">{getQuantityFromId(id)}</p>
+      <p className="text-lg">{getQuantityFromId(cartList, id)}</p>
       <div
         className="hover:cursor-pointer"
-        onClick={() => dispatch(increaseQuantity(id))}
+        onClick={() => increaseQuantity(id)}
       >
         <img
           className="w-3.5"
