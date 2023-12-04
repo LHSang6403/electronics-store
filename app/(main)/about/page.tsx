@@ -4,7 +4,7 @@ import TopProfile from "./TopProfile";
 import Story from "./Story";
 import People from "./People";
 import Mission from "./Mission";
-import HighlightCards from "@components/cards/highlightCards";
+import HighlightCards from "@components/cards/HighlightCards";
 import { bannerData as banner } from "@dummyApi/about";
 
 import { type SquareBannerProps } from "@app/(main)/about/interface";

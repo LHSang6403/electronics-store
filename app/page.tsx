@@ -1,5 +1,5 @@
 import CarouselSlider from "@components/CarouselSlider";
-import Cards from "@components/cards/cards";
+import Cards from "@components/cards/Cards";
 import Banner from "@components/banners/Banner";
 import Top2Items from "@components/items/Top2Items";
 import TrendingCategories from "@components/items/TrendingCategories";
