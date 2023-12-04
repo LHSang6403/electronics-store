@@ -6,10 +6,10 @@ import {
   TabsTrigger,
 } from "@components/ui_shadcn/tabs-custom";
 
-import ProductInfo from "./productInfo";
-import ProductDescription from "./productDescription";
-import Warranty from "./warranty";
-import Review from "./review";
+import ProductInfo from "@app/(main)/product/[id]/productInfo";
+import ProductDescription from "@app/(main)/product/[id]/productDescription";
+import Warranty from "@app/(main)/product/[id]/warranty";
+import Review from "@app/(main)/product/[id]/review";
 
 import { readProductById, readCategoryById } from "@app/actions/productActions";
 

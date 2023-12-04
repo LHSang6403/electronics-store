@@ -1,4 +1,5 @@
 import { Skeleton } from "@mui/material";
+
 export default function Loading() {
   return (
     <div className="w-full h-screen p-4 ">

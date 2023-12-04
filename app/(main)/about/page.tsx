@@ -1,9 +1,9 @@
 import SquareBanner from "@components/banners/squareBanner";
 import TimeLine from "@components/timeLine";
-import TopProfile from "./topProfile";
-import Story from "./story";
-import People from "./people";
-import Mission from "./mission";
+import TopProfile from "@app/(main)/about/topProfile";
+import Story from "@app/(main)/about/story";
+import People from "@app/(main)/about/people";
+import Mission from "@app/(main)/about/mission";
 import HighlightCards from "@components/cards/highlightCards";
 import { bannerData as banner } from "@dummyApi/about";
 

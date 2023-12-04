@@ -1,7 +1,7 @@
-import { createServerClient, type CookieOptions } from "@supabase/ssr";
+import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
-import Register from "./register";
-import SignInForm from "./signIn";
+import Register from "@app/auth/register";
+import SignInForm from "@app/auth/signIn";
 
 import {
   Tabs,

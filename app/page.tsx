@@ -9,7 +9,7 @@ import TopMenu from "@components/layouts/public/topMenu";
 import Footer from "@components/layouts/public/footer";
 import IntroHome from "@components/introHome";
 import { Suspense } from "react";
-import Loading from "./loading";
+import Loading from "@app/loading";
 
 export default function Home(): JSX.Element {
   return (

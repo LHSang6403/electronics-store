@@ -11,7 +11,7 @@ import {
   TableRow,
 } from "../../../components/ui_shadcn/table-custom";
 import Sale from "./sale";
-import QuantityButton from "./quantityButton";
+import QuantityButton from "@app/(main)/cart/quantityButton";
 
 import { type CartItem } from "@app/(main)/cart/interface";
 
