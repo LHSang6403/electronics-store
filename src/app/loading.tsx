@@ -3,7 +3,7 @@ import { Skeleton } from "@mui/material";
 export default function Loading() {
   return (
     <div className="w-[1050px] h-screen xl:w-full lg:w-full sm:w-full xl:px-6 lg:px-6 sm:px-0 mx-auto bg-[#f5f5f555] flex flex-col p-4">
-      <div className="w-full h-fit grid grid-cols-6 gap-3 pt-4">
+      <div className="w-full h-fit grid grid-cols-6 gap-3">
         <div className="col-start-1 col-span-3 flex flex-col gap-3">
           <Skeleton
             sx={{ bgcolor: "#EEEEEE" }}

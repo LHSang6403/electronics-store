@@ -16,8 +16,6 @@ import { readProductById } from "@/app/_actions/productActions";
 import { type ProductData } from "@/app/interface";
 import { type SquareBanner } from "@/app/(main)/product/[id]/interface";
 
-import { waiting } from "@/utils/setTimeOut";
-
 function mapProductToSquareBanner(product: ProductData): SquareBanner {
   return product !== undefined
     ? {
