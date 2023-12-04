@@ -9,13 +9,14 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../../../components/ui_shadcn/table-custom";
+} from "../../../components/ui-shadcn-custom/table-custom";
 import Sale from "./sale";
 import QuantityButton from "@/app/(main)/cart/quantityButton";
+import formatCurrencyWithCommas from "@/utils/formatCurrency";
 
 import { type CartItem } from "@/app/(main)/cart/interface";
 
-export default function CartTable(): JSX.Element {
+export default async function CartTable(): Promise<JSX.Element> {
   const data: CartItem[] = useAppSelector(
     (state) => state.cartReducer.cartList
   );
@@ -57,42 +58,44 @@ export default function CartTable(): JSX.Element {
                   ></img>
                 </TableCell>
                 <TableCell className="text-base font-semibold leading-10 overflow-hidden">
-                  <p className="max-w-[100%] break-words line-clamp-3 sm:line-clamp-4 leading-6">
+                  <div className="max-w-[100%] break-words line-clamp-3 sm:line-clamp-4 leading-6">
                     {line.name}
-                  </p>
+                  </div>
                   <div className="hidden sm:flex flex-row items-center gap-3">
                     <img
                       className="w-10 object-cover rounded-lg"
                       alt={`img-${line.id}`}
                       src={line.image}
                     ></img>
-                    <p className="text-sm font-light">{line.category}</p>
+                    <div className="text-sm font-light">{line.category}</div>
                   </div>
-                  {line.sale !== undefined && line.sale !== "" ? (
+                  {line.sale ? (
                     <div className="sm:hidden xl:font-light">
                       <Sale data={line.sale} />
                     </div>
                   ) : (
-                    <p className="hidden xl:block sm:hidden text-sm font-light ml-2">
+                    <div className="hidden xl:block sm:hidden text-sm font-light ml-2">
                       {line.category}
-                    </p>
+                    </div>
                   )}
                 </TableCell>
                 <TableCell className="text-center text-lg leading-10 xl:hidden">
                   {line.category}
                 </TableCell>
                 <TableCell className="text-center text-lg xl:hidden">
-                  <QuantityButton id={line.id} quantity={line.quantity} />
+                  <QuantityButton id={line.id} />
                 </TableCell>
                 <TableCell className="text-center text-lg">
-                  {line.sale !== undefined && line.sale !== "" && (
+                  {line.sale && (
                     <div className="hidden sm:flex justify-end">
                       <Sale data={line.sale} />
                     </div>
                   )}
-                  <p className="sm:mt-1">{line.price}.000</p>
+                  <div className="sm:mt-1">
+                    {formatCurrencyWithCommas(line.price)}.000
+                  </div>
                   <div className="hidden xl:block">
-                    <QuantityButton id={line.id} quantity={line.quantity} />
+                    <QuantityButton id={line.id} />
                   </div>
                 </TableCell>
               </TableRow>
@@ -105,14 +108,18 @@ export default function CartTable(): JSX.Element {
               <TableCell className="xl:hidden"></TableCell>
               <TableCell className="xl:hidden"></TableCell>
               <TableCell className="text-center sm:text-base">
-                {totalPrice > 0 && <p className="w-24">{totalPrice}.000</p>}
+                {totalPrice > 0 && (
+                  <div className="w-24">
+                    {formatCurrencyWithCommas(totalPrice)}.000
+                  </div>
+                )}
               </TableCell>
             </TableRow>
           </TableFooter>
         </Table>
       ) : (
         <div className="h-16 flex justify-center items-center">
-          No selected item (audit later)
+          No selected item
         </div>
       )}
     </div>

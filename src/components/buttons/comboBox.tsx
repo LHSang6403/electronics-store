@@ -3,13 +3,13 @@
 import * as React from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 
-import { cn } from "@/@/lib/utils";
-import { Button } from "../ui_shadcn/button-custom";
-import { CommandGroup, CommandItem } from "@/@/components/ui/command";
-import { PopoverTrigger } from "@/@/components/ui/popover";
-import { PopoverContent } from "../ui_shadcn/popover-content-custom";
-import { Popover } from "../ui_shadcn/popover-custom";
-import { Command } from "../ui_shadcn/command-custom";
+import { cn } from "@/lib/utils";
+import { Button } from "../ui-shadcn-custom/button-custom";
+import { CommandGroup, CommandItem } from "@/components/ui-shadcn/ui/command";
+import { PopoverTrigger } from "@/components/ui-shadcn/ui/popover";
+import { PopoverContent } from "../ui-shadcn-custom/popover-content-custom";
+import { Popover } from "../ui-shadcn-custom/popover-custom";
+import { Command } from "../ui-shadcn-custom/command-custom";
 
 const frameworks = [
   {

@@ -1,4 +1,4 @@
-import { Button } from "@/@/components/ui/button";
+import { Button } from "@/components/ui-shadcn/ui/button";
 import {
   Card,
   CardContent,
@@ -6,9 +6,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/@/components/ui/card";
-import { Input } from "@/@/components/ui/input";
-import { Label } from "@/@/components/ui/label";
+} from "@/components/ui-shadcn/ui/card";
+import { Input } from "@/components/ui-shadcn/ui/input";
+import { Label } from "@/components/ui-shadcn/ui/label";
 import {
   Table,
   TableBody,
@@ -16,7 +16,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui_shadcn/table-custom";
+} from "@/components/ui-shadcn-custom/table-custom";
 
 export default function Review(): JSX.Element {
   return (

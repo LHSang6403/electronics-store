@@ -36,7 +36,8 @@
       "@utils/*": ["src/utils/*"],
       "@dummyApi/*": ["src/dummyApi/*"],
       "@redux/*": ["src/redux/*"],
-      "@supabase/*": ["src/supabase/*"]
+      "@supabase/*": ["src/supabase/*"],
+      "@lib/*": ["src/lib/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

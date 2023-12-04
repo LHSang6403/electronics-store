@@ -6,7 +6,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/components/ui_shadcn/tabs-custom";
+} from "@/components/ui-shadcn-custom/tabs-custom";
 
 export default function Page() {
   return (

@@ -12,9 +12,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/@/components/ui/form";
-import { Input } from "@/@/components/ui/input";
-import { Button } from "@/@/components/ui/button";
+} from "@/components/ui-shadcn/ui/form";
+import { Input } from "@/components/ui-shadcn/ui/input";
+import { Button } from "@/components/ui-shadcn/ui/button";
 
 import { signInWithEmailAndPassword } from "./_actions";
 import GoogleOAuthForm from "../OAuth/GoogleOAuth";

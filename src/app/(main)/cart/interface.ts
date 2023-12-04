@@ -10,8 +10,7 @@ export interface SquareBannerProps {
 }
 
 export interface QuantityButtonProps {
-  id: number;
-  quantity: number;
+  id: string;
 }
 
 export interface SaleProps {

@@ -1,13 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { createBrowserClient } from "@supabase/ssr";
+import { Button } from "@/components/ui-shadcn/ui/button";
+import createSupabaseBrowerClient from "@supabase/client";
 
 export async function signInWithGoogle() {
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
+  const supabase = createSupabaseBrowerClient();
 
   await supabase.auth.signInWithOAuth({
     provider: "google",

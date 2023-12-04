@@ -6,7 +6,7 @@ export default function Sale({ data }: SaleProps): JSX.Element {
       <img
         className="w-5 h-5 relative -top-0.5 left-2"
         alt="sale-tag"
-        src="/assets/sale-tag.png"
+        src="/assets/icons/sale-tag.png"
       ></img>
       <p
         className="sm:w-fit sm:max-w-[130px]

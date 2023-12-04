@@ -36,6 +36,5 @@ export interface ProductInfoProps {
   data: {
     squareBannerData: SquareBanner;
     productData: ProductData;
-    categoryName: string;
   };
 }

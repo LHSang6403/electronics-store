@@ -1,15 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface ProductData {
-  id: number;
-  name: string;
-  price: number;
-  category: string;
-  description: string;
-  image: string;
-  sale?: string;
-  rating: number;
-}
+import { type ProductData } from "@app/interface";
 
 export interface CartItem extends ProductData {
   quantity: number;
@@ -43,7 +34,10 @@ const cartActions = createSlice({
       }
 
       // add new product to cart
-      const temp: CartItem = { ...action.payload, quantity: 1 };
+      const temp: CartItem = {
+        ...action.payload,
+        quantity: 1,
+      };
       state.cartList.push(temp);
 
       state.totalQuantity++;

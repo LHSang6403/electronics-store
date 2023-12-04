@@ -8,7 +8,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui_shadcn/select-custom";
+} from "@/components/ui-shadcn-custom/select-custom";
 
 import categories from "@/dummyApi/category";
 import suggestions from "@/dummyApi/suggestion";

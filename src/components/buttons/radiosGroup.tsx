@@ -1,5 +1,8 @@
-import { Label } from "@/@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "../ui_shadcn/radio-group-custom";
+import { Label } from "@/components/ui-shadcn/ui/label";
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "../ui-shadcn-custom/radio-group-custom";
 
 export interface Option {
   name: string;

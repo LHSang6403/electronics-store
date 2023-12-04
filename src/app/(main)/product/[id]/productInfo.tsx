@@ -5,11 +5,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { addProd } from "@/redux/actions/cart";
+import formatCurrencyWithCommas from "@/utils/formatCurrency";
 
 import { type ProductInfoProps } from "@/app/(main)/product/[id]/interface";
 
 export default async function ProductInfo({
-  data: { squareBannerData, productData, categoryName },
+  data: { squareBannerData, productData },
 }: ProductInfoProps): Promise<JSX.Element> {
   const dispatch = useDispatch();
   const router = useRouter();
@@ -81,10 +82,10 @@ export default async function ProductInfo({
             <RatingStars rating={productData.rating} />
           </h3>
           <h3 className="text-2xl font-semibold text-primary">
-            {productData.price}.000 VND
+            {formatCurrencyWithCommas(productData.price)}.000 VND
           </h3>
           <div className="bg-black h-44 text-white rounded-2xl shadow-lg p-4 mt-2">
-            <h4 className="text-xl">{categoryName}</h4>
+            <h4 className="text-xl">{productData.category}</h4>
             <p className="text-sm text-justify break-words line-clamp-3 leading-5">
               {productData.description}
             </p>

@@ -4,17 +4,14 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/components/ui_shadcn/tabs-custom";
+} from "@/components/ui-shadcn-custom/tabs-custom";
 
 import ProductInfo from "@/app/(main)/product/[id]/productInfo";
 import ProductDescription from "@/app/(main)/product/[id]/productDescription";
 import Warranty from "@/app/(main)/product/[id]/warranty";
 import Review from "@/app/(main)/product/[id]/review";
 
-import {
-  readProductById,
-  readCategoryById,
-} from "@/app/_actions/productActions";
+import { readProductById } from "@/app/_actions/productActions";
 
 import { type ProductData } from "@/app/interface";
 import { type SquareBanner } from "@/app/(main)/product/[id]/interface";
@@ -40,11 +37,8 @@ export default async function Product({
 }: {
   params: { id: string };
 }): Promise<JSX.Element> {
-  const { data: productDatas } = await readProductById(params.id);
-  const productData = productDatas[0] as ProductData;
-
-  const { data: category } = await readCategoryById(params.id);
-  const categoryName = category[0].name as string;
+  const { data: product } = await readProductById(params.id);
+  const productData = product[0] as ProductData;
 
   const squareBannerData: SquareBanner = mapProductToSquareBanner(productData);
   return (
@@ -53,7 +47,6 @@ export default async function Product({
         data={{
           squareBannerData,
           productData,
-          categoryName,
         }}
       />
       <div className="w-full h-[250px] sm:h-fit shadow-lg overflow-hidden">

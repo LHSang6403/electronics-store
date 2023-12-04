@@ -9,8 +9,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/@/components/ui/card";
-import { Button } from "@/@/components/ui/button";
+} from "@/components/ui-shadcn/ui/card";
+import { Button } from "@/components/ui-shadcn/ui/button";
 
 export interface Option {
   name: string;

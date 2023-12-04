@@ -1,4 +1,5 @@
 import Link from "next/link";
+import formatCurrencyWithCommas from "@/utils/formatCurrency";
 
 interface ProductData {
   id: number;
@@ -37,7 +38,9 @@ export default function Product(props: ProductData): JSX.Element {
               src="/assets/stars/star.png"
             ></img>
           </div>
-          <h2 className="text-sm text-primary">{data.price}.000</h2>
+          <h2 className="text-sm text-primary">
+            {formatCurrencyWithCommas(data.price)}.000
+          </h2>
         </div>
       </div>
     </div>
