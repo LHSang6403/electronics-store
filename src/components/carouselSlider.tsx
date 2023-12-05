@@ -3,6 +3,7 @@
 import "react-slideshow-image/dist/styles.css";
 import { Zoom } from "react-slideshow-image";
 import sliderImgs from "@/dummyApi/slider";
+import Image from "next/image";
 
 async function waiting(): Promise<void> {
   await new Promise((resolve) => setTimeout(resolve, 0));
@@ -18,23 +19,27 @@ async function CarouselSlider(): Promise<JSX.Element> {
     infinite: true,
     prevArrow: (
       <div className="ml-4 top-48">
-        <button>
-          <img
-            className="w-8 sm:w-6 opacity-50 cursor-pointer"
-            alt="arrow-left"
+        <button className="w-8 sm:w-6 opacity-50 cursor-pointer">
+          <Image
             src="/assets/directions/arrow-left.png"
-          ></img>
+            alt="Left Arrow"
+            layout="responsive"
+            width={128}
+            height={128}
+          />
         </button>
       </div>
     ),
     nextArrow: (
       <div className="mr-4 top-48">
-        <button>
-          <img
-            className="w-8 sm:w-6 opacity-50 cursor-pointer"
-            alt="arrow-right"
+        <button className="w-8 sm:w-6 opacity-50 cursor-pointer">
+          <Image
             src="/assets/directions/arrow-right.png"
-          ></img>
+            alt="Right Arrow"
+            layout="responsive"
+            width={128}
+            height={128}
+          />
         </button>
       </div>
     ),

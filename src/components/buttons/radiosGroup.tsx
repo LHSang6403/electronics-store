@@ -3,6 +3,7 @@ import {
   RadioGroup,
   RadioGroupItem,
 } from "../ui-shadcn-custom/radio-group-custom";
+import Image from "next/image";
 
 export interface Option {
   name: string;
@@ -20,14 +21,17 @@ export default function RadiosGroup({
     <div className="w-fit h-fit">
       <RadioGroup defaultValue="default">
         {options.map((item, index) => (
-          <div key={`radio-${index}`} className="flex items-center space-x-2">
+          <div key={index} className="flex items-center space-x-2">
             <RadioGroupItem value={item.name} id={`r${index}`} />
-
-            <img
-              className="w-6 object-cover rounded-lg"
-              alt={`icon-${index}`}
-              src={item.icon}
-            ></img>
+            <div className="w-6 object-cover rounded-lg overflow-hidden">
+              <Image
+                src={item.icon}
+                alt={`Icon ${index}`}
+                layout="fixed"
+                width={30}
+                height={30}
+              />
+            </div>
             <Label htmlFor={`r${index}`}>{item.name}</Label>
           </div>
         ))}

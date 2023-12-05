@@ -2,6 +2,7 @@
 
 import trendingCategories from "@/dummyApi/trendingCategories";
 import PrimaryButton from "@/components/buttons/primaryButton";
+import Image from "next/image";
 
 interface TrendingCategory {
   id: number;
@@ -28,11 +29,20 @@ export default function TrendingCategories(): JSX.Element {
           } sm:col-span-3 mx-2 xl:mx-0 sm:m-0 shadow-md flex flex-col justify-center items-center bg-[#EEEEEE]`}
           key={item.id}
         >
-          <img
+          {/* <img
             className="w-32 h-32 rounded-2xl overflow-hidden"
             alt={`category-img-${item.id}`}
             src={item.image}
-          ></img>
+          ></img> */}
+          <div className="w-32 h-32 rounded-2xl overflow-hidden">
+            <Image
+              src={item.image}
+              alt="Top two items"
+              layout="responsive"
+              width={800}
+              height={800}
+            />
+          </div>
           <p className="h-8 text-xl sm:text-lg">{item.name}</p>
           <PrimaryButton name="See more" onClick={() => {}} />
         </div>

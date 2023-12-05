@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import formatCurrencyWithCommas from "@/utils/formatCurrency";
 import { useCartStore } from "@zustand/useCartStore";
+import Image from "next/image";
 
 import { type ProductInfoProps } from "@/app/(main)/product/[id]/interface";
 
@@ -25,37 +26,53 @@ export default async function ProductInfo({
       <div className="w-[40%] sm:w-full h-[500px] sm:overflow-hidden">
         <div className="w-[70%] h-[94%] my-[3%] pt-[calc((470px_-_250px)_/_2)] rounded-r-2xl bg-black">
           <ul className="w-fit h-[70%] border-[1px] ml-8 xl:ml-4 rounded-lg border-white flex flex-col justify-center items-center">
-            <li>
-              <img
-                className="w-12 h-12 mr-1"
+            <li className="w-12 h-12 mr-1">
+              <Image
                 src={squareBannerData.image}
-              ></img>
+                alt="Product selector"
+                layout="responsive"
+                width={512}
+                height={512}
+              />
             </li>
-            <li>
-              <img
-                className="w-12 h-12 mr-1"
+            <li className="w-12 h-12 mr-1">
+              <Image
                 src={squareBannerData.image}
-              ></img>
+                alt="Product selector"
+                layout="responsive"
+                width={512}
+                height={512}
+              />
             </li>
-            <li>
-              <img
-                className="w-12 h-12 mr-1"
+            <li className="w-12 h-12 mr-1">
+              <Image
                 src={squareBannerData.image}
-              ></img>
+                alt="Product selector"
+                layout="responsive"
+                width={512}
+                height={512}
+              />
             </li>
-            <li>
-              <img
-                className="w-12 h-12 mr-1"
+            <li className="w-12 h-12 mr-1">
+              <Image
                 src={squareBannerData.image}
-              ></img>
+                alt="Product selector"
+                layout="responsive"
+                width={512}
+                height={512}
+              />
             </li>
           </ul>
-          <div className="w-[130%] h-full relative scale-125 xl:scale-110 left-16 sm:left-9 -top-[86%]">
-            <img
-              className="w-full h-full object-cover rounded-3xl [transition:transform_0.5s_ease] group-hover:scale-[1.01]"
-              src={squareBannerData.image}
-              alt="sale-square-banner"
-            />
+          <div className="w-[130%] h-full relative scale-125 xl:scale-110 left-16 sm:left-9 -top-[94%] xl:-top-[74%] sm:-top-[90%]">
+            <div className="w-full h-full object-cover rounded-3xl [transition:transform_0.5s_ease] group-hover:scale-[1.01]">
+              <Image
+                src={squareBannerData.image}
+                alt="sale-square-banner"
+                layout="responsive"
+                width={512}
+                height={512}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -83,15 +100,15 @@ export default async function ProductInfo({
           <h3 className="text-2xl font-semibold text-primary">
             {formatCurrencyWithCommas(productData.price)}.000 VND
           </h3>
-          <div className="bg-black h-44 text-white rounded-2xl shadow-lg p-4 mt-2">
+          <div className="bg-black h-44 sm:h-fit text-white rounded-2xl shadow-lg p-4 mt-2">
             <h4 className="text-xl">{productData.category}</h4>
             <p className="text-sm text-justify break-words line-clamp-3 leading-5">
               {productData.description}
             </p>
           </div>
-          <div className="flex flex-row justify-start gap-6 pt-6">
+          <div className="flex flex-row justify-start gap-6 sm:justify-center pt-6">
             <button
-              className="w-28 h-10 ml-10 sm:mx-auto text-xl bg-primary shadow-lg font-semibold"
+              className="w-28 h-10 ml-10 sm:mx-0 text-xl bg-primary shadow-lg font-semibold"
               onClick={() => {
                 handleOnBuyNow();
               }}
@@ -99,7 +116,7 @@ export default async function ProductInfo({
               Buy now
             </button>
             <button
-              className="w-28 h-10 sm:mx-auto text-xl bg-primary shadow-lg font-semibold"
+              className="w-28 h-10 sm:mx-0 text-xl bg-primary shadow-lg font-semibold"
               onClick={() => addProd(productData)}
             >
               Add cart

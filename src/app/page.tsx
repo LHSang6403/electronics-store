@@ -19,7 +19,7 @@ export default function Home(): JSX.Element {
           <div className="w-2/5 sm:w-full h-full pl-2 xl:pl-0 sm:pl-0 overflow-hidden flex flex-col justify-center items-center xl:items-start">
             <IntroHome />
           </div>
-          <div className="w-3/5 h-full xl:h-[500px] sm:w-full sm:h-[500px] shadow-md">
+          <div className="w-3/5 h-full sm:w-full sm:h-[500px] shadow-md">
             <Suspense fallback={<Loading />}>
               <CarouselSlider />
             </Suspense>

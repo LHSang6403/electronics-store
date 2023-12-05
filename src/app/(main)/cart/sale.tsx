@@ -1,13 +1,18 @@
 import { type SaleProps } from "@/app/(main)/cart/interface";
+import Image from "next/image";
 
 export default function Sale({ data }: SaleProps): JSX.Element {
   return (
     <div className="w-fit h-fit flex flex-row mt-1 text-base sm:text-sm text-primary">
-      <img
-        className="w-5 h-5 relative -top-0.5 left-2"
-        alt="sale-tag"
-        src="/assets/icons/sale-tag.png"
-      ></img>
+      <div className="w-5 h-5 relative -top-0.5 left-2">
+        <Image
+          alt="Sale Tag"
+          src="/assets/icons/sale-tag.png"
+          layout="fix"
+          width={30}
+          height={30}
+        />
+      </div>
       <p
         className="sm:w-fit sm:max-w-[130px]
        overflow-hidden whitespace-nowrap overflow-ellipsis

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Product from "./product";
 import Combobox from "../buttons/comboBox";
 import { readProducts } from "@/app/_actions/productActions";
+import Image from "next/image";
 
 interface ProductData {
   id: number;
@@ -37,7 +38,7 @@ export default async function ItemsContainer({
   const filters: string[] = ["Price", "Brand", "Rating", "Sale", "Functions"];
 
   return (
-    <div className="w-fit h-full overflow-hidden mt-4 mx-auto rounded-3xl xl:rounded-2xl sm:rounded-2xl border-2 border-black">
+    <div className="w-fit h-full overflow-hidden mx-auto rounded-3xl xl:rounded-2xl sm:rounded-2xl border-2 border-black">
       <div className="w-full h-[70px] mb-4 bg-primary text-3xl font-semibold flex justify-center items-center">
         Electrical Store
       </div>
@@ -65,11 +66,15 @@ export default async function ItemsContainer({
                     {categories[i]}
                   </h2>
                   {!isAllProducts && (
-                    <img
-                      className="w-4 h-4 xl:w-3 xl:h-3 ml-1"
-                      alt="nav-icon"
-                      src="/assets/icons/nav-icon.png"
-                    ></img>
+                    <div className="w-4 h-4 block xl:w-3 xl:h-3 ml-1">
+                      <Image
+                        src="/assets/icons/nav-icon.png"
+                        alt="Navigation Icon"
+                        layout="responsive"
+                        width={512}
+                        height={512}
+                      />
+                    </div>
                   )}
                 </div>
                 <div className="flex flex-row sm:hidden">

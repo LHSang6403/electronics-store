@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Warranty(): JSX.Element {
   return (
     <div>
@@ -11,11 +13,15 @@ export default function Warranty(): JSX.Element {
         malfunctions, and unexpected issues that may arise during the covered
         period.
       </p>
-      <img
-        className="w-full p-5"
-        alt="prod-description-0"
-        src="https://cdn.tgdd.vn/Files/2021/12/16/1404781/cach-kiem-tra-thoi-han-bao-hanh-o-cung-ssd-cpu-in-6.png"
-      ></img>
+      <div className="w-full p-5">
+        <Image
+          alt="Product Description"
+          src="https://cdn.tgdd.vn/Files/2021/12/16/1404781/cach-kiem-tra-thoi-han-bao-hanh-o-cung-ssd-cpu-in-6.png"
+          layout="responsive"
+          width={1000}
+          height={500}
+        />
+      </div>
       <div className="w-full h-auto flex flex-col gap-4 text-justify">
         Our warranty service covers:
         <ul className="px-8">
@@ -40,11 +46,15 @@ export default function Warranty(): JSX.Element {
             performing at its best.
           </li>
         </ul>
-        <img
-          className="w-full p-5"
-          alt="prod-description-0"
-          src="https://www.x-cart.com/img/27093/best-shipping-company-for-small-business-raw.png"
-        ></img>
+        <div className="w-full p-5">
+          <Image
+            alt="Product Description"
+            src="https://www.x-cart.com/img/27093/best-shipping-company-for-small-business-raw.png"
+            layout="responsive"
+            width={1000}
+            height={500}
+          />
+        </div>
         The warranty process is designed to be straightforward:
         <ul className="px-8">
           <li>

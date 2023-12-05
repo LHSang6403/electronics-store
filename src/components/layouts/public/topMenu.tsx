@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import menu from "./urls";
+import Image from "next/image";
 
 interface URL {
   name: string;
@@ -23,11 +24,15 @@ export default function TopMenu(): ReturnType<React.FC> {
             className="w-fit flex flex-row items-center gap-1 pr-2 border-r-[1px] border-[#d0d1d2]"
             onClick={() => {}}
           >
-            <img
-              className="w-5 h-5"
-              alt="category-icon"
-              src="/assets/icons/category-icon.png"
-            ></img>
+            <div className="w-5 h-5 block">
+              <Image
+                src="/assets/icons/category-icon.png"
+                alt="Category"
+                layout="responsive"
+                width={512}
+                height={512}
+              />
+            </div>
             <p className="sm:hidden">Shop by Category</p>
           </Link>
         </li>

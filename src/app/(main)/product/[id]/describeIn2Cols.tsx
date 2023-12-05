@@ -1,4 +1,5 @@
 import { type DescribeIn2ColsProps } from "@/app/(main)/product/[id]/interface";
+import Image from "next/image";
 
 export default function DescribeIn2Cols({
   image,
@@ -13,11 +14,15 @@ export default function DescribeIn2Cols({
           : "flex-row sm:flex-col pr-10"
       } sm:px-2 justify-center items-center gap-4`}
     >
-      <img
-        className="w-1/2 xl:w-1/3 sm:w-full mx-6 xl:mx-0"
-        alt="prod-description-1"
-        src={image}
-      ></img>
+      <div className="w-1/2 xl:w-1/3 sm:w-full mx-6 xl:mx-0">
+        <Image
+          src={image}
+          alt="Product Description"
+          layout="responsive"
+          width={500}
+          height={300}
+        />
+      </div>
       <p className="w-full sm:w-full h-auto text-justify">{description}</p>
     </div>
   );

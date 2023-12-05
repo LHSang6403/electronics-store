@@ -17,6 +17,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui-shadcn-custom/table-custom";
+import Image from "next/image";
 
 export default function Review(): JSX.Element {
   return (
@@ -28,7 +29,7 @@ export default function Review(): JSX.Element {
               <TableHead className="w-28 text-black text-lg text-left">
                 Name
               </TableHead>
-              <TableHead className="w-60 text-black text-lg">Review</TableHead>
+              <TableHead className="text-black text-lg">Review</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody className="h-fit max-h-[300px]">
@@ -38,83 +39,30 @@ export default function Review(): JSX.Element {
                   Sang le
                 </p>
                 <div className="h-6 w-12 text-right text-base flex flex-row justify-center items-center gap-1">
-                  <button>
-                    <img
-                      className="w-5 h-4 pr-1 border-r-[1px] bg-none border-[##E5E7EB]"
-                      src="/assets/like.png"
-                    ></img>
+                  <button className="w-5 h-4 pr-1 border-r-[1px] bg-none border-[##E5E7EB]">
+                    <Image
+                      src="/assets/icons/like.png"
+                      alt="Like Icon"
+                      layout="fix"
+                      width={18}
+                      height={18}
+                    />
                   </button>
-                  <button>
-                    <img className="w-4 h-4" src="/assets/dislike.png"></img>
+                  <button className="w-4 h-4">
+                    <Image
+                      src="/assets/icons/dislike.png"
+                      alt="Dislike Icon"
+                      layout="fix"
+                      width={18}
+                      height={18}
+                    />
                   </button>
                 </div>
               </TableCell>
               <TableCell>
-                <p className="w-fit max-w-32 break-words line-clamp-2 text-left text-base ">
+                <p className="w-fit break-words line-clamp-2 text-left text-base">
                   Ultra nice wfbhjerfh jerfhergfh jerhfehgfrrfgref kjwrhfjkerhf
                   jkfkherhv hgerfjvhersjvfbherhjvbjkebfvjhdbvhjdbvg
-                </p>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <p className="w-20 break-words line-clamp-1 text-left text-base ">
-                  Sang le
-                </p>
-                <div className="h-6 w-12 text-right text-base flex flex-row justify-center items-center gap-1">
-                  <img
-                    className="w-5 h-4 pr-1 border-r-[1px] bg-none border-[##E5E7EB]"
-                    src="/assets/like.png"
-                  ></img>{" "}
-                  <img className="w-4 h-4" src="/assets/dislike.png"></img>
-                </div>
-              </TableCell>
-              <TableCell>
-                <p className="w-fit max-w-32 break-words line-clamp-2 text-left text-base ">
-                  Ultra nice wfbhjerfh jerfhergfh
-                </p>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <p className="w-20 break-words line-clamp-1 text-left text-base ">
-                  Sang le
-                </p>
-                <div className="h-6 w-12 text-right text-base flex flex-row justify-center items-center gap-1">
-                  <button>
-                    <img
-                      className="w-5 h-4 pr-1 border-r-[1px] bg-none border-[##E5E7EB]"
-                      src="/assets/like.png"
-                    ></img>
-                  </button>
-                  <button>
-                    <img className="w-4 h-4" src="/assets/dislike.png"></img>
-                  </button>
-                </div>
-              </TableCell>
-              <TableCell>
-                <p className="w-fit max-w-32 break-words line-clamp-2 text-left text-base ">
-                  Ultra nice wfbhjerfh jerfhergfh jerhfehgfrrfgref kjwrhfjkerhf
-                  jkfkherhv hgerfjvhersjvfbherhjvbjkebfvjhdbvhjdbvg
-                </p>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <p className="w-20 break-words line-clamp-1 text-left text-base ">
-                  Sang le
-                </p>
-                <div className="h-6 w-12 text-right text-base flex flex-row justify-center items-center gap-1">
-                  <img
-                    className="w-5 h-4 pr-1 border-r-[1px] bg-none border-[##E5E7EB]"
-                    src="/assets/like.png"
-                  ></img>{" "}
-                  <img className="w-4 h-4" src="/assets/dislike.png"></img>
-                </div>
-              </TableCell>
-              <TableCell>
-                <p className="w-fit max-w-32 break-words line-clamp-2 text-left text-base ">
-                  Ultra nice wfbhjerfh jerfhergfh
                 </p>
               </TableCell>
             </TableRow>

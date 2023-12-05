@@ -3,6 +3,7 @@ import {
   readProductDetailImageById,
 } from "@/app/_actions/productActions";
 import DescribeIn2Cols from "@/app/(main)/product/[id]/describeIn2Cols";
+import Image from "next/image";
 
 import {
   type ProductDetailDescription,
@@ -28,11 +29,15 @@ export default async function ProductDescription({
   return (
     <div>
       <p className="mt-5 text-justify">{productData.description}</p>
-      <img
-        className="w-full p-5"
-        alt="prod-description-0"
-        src={productDetailImageData.image_0}
-      ></img>
+      <div className="w-full p-5">
+        <Image
+          className="w-full p-5"
+          alt="Product Description"
+          src={productDetailImageData.image_0}
+          width={500}
+          height={500}
+        />
+      </div>
       <p className="w-full h-auto mt-5 text-justify">
         {productDetailDescriptionData.description}
       </p>

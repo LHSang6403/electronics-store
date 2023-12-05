@@ -1,6 +1,7 @@
 "use client";
 
 import cards from "@/dummyApi/cards";
+import Image from "next/image";
 
 interface Card {
   id: number;
@@ -25,11 +26,15 @@ export default function Cards(): JSX.Element {
           className="group w-48 h-40 xl:h-36 sm:w-full sm:h-40 shadow-md rounded-lg border border-black mx-8"
         >
           <div className="w-full h-full group-hover:invisible">
-            <img
-              className="w-8 h-8 mx-auto mt-5 mb-2 "
-              alt={`img-card-${card.id}`}
-              src={card.image}
-            ></img>
+            <div className="w-8 h-8 block mx-auto mt-5 mb-2 ">
+              <Image
+                src={card.image}
+                alt={`Image Card ${card.id}`}
+                layout="responsive"
+                width={50}
+                height={50}
+              />
+            </div>
             <p className="w-fit h-fit mx-auto text-2xl xl:text-xl sm:text-xl">
               {card.title}
             </p>
@@ -44,11 +49,15 @@ export default function Cards(): JSX.Element {
           flex flex-col justify-center items-center"
           >
             <div className="w-full h-fit flex flex-col justify-center items-center">
-              <img
-                className="w-8 h-8"
-                alt={`img-card-${card.id}`}
-                src={card.image}
-              ></img>
+              <div className="w-8 h-8 block">
+                <Image
+                  src={card.image}
+                  alt={`Image Card ${card.id}`}
+                  layout="responsive"
+                  width={50}
+                  height={50}
+                />
+              </div>
               <p className="w-fit h-fit mx-auto mb-1 sm:mb-2 font-semibold text-[26px]">
                 {card.title}
               </p>

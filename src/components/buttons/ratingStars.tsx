@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface RatingStarsProps {
   rating: number;
 }
@@ -7,22 +9,28 @@ export default function RatingStars({ rating }: RatingStarsProps): JSX.Element {
   const decimalNumber = rating - wholeNumber;
 
   const stars = Array.from({ length: wholeNumber }, (_, i) => (
-    <img
-      className="w-4 h-4"
-      key={i}
-      alt={`star-${i}`}
-      src="/assets/stars/whole-star.png"
-    ></img>
+    <div key={i} className="w-4 h-4">
+      <Image
+        alt={`Rating Star ${i}`}
+        src="/assets/stars/whole-star.png"
+        layout="fixed"
+        width={20}
+        height={20}
+      />
+    </div>
   ));
 
   if (decimalNumber !== 0) {
     stars.push(
-      <img
-        className="w-4 h-4"
-        key={Math.ceil(rating)}
-        alt={`star-${Math.ceil(rating)}`}
-        src="/assets/stars/half-star.png"
-      ></img>
+      <div key={Math.ceil(rating)} className="w-4 h-4">
+        <Image
+          alt={`Rating Star ${Math.ceil(rating)}`}
+          src="/assets/stars/half-star.png"
+          layout="fixed"
+          width={20}
+          height={20}
+        />
+      </div>
     );
   }
 

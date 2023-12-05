@@ -2,6 +2,7 @@
 
 import items from "@/dummyApi/top2Items";
 import PrimaryButton from "@/components/buttons/primaryButton";
+import Image from "next/image";
 
 interface TopItem {
   id: number;
@@ -22,11 +23,15 @@ export default function Top2Items(): JSX.Element {
           className="w-[600px] h-full sm:w-full sm:h-[220px] shadow-md bg-[#EEEEEE] flex flex-row justify-center items-center"
           key={item.id}
         >
-          <img
-            className="w-1/2 xl:w-1/3 sm:w-1/4 ml-4"
-            alt={`img-${data[0].id}`}
-            src={item.image}
-          ></img>
+          <div className="w-1/2 xl:w-1/3 sm:w-1/4 ml-4">
+            <Image
+              src={item.image}
+              alt="Top two items"
+              layout="responsive"
+              width={640}
+              height={471}
+            />
+          </div>
           <div className="w-1/2 xl:w-2/3 sm:w-3/4 h-full pl-4 flex flex-col justify-center items-start overflow-hidden">
             <div className="w-2/3 my-1">
               <h1 className="text-[26px] sm:text-[24px]">{item.name}</h1>

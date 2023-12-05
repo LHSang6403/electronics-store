@@ -45,21 +45,21 @@ export const personCardList: PersonCardProps[] = [
   {
     name: "John Doe",
     image:
-      "https://vietmytravel.com/wp-content/uploads/2023/01/portrait-of-businessman-nguyen-ba-lich.jpg",
+      "https://www.mnp.ca/-/media/foundation/integrations/personnel/2020/12/16/13/57/personnel-image-4483.jpg?h=800&w=600&hash=9D5E5FCBEE00EB562DCD8AC8FDA8433D",
     description:
       "Passionate about technology and innovation. Join me in exploring the world of possibilities!",
   },
   {
     name: "Jane Smith",
     image:
-      "https://media.istockphoto.com/id/1129638598/photo/businessman-in-suit-looking-at-camera-making-conference-video-call.jpg?s=612x612&w=0&k=20&c=K1ufuNnodv6yPNnG9Sih6QT7O-fvfz33NnWcg1nDvgQ=",
+      "https://www.mnp.ca/-/media/foundation/integrations/personnel/2020/12/16/13/57/personnel-image-4483.jpg?h=800&w=600&hash=9D5E5FCBEE00EB562DCD8AC8FDA8433D",
     description:
       "Dedicated to creating meaningful connections through design and creativity.",
   },
   {
     name: "Alex Johnson",
     image:
-      "https://us.images.westend61.com/0001455983pw/businessman-working-on-laptop-while-sitting-at-office-RBF07918.jpg",
+      "https://www.mnp.ca/-/media/foundation/integrations/personnel/2020/12/16/13/57/personnel-image-4483.jpg?h=800&w=600&hash=9D5E5FCBEE00EB562DCD8AC8FDA8433D",
     description:
       "Enthusiastic coder and problem solver. Let's build a better future through technology!",
   },

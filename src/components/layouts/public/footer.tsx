@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Footer(): JSX.Element {
   return (
     <footer className="w-full px-[calc((100%-1050px)_/_2)] xl:px-6 sm:px-4 bg-[#EEEEEE] text-black py-8">
@@ -6,11 +8,15 @@ export default function Footer(): JSX.Element {
       sm:flex-col sm:gap-4"
       >
         <div className="w-full">
-          <img
-            className="w-[150px] h-[47px] xl:w-[120px] xl:h-[37px] sm:w-[100px] sm:h-[31px]"
-            alt="logo"
-            src="/assets/logo.png"
-          ></img>
+          <div className="w-[150px] h-[47px] xl:w-[120px] xl:h-[37px] sm:w-[100px] sm:h-[31px]">
+            <Image
+              alt="App Logo"
+              src="/assets/logo.png"
+              layout="responsive"
+              width={404}
+              height={125}
+            />
+          </div>
           <hr
             className="w-[450px] h-[1px] mt-2 rounded bg-black border-none
           lg:w-[90%] sm:w-full"

@@ -10,7 +10,7 @@ import {
 
 export default function Page() {
   return (
-    <div className="w-60 h-fit mx-auto pt-20 pb-44">
+    <div className="w-60 h-screen mx-auto pt-28 pb-44">
       <Tabs defaultValue="signIn" className="w-full">
         <h1 className="text-xl font-semibold text-center">Authentication</h1>
         <TabsList className="flex flex-row justify-center gap-1 my-2">

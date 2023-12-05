@@ -1,6 +1,7 @@
 "use client";
 
 import { useCartStore } from "@zustand/useCartStore";
+import Image from "next/image";
 
 import {
   type QuantityButtonProps,
@@ -28,22 +29,26 @@ export default function QuantityButton({
         className="hover:cursor-pointer"
         onClick={() => decreaseQuantity(id)}
       >
-        <img
-          className="w-3.5"
-          alt="minus-icon"
+        <Image
           src="/assets/icons/minus-icon.png"
-        ></img>
+          alt="Minus Icon"
+          layout="fix"
+          width={18}
+          height={18}
+        />
       </div>
       <p className="text-lg">{getQuantityFromId(cartList, id)}</p>
       <div
         className="hover:cursor-pointer"
         onClick={() => increaseQuantity(id)}
       >
-        <img
-          className="w-3.5"
-          alt="plus-icon"
+        <Image
           src="/assets/icons/plus-icon.png"
-        ></img>
+          alt="Plus Icon"
+          layout="fix"
+          width={18}
+          height={18}
+        />
       </div>
     </div>
   );

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface SquareBannerProps {
   data: {
     image: string;
@@ -16,11 +18,15 @@ export default function SquareBanner({ data }: SquareBannerProps): JSX.Element {
           {title}
         </h1>
       )}
-      <img
-        className="w-[400px] h-[400px] sm:w-[250px] sm:h-[250px] object-cover rounded-3xl [transition:transform_0.5s_ease] group-hover:scale-[1.01]"
-        src={image}
-        alt="sale-square-banner"
-      />
+      <div className="block w-[400px] h-[400px] xl:w-[300px] xl:h-[300px] sm:w-[250px] sm:h-[250px] object-cover overflow-hidden rounded-3xl [transition:transform_0.5s_ease] group-hover:scale-[1.01]">
+        <Image
+          src={image}
+          alt="Square Banner"
+          layout="intrinsic"
+          width={400}
+          height={400}
+        />
+      </div>
       {description !== "" && (
         <p className="text-center mt-2 text-sm text-gray-500">{description}</p>
       )}

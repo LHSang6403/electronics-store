@@ -9,6 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui-shadcn-custom/select-custom";
+import Image from "next/image";
 
 import categories from "@/dummyApi/category";
 import suggestions from "@/dummyApi/suggestion";
@@ -67,23 +68,31 @@ export default function SearchBar(props: any): JSX.Element {
                 Our products:
                 <div className="w-12 h-7 rounded mr-1 flex items-center justify-center hover:cursor-pointer">
                   <button onClick={() => {}}>
-                    <img
-                      className="w-5 h-5"
-                      alt="rm-icon"
-                      src="/assets/remove-icon.png"
-                    ></img>
+                    <div className="w-5 h-5">
+                      <Image
+                        src="/assets/icons/remove-icon.png"
+                        alt="Remove Icon"
+                        layout="fix"
+                        width={26}
+                        height={26}
+                      />
+                    </div>
                   </button>
                 </div>
               </div>
-              <div className="grid grid-cols-3 bg-[#ececec]">
+              <div className="grid grid-cols-3 bg-[#FCFCFC]">
                 {categories.map((category, index) => (
                   <div key={category.id}>
                     <div className="w-[200px] m-1 h-9 flex flex-row hover:cursor-pointer hover:bg-[#eeeeee] hover:rounded">
-                      <img
-                        className="w-12 ml-2"
-                        alt={`categoty-${category.id}`}
-                        src={category.image}
-                      ></img>
+                      <div className="w-12 ml-2">
+                        <Image
+                          src={category.image}
+                          alt={`Categoty ${category.id}`}
+                          layout="fix"
+                          width={46}
+                          height={32}
+                        />
+                      </div>
                       <SelectItem
                         className="w-full h-auto pl-2 border-none hover:outline-0 focus:outline-0"
                         value={category.name}
@@ -94,8 +103,8 @@ export default function SearchBar(props: any): JSX.Element {
                   </div>
                 ))}
               </div>
-              <div className="w-full h-fit pb-1.5 rounded-b-xl flex flex-col justify-center items-center bg-[#ececec]">
-                <hr className="w-[94%] mx-auto h-[1.5px] border-none bg-[#d0d1d2]"></hr>
+              <div className="w-full h-fit pb-1.5 rounded-b-xl flex flex-col justify-center items-center bg-[#FCFCFC]">
+                <hr className="w-[94%] mx-auto h-[1.5px] border-none bg-black"></hr>
                 <ShowMore onClick={() => {}} />
               </div>
             </SelectContent>
@@ -139,19 +148,23 @@ export default function SearchBar(props: any): JSX.Element {
                 }}
               >
                 <div className="flex flex-row items-center">
-                  <img
-                    className="w-[70px] mr-2 rounded"
-                    alt={`suggestion-${item.id}`}
-                    src={item.image}
-                  ></img>
+                  <div className="w-[70px] mr-2 rounded overflow-hidden">
+                    <Image
+                      alt={`Suggestion ${item.id}`}
+                      src={item.image}
+                      layout="fix"
+                      width={70}
+                      height={40}
+                    />
+                  </div>
                   <div className="">
-                    <p className="font-medium">{item.name}</p>
+                    <p className="font-normal">{item.name}</p>
                     <p className="w-[300px] text-[14px] overflow-hidden whitespace-nowrap overflow-ellipsis">
                       {item.discription}
                     </p>
                   </div>
                 </div>
-                <div className="w-fit h-4/6 pl-2 font-normal text-base pt-1.5">
+                <div className="w-fit h-4/6 pl-2 font-light text-base pt-1.5">
                   {formatCurrencyWithCommas(item.price)} VND
                 </div>
               </div>

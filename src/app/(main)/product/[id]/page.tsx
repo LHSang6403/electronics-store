@@ -50,7 +50,7 @@ export default async function Product({
           productData,
         }}
       />
-      <div className="w-full h-[250px] sm:h-fit shadow-lg overflow-hidden">
+      <div className="w-full h-[250px] xl:mt-6 sm:-mt-2 sm:h-fit shadow-lg overflow-hidden">
         <Banner />
       </div>
       <div className="w-full h-auto p-10 sm:p-4 pt-2 rounded-[36px] bg-[whitesmoke]">
