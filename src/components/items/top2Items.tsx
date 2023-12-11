@@ -27,7 +27,6 @@ export default function Top2Items(): JSX.Element {
             <Image
               src={item.image}
               alt="Top two items"
-              layout="responsive"
               width={640}
               height={471}
             />

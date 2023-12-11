@@ -38,7 +38,6 @@ export default function TrendingCategories(): JSX.Element {
             <Image
               src={item.image}
               alt="Top two items"
-              layout="responsive"
               width={800}
               height={800}
             />

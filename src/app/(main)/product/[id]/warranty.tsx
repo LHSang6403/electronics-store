@@ -17,7 +17,6 @@ export default function Warranty(): JSX.Element {
         <Image
           alt="Product Description"
           src="https://cdn.tgdd.vn/Files/2021/12/16/1404781/cach-kiem-tra-thoi-han-bao-hanh-o-cung-ssd-cpu-in-6.png"
-          layout="responsive"
           width={1000}
           height={500}
         />
@@ -50,7 +49,6 @@ export default function Warranty(): JSX.Element {
           <Image
             alt="Product Description"
             src="https://www.x-cart.com/img/27093/best-shipping-company-for-small-business-raw.png"
-            layout="responsive"
             width={1000}
             height={500}
           />

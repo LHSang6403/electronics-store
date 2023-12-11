@@ -28,7 +28,6 @@ export default function TopMenu(): ReturnType<React.FC> {
               <Image
                 src="/assets/icons/category-icon.png"
                 alt="Category"
-                layout="responsive"
                 width={512}
                 height={512}
               />

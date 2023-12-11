@@ -8,13 +8,7 @@ export default function Banner(): JSX.Element {
   return (
     <div className="w-full h-fit block sm:h-[140px]">
       <Link href="#">
-        <Image
-          src={url}
-          alt="Advertising Banner"
-          layout="intrinsic"
-          width={1050}
-          height={250}
-        />
+        <Image src={url} alt="Advertising Banner" width={1050} height={250} />
       </Link>
     </div>
   );

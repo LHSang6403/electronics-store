@@ -68,7 +68,6 @@ export default async function ProductInfo({
               <Image
                 src={squareBannerData.image}
                 alt="sale-square-banner"
-                layout="responsive"
                 width={512}
                 height={512}
               />

@@ -8,7 +8,6 @@ export default function Sale({ data }: SaleProps): JSX.Element {
         <Image
           alt="Sale Tag"
           src="/assets/icons/sale-tag.png"
-          layout="fix"
           width={30}
           height={30}
         />

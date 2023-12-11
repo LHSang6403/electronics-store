@@ -23,7 +23,6 @@ async function CarouselSlider(): Promise<JSX.Element> {
           <Image
             src="/assets/directions/arrow-left.png"
             alt="Left Arrow"
-            layout="responsive"
             width={128}
             height={128}
           />
@@ -36,7 +35,6 @@ async function CarouselSlider(): Promise<JSX.Element> {
           <Image
             src="/assets/directions/arrow-right.png"
             alt="Right Arrow"
-            layout="responsive"
             width={128}
             height={128}
           />

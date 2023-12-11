@@ -70,7 +70,6 @@ export default async function ItemsContainer({
                       <Image
                         src="/assets/icons/nav-icon.png"
                         alt="Navigation Icon"
-                        layout="responsive"
                         width={512}
                         height={512}
                       />

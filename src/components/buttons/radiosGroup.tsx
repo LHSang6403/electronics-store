@@ -27,7 +27,6 @@ export default function RadiosGroup({
               <Image
                 src={item.icon}
                 alt={`Icon ${index}`}
-                layout="fixed"
                 width={30}
                 height={30}
               />

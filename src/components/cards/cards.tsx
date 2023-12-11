@@ -30,7 +30,6 @@ export default function Cards(): JSX.Element {
               <Image
                 src={card.image}
                 alt={`Image Card ${card.id}`}
-                layout="responsive"
                 width={50}
                 height={50}
               />
@@ -53,7 +52,6 @@ export default function Cards(): JSX.Element {
                 <Image
                   src={card.image}
                   alt={`Image Card ${card.id}`}
-                  layout="responsive"
                   width={50}
                   height={50}
                 />

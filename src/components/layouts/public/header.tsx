@@ -21,13 +21,7 @@ export default async function Header(): Promise<JSX.Element> {
   return (
     <header className="w-full px-[calc((100%-1050px)_/_2)] xl:px-6 sm:px-4 h-12 flex flex-row justify-between items-center bg-white">
       <div className="w-[150px] h-[47px] xl:w-[120px] xl:h-[37px] sm:w-[100px] sm:h-[31px] object-cover">
-        <Image
-          src="/assets/logo.png"
-          alt="App Logo"
-          layout="responsive"
-          width={404}
-          height={125}
-        />
+        <Image src="/assets/logo.png" alt="App Logo" width={404} height={125} />
       </div>
       <div
         className="w-fit flex flex-row justify-center items-center
@@ -41,8 +35,7 @@ export default async function Header(): Promise<JSX.Element> {
             <Link className="w-6 mx-2 block" href="#">
               <Image
                 src="/assets/icons/search-thin-icon.png"
-                alt="Search Icon"
-                layout="fix"
+                alt="Search"
                 width={30}
                 height={30}
               />
@@ -52,8 +45,7 @@ export default async function Header(): Promise<JSX.Element> {
             <Link className="w-6 mx-2 block" href="/cart">
               <Image
                 src="/assets/icons/cart-icon.png"
-                alt="Cart Icon"
-                layout="fix"
+                alt="Cart"
                 width={30}
                 height={30}
               />
@@ -69,7 +61,6 @@ export default async function Header(): Promise<JSX.Element> {
                       : "/assets/icons/signIn-icon.png"
                   }
                   alt="Sign In"
-                  layout="fix"
                   width={30}
                   height={30}
                 />
@@ -84,7 +75,6 @@ export default async function Header(): Promise<JSX.Element> {
                     className="mx-auto py-1"
                     src="/assets/icons/signedIn-icon.png"
                     alt="Sign In"
-                    layout="fix"
                     width={44}
                     height={44}
                   />

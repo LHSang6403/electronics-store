@@ -24,7 +24,6 @@ export default function Product(props: ProductData): JSX.Element {
               className="mx-auto"
               src={data.image}
               alt={`Product ${data.id}`}
-              layout="responsive"
               width={512}
               height={512}
             />

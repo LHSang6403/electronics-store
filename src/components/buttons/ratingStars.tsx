@@ -13,7 +13,6 @@ export default function RatingStars({ rating }: RatingStarsProps): JSX.Element {
       <Image
         alt={`Rating Star ${i}`}
         src="/assets/stars/whole-star.png"
-        layout="fixed"
         width={20}
         height={20}
       />
@@ -26,7 +25,6 @@ export default function RatingStars({ rating }: RatingStarsProps): JSX.Element {
         <Image
           alt={`Rating Star ${Math.ceil(rating)}`}
           src="/assets/stars/half-star.png"
-          layout="fixed"
           width={20}
           height={20}
         />

@@ -31,8 +31,7 @@ export default function QuantityButton({
       >
         <Image
           src="/assets/icons/minus-icon.png"
-          alt="Minus Icon"
-          layout="fix"
+          alt="Minus"
           width={18}
           height={18}
         />
@@ -44,8 +43,7 @@ export default function QuantityButton({
       >
         <Image
           src="/assets/icons/plus-icon.png"
-          alt="Plus Icon"
-          layout="fix"
+          alt="Plus"
           width={18}
           height={18}
         />

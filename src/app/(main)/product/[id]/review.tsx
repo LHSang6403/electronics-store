@@ -43,7 +43,6 @@ export default function Review(): JSX.Element {
                     <Image
                       src="/assets/icons/like.png"
                       alt="Like Icon"
-                      layout="fix"
                       width={18}
                       height={18}
                     />
@@ -52,7 +51,6 @@ export default function Review(): JSX.Element {
                     <Image
                       src="/assets/icons/dislike.png"
                       alt="Dislike Icon"
-                      layout="fix"
                       width={18}
                       height={18}
                     />

@@ -12,7 +12,6 @@ export default function Footer(): JSX.Element {
             <Image
               alt="App Logo"
               src="/assets/logo.png"
-              layout="responsive"
               width={404}
               height={125}
             />

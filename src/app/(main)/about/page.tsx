@@ -1,5 +1,5 @@
 import SquareBanner from "@/components/banners/squareBanner";
-import TimeLine from "@/components/timeLine";
+import TimeLine from "@/app/(main)/about/timeLine";
 import TopProfile from "@/app/(main)/about/topProfile";
 import Story from "@/app/(main)/about/story";
 import People from "@/app/(main)/about/people";
