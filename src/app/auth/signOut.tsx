@@ -14,7 +14,7 @@ const SignOut = () => {
   };
   return (
     <form action={signOutHandler}>
-      <Button type="submit" className="w-full flex gap-2">
+      <Button type="submit" className="w-full h-7 px-2 flex gap-2">
         Sign Out
       </Button>
     </form>

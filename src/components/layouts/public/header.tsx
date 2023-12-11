@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@components/ui-shadcn-custom/dropdown-menu-custom";
 import SignOut from "@app/auth/signOut";
+import { Button } from "@components/ui-shadcn-custom/button-custom";
 
 export default async function Header(): Promise<JSX.Element> {
   console.log("Header re-render");
@@ -94,14 +95,21 @@ export default async function Header(): Promise<JSX.Element> {
                     </DropdownMenuItem>
                   )}
                   <DropdownMenuItem>Edit account</DropdownMenuItem>
-                  <Link href="/auth">
-                    <DropdownMenuItem>
-                      {data.session ? "Log out" : "Sign in"}
-                    </DropdownMenuItem>
-                  </Link>
-                  <DropdownMenuItem>
-                    <SignOut />
-                  </DropdownMenuItem>
+
+                  <div className="px-2">
+                    {data.session ? (
+                      <SignOut />
+                    ) : (
+                      <Link href="/auth">
+                        <Button
+                          type="submit"
+                          className="w-full h-7 px-16 flex gap-2"
+                        >
+                          Sign in
+                        </Button>
+                      </Link>
+                    )}
+                  </div>
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>
