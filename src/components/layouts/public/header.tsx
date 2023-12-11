@@ -2,10 +2,20 @@ import SearchBar from "../../searchBar/searchBar";
 import Link from "next/link";
 import { readUserSession } from "@/app/auth/_actions";
 import Image from "next/image";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@components/ui-shadcn-custom/dropdown-menu-custom";
+import SignOut from "@app/auth/signOut";
 
 export default async function Header(): Promise<JSX.Element> {
+  console.log("Header re-render");
   const { data } = await readUserSession();
-  console.log(data);
+  console.log("User season", data);
 
   return (
     <header className="w-full px-[calc((100%-1050px)_/_2)] xl:px-6 sm:px-4 h-12 flex flex-row justify-between items-center bg-white">
@@ -48,20 +58,53 @@ export default async function Header(): Promise<JSX.Element> {
               />
             </Link>
           </li>
-          <li>
-            <Link className="w-6 mx-2 block" href="/auth">
-              <Image
-                src={
-                  data?.session
-                    ? "/assets/icons/signedIn-icon.png"
-                    : "/assets/icons/signIn-icon.png"
-                }
-                alt="Sign In"
-                layout="fix"
-                width={30}
-                height={30}
-              />
-            </Link>
+          <li className="mt-2">
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <Image
+                  src={
+                    data?.session
+                      ? "/assets/icons/signedIn-icon.png"
+                      : "/assets/icons/signIn-icon.png"
+                  }
+                  alt="Sign In"
+                  layout="fix"
+                  width={30}
+                  height={30}
+                />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="mt-1">
+                <DropdownMenuLabel className="bg-primary px-3 py-2 text-base">
+                  My Account
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <div className="p-1">
+                  <Image
+                    className="mx-auto py-1"
+                    src="/assets/icons/signedIn-icon.png"
+                    alt="Sign In"
+                    layout="fix"
+                    width={44}
+                    height={44}
+                  />
+                  <h1 className="px-2 text-lg">User name</h1>
+                  {data.session && (
+                    <DropdownMenuItem>
+                      {data.session?.user.email}
+                    </DropdownMenuItem>
+                  )}
+                  <DropdownMenuItem>Edit account</DropdownMenuItem>
+                  <Link href="/auth">
+                    <DropdownMenuItem>
+                      {data.session ? "Log out" : "Sign in"}
+                    </DropdownMenuItem>
+                  </Link>
+                  <DropdownMenuItem>
+                    <SignOut />
+                  </DropdownMenuItem>
+                </div>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </li>
         </ul>
       </div>

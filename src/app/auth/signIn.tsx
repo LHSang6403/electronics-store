@@ -41,7 +41,7 @@ export default function SignInForm() {
     const result = await signInWithEmailAndPassword(data);
     const resultJson = JSON.parse(result);
 
-    console.log("submited", data);
+    console.log("Submited", data);
 
     if (resultJson?.message) {
       console.log(resultJson.message);

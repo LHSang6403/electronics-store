@@ -1,9 +1,6 @@
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-// This Middleware example can be used to refresh expired sessions
-// before loading Server Component routes.
-
 export async function middleware(request: NextRequest) {
   let response = NextResponse.next({
     request: {
@@ -30,6 +27,11 @@ export async function middleware(request: NextRequest) {
               headers: request.headers,
             },
           });
+          response.cookies.set({
+            name,
+            value,
+            ...options,
+          });
         },
         remove(name: string, options: CookieOptions) {
           request.cookies.set({
@@ -41,6 +43,11 @@ export async function middleware(request: NextRequest) {
             request: {
               headers: request.headers,
             },
+          });
+          response.cookies.set({
+            name,
+            value: "",
+            ...options,
           });
         },
       },
