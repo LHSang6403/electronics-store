@@ -27,17 +27,17 @@ const AccountPopup = ({ data }: any) => {
         />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="mt-1">
-        <DropdownMenuLabel className="bg-primary px-3 py-2 text-base">
+        <DropdownMenuLabel className="bg-primary px-4 py-2 text-base">
           My Account
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <div className="p-1">
+        <div className="p-3">
           <Image
             className="mx-auto py-1"
             src="/assets/icons/signedIn-icon.png"
             alt="Sign In"
-            width={44}
-            height={44}
+            width={50}
+            height={50}
           />
           <h1 className="px-2 text-lg">User name</h1>
           {data.session && (

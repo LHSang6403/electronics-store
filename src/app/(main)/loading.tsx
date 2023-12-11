@@ -49,7 +49,12 @@ export default function Loading() {
         <Skeleton
           sx={{ bgcolor: "#EEEEEE" }}
           variant="rectangular"
-          className="h-36 rounded-lg col-start-1 col-span-5"
+          className="h-32 rounded-lg col-start-1 col-span-5"
+        />
+        <Skeleton
+          sx={{ bgcolor: "#EEEEEE" }}
+          variant="rectangular"
+          className="h-36 rounded-lg col-span-5"
         />
       </div>
     </div>
