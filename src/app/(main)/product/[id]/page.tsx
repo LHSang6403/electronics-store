@@ -1,4 +1,4 @@
-import Banner from "@/components/banners/banner";
+import Banner from "@/components/banners/Banner";
 import {
   Tabs,
   TabsContent,
@@ -6,15 +6,16 @@ import {
   TabsTrigger,
 } from "@/components/ui-shadcn-custom/tabs-custom";
 
-import ProductInfo from "@/app/(main)/product/[id]/productInfo";
-import ProductDescription from "@/app/(main)/product/[id]/productDescription";
-import Warranty from "@/app/(main)/product/[id]/warranty";
-import Review from "@/app/(main)/product/[id]/review";
+import ProductInfo from "@/app/(main)/product/[id]/ProductInfo";
+import ProductDescription from "@/app/(main)/product/[id]/ProductDescription";
+import Warranty from "@/app/(main)/product/[id]/Warranty";
+import Review from "@/app/(main)/product/[id]/Review";
 
 import { readProductById } from "@/app/_actions/productActions";
-
 import { type ProductData } from "@/app/interface";
 import { type SquareBanner } from "@/app/(main)/product/[id]/interface";
+
+import { waiting } from "@/utils/waiting";
 
 function mapProductToSquareBanner(product: ProductData): SquareBanner {
   return product !== undefined
@@ -40,8 +41,9 @@ export default async function Product({
     throw new Error("Product not found");
   }
   const productData = product[0] as ProductData;
-
   const squareBannerData: SquareBanner = mapProductToSquareBanner(productData);
+
+  await waiting(1000);
   return (
     <>
       <ProductInfo

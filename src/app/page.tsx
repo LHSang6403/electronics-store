@@ -1,14 +1,14 @@
-import CarouselSlider from "@/components/carouselSlider";
-import Cards from "@/components/cards/cards";
-import Banner from "@/components/banners/banner";
-import Top2Items from "@/components/items/top2Items";
-import TrendingCategories from "@/components/items/trendingCategories";
-import ItemsContainer from "@/components/items/itemsContainer";
-import IntroHome from "@/components/introHome";
-import { Suspense } from "react";
-import Loading from "@/app/loading";
+import CarouselSlider from "@/components/CarouselSlider";
+import Cards from "@/components/cards/Cards";
+import Banner from "@/components/banners/Banner";
+import Top2Items from "@/components/items/Top2Items";
+import TrendingCategories from "@/components/items/TrendingCategories";
+import ItemsContainer from "@/components/items/ItemsContainer";
+import IntroHome from "@/components/IntroHome";
+import { waiting } from "@/utils/waiting";
 
-export default function Home(): JSX.Element {
+export default async function Home(): Promise<JSX.Element> {
+  await waiting(1000);
   return (
     <>
       <main
@@ -20,9 +20,7 @@ export default function Home(): JSX.Element {
             <IntroHome />
           </div>
           <div className="w-3/5 h-full sm:w-full sm:h-[500px] shadow-md">
-            <Suspense fallback={<Loading />}>
-              <CarouselSlider />
-            </Suspense>
+            <CarouselSlider />
           </div>
         </div>
         <div className="w-full h-[300px] lg:h-[520px] lg:px-20 sm:px-0 sm:h-fit flex flex-col">

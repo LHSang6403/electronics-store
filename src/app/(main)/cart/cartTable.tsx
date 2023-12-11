@@ -9,8 +9,8 @@ import {
   TableHeader,
   TableRow,
 } from "../../../components/ui-shadcn-custom/table-custom";
-import Sale from "./sale";
-import QuantityButton from "@/app/(main)/cart/quantityButton";
+import Sale from "./Sale";
+import QuantityButton from "@/app/(main)/cart/QuantityButton";
 import formatCurrencyWithCommas from "@/utils/formatCurrency";
 
 import { useCartStore } from "@zustand/useCartStore";

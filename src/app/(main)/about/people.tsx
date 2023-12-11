@@ -1,4 +1,4 @@
-import PersonCard from "@/components/cards/personCard";
+import PersonCard from "@/components/cards/PersonCard";
 import { personCardList as personCardListData } from "@/dummyApi/about";
 
 import { type PersonCardProps } from "@/app/(main)/about/interface";

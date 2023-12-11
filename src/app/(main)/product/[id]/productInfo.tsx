@@ -1,6 +1,6 @@
 "use client";
 
-import RatingStars from "@/components/buttons/ratingStars";
+import RatingStars from "@/components/buttons/RatingStars";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import formatCurrencyWithCommas from "@/utils/formatCurrency";

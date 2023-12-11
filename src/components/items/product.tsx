@@ -41,7 +41,6 @@ export default function Product(props: ProductData): JSX.Element {
               <Image
                 src="/assets/stars/star.png"
                 alt="Star"
-                layout="fixed"
                 width={30}
                 height={30}
               />

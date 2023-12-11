@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Product from "./product";
-import Combobox from "../buttons/comboBox";
+import Product from "./Product";
+import Combobox from "../buttons/ComboBox";
 import { readProducts } from "@/app/_actions/productActions";
 import Image from "next/image";
 

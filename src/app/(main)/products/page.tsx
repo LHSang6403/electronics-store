@@ -1,8 +1,10 @@
-import ItemsContainer from "@/components/items/itemsContainer";
-import Banner from "@/components/banners/banner";
-import Top2Items from "@/components/items/top2Items";
+import ItemsContainer from "@/components/items/ItemsContainer";
+import Banner from "@/components/banners/Banner";
+import Top2Items from "@/components/items/Top2Items";
+import { waiting } from "@/utils/waiting";
 
-export default function AllProducts(): JSX.Element {
+export default async function AllProducts(): Promise<JSX.Element> {
+  await waiting(1000);
   return (
     <>
       <div className="w-full h-[250px] sm:h-fit shadow-lg overflow-hidden">

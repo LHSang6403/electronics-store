@@ -1,17 +1,19 @@
-import SquareBanner from "@/components/banners/squareBanner";
-import TimeLine from "@/app/(main)/about/timeLine";
+import SquareBanner from "@/components/banners/SquareBanner";
+import TimeLine from "@/app/(main)/about/TimeLine";
 import TopProfile from "@/app/(main)/about/topProfile";
-import Story from "@/app/(main)/about/story";
-import People from "@/app/(main)/about/people";
-import Mission from "@/app/(main)/about/mission";
-import HighlightCards from "@/components/cards/highlightCards";
+import Story from "@/app/(main)/about/Story";
+import People from "@/app/(main)/about/People";
+import Mission from "@/app/(main)/about/Mission";
+import HighlightCards from "@/components/cards/HighlightCards";
 import { bannerData as banner } from "@/dummyApi/about";
+import { waiting } from "@/utils/waiting";
 
 import { type SquareBannerProps } from "@/app/(main)/about/interface";
 
-export default function About(): JSX.Element {
+export default async function About(): Promise<JSX.Element> {
   const bannerData: SquareBannerProps = banner;
 
+  await waiting(1000);
   return (
     <>
       <div className="w-full overflow-hidden h-fit pt-2 flex flex-row sm:flex-col justify-center items-center sm:gap-4">
