@@ -31,6 +31,10 @@ export async function readCategoryById(id: string) {
     .select("category")
     .eq("id", id)
     .single();
+
+  if (!product) {
+    throw new Error("Product not found");
+  }
   const categoryId = product.category;
   return await supabse.from("category").select("*").eq("id", categoryId);
 }
