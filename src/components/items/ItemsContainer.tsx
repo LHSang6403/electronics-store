@@ -12,10 +12,12 @@ export default async function ItemsContainer({
   isAllProducts: boolean;
 }): Promise<JSX.Element> {
   const response = await readProducts({ check: { isAllProducts } });
+
   if (response.error) {
     throw new Error(response.error.message);
   }
-  const products: any = response.data;
+
+  const products: any = (response as { data: any }).data;
 
   const categories: string[] = ["Laptop", "Phone", "Tablet", "Watch", "TV"];
   const top4brands: string[] = ["Apple", "Samsung", "Xiaomi", "Sony", "..."];
