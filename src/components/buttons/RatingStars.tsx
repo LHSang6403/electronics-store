@@ -1,10 +1,10 @@
 import Image from "next/image";
 
-interface RatingStarsProps {
+export default function RatingStars({
+  rating,
+}: {
   rating: number;
-}
-
-export default function RatingStars({ rating }: RatingStarsProps): JSX.Element {
+}): JSX.Element {
   const wholeNumber = Math.floor(rating);
   const decimalNumber = rating - wholeNumber;
 

@@ -30,10 +30,14 @@ export async function signInWithEmailAndPassword(data: {
   return JSON.stringify(result);
 }
 
-export async function signOut() {
+export async function signOutHandler() {
+  "use server";
   const supabase = await createSupabaseServerClient();
-  await supabase.auth.signOut();
-  redirect("/");
+  const { error } = await supabase.auth.signOut();
+  if (error) {
+    return error;
+  }
+  return redirect("/auth");
 }
 
 export async function readUserSession() {

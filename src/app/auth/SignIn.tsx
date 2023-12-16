@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 
 import {
   Form,
@@ -12,9 +13,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui-shadcn/ui/form";
-import { Input } from "@/components/ui-shadcn/ui/input";
-import { Button } from "@/components/ui-shadcn/ui/button";
+} from "@components/ui-shadcn/ui/form";
+import { Input } from "@components/ui-shadcn/ui/input";
+import { Button } from "@components/ui-shadcn/ui/button";
 
 import { signInWithEmailAndPassword } from "./_actions";
 import GoogleOAuthForm from "../OAuth/GoogleOAuth";
@@ -41,10 +42,11 @@ export default function SignInForm() {
     const result = await signInWithEmailAndPassword(data);
     const resultJson = JSON.parse(result);
 
-    console.log("Submited", data);
-
-    if (resultJson?.message) {
-      console.log(resultJson.message);
+    if (resultJson?.data?.session) {
+      toast.success("Sign in successfully.");
+      router.push("/");
+    } else if (resultJson?.error?.message) {
+      toast.error(resultJson.error.message);
     } else {
       router.push("/");
     }

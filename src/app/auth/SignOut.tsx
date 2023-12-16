@@ -1,19 +1,22 @@
-import createSupabaseServerClient from "@/supabase/server";
-import { redirect } from "next/navigation";
-import { Button } from "@/components/ui-shadcn/ui/button";
+"use client";
+
+import { Button } from "@components/ui-shadcn/ui/button";
+import { toast } from "react-hot-toast";
+import { signOutHandler } from "./_actions";
 
 const SignOut = () => {
-  const signOutHandler = async () => {
-    "use server";
-    const supabase = await createSupabaseServerClient();
-    const { error } = await supabase.auth.signOut();
-    if (error) {
-      console.log(error);
+  const handleSignOut = async () => {
+    try {
+      await signOutHandler();
+      toast.success("Sign out successfully.");
+    } catch (error: any) {
+      toast.error(error.message);
+      console.error("Error signing out:", error);
     }
-    redirect("/auth");
   };
+
   return (
-    <form action={signOutHandler}>
+    <form action={handleSignOut}>
       <Button type="submit" className="w-full h-7 px-2 flex gap-2">
         Sign Out
       </Button>

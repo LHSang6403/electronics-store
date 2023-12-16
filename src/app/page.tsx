@@ -1,14 +1,14 @@
-import CarouselSlider from "@/components/CarouselSlider";
-import Cards from "@/components/cards/Cards";
-import Banner from "@/components/banners/Banner";
-import Top2Items from "@/components/items/Top2Items";
-import TrendingCategories from "@/components/items/TrendingCategories";
-import ItemsContainer from "@/components/items/ItemsContainer";
-import IntroHome from "@/components/IntroHome";
-import { waiting } from "@/utils/waiting";
+import CarouselSlider from "@components/CarouselSlider";
+import Cards from "@components/cards/Cards";
+import Banner from "@components/banners/Banner";
+import Top2Items from "@components/items/Top2Items";
+import TrendingCategories from "@components/items/TrendingCategories";
+import ItemsContainer from "@components/items/ItemsContainer";
+import IntroHome from "@components/IntroHome";
+import { waiting } from "@utils/waiting";
 
 export default async function Home(): Promise<JSX.Element> {
-  await waiting(1000);
+  await waiting(500);
   return (
     <>
       <main
@@ -44,7 +44,7 @@ export default async function Home(): Promise<JSX.Element> {
           <TrendingCategories />
         </div>
         <div className="w-full h-auto">
-          <ItemsContainer check={{ isAllProducts: false }} />
+          <ItemsContainer isAllProducts={false} />
         </div>
       </main>
     </>

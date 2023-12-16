@@ -1,7 +1,6 @@
 "use server";
 
 import createSupabaseServerClient from "@/supabase/server";
-// import { unstable_noStore as noStore, revalidatePath } from "next/cache";
 
 interface ItemsContainerProps {
   check: { isAllProducts: boolean };
@@ -10,23 +9,24 @@ interface ItemsContainerProps {
 export async function readProducts({
   check: { isAllProducts },
 }: ItemsContainerProps) {
-  // noStore();
-  const supabse = await createSupabaseServerClient();
-  if (isAllProducts)
-    return await supabse.from("products").select("*").limit(16);
-  return await supabse.from("products").select("*");
+  try {
+    const supabase = await createSupabaseServerClient();
+    if (isAllProducts)
+      return await supabase.from("products").select("*").limit(16);
+    return await supabase.from("products").select("*");
+  } catch (error: any) {
+    return { error: error.message };
+  }
 }
 
 export async function readProductById(id: string) {
-  // noStore();
-  const supabse = await createSupabaseServerClient();
-  return await supabse.from("products").select("*").eq("id", id);
+  const supabase = await createSupabaseServerClient();
+  return await supabase.from("products").select("*").eq("id", id);
 }
 
 export async function readCategoryById(id: string) {
-  // noStore();
-  const supabse = await createSupabaseServerClient();
-  const { data: product } = await supabse
+  const supabase = await createSupabaseServerClient();
+  const { data: product } = await supabase
     .from("products")
     .select("category")
     .eq("id", id)
@@ -36,23 +36,23 @@ export async function readCategoryById(id: string) {
     throw new Error("Product not found");
   }
   const categoryId = product.category;
-  return await supabse.from("category").select("*").eq("id", categoryId);
+  return await supabase.from("category").select("*").eq("id", categoryId);
 }
 
-export async function readProductDetailDescriptionById(id: string) {
-  const supabse = await createSupabaseServerClient();
-  return await supabse
-    .from("product detail descriptions")
-    .select("*")
-    .eq("product", id)
-    .single();
-}
+// export async function readProductDetailDescriptionById(id: string) {
+//   const supabase = await createSupabaseServerClient();
+//   return await supabase
+//     .from("product detail descriptions")
+//     .select("*")
+//     .eq("product", id)
+//     .single();
+// }
 
-export async function readProductDetailImageById(id: string) {
-  const supabse = await createSupabaseServerClient();
-  return await supabse
-    .from("product detail images")
-    .select("*")
-    .eq("product", id)
-    .single();
-}
+// export async function readProductDetailImageById(id: string) {
+//   const supabase = await createSupabaseServerClient();
+//   return await supabase
+//     .from("product detail images")
+//     .select("*")
+//     .eq("product", id)
+//     .single();
+// }

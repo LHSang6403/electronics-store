@@ -29,15 +29,10 @@ export default function TrendingCategories(): JSX.Element {
           } sm:col-span-3 mx-2 xl:mx-0 sm:m-0 shadow-md flex flex-col justify-center items-center bg-[#EEEEEE]`}
           key={item.id}
         >
-          {/* <img
-            className="w-32 h-32 rounded-2xl overflow-hidden"
-            alt={`category-img-${item.id}`}
-            src={item.image}
-          ></img> */}
           <div className="w-32 h-32 rounded-2xl overflow-hidden">
             <Image
               src={item.image}
-              alt="Top two items"
+              alt="Trending item"
               width={800}
               height={800}
             />

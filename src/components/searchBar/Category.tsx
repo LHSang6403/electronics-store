@@ -4,9 +4,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui-shadcn-custom/select-custom";
-import ShowMore from "../buttons/ShowMore";
-import categories from "@/dummyApi/category";
+} from "@components/ui-shadcn-custom/select-custom";
+import ShowMore from "@components/buttons/ShowMore";
+import categories from "@dummyApi/category";
 import Image from "next/image";
 
 const Category = () => {

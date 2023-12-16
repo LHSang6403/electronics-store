@@ -1,6 +1,6 @@
-import SearchBar from "../../searchBar/SearchBar";
+import SearchBar from "@components/searchBar/SearchBar";
 import Link from "next/link";
-import { readUserSession } from "@/app/auth/_actions";
+import { readUserSession } from "@app/auth/_actions";
 import Image from "next/image";
 import AccountPopup from "./AccountPopup";
 

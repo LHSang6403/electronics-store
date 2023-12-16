@@ -3,9 +3,3 @@ export interface SquareBannerProps {
   title: string;
   description: string;
 }
-
-export interface PersonCardProps {
-  name: string;
-  image: string;
-  description: string;
-}

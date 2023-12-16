@@ -4,7 +4,22 @@ export interface ProductData {
   price: number;
   category: string;
   description: string;
+  description_1: string;
   image: string;
+  image_1: string;
+  image_2: string;
+  image_3: string;
+  image_4: string;
   sale?: string;
   rating: number;
+  is_deleted: boolean;
+}
+
+export interface User {
+  id: string;
+  name: string;
+  dateOfBirth: string;
+  email: string;
+  phone: string;
+  image: string;
 }

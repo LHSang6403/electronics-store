@@ -1,12 +1,10 @@
-interface ButtonProps {
-  name: string;
-  onClick: () => void;
-}
-
 export default function PrimaryButton({
   name,
   onClick,
-}: ButtonProps): JSX.Element {
+}: {
+  name: string;
+  onClick: () => void;
+}): JSX.Element {
   return (
     <button
       onClick={onClick}

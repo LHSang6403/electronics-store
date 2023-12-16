@@ -1,16 +1,27 @@
 import PersonCard from "@/components/cards/PersonCard";
 import { personCardList as personCardListData } from "@/dummyApi/about";
 
-import { type PersonCardProps } from "@/app/(main)/about/interface";
+interface PersonCardProps {
+  name: string;
+  image: string;
+  description: string;
+}
 
 export default function People(): JSX.Element {
   const personCardList: PersonCardProps[] = personCardListData;
+
   return (
     <div className="w-full h-full rounded-b-[36px] bg-black py-2 sm:pb-4">
       <div className="w-auto mx-4 h-fit overflow-hidden flex flex-row  justify-center items-end">
         <ul className="w-[90%] h-fit py-8 flex flex-row sm:flex-col justify-center items-end gap-8">
           <li className="w-fit h-[370px] sm:hidden" key="0">
-            <PersonCard data={personCardList[personCardList.length - 1]} />
+            <PersonCard
+              image={personCardList[personCardList.length - 1].image}
+              name={personCardList[personCardList.length - 1].name}
+              description={
+                personCardList[personCardList.length - 1].description
+              }
+            />
           </li>
           {personCardList.map((each, index) => (
             <li
@@ -21,11 +32,19 @@ export default function People(): JSX.Element {
               }`}
               key={index}
             >
-              <PersonCard data={each} />
+              <PersonCard
+                image={each.image}
+                name={each.name}
+                description={each.description}
+              />
             </li>
           ))}
           <li className="w-fit h-[400px] sm:hidden" key="4">
-            <PersonCard data={personCardList[0]} />
+            <PersonCard
+              image={personCardList[0].image}
+              name={personCardList[0].name}
+              description={personCardList[0].description}
+            />
           </li>
         </ul>
       </div>

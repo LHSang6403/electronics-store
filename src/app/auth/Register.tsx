@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { toast } from "react-hot-toast";
 
 import {
   Form,
@@ -11,9 +12,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui-shadcn/ui/form";
-import { Input } from "@/components/ui-shadcn/ui/input";
-import { Button } from "@/components/ui-shadcn/ui/button";
+} from "@components/ui-shadcn/ui/form";
+import { Input } from "@components/ui-shadcn/ui/input";
+import { Button } from "@components/ui-shadcn/ui/button";
 import { signUpWithEmailAndPassword } from "./_actions";
 import { useRouter } from "next/navigation";
 
@@ -48,10 +49,11 @@ export default function RegisterForm() {
     const result = await signUpWithEmailAndPassword(data);
     const resultJson = JSON.parse(result);
 
-    console.log("Submited", data);
-
-    if (resultJson?.message) {
-      console.log(resultJson.message);
+    if (resultJson?.data?.session) {
+      toast.success("Register successfully.");
+      router.push("/");
+    } else if (resultJson?.error?.message) {
+      toast.error(resultJson.error.message);
     } else {
       router.push("/");
     }

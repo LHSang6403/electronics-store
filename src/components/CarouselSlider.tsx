@@ -2,7 +2,7 @@
 
 import "react-slideshow-image/dist/styles.css";
 import { Zoom } from "react-slideshow-image";
-import sliderImgs from "@/dummyApi/slider";
+import sliderImgs from "@dummyApi/slider";
 import Image from "next/image";
 
 async function waiting(): Promise<void> {

@@ -1,25 +1,25 @@
-import SquareBanner from "@/components/banners/SquareBanner";
-import TimeLine from "@/app/(main)/about/TimeLine";
-import TopProfile from "@/app/(main)/about/topProfile";
-import Story from "@/app/(main)/about/Story";
-import People from "@/app/(main)/about/People";
-import Mission from "@/app/(main)/about/Mission";
-import HighlightCards from "@/components/cards/HighlightCards";
-import { bannerData as banner } from "@/dummyApi/about";
-import { waiting } from "@/utils/waiting";
+import SquareBanner from "@components/banners/SquareBanner";
+import TimeLine from "@app/(main)/about/TimeLine";
+import TopProfile from "@app/(main)/about/topProfile";
+import Story from "@app/(main)/about/Story";
+import People from "@app/(main)/about/People";
+import Mission from "@app/(main)/about/Mission";
+import HighlightCards from "@components/cards/HighlightCards";
+import { bannerData as banner } from "@dummyApi/about";
+import { waiting } from "@utils/waiting";
 
-import { type SquareBannerProps } from "@/app/(main)/about/interface";
+import { type SquareBannerProps } from "@app/(main)/about/interface";
 
 export default async function About(): Promise<JSX.Element> {
-  const bannerData: SquareBannerProps = banner;
+  const squareBannerData: SquareBannerProps = banner;
 
-  await waiting(1000);
+  await waiting(500);
   return (
     <>
       <div className="w-full overflow-hidden h-fit pt-2 flex flex-row sm:flex-col justify-center items-center sm:gap-4">
         <div className="w-fit h-fit transform skew-x-[20deg] overflow-hidden flex justify-center items-center p-2 sm:pt-0 sm:px-4">
           <div className="transform skew-x-[-20deg]">
-            <SquareBanner data={bannerData} />
+            <SquareBanner squareBannerProps={squareBannerData} />
           </div>
         </div>
         <div className="w-1/2 xl:w-full h-fit sm:h-fit flex flex-col justify-center items-center p-2 pl-0">

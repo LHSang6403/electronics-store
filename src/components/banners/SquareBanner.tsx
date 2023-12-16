@@ -1,15 +1,13 @@
 import Image from "next/image";
 
-interface SquareBannerProps {
-  data: {
-    image: string;
-    title?: string;
-    description?: string;
-  };
-}
+import { type SquareBannerProps } from "@app/(main)/about/interface";
 
-export default function SquareBanner({ data }: SquareBannerProps): JSX.Element {
-  const { title, image, description } = data;
+export default function SquareBanner({
+  squareBannerProps,
+}: {
+  squareBannerProps: SquareBannerProps;
+}): JSX.Element {
+  const { title, image, description } = squareBannerProps;
 
   return (
     <div className="group w-full h-fit flex flex-col justify-center items-center">

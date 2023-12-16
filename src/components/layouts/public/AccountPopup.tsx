@@ -6,7 +6,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@components/ui-shadcn-custom/dropdown-menu-custom";
-import SignOut from "@/app/auth/SignOut";
+import SignOut from "@app/auth/SignOut";
 import { Button } from "@components/ui-shadcn-custom/button-custom";
 import Image from "next/image";
 import Link from "next/link";

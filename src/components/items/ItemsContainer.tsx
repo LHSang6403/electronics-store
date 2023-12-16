@@ -1,30 +1,21 @@
 import Link from "next/link";
 import Product from "./Product";
 import Combobox from "../buttons/ComboBox";
-import { readProducts } from "@/app/_actions/productActions";
+import { readProducts } from "@app/_actions/productActions";
 import Image from "next/image";
 
-interface ProductData {
-  id: number;
-  name: string;
-  price: number;
-  category: string;
-  description: string;
-  image: string;
-  rating: number;
-  sale?: string;
-}
-
-interface ItemsContainerProps {
-  check: { isAllProducts: boolean };
-}
+import type { ProductData } from "@app/interface";
 
 export default async function ItemsContainer({
-  check: { isAllProducts },
-}: ItemsContainerProps): Promise<JSX.Element> {
-  const { data: products } = await readProducts({
-    check: { isAllProducts },
-  });
+  isAllProducts,
+}: {
+  isAllProducts: boolean;
+}): Promise<JSX.Element> {
+  const response = await readProducts({ check: { isAllProducts } });
+  if (response.error) {
+    throw new Error(response.error.message);
+  }
+  const products: any = response.data;
 
   const categories: string[] = ["Laptop", "Phone", "Tablet", "Watch", "TV"];
   const top4brands: string[] = ["Apple", "Samsung", "Xiaomi", "Sony", "..."];
@@ -50,7 +41,7 @@ export default async function ItemsContainer({
         >
           {filters.map((filter, index) => (
             <div className="" key={index}>
-              <Combobox data={{ title: filter }} />
+              <Combobox title={filter} />
             </div>
           ))}
         </div>
@@ -89,14 +80,6 @@ export default async function ItemsContainer({
               </div>
               <hr className="w-auto h-[1px] mx-14 xl:mx-4 sm:mx-5 border-none rounded bg-black"></hr>
               <div className="px-2">
-                {/* {!isAllProducts && (
-                  <img
-                    className="w-5 h-5 sm:hidden opacity-70 hover:opacity-100 hover:cursor-pointer"
-                    alt="left-arrow"
-                    src="/assets/black-arrow-left.png"
-                  ></img>
-                )} */}
-
                 {!isAllProducts ? (
                   <div
                     className="
@@ -121,14 +104,6 @@ export default async function ItemsContainer({
                     ))}
                   </div>
                 )}
-
-                {/* {!isAllProducts && (
-                  <img
-                    className="w-5 h-5 sm:hidden opacity-70 hover:opacity-100 hover:cursor-pointer"
-                    alt="right-arrow"
-                    src="/assets/black-arrow-right.png"
-                  ></img>
-                )} */}
               </div>
             </div>
           );

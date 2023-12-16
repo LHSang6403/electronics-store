@@ -1,6 +1,6 @@
 "use client";
 
-import cards from "@/dummyApi/cards";
+import cards from "@dummyApi/cards";
 import Image from "next/image";
 
 interface Card {

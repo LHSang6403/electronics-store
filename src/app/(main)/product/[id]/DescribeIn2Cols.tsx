@@ -1,11 +1,14 @@
-import { type DescribeIn2ColsProps } from "@/app/(main)/product/[id]/interface";
 import Image from "next/image";
 
 export default function DescribeIn2Cols({
   image,
   description,
   isReverse,
-}: DescribeIn2ColsProps): JSX.Element {
+}: {
+  image: string;
+  description: string;
+  isReverse: boolean;
+}): JSX.Element {
   return (
     <div
       className={`w-full h-fit flex py-8 sm:px-4 ${

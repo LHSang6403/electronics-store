@@ -1,6 +1,6 @@
 "use client";
 
-import RadiosGroup from "./buttons/RadiosGroup";
+import RadiosGroup from "@components/buttons/RadiosGroup";
 import { useForm } from "react-hook-form";
 import {
   Card,
@@ -9,8 +9,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui-shadcn/ui/card";
-import { Button } from "@/components/ui-shadcn/ui/button";
+} from "@components/ui-shadcn/ui/card";
+import { Button } from "@components/ui-shadcn-custom/button-custom";
 
 export interface Option {
   name: string;

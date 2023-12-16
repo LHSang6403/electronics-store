@@ -1,10 +1,10 @@
-import CartTable from "@/app/(main)/cart/CartTable";
-import Payments from "@/components/Payments";
-import SquareBanner from "@/components/banners/SquareBanner";
-import Banner from "@/components/banners/Banner";
-import { waiting } from "@/utils/waiting";
+import CartTable from "@app/(main)/cart/CartTable";
+import Payments from "@/app/(main)/cart/Payments";
+import Banner from "@components/banners/Banner";
+import SquareBanner from "@components/banners/SquareBanner";
+import { waiting } from "@utils/waiting";
 
-import { type SquareBannerProps } from "@/app/(main)/cart/interface";
+import { type SquareBannerProps } from "@app/(main)/about/interface";
 
 const bannerData: SquareBannerProps = {
   image:
@@ -14,7 +14,7 @@ const bannerData: SquareBannerProps = {
 };
 
 export default async function Cart(): Promise<JSX.Element> {
-  await waiting(1000);
+  await waiting(500);
   return (
     <>
       <div className="w-full h-[250px] sm:h-fit shadow-lg overflow-hidden">
@@ -31,7 +31,7 @@ export default async function Cart(): Promise<JSX.Element> {
       </div>
       <div className="w-[90%] h-fit mx-auto flex flex-row sm:flex-col-reverse justify-center items-center gap-4">
         <div className="w-1/2 sm:w-full h-full flex flex-col justify-center items-center">
-          <SquareBanner data={bannerData} />
+          <SquareBanner squareBannerProps={bannerData} />
         </div>
         <div className="w-1/2 sm:w-full h-full flex flex-col justify-center items-center">
           <Payments />

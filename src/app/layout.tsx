@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "@styles/globals.css";
-// import { ReduxProvider } from "@/redux/provider";
-import Header from "@/components/layouts/public/Header";
-import TopMenu from "@/components/layouts/public/TopMenu";
-import Footer from "@/components/layouts/public/Footer";
+import { Toaster } from "react-hot-toast";
+import Header from "@components/layouts/public/Header";
+import TopMenu from "@components/layouts/public/TopMenu";
+import Footer from "@components/layouts/public/Footer";
 
 export const metadata: Metadata = {
   title: "Electronics store",
@@ -22,6 +22,7 @@ export default function RootLayout({
         <TopMenu />
         {children}
         <Footer />
+        <Toaster position="top-right" />
       </body>
     </html>
   );

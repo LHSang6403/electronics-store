@@ -1,5 +1,5 @@
-import Register from "@/app/auth/Register";
-import SignInForm from "@/app/auth/SignIn";
+import Register from "@app/auth/Register";
+import SignInForm from "@app/auth/SignIn";
 
 import {
   Tabs,

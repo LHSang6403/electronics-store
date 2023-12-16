@@ -1,17 +1,22 @@
 "use client";
 
-import RatingStars from "@/components/buttons/RatingStars";
+import RatingStars from "@components/buttons/RatingStars";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import formatCurrencyWithCommas from "@/utils/formatCurrency";
+import formatCurrencyWithCommas from "@utils/formatCurrency";
 import { useCartStore } from "@zustand/useCartStore";
 import Image from "next/image";
+import { type ProductData } from "@app/interface";
 
-import { type ProductInfoProps } from "@/app/(main)/product/[id]/interface";
+import { type ProductImages } from "@app/(main)/product/[id]/interface";
 
 export default async function ProductInfo({
-  data: { squareBannerData, productData },
-}: ProductInfoProps): Promise<JSX.Element> {
+  productImages,
+  productData,
+}: {
+  productImages: ProductImages;
+  productData: ProductData;
+}): Promise<JSX.Element> {
   const router = useRouter();
   const { addProd } = useCartStore() as { addProd: any };
 
@@ -28,7 +33,7 @@ export default async function ProductInfo({
           <ul className="w-fit h-[70%] border-[1px] ml-8 xl:ml-4 rounded-lg border-white flex flex-col justify-center items-center">
             <li className="w-12 h-12 mr-1">
               <Image
-                src={squareBannerData.image}
+                src={productImages.image_0}
                 alt="Product selector"
                 layout="responsive"
                 width={512}
@@ -37,7 +42,7 @@ export default async function ProductInfo({
             </li>
             <li className="w-12 h-12 mr-1">
               <Image
-                src={squareBannerData.image}
+                src={productImages.image_1}
                 alt="Product selector"
                 layout="responsive"
                 width={512}
@@ -46,7 +51,7 @@ export default async function ProductInfo({
             </li>
             <li className="w-12 h-12 mr-1">
               <Image
-                src={squareBannerData.image}
+                src={productImages.image_2}
                 alt="Product selector"
                 layout="responsive"
                 width={512}
@@ -55,7 +60,7 @@ export default async function ProductInfo({
             </li>
             <li className="w-12 h-12 mr-1">
               <Image
-                src={squareBannerData.image}
+                src={productImages.image_3}
                 alt="Product selector"
                 layout="responsive"
                 width={512}
@@ -66,7 +71,7 @@ export default async function ProductInfo({
           <div className="w-[130%] h-full relative scale-125 xl:scale-110 left-16 sm:left-9 -top-[94%] xl:-top-[74%] sm:-top-[90%]">
             <div className="w-full h-full object-cover rounded-3xl [transition:transform_0.5s_ease] group-hover:scale-[1.01]">
               <Image
-                src={squareBannerData.image}
+                src={productData.image}
                 alt="sale-square-banner"
                 width={512}
                 height={512}

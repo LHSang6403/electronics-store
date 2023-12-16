@@ -3,13 +3,13 @@
 import * as React from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 
-import { cn } from "@/utils/utils";
-import { Button } from "../ui-shadcn-custom/button-custom";
-import { CommandGroup, CommandItem } from "@/components/ui-shadcn/ui/command";
-import { PopoverTrigger } from "@/components/ui-shadcn/ui/popover";
-import { PopoverContent } from "../ui-shadcn-custom/popover-content-custom";
-import { Popover } from "../ui-shadcn-custom/popover-custom";
-import { Command } from "../ui-shadcn-custom/command-custom";
+import { cn } from "@utils/utils";
+import { Button } from "@components/ui-shadcn-custom/button-custom";
+import { CommandGroup, CommandItem } from "@components/ui-shadcn/ui/command";
+import { PopoverTrigger } from "@components/ui-shadcn/ui/popover";
+import { PopoverContent } from "@components/ui-shadcn-custom/popover-content-custom";
+import { Popover } from "@components/ui-shadcn-custom/popover-custom";
+import { Command } from "@components/ui-shadcn-custom/command-custom";
 
 const frameworks = [
   {
@@ -46,14 +46,7 @@ const frameworks = [
   },
 ];
 
-interface ComboboxProps {
-  data: {
-    title: string;
-  };
-}
-
-export default function Combobox({ data }: ComboboxProps): JSX.Element {
-  const { title } = data;
+export default function Combobox({ title }: { title: string }): JSX.Element {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState<string>("");
 

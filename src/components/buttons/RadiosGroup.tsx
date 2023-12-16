@@ -2,7 +2,7 @@ import { Label } from "@/components/ui-shadcn/ui/label";
 import {
   RadioGroup,
   RadioGroupItem,
-} from "../ui-shadcn-custom/radio-group-custom";
+} from "@components/ui-shadcn-custom/radio-group-custom";
 import Image from "next/image";
 
 export interface Option {

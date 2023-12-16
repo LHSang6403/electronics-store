@@ -4,8 +4,8 @@ import { useState, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
 import Category from "./Category";
-import suggestions from "@/dummyApi/suggestion";
-import formatCurrencyWithCommas from "@/utils/formatCurrency";
+import suggestions from "@dummyApi/suggestion";
+import formatCurrencyWithCommas from "@utils/formatCurrency";
 
 interface Suggestion {
   id: number;
@@ -16,7 +16,7 @@ interface Suggestion {
   discription: string;
 }
 
-export default function SearchBar(props: any): JSX.Element {
+export default function SearchBar(): JSX.Element {
   const { register, handleSubmit, reset, setValue, setFocus } = useForm({
     defaultValues: { search: "" },
   });

@@ -3,10 +3,7 @@
 import { useCartStore } from "@zustand/useCartStore";
 import Image from "next/image";
 
-import {
-  type QuantityButtonProps,
-  type CartItem,
-} from "@/app/(main)/cart/interface";
+import { type CartItem } from "@app/(main)/cart/interface";
 
 function getQuantityFromId(cartList: CartItem[], id: string): string {
   const item = cartList.find((item) => item.id === id);
@@ -14,9 +11,7 @@ function getQuantityFromId(cartList: CartItem[], id: string): string {
   return quantity.toString();
 }
 
-export default function QuantityButton({
-  id,
-}: QuantityButtonProps): JSX.Element {
+export default function QuantityButton({ id }: { id: string }): JSX.Element {
   const { cartList, increaseQuantity, decreaseQuantity } = useCartStore() as {
     cartList: CartItem[];
     increaseQuantity: any;

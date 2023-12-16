@@ -8,14 +8,14 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../../../components/ui-shadcn-custom/table-custom";
+} from "@components/ui-shadcn-custom/table-custom";
 import Sale from "./Sale";
-import QuantityButton from "@/app/(main)/cart/QuantityButton";
-import formatCurrencyWithCommas from "@/utils/formatCurrency";
+import QuantityButton from "@app/(main)/cart/QuantityButton";
+import formatCurrencyWithCommas from "@utils/formatCurrency";
 
 import { useCartStore } from "@zustand/useCartStore";
 
-import { type CartItem } from "@/app/(main)/cart/interface";
+import { type CartItem } from "@app/(main)/cart/interface";
 
 export default async function CartTable(): Promise<JSX.Element> {
   const { cartList: data, totalPrice } = useCartStore() as {
@@ -70,7 +70,7 @@ export default async function CartTable(): Promise<JSX.Element> {
                   </div>
                   {line.sale ? (
                     <div className="sm:hidden xl:font-light">
-                      <Sale data={line.sale} />
+                      <Sale saleProps={line.sale} />
                     </div>
                   ) : (
                     <div className="hidden xl:block sm:hidden text-sm font-light ml-2">
@@ -87,7 +87,7 @@ export default async function CartTable(): Promise<JSX.Element> {
                 <TableCell className="text-center text-lg">
                   {line.sale && (
                     <div className="hidden sm:flex justify-end">
-                      <Sale data={line.sale} />
+                      <Sale saleProps={line.sale} />
                     </div>
                   )}
                   <div className="sm:mt-1">
