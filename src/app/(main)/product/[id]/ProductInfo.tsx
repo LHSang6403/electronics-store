@@ -35,7 +35,6 @@ export default async function ProductInfo({
               <Image
                 src={productImages.image_0}
                 alt="Product selector"
-                layout="responsive"
                 width={512}
                 height={512}
               />
@@ -44,7 +43,6 @@ export default async function ProductInfo({
               <Image
                 src={productImages.image_1}
                 alt="Product selector"
-                layout="responsive"
                 width={512}
                 height={512}
               />
@@ -53,7 +51,6 @@ export default async function ProductInfo({
               <Image
                 src={productImages.image_2}
                 alt="Product selector"
-                layout="responsive"
                 width={512}
                 height={512}
               />
@@ -62,7 +59,6 @@ export default async function ProductInfo({
               <Image
                 src={productImages.image_3}
                 alt="Product selector"
-                layout="responsive"
                 width={512}
                 height={512}
               />
