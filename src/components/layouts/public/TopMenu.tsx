@@ -3,6 +3,8 @@
 import Link from "next/link";
 import menu from "./urls";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 interface URL {
   name: string;
@@ -11,6 +13,7 @@ interface URL {
 
 export default function TopMenu(): ReturnType<React.FC> {
   const data: URL[] = menu;
+  const path = usePathname();
 
   return (
     <div
@@ -38,7 +41,15 @@ export default function TopMenu(): ReturnType<React.FC> {
         {data.map((item, index) => {
           return (
             <li key={index} className="w-fit">
-              <Link href={item.url}>{item.name}</Link>
+              <Link className="relative" href={item.url}>
+                {path === item.url && (
+                  <motion.span
+                    layoutId="underline"
+                    className="absolute left-0 top-full h-[2px] block w-full bg-primary"
+                  />
+                )}
+                {item.name}
+              </Link>
             </li>
           );
         })}

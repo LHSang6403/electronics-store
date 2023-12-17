@@ -1,5 +1,11 @@
+"use client";
+
 import PersonCard from "@/components/cards/PersonCard";
+import Mission from "./Mission";
 import { personCardList as personCardListData } from "@/dummyApi/about";
+
+import { motion } from "framer-motion";
+import fadeInAminationVariants from "../../../lib/animationVariants";
 
 interface PersonCardProps {
   name: string;
@@ -11,7 +17,16 @@ export default function People(): JSX.Element {
   const personCardList: PersonCardProps[] = personCardListData;
 
   return (
-    <div className="w-full h-full rounded-b-[36px] bg-black py-2 sm:pb-4">
+    <motion.div
+      variants={fadeInAminationVariants}
+      initial="initial"
+      whileInView="animate"
+      className="w-full h-full rounded-[36px] overflow-hidden bg-black py-2 sm:pb-4"
+    >
+      <Mission />
+      <div className="w-full h-fit bg-black text-white py-6 flex flex-row justify-center items-center text-3xl font-medium">
+        Meet Our Cores
+      </div>
       <div className="w-auto mx-4 h-fit overflow-hidden flex flex-row  justify-center items-end">
         <ul className="w-[90%] h-fit py-8 flex flex-row sm:flex-col justify-center items-end gap-8">
           <li className="w-fit h-[370px] sm:hidden" key="0">
@@ -48,6 +63,6 @@ export default function People(): JSX.Element {
           </li>
         </ul>
       </div>
-    </div>
+    </motion.div>
   );
 }

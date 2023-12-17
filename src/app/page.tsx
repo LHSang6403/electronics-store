@@ -5,10 +5,10 @@ import Top2Items from "@components/items/Top2Items";
 import TrendingCategories from "@components/items/TrendingCategories";
 import ItemsContainer from "@components/items/ItemsContainer";
 import IntroHome from "@components/IntroHome";
-import { waiting } from "@utils/waiting";
+import { waiting } from "@/lib/waiting";
 
 export default async function Home(): Promise<JSX.Element> {
-  await waiting(500);
+  await waiting(200);
   return (
     <>
       <main

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import formatCurrencyWithCommas from "@/utils/formatCurrency";
+import formatCurrencyWithCommas from "@/lib/formatCurrency";
 import Image from "next/image";
 
 import { type ProductData } from "@app/interface";

@@ -2,18 +2,10 @@
 
 import createSupabaseServerClient from "@/supabase/server";
 
-interface ItemsContainerProps {
-  check: { isAllProducts: boolean };
-}
-
-export async function readProducts({
-  check: { isAllProducts },
-}: ItemsContainerProps) {
+export async function readProducts({ limit }: { limit: number }) {
   try {
     const supabase = await createSupabaseServerClient();
-    if (isAllProducts)
-      return await supabase.from("products").select("*").limit(16);
-    return await supabase.from("products").select("*");
+    return await supabase.from("products").select("*").limit(limit);
   } catch (error: any) {
     return { error: error.message };
   }
@@ -38,21 +30,3 @@ export async function readCategoryById(id: string) {
   const categoryId = product.category;
   return await supabase.from("category").select("*").eq("id", categoryId);
 }
-
-// export async function readProductDetailDescriptionById(id: string) {
-//   const supabase = await createSupabaseServerClient();
-//   return await supabase
-//     .from("product detail descriptions")
-//     .select("*")
-//     .eq("product", id)
-//     .single();
-// }
-
-// export async function readProductDetailImageById(id: string) {
-//   const supabase = await createSupabaseServerClient();
-//   return await supabase
-//     .from("product detail images")
-//     .select("*")
-//     .eq("product", id)
-//     .single();
-// }

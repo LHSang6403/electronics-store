@@ -2,7 +2,7 @@ import CartTable from "@app/(main)/cart/CartTable";
 import Payments from "@/app/(main)/cart/Payments";
 import Banner from "@components/banners/Banner";
 import SquareBanner from "@components/banners/SquareBanner";
-import { waiting } from "@utils/waiting";
+import { waiting } from "@/lib/waiting";
 
 import { type SquareBannerProps } from "@app/(main)/about/interface";
 
@@ -14,7 +14,7 @@ const bannerData: SquareBannerProps = {
 };
 
 export default async function Cart(): Promise<JSX.Element> {
-  await waiting(500);
+  await waiting(200);
   return (
     <>
       <div className="w-full h-[250px] sm:h-fit shadow-lg overflow-hidden">

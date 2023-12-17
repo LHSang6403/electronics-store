@@ -3,9 +3,12 @@
 import Link from "next/link";
 import Product from "@components/items/Product";
 import Combobox from "@components/buttons/ComboBox";
-import { readProducts } from "@app/_actions/productActions";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import fadeInAminationVariants from "@lib/animationVariants";
 
+import { readProducts } from "@app/_actions/productActions";
+import { useQuery } from "@tanstack/react-query";
 import type { ProductData } from "@app/interface";
 
 export default async function ItemsContainer({
@@ -13,13 +16,20 @@ export default async function ItemsContainer({
 }: {
   isAllProducts: boolean;
 }): Promise<JSX.Element> {
-  const response = await readProducts({ check: { isAllProducts } });
-
-  if (response.error) {
-    throw new Error(response.error.message);
+  let limit = 0;
+  if (!isAllProducts) {
+    limit = 20;
+  } else {
+    limit = 20;
   }
-
-  const products: any = (response as { data: any }).data;
+  const { data, error } = useQuery({
+    queryKey: [`${limit} products`],
+    queryFn: async () => await readProducts({ limit }),
+  });
+  if (error) {
+    throw new Error(error.message);
+  }
+  const products = data?.data;
 
   const categories: string[] = ["Laptop", "Phone", "Tablet", "Watch", "TV"];
   const top4brands: string[] = ["Apple", "Samsung", "Xiaomi", "Sony", "..."];
@@ -33,7 +43,12 @@ export default async function ItemsContainer({
   const filters: string[] = ["Price", "Brand", "Rating", "Sale", "Functions"];
 
   return (
-    <div className="w-fit h-full overflow-hidden mx-auto rounded-3xl xl:rounded-2xl sm:rounded-2xl border-2 border-black">
+    <motion.div
+      variants={fadeInAminationVariants}
+      initial="initial"
+      whileInView="animate"
+      className="w-fit h-full overflow-hidden mx-auto rounded-3xl xl:rounded-2xl sm:rounded-2xl border-2 border-black"
+    >
       <div className="w-full h-[70px] mb-4 bg-primary text-3xl font-semibold flex justify-center items-center">
         Electrical Store
       </div>
@@ -124,6 +139,6 @@ export default async function ItemsContainer({
           </Link>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }

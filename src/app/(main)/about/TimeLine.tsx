@@ -1,3 +1,8 @@
+"use client";
+
+import { motion } from "framer-motion";
+import fadeInAminationVariants from "../../../lib/animationVariants";
+
 interface Event {
   time: string;
   title: string;
@@ -33,7 +38,12 @@ const events: Event[] = [
 
 export default function TimeLine(): JSX.Element {
   return (
-    <div className="w-full h-full">
+    <motion.div
+      variants={fadeInAminationVariants}
+      initial="initial"
+      whileInView="animate"
+      className="w-full h-full"
+    >
       <ul className="relative border-s border-primary">
         {events.map((event, index) => (
           <li key={index} className="mb-10 ms-4">
@@ -50,6 +60,6 @@ export default function TimeLine(): JSX.Element {
           </li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 }

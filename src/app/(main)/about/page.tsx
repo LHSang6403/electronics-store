@@ -3,17 +3,17 @@ import TimeLine from "@app/(main)/about/TimeLine";
 import TopProfile from "@app/(main)/about/topProfile";
 import Story from "@app/(main)/about/Story";
 import People from "@app/(main)/about/People";
-import Mission from "@app/(main)/about/Mission";
 import HighlightCards from "@components/cards/HighlightCards";
 import { bannerData as banner } from "@dummyApi/about";
-import { waiting } from "@utils/waiting";
+
+import { waiting } from "@/lib/waiting";
 
 import { type SquareBannerProps } from "@app/(main)/about/interface";
 
 export default async function About(): Promise<JSX.Element> {
   const squareBannerData: SquareBannerProps = banner;
 
-  await waiting(500);
+  await waiting(200);
   return (
     <>
       <div className="w-full overflow-hidden h-fit pt-2 flex flex-row sm:flex-col justify-center items-center sm:gap-4">
@@ -30,13 +30,7 @@ export default async function About(): Promise<JSX.Element> {
         </div>
       </div>
       <Story />
-      <div>
-        <Mission />
-        <div className="w-full h-fit bg-black text-white py-6 flex flex-row justify-center items-center text-3xl font-medium">
-          Meet Our Cores
-        </div>
-        <People />
-      </div>
+      <People />
       <div className="w-full h-fit py-6 flex flex-row justify-center items-center text-3xl font-medium">
         Our Journey
       </div>

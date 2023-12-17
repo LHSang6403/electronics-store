@@ -11,7 +11,7 @@ import {
 } from "@components/ui-shadcn-custom/table-custom";
 import Sale from "./Sale";
 import QuantityButton from "@app/(main)/cart/QuantityButton";
-import formatCurrencyWithCommas from "@utils/formatCurrency";
+import formatCurrencyWithCommas from "@/lib/formatCurrency";
 
 import { useCartStore } from "@zustand/useCartStore";
 

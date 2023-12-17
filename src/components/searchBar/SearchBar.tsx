@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import Image from "next/image";
 import Category from "./Category";
 import suggestions from "@dummyApi/suggestion";
-import formatCurrencyWithCommas from "@utils/formatCurrency";
+import formatCurrencyWithCommas from "@/lib/formatCurrency";
 
 interface Suggestion {
   id: number;

@@ -15,7 +15,7 @@ import { readProductById } from "@app/_actions/productActions";
 import { type ProductData } from "@app/interface";
 import { type ProductImages } from "@app/(main)/product/[id]/interface";
 
-import { waiting } from "@utils/waiting";
+import { waiting } from "@/lib/waiting";
 
 function mapProductToProductImages(product: ProductData): ProductImages {
   return product !== undefined
@@ -45,7 +45,7 @@ export default async function Product({
   const productData = product[0] as ProductData;
   const productImages: ProductImages = mapProductToProductImages(productData);
 
-  await waiting(500);
+  await waiting(200);
   return (
     <>
       <ProductInfo productImages={productImages} productData={productData} />
