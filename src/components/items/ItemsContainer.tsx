@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Product from "@components/items/Product";
 import Combobox from "@components/buttons/ComboBox";
