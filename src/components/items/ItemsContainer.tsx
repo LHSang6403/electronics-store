@@ -22,7 +22,7 @@ export default async function ItemsContainer({
   } else {
     limit = 20;
   }
-  const { data, error } = useQuery({
+  const { data, error }: { data: any; error: any } = useQuery({
     queryKey: [`${limit} products`],
     queryFn: async () => await readProducts({ limit }),
   });
