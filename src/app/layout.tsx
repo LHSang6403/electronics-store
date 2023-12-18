@@ -7,7 +7,6 @@ import Footer from "@components/layouts/public/Footer";
 
 import FramerPageWrapper from "@utils/FramerPageWrapper";
 import ReactQueryProvider from "@utils/ReactQueryProvider";
-import { SkeletonTheme } from "react-loading-skeleton";
 
 export const metadata: Metadata = {
   title: "Electronics store",
@@ -25,14 +24,7 @@ export default function RootLayout({
         <Header />
         <TopMenu />
         <ReactQueryProvider>
-          <SkeletonTheme
-            baseColor="#5294e0"
-            highlightColor="#96c7ff"
-            borderRadius="0.5rem"
-            duration={4}
-          >
-            <FramerPageWrapper>{children}</FramerPageWrapper>
-          </SkeletonTheme>
+          <FramerPageWrapper>{children}</FramerPageWrapper>
         </ReactQueryProvider>
         <Footer />
         <Toaster position="top-right" />
