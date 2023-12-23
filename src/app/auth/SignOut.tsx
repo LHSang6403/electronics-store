@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@components/ui-shadcn/ui/button";
-import { toast } from "react-hot-toast";
+import { toast } from "sonner";
 import { signOutHandler } from "./_actions";
 
 const SignOut = () => {

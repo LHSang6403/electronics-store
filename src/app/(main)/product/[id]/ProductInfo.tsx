@@ -7,6 +7,7 @@ import formatCurrencyWithCommas from "@/lib/formatCurrency";
 import { useCartStore } from "@zustand/useCartStore";
 import Image from "next/image";
 import { type ProductData } from "@app/interface";
+import { toast } from "sonner";
 
 import { type ProductImages } from "@app/(main)/product/[id]/interface";
 
@@ -33,7 +34,7 @@ export default async function ProductInfo({
           <ul className="w-fit h-[70%] border-[1px] ml-8 xl:ml-4 rounded-lg border-white flex flex-col justify-center items-center">
             <li className="w-12 h-12 mr-1">
               <Image
-                src={productImages.image_0}
+                src={productData.image}
                 alt="Product selector"
                 width={512}
                 height={512}
@@ -41,7 +42,7 @@ export default async function ProductInfo({
             </li>
             <li className="w-12 h-12 mr-1">
               <Image
-                src={productImages.image_1}
+                src={productData.image}
                 alt="Product selector"
                 width={512}
                 height={512}
@@ -49,7 +50,7 @@ export default async function ProductInfo({
             </li>
             <li className="w-12 h-12 mr-1">
               <Image
-                src={productImages.image_2}
+                src={productData.image}
                 alt="Product selector"
                 width={512}
                 height={512}
@@ -57,7 +58,7 @@ export default async function ProductInfo({
             </li>
             <li className="w-12 h-12 mr-1">
               <Image
-                src={productImages.image_3}
+                src={productData.image}
                 alt="Product selector"
                 width={512}
                 height={512}
@@ -117,7 +118,10 @@ export default async function ProductInfo({
             </button>
             <button
               className="w-28 h-10 sm:mx-0 text-xl bg-primary shadow-lg font-semibold"
-              onClick={() => addProd(productData)}
+              onClick={() => {
+                addProd(productData);
+                toast.success("Add to cart successfully.");
+              }}
             >
               Add cart
             </button>

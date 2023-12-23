@@ -2,7 +2,7 @@
 
 import { Button } from "@components/ui-shadcn/ui/button";
 import createSupabaseBrowerClient from "@supabase/client";
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 
 export async function signInWithGoogle() {
   const supabase = createSupabaseBrowerClient();
