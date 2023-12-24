@@ -4,6 +4,7 @@ import { Toaster } from "sonner";
 import Header from "@components/layouts/public/Header";
 import TopMenu from "@components/layouts/public/TopMenu";
 import Footer from "@components/layouts/public/Footer";
+import SideBar from "@components/layouts/SideBar";
 
 import FramerPageWrapper from "@utils/FramerPageWrapper";
 import ReactQueryProvider from "@utils/ReactQueryProvider";
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <SideBar />
         <Header />
         <TopMenu />
         <ReactQueryProvider>

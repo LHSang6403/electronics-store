@@ -5,13 +5,7 @@ import { Zoom } from "react-slideshow-image";
 import sliderImgs from "@dummyApi/slider";
 import Image from "next/image";
 
-async function waiting(): Promise<void> {
-  await new Promise((resolve) => setTimeout(resolve, 0));
-}
-
-async function CarouselSlider(): Promise<JSX.Element> {
-  await waiting();
-
+function CarouselSlider(): JSX.Element {
   const zoomInProperties = {
     scale: 1,
     duration: 5000,

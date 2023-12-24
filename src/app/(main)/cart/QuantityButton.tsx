@@ -11,7 +11,13 @@ function getQuantityFromId(cartList: CartItem[], id: string): string {
   return quantity.toString();
 }
 
-export default function QuantityButton({ id }: { id: string }): JSX.Element {
+export default function QuantityButton({
+  id,
+  isSideBar,
+}: {
+  id: string;
+  isSideBar: boolean;
+}): JSX.Element {
   const { cartList, increaseQuantity, decreaseQuantity } = useCartStore() as {
     cartList: CartItem[];
     increaseQuantity: any;
@@ -19,13 +25,13 @@ export default function QuantityButton({ id }: { id: string }): JSX.Element {
   };
 
   return (
-    <div className="flex flex-row justify-end items-center gap-2 sm:gap-3">
+    <div className="flex flex-row justify-center items-center gap-2 sm:gap-3">
       <div
         className="hover:cursor-pointer"
         onClick={() => decreaseQuantity(id)}
       >
         <Image
-          src="/assets/icons/minus-icon.png"
+          src={`/assets/icons/${isSideBar ? "white-" : ""}minus-icon.png`}
           alt="Minus"
           width={18}
           height={18}
@@ -37,7 +43,7 @@ export default function QuantityButton({ id }: { id: string }): JSX.Element {
         onClick={() => increaseQuantity(id)}
       >
         <Image
-          src="/assets/icons/plus-icon.png"
+          src={`/assets/icons/${isSideBar ? "white-" : ""}plus-icon.png`}
           alt="Plus"
           width={18}
           height={18}

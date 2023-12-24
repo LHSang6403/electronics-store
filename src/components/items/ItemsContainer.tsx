@@ -17,18 +17,27 @@ export default async function ItemsContainer({
   isAllProducts: boolean;
 }): Promise<JSX.Element> {
   let limit = 0;
+
   if (!isAllProducts) {
     limit = 20;
   } else {
     limit = 20;
   }
-  const { data, error }: { data: any; error: any } = useQuery({
-    queryKey: [`${limit} products`],
-    queryFn: async () => await readProducts({ limit }),
-  });
+
+  const {
+    data,
+    isSuccess,
+    error,
+  }: { data: any; isLoading: boolean; isSuccess: boolean; error: any } =
+    useQuery({
+      queryKey: [`${limit} products`],
+      queryFn: async () => await readProducts({ limit }),
+    });
+
   if (error) {
     throw new Error(error.message);
   }
+
   const products = data?.data;
 
   const categories: string[] = ["Laptop", "Phone", "Tablet", "Watch", "TV"];
@@ -105,22 +114,24 @@ export default async function ItemsContainer({
                   flex flex-row justify-center items-center gap-2 p-2
                   sm:grid sm:grid-cols-2 sm:place-items-center"
                   >
-                    {products?.slice(0, 4).map((prod: ProductData) => (
-                      <div key={prod.id}>
-                        <Product {...prod} />
-                      </div>
-                    ))}
+                    {isSuccess &&
+                      products?.slice(0, 4).map((prod: ProductData) => (
+                        <div key={prod.id}>
+                          <Product {...prod} />
+                        </div>
+                      ))}
                   </div>
                 ) : (
                   <div
                     className="grid grid-cols-4 grid-rows-3 gap-2 p-2
                   sm:grid-cols-2 sm:grid-rows-6 sm:place-items-center"
                   >
-                    {products?.slice(0, 12).map((prod: ProductData) => (
-                      <div key={prod.id}>
-                        <Product {...prod} />
-                      </div>
-                    ))}
+                    {isSuccess &&
+                      products?.slice(0, 12).map((prod: ProductData) => (
+                        <div key={prod.id}>
+                          <Product {...prod} />
+                        </div>
+                      ))}
                   </div>
                 )}
               </div>

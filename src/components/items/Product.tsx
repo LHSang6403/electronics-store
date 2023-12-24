@@ -8,10 +8,10 @@ export default function Product(props: ProductData): JSX.Element {
   const data: ProductData = props;
 
   return (
-    <div className="w-36 h-48 xl:w-[156px] sm:w-32 sm:h-48 mx-2 xl:mx-auto my-2 xl:my-0 rounded-xl shadow-lg flex flex-col items-center justify-start bg-[#EEEEEE] hover:cursor-pointer">
+    <div className="w-36 h-fit xl:w-[156px] sm:w-32 mx-2 xl:mx-auto my-2 xl:my-0 rounded-xl shadow-lg flex flex-col items-center justify-start bg-[#EEEEEE] hover:cursor-pointer">
       <div className="p-1 pb-0">
         <Link href={`/product/${data.id}`}>
-          <div className="w-full object-cover rounded-[12px] shadow-lg bg-black">
+          <div className="w-full rounded-[12px] shadow-lg bg-black">
             <Image
               className="mx-auto"
               src={data.image}
@@ -22,7 +22,7 @@ export default function Product(props: ProductData): JSX.Element {
           </div>
         </Link>
       </div>
-      <div className="w-full h-full flex flex-col justify-center items-center">
+      <div className="w-full h-full flex flex-col justify-start items-center my-1.5">
         <h1 className="w-full px-2 text-base xl:text-base sm:text-base overflow-hidden whitespace-nowrap overflow-ellipsis">
           {data.name}
         </h1>

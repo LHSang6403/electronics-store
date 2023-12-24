@@ -6,17 +6,6 @@ export interface CartItem extends ProductData {
   quantity: number;
 }
 
-// interface CartState {
-//   cartList: CartItem[];
-//   totalQuantity: number;
-//   totalPrice: number;
-//   addProd: (product: CartItem) => void;
-//   removeProd: (productId: string) => void;
-//   increaseQuantity: (productId: string) => void;
-//   decreaseQuantity: (productId: string) => void;
-//   removeAllProds: () => void;
-// }
-
 function calculateTotalPrice(cartList: CartItem[]): number {
   let total = 0;
   cartList.forEach((item) => {

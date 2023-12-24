@@ -6,14 +6,11 @@ import People from "@app/(main)/about/People";
 import HighlightCards from "@components/cards/HighlightCards";
 import { bannerData as banner } from "@dummyApi/about";
 
-import { waiting } from "@/lib/waiting";
-
 import { type SquareBannerProps } from "@app/(main)/about/interface";
 
-export default async function About(): Promise<JSX.Element> {
+export default function About(): JSX.Element {
   const squareBannerData: SquareBannerProps = banner;
 
-  await waiting(200);
   return (
     <>
       <div className="w-full overflow-hidden h-fit pt-2 flex flex-row sm:flex-col justify-center items-center sm:gap-4">

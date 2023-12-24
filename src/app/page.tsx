@@ -5,10 +5,11 @@ import Top2Items from "@components/items/Top2Items";
 import TrendingCategories from "@components/items/TrendingCategories";
 import ItemsContainer from "@components/items/ItemsContainer";
 import IntroHome from "@components/IntroHome";
-import { waiting } from "@/lib/waiting";
+import { Suspense } from "react";
+import LoadingComponent from "@/components/skeletons/LoadingComponent";
+import LoadingItemsContainer from "@/components/skeletons/LoadingItemsContainer";
 
-export default async function Home(): Promise<JSX.Element> {
-  await waiting(200);
+export default function Home(): JSX.Element {
   return (
     <>
       <main
@@ -20,7 +21,9 @@ export default async function Home(): Promise<JSX.Element> {
             <IntroHome />
           </div>
           <div className="w-3/5 h-full sm:w-full sm:h-[500px] shadow-md">
-            <CarouselSlider />
+            <Suspense fallback={<LoadingComponent />}>
+              <CarouselSlider />
+            </Suspense>
           </div>
         </div>
         <div className="w-full h-[300px] lg:h-[520px] lg:px-20 sm:px-0 sm:h-fit flex flex-col">
@@ -44,7 +47,9 @@ export default async function Home(): Promise<JSX.Element> {
           <TrendingCategories />
         </div>
         <div className="w-full h-auto">
-          <ItemsContainer isAllProducts={false} />
+          <Suspense fallback={<LoadingItemsContainer isAllProducts={false} />}>
+            <ItemsContainer isAllProducts={false} />
+          </Suspense>
         </div>
       </main>
     </>

@@ -11,13 +11,13 @@ import {
 } from "@components/ui-shadcn-custom/table-custom";
 import Sale from "./Sale";
 import QuantityButton from "@app/(main)/cart/QuantityButton";
-import formatCurrencyWithCommas from "@/lib/formatCurrency";
+import formatCurrencyWithCommas from "@lib/formatCurrency";
 
 import { useCartStore } from "@zustand/useCartStore";
 
 import { type CartItem } from "@app/(main)/cart/interface";
 
-export default async function CartTable(): Promise<JSX.Element> {
+export default function CartTable(): JSX.Element {
   const { cartList: data, totalPrice } = useCartStore() as {
     cartList: CartItem[];
     totalPrice: number;
@@ -94,7 +94,7 @@ export default async function CartTable(): Promise<JSX.Element> {
                     {formatCurrencyWithCommas(line.price)}.000
                   </div>
                   <div className="hidden xl:block">
-                    <QuantityButton id={line.id} />
+                    <QuantityButton id={line.id} isSideBar={false} />
                   </div>
                 </TableCell>
               </TableRow>

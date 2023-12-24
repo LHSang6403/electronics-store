@@ -3,10 +3,10 @@ import Link from "next/link";
 import { readUserSession } from "@app/auth/_actions";
 import Image from "next/image";
 import AccountPopup from "./AccountPopup";
+import CartButton from "./CartButton";
 
 export default async function Header(): Promise<JSX.Element> {
   const { data } = await readUserSession();
-  console.log("User season", data);
 
   return (
     <header className="w-full px-[calc((100%-1050px)_/_2)] xl:px-6 sm:px-4 h-12 flex flex-row justify-between items-center bg-white">
@@ -31,18 +31,11 @@ export default async function Header(): Promise<JSX.Element> {
               />
             </Link>
           </li>
-          <li>
-            <Link className="w-6 mx-2 block" href="/cart">
-              <Image
-                src="/assets/icons/cart-icon.png"
-                alt="Cart"
-                width={30}
-                height={30}
-              />
-            </Link>
-          </li>
           <li className="mt-2">
             <AccountPopup data={data} />
+          </li>
+          <li>
+            <CartButton />
           </li>
         </ul>
       </div>
