@@ -12,7 +12,7 @@ function CarouselSlider(): JSX.Element {
     transitionDuration: 300,
     infinite: true,
     prevArrow: (
-      <div className="ml-4 top-48">
+      <div className="ml-72 2xl:ml-32 lg:ml-20 bottom-24 xl:bottom-12">
         <button className="w-8 sm:w-6 opacity-50 cursor-pointer">
           <Image
             src="/assets/directions/arrow-left.png"
@@ -24,7 +24,7 @@ function CarouselSlider(): JSX.Element {
       </div>
     ),
     nextArrow: (
-      <div className="mr-4 top-48">
+      <div className="mr-72 2xl:mr-32 lg:mr-20 bottom-24 xl:bottom-12">
         <button className="w-8 sm:w-6 opacity-50 cursor-pointer">
           <Image
             src="/assets/directions/arrow-right.png"
@@ -38,27 +38,25 @@ function CarouselSlider(): JSX.Element {
   };
 
   return (
-    <div className="h-full w-full">
+    <>
       <Zoom {...zoomInProperties}>
         {sliderImgs.map((each, index) => (
-          <div key={index} className="relative">
+          <div key={index} className="relative overflow-hidden">
             <img
-              className="w-full h-[500px] object-cover"
+              className="w-full h-[650px] object-cover rounded-3xl"
               alt={`slider-img-${index}`}
               src={each.image}
             />
-            <div className="relative w-[80%] mx-auto -top-36  z-10  text-black">
-              <p className="w-fit ml-5 sm:ml-0 px-5 py-1 bg-primary text-justify text-3xl sm:text-xl font-bold">
-                {each.title}
-              </p>
-            </div>
-            <p className="relative w-[80%] mx-auto -top-32 z-10 text-white sm:text-sm">
+            <p className="absolute bottom-24 xl:bottom-36 sm:bottom-28 left-12 xl:left-6 z-10 px-5 py-1 bg-primary text-justify text-3xl sm:text-xl font-bold">
+              {each.title}
+            </p>
+            <p className="absolute w-[80%] bottom-10 left-12 xl:left-6 z-10 text-white sm:text-sm">
               {each.description}
             </p>
           </div>
         ))}
       </Zoom>
-    </div>
+    </>
   );
 }
 

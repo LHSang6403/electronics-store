@@ -16,8 +16,14 @@ export default function SquareBanner({
           {title}
         </h1>
       )}
-      <div className="block w-[400px] h-[400px] xl:w-[300px] xl:h-[300px] sm:w-[250px] sm:h-[250px] object-cover overflow-hidden rounded-3xl [transition:transform_0.5s_ease] group-hover:scale-[1.01]">
-        <Image src={image} alt="Square Banner" width={400} height={400} />
+      <div className="block w-[380px] h-[380px] xl:w-[300px] xl:h-[300px] object-cover overflow-hidden rounded-3xl [transition:transform_0.5s_ease] group-hover:scale-[1.01]">
+        <Image
+          src={image}
+          alt="Square Banner"
+          layout="responsive"
+          width={400}
+          height={400}
+        />
       </div>
       {description !== "" && (
         <p className="text-center mt-2 text-sm text-gray-500">{description}</p>

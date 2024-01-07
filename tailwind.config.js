@@ -25,6 +25,9 @@ module.exports = {
 
       sm: { max: "639px" },
       // => @media (max-width: 639px) { ... }
+
+      ssm: { max: "400px" },
+      // => @media (max-width: 400px) { ... }
     },
     container: {
       center: true,

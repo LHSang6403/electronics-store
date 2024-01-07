@@ -6,7 +6,8 @@ import TopMenu from "@components/layouts/public/TopMenu";
 import Footer from "@components/layouts/public/Footer";
 import SideBar from "@components/layouts/SideBar";
 
-import FramerPageWrapper from "@utils/FramerPageWrapper";
+import LineBackground from "@components/layouts/LineBackground";
+import PageWrapper from "@utils/PageWrapper";
 import ReactQueryProvider from "@utils/ReactQueryProvider";
 
 export const metadata: Metadata = {
@@ -21,13 +22,15 @@ export default function RootLayout({
 }): ReturnType<React.FC> {
   return (
     <html lang="en">
-      <body>
-        <SideBar />
-        <Header />
-        <TopMenu />
-        <ReactQueryProvider>
-          <FramerPageWrapper>{children}</FramerPageWrapper>
-        </ReactQueryProvider>
+      <body className="max-w-[2100px] h-auto mx-auto">
+        <LineBackground>
+          <SideBar />
+          <Header />
+          <TopMenu />
+          <ReactQueryProvider>
+            <PageWrapper>{children}</PageWrapper>
+          </ReactQueryProvider>
+        </LineBackground>
         <Footer />
         <Toaster position="top-right" />
       </body>

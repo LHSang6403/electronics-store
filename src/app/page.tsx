@@ -1,3 +1,5 @@
+"use client";
+
 import CarouselSlider from "@components/CarouselSlider";
 import Cards from "@components/cards/Cards";
 import Banner from "@components/banners/Banner";
@@ -5,53 +7,99 @@ import Top2Items from "@components/items/Top2Items";
 import TrendingCategories from "@components/items/TrendingCategories";
 import ItemsContainer from "@components/items/ItemsContainer";
 import IntroHome from "@components/IntroHome";
-import { Suspense } from "react";
-import LoadingComponent from "@/components/skeletons/LoadingComponent";
-import LoadingItemsContainer from "@/components/skeletons/LoadingItemsContainer";
+import { Suspense, useRef } from "react";
+import LoadingComponent from "@components/skeletons/LoadingComponent";
+import PageHeading from "@components/layouts/PageHeading";
+import hover3D from "@lib/hover";
+import HorizontalScrollWrapper from "@components/layouts/HorizontalScrollWrapper";
 
 export default function Home(): JSX.Element {
+  const hover3DRef = useRef<HTMLDivElement>(null);
+
+  const imageHover = hover3D(hover3DRef, {
+    x: 50,
+    y: -50,
+    z: 50,
+  });
+
   return (
-    <>
-      <main
-        className="w-[1050px] xl:w-full lg:w-full sm:w-full xl:px-6 lg:px-6 sm:px-0 mx-auto bg-[#f5f5f555]
-      flex flex-col gap-8 pb-8"
+    <main
+      className="w-full min-h-screen
+      xl:px-6 sm:px-0 mx-auto bg-[#f5f5f555]
+      flex flex-col justify-center gap-8 pb-8"
+    >
+      <PageHeading name="Home" />
+      <section
+        ref={hover3DRef}
+        className="w-full h-fit flex flex-row px-4 xl:px-0 sm:flex-col gap-4 xl:gap-1 sm:px-1"
       >
-        <div className="w-full h-[500px] sm:h-fit flex flex-row sm:flex-col xl:gap-4 sm:gap-4">
-          <div className="w-2/5 sm:w-full h-full pl-2 xl:pl-0 sm:pl-0 overflow-hidden flex flex-col justify-center items-center xl:items-start">
-            <IntroHome />
-          </div>
-          <div className="w-3/5 h-full sm:w-full sm:h-[500px] shadow-md">
+        <div className="w-1/2 sm:w-full h-fit">
+          <div
+            style={{
+              transform: imageHover.transform,
+              transition: "all 0.2s ease",
+            }}
+          >
             <Suspense fallback={<LoadingComponent />}>
               <CarouselSlider />
             </Suspense>
           </div>
         </div>
-        <div className="w-full h-[300px] lg:h-[520px] lg:px-20 sm:px-0 sm:h-fit flex flex-col">
-          <div className="w-full p-2 mb-8 flex flex-row justify-center items-center text-3xl font-semibold">
+        <div
+          className="w-1/2 h-fit sm:w-full
+        flex flex-col justify-center items-center xl:items-start"
+        >
+          <IntroHome />
+        </div>
+      </section>
+      <section
+        className="w-full h-fit sm:h-fit
+      ml-16 2xl:-ml-44 xl:-ml-64 lg:px-20 sm:px-0 flex flex-col"
+      >
+        <HorizontalScrollWrapper direction={600}>
+          <h1 className="font-semibold text-[50px] mb-4 sm:text-center">
             Why choose us
-          </div>
-          <div className="w-full h-full sm:px-4">
+          </h1>
+          <div className="w-fit h-full sm:px-4">
             <Cards />
           </div>
-        </div>
-        <div className="w-full h-[250px] sm:h-fit shadow-lg overflow-hidden">
-          <Banner />
-        </div>
-        <div className="w-full h-[250px] sm:h-fit">
+        </HorizontalScrollWrapper>
+      </section>
+      <section
+        className="w-full h-fit sm:h-fit 
+      2xl:ml-44 xl:ml-52 lg:ml-96 sm:ml-64 lg:px-20 sm:px-0 flex flex-col items-end"
+      >
+        <HorizontalScrollWrapper direction={-600}>
+          <h1 className="w-full font-semibold text-[50px] text-left mb-4 sm:text-center">
+            Top 2 Selling
+          </h1>
           <Top2Items />
-        </div>
-        <div className="w-full h-auto flex flex-col items-center">
-          <div className="w-full p-2 mb-8 flex flex-row justify-center items-center text-3xl font-semibold">
+        </HorizontalScrollWrapper>
+      </section>
+      <section
+        className="w-full h-auto
+      ml-16 2xl:-ml-44 xl:-ml-56 lg:-ml-80 sm:-ml-60
+      flex flex-col items-start"
+      >
+        <HorizontalScrollWrapper direction={600}>
+          <h1
+            className="font-semibold text-[50px] text-left 
+          mr-4 mb-4 sm:text-center"
+          >
             Trending Categories
-          </div>
+          </h1>
           <TrendingCategories />
-        </div>
-        <div className="w-full h-auto">
-          <Suspense fallback={<LoadingItemsContainer isAllProducts={false} />}>
-            <ItemsContainer isAllProducts={false} />
-          </Suspense>
-        </div>
-      </main>
-    </>
+        </HorizontalScrollWrapper>
+      </section>
+      <section
+        className="w-fit h-fit sm:h-fit mx-auto
+      shadow-lg overflow-hidden"
+      >
+        <Banner />
+      </section>
+      <section className="w-full h-auto">
+        <ItemsContainer isAllProducts={false} />
+      </section>
+    </main>
   );
 }

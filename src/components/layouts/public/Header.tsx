@@ -9,7 +9,7 @@ export default async function Header(): Promise<JSX.Element> {
   const { data } = await readUserSession();
 
   return (
-    <header className="w-full px-[calc((100%-1050px)_/_2)] xl:px-6 sm:px-4 h-12 flex flex-row justify-between items-center bg-white">
+    <header className="w-full px-10 xl:px-6 sm:px-4 h-12 flex flex-row justify-between items-center border-b-[1px] border-opacity-40 border-b-[#afafaf]">
       <div className="w-[150px] h-[47px] xl:w-[120px] xl:h-[37px] sm:w-[100px] sm:h-[31px] object-cover">
         <Image src="/assets/logo.png" alt="App Logo" width={404} height={125} />
       </div>

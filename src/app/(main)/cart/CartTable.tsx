@@ -12,7 +12,6 @@ import {
 import Sale from "./Sale";
 import QuantityButton from "@app/(main)/cart/QuantityButton";
 import formatCurrencyWithCommas from "@lib/formatCurrency";
-
 import { useCartStore } from "@zustand/useCartStore";
 
 import { type CartItem } from "@app/(main)/cart/interface";
@@ -82,7 +81,7 @@ export default function CartTable(): JSX.Element {
                   {line.category}
                 </TableCell>
                 <TableCell className="text-center text-lg xl:hidden">
-                  <QuantityButton id={line.id} />
+                  <QuantityButton isSideBar={false} id={line.id} />
                 </TableCell>
                 <TableCell className="text-center text-lg">
                   {line.sale && (
@@ -117,8 +116,8 @@ export default function CartTable(): JSX.Element {
           </TableFooter>
         </Table>
       ) : (
-        <div className="h-16 flex justify-center items-center">
-          No selected item
+        <div className="h-16 px-20 sm:px-0 flex justify-center items-center">
+          No selected item, add products.
         </div>
       )}
     </div>

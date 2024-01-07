@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 
-const FramerPageWrapper = ({ children }: { children: React.ReactNode }) => {
+const PageWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <AnimatePresence>
       <motion.div
@@ -17,4 +17,4 @@ const FramerPageWrapper = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default FramerPageWrapper;
+export default PageWrapper;

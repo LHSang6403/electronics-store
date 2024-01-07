@@ -16,9 +16,8 @@ export default function TrendingCategories(): JSX.Element {
   return (
     <div
       className="w-full h-fit sm:px-4
-    flex flex-row justify-center items-center
-    xl:grid xl:grid-cols-6 xl:gap-4
-    sm:grid-cols-6 sm:justify-items-center"
+    flex flex-row justify-center items-center gap-4
+    sm:grid sm:grid-cols-6 sm:justify-items-center sm:gap-2"
     >
       {data.map((item, index) => (
         <div

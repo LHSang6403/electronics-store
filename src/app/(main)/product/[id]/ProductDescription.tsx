@@ -1,4 +1,4 @@
-import DescribeIn2Cols from "@app/(main)/product/[id]/DescribeIn2Cols";
+import DescribeIn2Cols from "@/app/(main)/product/[id]/DescribeIn2Cols";
 import Image from "next/image";
 
 import { type ProductData } from "@app/interface";

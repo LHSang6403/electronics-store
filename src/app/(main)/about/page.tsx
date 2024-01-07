@@ -13,7 +13,7 @@ export default function About(): JSX.Element {
 
   return (
     <>
-      <div className="w-full overflow-hidden h-fit pt-2 flex flex-row sm:flex-col justify-center items-center sm:gap-4">
+      <div className="w-full overflow-hidden h-fit pt-2 flex flex-row lg:flex-col justify-center items-center sm:gap-4">
         <div className="w-fit h-fit transform skew-x-[20deg] overflow-hidden flex justify-center items-center p-2 sm:pt-0 sm:px-4">
           <div className="transform skew-x-[-20deg]">
             <SquareBanner squareBannerProps={squareBannerData} />

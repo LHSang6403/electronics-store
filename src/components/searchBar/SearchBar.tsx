@@ -37,7 +37,7 @@ export default function SearchBar(): JSX.Element {
   };
 
   return (
-    <div className="w-[670px] lg:w-[500px] h-[40px]">
+    <div className="w-fit h-[40px]">
       <form
         onSubmit={() => handleSubmit(onSubmit)}
         className="h-full flex flex-row justify-start border-2 border-primary rounded-3xl overflow-hidden"
@@ -46,12 +46,12 @@ export default function SearchBar(): JSX.Element {
           setQuery(target.value);
         }}
       >
-        <div className="w-[300px] ml-2 text-lg">
+        <div className="w-32 xl:w-28 lg:w- ml-2 text-lg bg-white">
           <Category />
         </div>
         <div className="border border-primary w-[1px] m-1 rounded relative right-[1px] "></div>
         <input
-          className="w-full pl-1 text-base border-none outline-0 hover:outline-0 focus:outline-0"
+          className="w-56 xl:w-36 pl-1 text-base border-none outline-0 hover:outline-0 focus:outline-0"
           type="text"
           placeholder="Search product"
           autoComplete="off"
@@ -61,7 +61,7 @@ export default function SearchBar(): JSX.Element {
             setQuery("");
           }}
         />
-        <div className="w-[180px] px-2 flex justify-center items-center bg-primary">
+        <div className="w-32 xl:w-20 px-2 flex justify-center items-center bg-primary">
           <button type="submit" className="text-lg">
             Search
           </button>

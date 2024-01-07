@@ -57,7 +57,7 @@ export default function Combobox({ title }: { title: string }): JSX.Element {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-fit justify-between"
+          className="w-fit justify-between mx-1 my-0.5"
         >
           {value === null
             ? frameworks.find((framework) => framework.value === value)?.label
