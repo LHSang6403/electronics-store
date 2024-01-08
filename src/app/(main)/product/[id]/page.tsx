@@ -1,5 +1,5 @@
 import ProductInfo from "@app/(main)/product/[id]/ProductInfo";
-import { readProductById } from "@app/_actions/productActions";
+import { readProductById } from "@/app/_actions/products/read";
 import ProductDetail from "@app/(main)/product/[id]/ProductDetail";
 
 import { type ProductData } from "@app/interface";

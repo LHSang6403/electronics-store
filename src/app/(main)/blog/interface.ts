@@ -6,6 +6,7 @@ interface BlogData {
   date_created: string;
   date_updated: string;
   creator_id: string;
+  is_top_blog: boolean;
   is_deleted: boolean;
 }
 

@@ -1,17 +1,15 @@
 import PageHeading from "@/components/layouts/PageHeading";
-import BlogsContainer from "@app/(main)/blog/BlogsContainer";
-import TrendTitle from "@app/(main)/blog/TrendTitle";
+import TopBlogsContainer from "@/app/(main)/blog/TopBlogsContainer";
+import BlogsContainer from "@/app/(main)/blog/BlogsContainer";
 
 const Blog = () => {
   return (
     <>
-      <div className="h-24 flex flex-row gap-4 bg-blue-200">
-        <PageHeading name="Blog" />
-        <div className=" flex items-center pt-3">
-          <TrendTitle />
-        </div>
+      <PageHeading name="Blog" />
+      <div className="w-full h-fit flex justify-center">
+        <TopBlogsContainer />
       </div>
-      <div className="w-full bg-slate-200 min-h-screen flex justify-center">
+      <div className="w-full h-fit flex justify-center">
         <BlogsContainer />
       </div>
     </>

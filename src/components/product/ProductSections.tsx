@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Product from "@components/items/Product";
-import { readProducts } from "@app/_actions/productActions";
+import Product from "@/components/product/Product";
+import { readProducts } from "@/app/_actions/products/read";
 import { useQuery } from "@tanstack/react-query";
 import type { ProductData } from "@app/interface";
 import Link from "next/link";

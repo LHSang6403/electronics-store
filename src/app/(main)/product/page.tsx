@@ -1,4 +1,4 @@
-import ItemsContainer from "@components/items/ItemsContainer";
+import ProductsContainer from "@/components/product/ProductsContainer";
 import Banner from "@components/banners/Banner";
 import PageHeading from "@components/layouts/PageHeading";
 import CarouselSlider from "@components/CarouselSlider";
@@ -18,7 +18,7 @@ export default function AllProducts(): JSX.Element {
         <Banner />
       </section>
       <section className="w-full h-fit">
-        <ItemsContainer isAllProducts={true} />
+        <ProductsContainer isAllProducts={true} />
       </section>
     </>
   );

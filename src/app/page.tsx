@@ -3,9 +3,9 @@
 import CarouselSlider from "@components/CarouselSlider";
 import Cards from "@components/cards/Cards";
 import Banner from "@components/banners/Banner";
-import Top2Items from "@components/items/Top2Items";
-import TrendingCategories from "@components/items/TrendingCategories";
-import ItemsContainer from "@components/items/ItemsContainer";
+import Top2Items from "@/components/product/Top2Items";
+import TrendingCategories from "@/components/product/TrendingCategories";
+import ProductsContainer from "@/components/product/ProductsContainer";
 import IntroHome from "@components/IntroHome";
 import { Suspense, useRef } from "react";
 import LoadingComponent from "@components/skeletons/LoadingComponent";
@@ -98,7 +98,7 @@ export default function Home(): JSX.Element {
         <Banner />
       </section>
       <section className="w-full h-auto">
-        <ItemsContainer isAllProducts={false} />
+        <ProductsContainer isAllProducts={false} />
       </section>
     </main>
   );

@@ -1,7 +1,10 @@
-// import type BlogData from "@app/(main)/blog/interface";
-
-function Blog(): JSX.Element {
-  return <div className="w-full h-full min-h-60 bg-red-200"></div>;
-}
+const Blog = () => {
+  return (
+    <div className="w-[600px] h-[300px] p-4 bg-[#EEEEEE] shadow">
+      <h2>Blog title</h2>
+      <p>Blog description</p>
+    </div>
+  );
+};
 
 export default Blog;

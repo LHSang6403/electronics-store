@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 import fadeInAminationVariants from "@lib/animationVariants";
-import ProductSections from "@components/items/ProductSections";
-import CategorySections from "@components/items/CategorySections";
+import ProductSections from "@/components/product/ProductSections";
+import CategorySections from "@/components/product/CategorySections";
 
-export default function ItemsContainer({
+export default function ProductsContainer({
   isAllProducts,
 }: {
   isAllProducts: boolean;
