@@ -1,8 +1,8 @@
 import Link from "next/link";
-import formatCurrencyWithCommas from "@/lib/formatCurrency";
+import formatCurrencyWithCommas from "@lib/formatCurrency";
 import Image from "next/image";
 
-import { type ProductData } from "@app/interface";
+import { type ProductData } from "@app/(main)/product/interface";
 
 export default function Product(props: ProductData): JSX.Element {
   const data: ProductData = props;

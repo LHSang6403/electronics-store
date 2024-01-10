@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import formatCurrencyWithCommas from "@/lib/formatCurrency";
 import { useCartStore } from "@zustand/useCartStore";
 import Image from "next/image";
-import { type ProductData } from "@app/interface";
+import { type ProductData } from "@/app/(main)/product/interface";
 import { toast } from "sonner";
 
 import { type ProductImages } from "@/app/(main)/product/[id]/interface";

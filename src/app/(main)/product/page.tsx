@@ -9,7 +9,7 @@ export default function AllProducts(): JSX.Element {
   return (
     <>
       <PageHeading name="Products" />
-      <section className="px-2 xl:px-0">
+      <section>
         <Suspense fallback={<LoadingComponent />}>
           <CarouselSlider />
         </Suspense>

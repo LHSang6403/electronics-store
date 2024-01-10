@@ -8,7 +8,7 @@ import ProductDescription from "@/app/(main)/product/[id]/ProductDescription";
 import Warranty from "@/app/(main)/product/[id]/Warranty";
 import Review from "@/app/(main)/product/[id]/Review";
 
-import { type ProductData } from "@app/interface";
+import { type ProductData } from "@/app/(main)/product/interface";
 
 const ProductDetail = ({ productData }: { productData: ProductData }) => {
   return (

@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import Product from "@/components/product/Product";
-import { readProducts } from "@/app/_actions/products/read";
+import Product from "@components/product/Product";
+import { readProducts } from "@app/_actions/productActions";
 import { useQuery } from "@tanstack/react-query";
-import type { ProductData } from "@app/interface";
 import Link from "next/link";
+
+import type { ProductData } from "@app/(main)/product/interface";
 
 const ProductSections = ({
   isAllProducts,

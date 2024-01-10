@@ -11,7 +11,7 @@ export default function MainLayout({
         <div
           className="w-full min-h-screen pt-1
           flex flex-col gap-8 pb-8
-        xl:px-6 sm:px-0 mx-auto bg-[#f5f5f555]"
+          px-10 2xl:px-4 sm:px-2 mx-auto bg-[#f5f5f555]"
         >
           {children}
         </div>

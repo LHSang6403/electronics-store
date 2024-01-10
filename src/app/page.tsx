@@ -25,13 +25,13 @@ export default function Home(): JSX.Element {
   return (
     <main
       className="w-full min-h-screen
-      xl:px-6 sm:px-0 mx-auto bg-[#f5f5f555]
+      px-10 2xl:px-4 sm:px-2 mx-auto bg-[#f5f5f555]
       flex flex-col justify-center gap-8 pb-8"
     >
       <PageHeading name="Home" />
       <section
         ref={hover3DRef}
-        className="w-full h-fit flex flex-row px-4 xl:px-0 sm:flex-col gap-4 xl:gap-1 sm:px-1"
+        className="w-full h-fit flex flex-row sm:flex-col gap-4 xl:gap-1 sm:px-1"
       >
         <div className="w-1/2 sm:w-full h-fit">
           <div

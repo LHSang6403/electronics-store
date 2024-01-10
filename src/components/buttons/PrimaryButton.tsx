@@ -1,3 +1,5 @@
+"use client";
+
 export default function PrimaryButton({
   name,
   onClick,
@@ -8,7 +10,8 @@ export default function PrimaryButton({
   return (
     <button
       onClick={onClick}
-      className="w-fit h-[40px] px-3 mx-auto my-2 bg-primary"
+      type="submit"
+      className="w-fit h-[40px] px-3 mx-auto rounded-lg my-2 bg-primary"
     >
       {name}
     </button>

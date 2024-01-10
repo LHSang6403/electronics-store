@@ -14,12 +14,3 @@ export interface ProductData {
   rating: number;
   is_deleted: boolean;
 }
-
-export interface User {
-  id: string;
-  name: string;
-  dateOfBirth: string;
-  email: string;
-  phone: string;
-  image: string;
-}
