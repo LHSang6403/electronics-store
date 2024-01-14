@@ -50,7 +50,7 @@ export default function RegisterForm() {
     const resultJson = JSON.parse(result);
 
     if (resultJson?.data?.session) {
-      toast.success("Register successfully.");
+      toast.success("Successfully. Check your email verification.");
       router.push("/");
     } else if (resultJson?.error?.message) {
       toast.error(resultJson.error.message);

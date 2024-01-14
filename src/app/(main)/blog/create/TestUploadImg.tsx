@@ -14,7 +14,6 @@ const TestUploadImg = () => {
         required
       />
       <button type="submit" className="bg-primary px-2 py-1 mt-2 rounded-xl">
-        {" "}
         Submit
       </button>
     </form>

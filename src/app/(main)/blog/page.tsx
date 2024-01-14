@@ -15,10 +15,10 @@ const Blog = () => {
         </div>
       </div>
       <div className="w-full h-fit flex justify-center">
-        <TopBlogsContainer />
+        {/* <TopBlogsContainer /> */}
       </div>
       <div className="w-full h-fit flex justify-center">
-        <BlogsContainer />
+        {/* <BlogsContainer /> */}
       </div>
     </>
   );

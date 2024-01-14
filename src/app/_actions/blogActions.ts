@@ -2,6 +2,8 @@
 
 import createSupabaseServerClient from "@supabase/server";
 
+import type BlogData from "@app/(main)/blog/interface";
+
 export async function readBlogs({ limit }: { limit: number }) {
   try {
     const supabase = await createSupabaseServerClient();
@@ -37,4 +39,13 @@ export async function readBlogById(id: string) {
     .select("*")
     .eq("id", id)
     .eq("is_deleted", false);
+}
+
+export async function createBlog(blog: BlogData) {
+  try {
+    const supabase = await createSupabaseServerClient();
+    return await supabase.from("blogs").insert(blog).single();
+  } catch (error: any) {
+    return { error: error.message };
+  }
 }

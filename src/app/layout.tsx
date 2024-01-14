@@ -9,6 +9,8 @@ import SideBar from "@components/layouts/SideBar";
 import LineBackground from "@components/layouts/LineBackground";
 import PageWrapper from "@utils/PageWrapper";
 import ReactQueryProvider from "@utils/ReactQueryProvider";
+import ProgressBar from "@components/layouts/ProgressBar";
+import NextUIWrapper from "@components/layouts/NextUIWrapper";
 
 export const metadata: Metadata = {
   title: "Electronics store",
@@ -23,16 +25,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="max-w-[2100px] h-auto mx-auto">
-        <LineBackground>
-          <SideBar />
-          <Header />
-          <TopMenu />
-          <ReactQueryProvider>
-            <PageWrapper>{children}</PageWrapper>
-          </ReactQueryProvider>
-        </LineBackground>
-        <Footer />
-        <Toaster position="top-right" />
+        <NextUIWrapper>
+          <LineBackground>
+            <SideBar />
+            <ProgressBar>
+              <Header />
+              <TopMenu />
+              <ReactQueryProvider>
+                <PageWrapper>{children}</PageWrapper>
+              </ReactQueryProvider>
+            </ProgressBar>
+          </LineBackground>
+          <Footer />
+          <Toaster position="top-right" />
+        </NextUIWrapper>
       </body>
     </html>
   );
