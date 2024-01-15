@@ -59,8 +59,8 @@ export default function Review(): JSX.Element {
               </TableCell>
               <TableCell>
                 <p className="w-fit break-words line-clamp-2 text-left text-base">
-                  Ultra nice wfbhjerfh jerfhergfh jerhfehgfrrfgref kjwrhfjkerhf
-                  jkfkherhv hgerfjvhersjvfbherhjvbjkebfvjhdbvhjdbvg
+                  Exceptional service and quality, highly recommended for anyone
+                  seeking a reliable and efficient solution.
                 </p>
               </TableCell>
             </TableRow>

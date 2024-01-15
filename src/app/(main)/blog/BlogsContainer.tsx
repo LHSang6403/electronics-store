@@ -24,10 +24,9 @@ const BlogsContainer = () => {
   }
 
   const blogs = data?.data;
-  console.log(blogs);
 
   return (
-    <div className="w-fit h-fit  mx-auto grid grid-cols-4 gap-4">
+    <div className="w-fit h-fit  mx-auto grid grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 sm:flex sm:flex-col gap-4">
       {isSuccess &&
         blogs?.map((eachBlog: BlogData, index: number) => (
           <motion.div

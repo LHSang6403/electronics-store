@@ -10,6 +10,9 @@ import { generateUUID } from "@utils/generateUUID";
 import { generateTimestampz } from "@utils/generateTimestampz";
 import SpinnerLoading from "@components/loading/SpinnerLoading";
 import WriterInformation from "@app/(main)/blog/create/WriterInformation";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 // utils
 import convertBlobUrlToFile from "@utils/convertBlobUrlToFile";
@@ -28,6 +31,8 @@ import "froala-editor/js/plugins/font_size.min.js";
 import type BlogData from "@app/(main)/blog/interface";
 
 const CreateBlogForm = (): JSX.Element => {
+  const router = useRouter();
+
   // fix window is undefined
   const [position, setPosition] = useState<any>();
   useEffect(() => {
@@ -56,9 +61,11 @@ const CreateBlogForm = (): JSX.Element => {
   const mutation = useMutation({
     mutationFn: async (newBlog: BlogData) => await createBlog(newBlog),
     onSuccess: () => {
+      toast.success("Blog is created successfully!");
       setContent("");
       setValue("blog-title", "");
       setValue("blog-description", "");
+      router.push("/blog");
     },
     onError: (error) => {
       console.log(error);

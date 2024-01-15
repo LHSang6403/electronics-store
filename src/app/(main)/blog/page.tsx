@@ -10,15 +10,15 @@ const Blog = () => {
         <div className="w-fit h-full">
           <PageHeading name="Blog" />
         </div>
-        <div className="w-fit h-full flex justify-center items-center mr-8">
+        <div className="w-fit h-full flex justify-center items-center mr-8 xl:mr-10 sm:mr-2">
           <PrimaryButton name="Create" link="blog/create" />
         </div>
       </div>
       <div className="w-full h-fit flex justify-center">
-        {/* <TopBlogsContainer /> */}
+        <TopBlogsContainer />
       </div>
       <div className="w-full h-fit flex justify-center">
-        {/* <BlogsContainer /> */}
+        <BlogsContainer />
       </div>
     </>
   );

@@ -15,7 +15,7 @@ export default function TopBlogsContainer(): JSX.Element {
   }: { data: any; isLoading: boolean; isSuccess: boolean; error: any } =
     useQuery({
       queryKey: ["top-blogs"],
-      queryFn: async () => await readTopBlogs({ limit: 3 }),
+      queryFn: async () => await readTopBlogs({ limit: 1 }),
     });
 
   if (error) {
@@ -23,16 +23,15 @@ export default function TopBlogsContainer(): JSX.Element {
   }
 
   const topBlogs = data?.data;
-  console.log(topBlogs);
 
   return (
-    <div className="w-[1800px] h-[680px] flex flex-row gap-4">
+    <div className="w-[1800px] h-[680px] xl:w-full xl:h-fit flex flex-row xl:flex-col gap-4">
       <motion.div
         variants={fadeInAminationVariants}
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="h-full w-[50%]"
+        className="h-full w-[50%] xl:w-[90%] sm:w-full xl:mx-auto"
       >
         {isSuccess && <BigTopBlog blog={topBlogs[0]} />}
       </motion.div>
@@ -41,19 +40,39 @@ export default function TopBlogsContainer(): JSX.Element {
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="h-[600px] w-[25%]"
+        className="h-[600px] w-[25%] xl:hidden"
       >
-        {isSuccess && <TopBlog blog={topBlogs[1]} />}
+        {isSuccess && <TopBlog blog={topBlogs[0]} />}
       </motion.div>
       <motion.div
         variants={fadeInAminationVariants}
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="h-[520px] w-[25%]"
+        className="h-[520px] w-[25%] xl:hidden"
       >
-        {isSuccess && <TopBlog blog={topBlogs[2]} />}
+        {isSuccess && <TopBlog blog={topBlogs[0]} />}
       </motion.div>
+      <div className="hidden xl:flex w-[90%] mx-auto flex-row sm:flex-col justify-center sm:gap-2">
+        <motion.div
+          variants={fadeInAminationVariants}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="h-[520px] w-[50%] sm:w-full flex justify-center"
+        >
+          {isSuccess && <TopBlog blog={topBlogs[0]} />}
+        </motion.div>
+        <motion.div
+          variants={fadeInAminationVariants}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="h-[520px] w-[50%] sm:w-full flex justify-center"
+        >
+          {isSuccess && <TopBlog blog={topBlogs[0]} />}
+        </motion.div>
+      </div>
     </div>
   );
 }

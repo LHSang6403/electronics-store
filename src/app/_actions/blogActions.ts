@@ -38,7 +38,8 @@ export async function readBlogById(id: string) {
     .from("blogs")
     .select("*")
     .eq("id", id)
-    .eq("is_deleted", false);
+    .eq("is_deleted", false)
+    .single();
 }
 
 export async function createBlog(blog: BlogData) {

@@ -2,9 +2,20 @@ import Image from "next/image";
 
 export default function Footer(): JSX.Element {
   return (
-    <footer className="w-full h-[500px] px-10 xl:px-6 sm:px-4 bg-[#EEEEEE] text-black py-8">
+    <footer className="w-full h-fit flex flex-col gap-8 pb-10 items-center px-16 xl:px-6 sm:px-4 bg-[#EEEEEE] text-black py-10">
+      <div className="w-[84%] h-fit font-light text-justify flex justify-center items-center">
+        Discover a world of innovation and technology at our electronic
+        emporium. Elevate your lifestyle with cutting-edge gadgets, superior
+        appliances, and the latest electronics. Explore an array of premium
+        products curated to enhance your everyday experiences. With a commitment
+        to quality and customer satisfaction, we invite you to join us on a
+        journey of technological excellence. Elevate your living spaces,
+        simplify your routines, and embrace the future with our range of
+        top-tier electronic solutions. Experience the difference at [Your Shop
+        Name], where technology meets lifestyle.
+      </div>
       <div
-        className="mx-auto flex flex-row items-center justify-between
+        className="h-fit w-full flex flex-row items-center justify-between
       sm:flex-col sm:gap-4"
       >
         <div className="w-full">
