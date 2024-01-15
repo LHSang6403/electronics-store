@@ -25,7 +25,7 @@ export default function TopBlogsContainer(): JSX.Element {
   const topBlogs = data?.data;
 
   return (
-    <div className="w-[1800px] h-[680px] xl:w-full xl:h-fit flex flex-row xl:flex-col gap-4">
+    <div className="max-w-[1500px] h-[680px] xl:w-full xl:h-fit flex flex-row xl:flex-col gap-4">
       <motion.div
         variants={fadeInAminationVariants}
         initial="initial"

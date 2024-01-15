@@ -5,7 +5,7 @@ import type BlogData from "@app/(main)/blog/interface";
 function TopBlog({ blog }: { blog: BlogData }): JSX.Element {
   return (
     <Link href={`/blog/${blog.id}`}>
-      <div className="w-72 lg:w-60 sm:w-full h-full rounded-xl overflow-hidden min-h-60 flex flex-col">
+      <div className="w-72 lg:w-60 mx-auto sm:w-full h-full rounded-xl overflow-hidden min-h-60 flex flex-col">
         <img
           className="w-full h-[84%] object-cover rounded-xl"
           alt="Blog"
