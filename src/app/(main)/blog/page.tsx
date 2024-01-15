@@ -10,7 +10,7 @@ const Blog = () => {
         <div className="w-fit h-full">
           <PageHeading name="Blog" />
         </div>
-        <div className="w-fit h-full flex justify-center items-center mr-8 xl:mr-10 sm:mr-2">
+        <div className="w-fit h-full flex justify-center items-center">
           <PrimaryButton name="Create" link="blog/create" />
         </div>
       </div>
