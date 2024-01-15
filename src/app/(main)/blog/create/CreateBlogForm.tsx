@@ -12,7 +12,6 @@ import SpinnerLoading from "@components/loading/SpinnerLoading";
 import WriterInformation from "@app/(main)/blog/create/WriterInformation";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { revalidatePath } from "next/cache";
 
 // utils
 import convertBlobUrlToFile from "@utils/convertBlobUrlToFile";
