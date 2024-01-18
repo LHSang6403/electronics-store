@@ -1,7 +1,7 @@
 "use client";
 
-import TopBlog from "@app/(main)/blog/TopBlog";
-import BigTopBlog from "@app/(main)/blog/BigTopBlog";
+import TopBlog from "@/app/(main)/blog/TopBlog";
+import BigTopBlog from "@/app/(main)/blog/BigTopBlog";
 import { useQuery } from "@tanstack/react-query";
 import { readTopBlogs } from "@app/_actions/blogActions";
 import { motion } from "framer-motion";

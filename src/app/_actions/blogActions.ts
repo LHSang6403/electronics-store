@@ -2,7 +2,7 @@
 
 import createSupabaseServerClient from "@supabase/server";
 
-import type BlogData from "@app/(main)/blog/interface";
+import type BlogData from "@/app/(main)/blog/interface";
 
 export async function readBlogs({ limit }: { limit: number }) {
   try {

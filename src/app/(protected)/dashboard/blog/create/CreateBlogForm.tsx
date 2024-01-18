@@ -9,7 +9,7 @@ import { useMutation } from "@tanstack/react-query";
 import { generateUUID } from "@utils/generateUUID";
 import { generateTimestampz } from "@utils/generateTimestampz";
 import SpinnerLoading from "@components/loading/SpinnerLoading";
-import WriterInformation from "@app/(main)/blog/create/WriterInformation";
+import WriterInformation from "@/app/(protected)/dashboard/blog/create/WriterInformation";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
@@ -27,7 +27,7 @@ import "froala-editor/js/plugins/save.min.js";
 import "froala-editor/js/plugins/markdown.min.js";
 import "froala-editor/js/plugins/font_size.min.js";
 
-import type BlogData from "@app/(main)/blog/interface";
+import type BlogData from "@/app/(main)/blog/interface";
 
 const CreateBlogForm = (): JSX.Element => {
   const router = useRouter();

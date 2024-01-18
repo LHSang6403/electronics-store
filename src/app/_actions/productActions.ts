@@ -17,8 +17,17 @@ export async function readProducts({ limit }: { limit: number }) {
 }
 
 export async function readProductById(id: string) {
-  const supabase = await createSupabaseServerClient();
-  return await supabase.from("products").select("*").eq("is_deleted", false);
+  try {
+    const supabase = await createSupabaseServerClient();
+    return await supabase
+      .from("products")
+      .select("*")
+      .eq("id", id)
+      .eq("is_deleted", false)
+      .single();
+  } catch (error: any) {
+    return { error: error.message };
+  }
 }
 
 export async function readCategoryById(id: string) {

@@ -2,11 +2,11 @@
 
 import { readBlogs } from "@app/_actions/blogActions";
 import { useQuery } from "@tanstack/react-query";
-import Blog from "@app/(main)/blog/Blog";
+import Blog from "@/app/(main)/blog/Blog";
 import { motion } from "framer-motion";
 import fadeInAminationVariants from "@lib/animationVariants";
 
-import type BlogData from "@app/(main)/blog/interface";
+import type BlogData from "@/app/(main)/blog/interface";
 
 const BlogsContainer = () => {
   const {

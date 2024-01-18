@@ -1,6 +1,6 @@
 import PageHeading from "@components/layouts/PageHeading";
-import TopBlogsContainer from "@app/(main)/blog/TopBlogsContainer";
-import BlogsContainer from "@app/(main)/blog/BlogsContainer";
+import TopBlogsContainer from "@/app/(main)/blog/TopBlogsContainer";
+import BlogsContainer from "@/app/(main)/blog/BlogsContainer";
 import PrimaryButton from "@components/buttons/PrimaryLink";
 
 const Blog = () => {
@@ -11,7 +11,7 @@ const Blog = () => {
           <PageHeading name="Blog" />
         </div>
         <div className="w-fit h-full flex justify-center items-center">
-          <PrimaryButton name="Create" link="blog/create" />
+          <PrimaryButton name="Create" link="/dashboard/blog/create" />
         </div>
       </div>
       <div className="w-full h-fit flex justify-center">

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import type BlogData from "@app/(main)/blog/interface";
+import type BlogData from "@/app/(main)/blog/interface";
 
 const Blog = ({ blog }: { blog: BlogData }) => {
   return (

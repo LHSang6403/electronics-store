@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import type BlogData from "@app/(main)/blog/interface";
+import type BlogData from "@/app/(main)/blog/interface";
 
 function BigTopBlog({ blog }: { blog: BlogData }): JSX.Element {
   return (

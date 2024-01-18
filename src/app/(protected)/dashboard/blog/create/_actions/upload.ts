@@ -1,7 +1,5 @@
 "use server";
 
-// RUN OK, BUT ONLY FOR FORM WITH A SUBMIT BUTTON
-
 import { redirect } from "next/navigation";
 import { v2 as cloudinary } from "cloudinary";
 import { revalidatePath } from "next/cache";
