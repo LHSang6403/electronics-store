@@ -1,4 +1,4 @@
-import { Label } from "@/components/ui-shadcn/ui/label";
+import { Label } from "@/components/ui-shadcn/label";
 import {
   RadioGroup,
   RadioGroupItem,

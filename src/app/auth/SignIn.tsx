@@ -13,9 +13,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@components/ui-shadcn/ui/form";
-import { Input } from "@components/ui-shadcn/ui/input";
-import { Button } from "@components/ui-shadcn/ui/button";
+} from "@/components/ui-shadcn/form";
+import { Input } from "@/components/ui-shadcn/input";
+import { Button } from "@/components/ui-shadcn/button";
 
 import { signInWithEmailAndPassword } from "./_actions";
 import GoogleOAuthForm from "../OAuth/GoogleOAuth";

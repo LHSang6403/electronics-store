@@ -1,5 +1,6 @@
 import FramerPageWrapper from "@/utils/PageWrapper";
 import { readUserSession } from "@app/auth/_actions";
+import SideBar from "@/components/layouts/protected/SideBar";
 
 import { v2 as cloudinary } from "cloudinary";
 cloudinary.config({
@@ -23,10 +24,11 @@ export default async function MainLayout({
     <section>
       <FramerPageWrapper>
         <div
-          className="w-full min-h-screen pt-1
-          flex flex-col gap-8 pb-8
-          px-10 2xl:px-4 sm:px-2 mx-auto bg-[#f5f5f555]"
+          className="max-w-[1450px] min-h-[80vh] p-8
+          flex flex-row gap-4
+          px-10 2xl:px-4 sm:px-2 mx-auto "
         >
+          <SideBar />
           {children}
         </div>
       </FramerPageWrapper>

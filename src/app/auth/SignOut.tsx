@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@components/ui-shadcn/ui/button";
+import { Button } from "@/components/ui-shadcn/button";
 import { toast } from "sonner";
 import { signOutHandler } from "./_actions";
 

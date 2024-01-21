@@ -72,7 +72,7 @@ export default function Page() {
     <div className="w-full h-fit">
       <div className="flex flex-row justify-between">
         <h1 className="w-fit ml-2 text-2xl font-medium text-center mb-2">
-          Products Management
+          Users Management
         </h1>
         <Create />
       </div>

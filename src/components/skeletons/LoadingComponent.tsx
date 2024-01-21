@@ -1,4 +1,4 @@
-import { Skeleton } from "@components/ui-shadcn/ui/skeleton";
+import { Skeleton } from "@/components/ui-shadcn/skeleton";
 
 function LoadingComponent(): JSX.Element {
   return (

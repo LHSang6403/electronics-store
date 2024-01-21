@@ -13,7 +13,7 @@ import Link from "next/link";
 
 const AccountPopup = ({ data }: any) => {
   return (
-    <DropdownMenu>
+    <DropdownMenu >
       <DropdownMenuTrigger>
         <Image
           src={
@@ -44,8 +44,18 @@ const AccountPopup = ({ data }: any) => {
             <DropdownMenuItem>{data.session?.user.email}</DropdownMenuItem>
           )}
           <DropdownMenuItem>Edit account</DropdownMenuItem>
-
-          <div className="px-2 my-1">
+          <div className="px-2 mt-1">
+            {data.session ? (
+              <Link href="/dashboard">
+                <Button type="submit" className="w-full h-7 px-16 flex gap-2">
+                  Dashboard
+                </Button>
+              </Link>
+            ) : (
+              <></>
+            )}
+          </div>
+          <div className="px-2 mt-1">
             {data.session ? (
               <SignOut />
             ) : (

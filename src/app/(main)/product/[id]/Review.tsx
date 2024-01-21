@@ -6,9 +6,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@components/ui-shadcn/ui/card";
-import { Input } from "@components/ui-shadcn/ui/input";
-import { Label } from "@components/ui-shadcn/ui/label";
+} from "@/components/ui-shadcn/card";
+import { Input } from "@/components/ui-shadcn/input";
+import { Label } from "@/components/ui-shadcn/label";
 import {
   Table,
   TableBody,

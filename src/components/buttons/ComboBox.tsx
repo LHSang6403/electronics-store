@@ -5,8 +5,8 @@ import { Check, ChevronsUpDown } from "lucide-react";
 
 import { cn } from "@utils/utils";
 import { Button } from "@components/ui-shadcn-custom/button-custom";
-import { CommandGroup, CommandItem } from "@components/ui-shadcn/ui/command";
-import { PopoverTrigger } from "@components/ui-shadcn/ui/popover";
+import { CommandGroup, CommandItem } from "@/components/ui-shadcn/command";
+import { PopoverTrigger } from "@/components/ui-shadcn/popover";
 import { PopoverContent } from "@components/ui-shadcn-custom/popover-content-custom";
 import { Popover } from "@components/ui-shadcn-custom/popover-custom";
 import { Command } from "@components/ui-shadcn-custom/command-custom";

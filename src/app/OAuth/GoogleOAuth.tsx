@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@components/ui-shadcn/ui/button";
+import { Button } from "@/components/ui-shadcn/button";
 import createSupabaseBrowerClient from "@supabase/client";
 import { toast } from "sonner";
 
