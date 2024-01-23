@@ -1,7 +1,7 @@
 import ProductInfo from "@app/(main)/product/[id]/ProductInfo";
 import ProductDetail from "@app/(main)/product/[id]/ProductDetail";
 // import { useQuery } from "@tanstack/react-query";
-import { readProductById } from "@app/_actions/productActions";
+import { readProductById } from "@/app/_actions/product";
 
 import { type ProductData } from "@/app/(main)/product/interface";
 import { type ProductImages } from "@app/(main)/product/[id]/interface";

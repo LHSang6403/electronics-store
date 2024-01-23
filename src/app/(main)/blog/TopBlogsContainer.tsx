@@ -3,7 +3,7 @@
 import TopBlog from "@/app/(main)/blog/TopBlog";
 import BigTopBlog from "@/app/(main)/blog/BigTopBlog";
 import { useQuery } from "@tanstack/react-query";
-import { readTopBlogs } from "@app/_actions/blogActions";
+import { readTopBlogs } from "@/app/_actions/blog";
 import { motion } from "framer-motion";
 import fadeInAminationVariants from "@lib/animationVariants";
 

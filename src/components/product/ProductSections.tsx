@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Product from "@components/product/Product";
-import { readProducts } from "@app/_actions/productActions";
+import { readProducts } from "@/app/_actions/product";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 
@@ -33,6 +33,7 @@ const ProductSections = ({
     useQuery({
       queryKey: [`${limit} products`],
       queryFn: async () => await readProducts({ limit }),
+      staleTime: 1000 * 60 * 1,
     });
 
   if (error) {

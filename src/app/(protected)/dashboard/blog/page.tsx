@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Table,
   TableBody,
@@ -9,64 +11,43 @@ import {
 import Edit from "@/components/dashboard/actions/Edit";
 import Remove from "@/components/dashboard/actions/Remove";
 import Create from "@/components/dashboard/actions/Create";
+import { readBlogs } from "@/app/_actions/blog";
+import { useQuery } from "@tanstack/react-query";
+import formatReadableTime from "@utils/formatReadableTime";
+// import { useSessionStore } from "@/zustand/useSessionStore";
+
+import type BlogData from "@app/(main)/blog/interface";
 
 export default function Page() {
-  const invoices = [
-    {
-      id: "INV001",
-      name: "Cutting Tool",
-      category: "Machine",
-      price: "$250.00",
-    },
-    {
-      id: "INV001",
-      name: "Cutting Tool",
-      category: "Machine",
-      price: "250.000",
-    },
-    {
-      id: "INV001",
-      name: "Cutting Tool",
-      category: "Machine",
-      price: "250.000",
-    },
-    {
-      id: "INV001",
-      name: "Cutting Tool",
-      category: "Machine",
-      price: "250.000",
-    },
-    {
-      id: "INV001",
-      name: "Cutting Tool",
-      category: "Machine",
-      price: "250.000",
-    },
-    {
-      id: "INV001",
-      name: "Cutting Tool",
-      category: "Machine",
-      price: "250.000",
-    },
-    {
-      id: "INV001",
-      name: "Cutting Tool",
-      category: "Machine",
-      price: "250.000",
-    },
-    {
-      id: "INV001",
-      name: "Cutting Tool",
-      category: "Machine",
-      price: "250.000",
-    },
-    {
-      id: "INV001",
-      name: "Cutting Tool",
-      category: "Machine",
-      price: "250.000",
-    },
-  ];
+  // const { userSession } = useSessionStore();
+
+  const {
+    data: blogs,
+    isSuccess,
+    isLoading,
+    error,
+  }: {
+    data: any;
+    isSuccess: boolean;
+    isLoading: boolean;
+    error: any;
+  } = useQuery({
+    queryKey: [`products-dashboard`],
+    queryFn: async () => await readBlogs({ limit: "read-all" }),
+    staleTime: 1000 * 60 * 5,
+  });
+
+  if (error) {
+    throw new Error("Error while fetching data");
+  }
+
+  if (isLoading) {
+    // console.log("loading");
+  }
+
+  const blogsData = blogs?.data;
+  // console.log("products data", blogsData);
+  // console.log("user session", userSession);
 
   return (
     <div className="w-full h-fit">
@@ -80,28 +61,33 @@ export default function Page() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[150px]">ID</TableHead>
-              <TableHead>Name</TableHead>
-              <TableHead>Category</TableHead>
-              <TableHead className="text-center">Price</TableHead>
+              <TableHead className="w-[150px]">Title</TableHead>
+              <TableHead>Descripition</TableHead>
+              <TableHead>Created at</TableHead>
+              <TableHead>Updated at</TableHead>
+              <TableHead className="text-center">Viewers</TableHead>
               <TableHead className="text-right">
                 <p className="mr-4">Actions</p>
               </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {invoices.map((invoice, index) => (
-              <TableRow key={index}>
-                <TableCell className="font-medium">{invoice.id}</TableCell>
-                <TableCell>{invoice.name}</TableCell>
-                <TableCell>{invoice.category}</TableCell>
-                <TableCell className="text-center">{invoice.price}</TableCell>
-                <TableCell className="text-right">
-                  <Edit />
-                  <Remove />
-                </TableCell>
-              </TableRow>
-            ))}
+            {isSuccess &&
+              blogsData.map((blog: BlogData, index: number) => (
+                <TableRow key={index}>
+                  <TableCell className="font-medium">{blog.title}</TableCell>
+                  <TableCell>{blog.description}</TableCell>
+                  <TableCell>{formatReadableTime(blog.date_created)}</TableCell>
+                  <TableCell className="text-center">
+                    {formatReadableTime(blog.date_updated)}
+                  </TableCell>
+                  <TableCell className="text-center">{blog.viewers}</TableCell>
+                  <TableCell className="text-right">
+                    <Edit />
+                    <Remove />
+                  </TableCell>
+                </TableRow>
+              ))}
           </TableBody>
         </Table>
       </div>

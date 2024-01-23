@@ -47,7 +47,7 @@ export default function PoleChart() {
     <div className="w-full h-auto p-2 border overflow-hidden rounded-xl border-[#E0E0E0]">
       <Title>Writing Contest: Entries</Title>
       <BarChart
-        className="mt-1"
+        className="w-full file:mt-1"
         data={chartdata2}
         index="name"
         categories={[

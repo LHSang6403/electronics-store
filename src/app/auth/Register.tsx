@@ -20,6 +20,11 @@ import { useRouter } from "next/navigation";
 
 const FormSchema = z
   .object({
+    name: z.string().min(1, { message: "Name is a compulsory." }),
+    phone: z
+      .string()
+      .min(6, { message: "Must be a valid mobile number" })
+      .max(12, { message: "Must be a valid mobile number" }),
     email: z.string().email(),
     password: z.string().min(6, {
       message: "Password is required.",
@@ -39,6 +44,8 @@ export default function RegisterForm() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
+      name: "",
+      phone: "",
       email: "",
       password: "",
       confirm: "",
@@ -62,6 +69,42 @@ export default function RegisterForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-3">
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Name</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Your name"
+                  {...field}
+                  type="text"
+                  onChange={field.onChange}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="phone"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Phone</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Your phone number"
+                  {...field}
+                  type="text"
+                  onChange={field.onChange}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <FormField
           control={form.control}
           name="email"
@@ -94,7 +137,6 @@ export default function RegisterForm() {
                   onChange={field.onChange}
                 />
               </FormControl>
-
               <FormMessage />
             </FormItem>
           )}
@@ -113,7 +155,6 @@ export default function RegisterForm() {
                   onChange={field.onChange}
                 />
               </FormControl>
-
               <FormMessage />
             </FormItem>
           )}

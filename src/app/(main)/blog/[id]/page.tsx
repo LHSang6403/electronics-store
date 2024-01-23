@@ -1,4 +1,4 @@
-import { readBlogById } from "@app/_actions/blogActions";
+import { readBlogById } from "@/app/_actions/blog";
 import Review from "@app/(main)/product/[id]/Review";
 
 import type BlogData from "@/app/(main)/blog/interface";

@@ -4,7 +4,6 @@ export const useSideBar = create((set) => ({
   isOpenSideBar: false,
   toggleSideBar: () => {
     set((state: any) => {
-
       return { isOpenSideBar: !state.isOpenSideBar };
     });
   },

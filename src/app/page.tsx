@@ -11,7 +11,7 @@ import { Suspense, useRef } from "react";
 import LoadingComponent from "@components/skeletons/LoadingComponent";
 import PageHeading from "@components/layouts/PageHeading";
 import hover3D from "@lib/hover";
-import HorizontalScrollWrapper from "@components/layouts/HorizontalScrollWrapper";
+import HorizontalScrollWrapper from "@/components/wrapper/HorizontalScrollWrapper";
 
 export default function Home(): JSX.Element {
   const hover3DRef = useRef<HTMLDivElement>(null);

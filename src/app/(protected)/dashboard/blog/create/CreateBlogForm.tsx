@@ -4,7 +4,7 @@ import PrimaryButton from "@components/buttons/PrimaryButton";
 import { useForm } from "react-hook-form";
 import useFormPersist from "react-hook-form-persist";
 import React, { useState, useEffect } from "react";
-import { createBlog } from "@app/_actions/blogActions";
+import { createBlog } from "@/app/_actions/blog";
 import { useMutation } from "@tanstack/react-query";
 import { generateUUID } from "@utils/generateUUID";
 import { generateTimestampz } from "@utils/generateTimestampz";

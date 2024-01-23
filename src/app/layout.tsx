@@ -6,11 +6,11 @@ import TopMenu from "@components/layouts/public/TopMenu";
 import Footer from "@components/layouts/public/Footer";
 import SideBar from "@components/layouts/SideBar";
 
-import LineBackground from "@components/layouts/LineBackground";
-import PageWrapper from "@utils/PageWrapper";
-import ReactQueryProvider from "@utils/ReactQueryProvider";
+import LineBackground from "@/components/wrapper/LineBackground";
+import PageWrapper from "@/components/wrapper/PageWrapper";
+import ReactQueryProvider from "@/components/wrapper/ReactQueryProvider";
 import ProgressBar from "@components/layouts/ProgressBar";
-import NextUIWrapper from "@components/layouts/NextUIWrapper";
+import NextUIWrapper from "@/components/wrapper/NextUIWrapper";
 
 export const metadata: Metadata = {
   title: "Electronics store",

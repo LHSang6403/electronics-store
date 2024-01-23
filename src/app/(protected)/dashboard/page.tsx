@@ -5,8 +5,8 @@ import PoleChart from "@/app/(protected)/dashboard/PoleChart";
 export default function User(): JSX.Element {
   return (
     <div className="w-full h-full">
-      <h1 className="text-2xl font-medium text-center mb-2">
-        Electronics Store: Dashboard Statistics and Logs
+      <h1 className="text-2xl font-medium text-center">
+        Electronics Store: Internal Dashboard Statistics and Logs
       </h1>
       <div className="w-full grid grid-cols-2 gap-2 rounded-2xl p-2 bg-white">
         <div className="col-span-2">

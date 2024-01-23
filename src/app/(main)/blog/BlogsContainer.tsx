@@ -1,6 +1,6 @@
 "use client";
 
-import { readBlogs } from "@app/_actions/blogActions";
+import { readBlogs } from "@/app/_actions/blog";
 import { useQuery } from "@tanstack/react-query";
 import Blog from "@/app/(main)/blog/Blog";
 import { motion } from "framer-motion";

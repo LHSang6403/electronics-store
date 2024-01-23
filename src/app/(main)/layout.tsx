@@ -1,4 +1,4 @@
-import FramerPageWrapper from "@/utils/PageWrapper";
+import FramerPageWrapper from "@/components/wrapper/PageWrapper";
 
 export default function MainLayout({
   children,

@@ -3,7 +3,7 @@
 import RatingStars from "@components/buttons/RatingStars";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import formatCurrencyWithCommas from "@/lib/formatCurrency";
+import formatCurrencyWithCommas from "@/utils/formatCurrency";
 import { useCartStore } from "@zustand/useCartStore";
 import Image from "next/image";
 import { type ProductData } from "@/app/(main)/product/interface";
