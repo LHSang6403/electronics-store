@@ -13,13 +13,10 @@ import Remove from "@components/dashboard/actions/Remove";
 import Create from "@components/dashboard/actions/Create";
 import { readProducts } from "@/app/_actions/product";
 import { useQuery } from "@tanstack/react-query";
-// import { useSessionStore } from "@zustand/useSessionStore";
 
 import { type ProductData } from "@app/(main)/product/interface";
 
 export default function Page() {
-  // const { userSession } = useSessionStore();
-
   const {
     data: products,
     isSuccess,
@@ -40,13 +37,8 @@ export default function Page() {
     throw new Error("Error while fetching data");
   }
 
-  if (isLoading) {
-    // console.log("loading");
-  }
-
   const productsData = products?.data;
   // console.log("products data", productsData);
-  // console.log("user session", userSession);
 
   return (
     <div className="w-full h-fit">

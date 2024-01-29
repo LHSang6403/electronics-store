@@ -13,11 +13,9 @@ import Remove from "@/components/dashboard/actions/Remove";
 import Create from "@/components/dashboard/actions/Create";
 import { readAllCustomers, readAllStaffs } from "@/app/_actions/user";
 import { useQuery } from "@tanstack/react-query";
-// import { useSessionStore } from "@/zustand/useSessionStore";
+import { readStaff } from "@app/_actions/user";
 
 export default async function Page(): Promise<JSX.Element> {
-  // const { userSession } = useSessionStore();
-
   const {
     data: customers,
     isSuccess: isCustomersSuccess,
@@ -48,6 +46,22 @@ export default async function Page(): Promise<JSX.Element> {
     staleTime: 1000 * 60 * 1,
   });
 
+  const {
+    data: staffSession,
+    error: staffSessionError,
+  }: {
+    data: any;
+    error: any;
+  } = useQuery({
+    queryKey: [`staff-session`],
+    queryFn: async () => await readStaff(),
+    staleTime: 1000 * 60 * 5,
+  });
+
+  if (staffSessionError) {
+    throw new Error("User not logged in.");
+  }
+
   if (customersError || staffsError) {
     throw new Error("Error while fetching data");
   }
@@ -55,12 +69,8 @@ export default async function Page(): Promise<JSX.Element> {
   const customersData = customers?.data;
   const staffsData = staffs?.data;
 
-  // console.log("customers data", customersData);
-  // console.log("staffs data", staffsData);
-  // console.log("user session", userSession);
-
   return (
-    <div className="w-full h-fit flex flex-col gap-2">
+    <div className="w-full h-fit flex flex-col gap-4">
       <div className="flex flex-row justify-between">
         <h1 className="w-fit ml-2 text-2xl font-medium text-center">
           Users Management
@@ -68,12 +78,12 @@ export default async function Page(): Promise<JSX.Element> {
         <Create />
       </div>
       <div className="w-full h-fit rounded-xl bg-white border border-[#E0E0E0] overflow-hidden">
-        <h2 className="mx-2 text-lg text-center">Customers</h2>
+        <h2 className="mx-2 mt-1 text-lg text-center">Customers</h2>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Name</TableHead>
-              <TableHead>Phone</TableHead>
+              <TableHead className="text-left w-[230px]">Name</TableHead>
+              <TableHead className="text-left">Phone</TableHead>
               <TableHead className="text-center">Score</TableHead>
               <TableHead className="text-center">Type</TableHead>
               <TableHead className="text-right">
@@ -85,7 +95,9 @@ export default async function Page(): Promise<JSX.Element> {
             {isCustomersSuccess &&
               customersData?.map((customer: any, index: number) => (
                 <TableRow key={index}>
-                  <TableCell>{customer.name || "Unknown"}</TableCell>
+                  <TableCell className="font-medium">
+                    {customer.name || "Unknown"}
+                  </TableCell>
                   <TableCell>{customer.phone || "Unknown"}</TableCell>
                   <TableCell className="text-center">
                     {customer.score || 0}
@@ -102,14 +114,14 @@ export default async function Page(): Promise<JSX.Element> {
           </TableBody>
         </Table>
       </div>
-      {true && (
+      {staffSession.data?.role === "admin" && (
         <div className="w-full h-fit rounded-xl bg-white border border-[#E0E0E0] overflow-hidden">
-          <h2 className="mx-2 text-lg text-center">Staffs</h2>
+          <h2 className="mx-2 mt-1 text-lg text-center">Staffs</h2>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Name</TableHead>
-                <TableHead>Phone</TableHead>
+                <TableHead className="text-left w-[230px]">Name</TableHead>
+                <TableHead className="text-left">Phone</TableHead>
                 <TableHead className="text-center">Role</TableHead>
                 <TableHead className="text-center">Is Admin</TableHead>
                 <TableHead className="text-right">
@@ -121,7 +133,9 @@ export default async function Page(): Promise<JSX.Element> {
               {isStaffsSuccess &&
                 staffsData?.map((staff: any, index: number) => (
                   <TableRow key={index}>
-                    <TableCell>{staff.name || "Unknown"}</TableCell>
+                    <TableCell className="font-medium">
+                      {staff.name || "Unknown"}
+                    </TableCell>
                     <TableCell>{staff.phone || "Unknown"}</TableCell>
                     <TableCell className="text-center">
                       {staff.role || "Staff"}

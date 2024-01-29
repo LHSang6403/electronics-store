@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui-shadcn/button";
 import { toast } from "sonner";
 import { signOutHandler } from "./_actions";
+import { QueryClient } from "@tanstack/react-query";
 
 const SignOut = () => {
   const handleSignOut = async () => {
@@ -15,9 +16,20 @@ const SignOut = () => {
     }
   };
 
+  const queryClient = new QueryClient();
+
   return (
     <form action={handleSignOut}>
-      <Button type="submit" className="w-full h-7 px-2 flex gap-2">
+      <Button
+        type="submit"
+        onClick={() => {
+          queryClient.removeQueries({
+            queryKey: [`user-session`],
+            exact: true,
+          });
+        }}
+        className="w-full h-7 px-2 flex gap-2"
+      >
         Sign Out
       </Button>
     </form>

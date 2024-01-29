@@ -7,7 +7,7 @@ export async function readAllCustomers() {
   try {
     const supabase = await createSupabaseServerClient();
 
-    return await supabase.from("customers").select("*").eq("is_deleted", false);
+    return await supabase.from("customers").select("*");
   } catch (error: any) {
     return { error: error.message };
   }
@@ -23,7 +23,19 @@ export async function readAllStaffs() {
 
     const supabase = await createSupabaseServerClient();
 
-    return await supabase.from("staffs").select("*").eq("is_deleted", false);
+    return await supabase.from("staffs").select("*");
+  } catch (error: any) {
+    return { error: error.message };
+  }
+}
+
+export async function readStaff() {
+  try {
+    const session = await readUserSession();
+    const userId = session.data.session?.user.id;
+
+    const supabase = await createSupabaseServerClient();
+    return await supabase.from("staffs").select("*").eq("id", userId).single();
   } catch (error: any) {
     return { error: error.message };
   }

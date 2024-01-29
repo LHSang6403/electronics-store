@@ -13,27 +13,32 @@ export async function signUpWithEmailAndPassword(data: {
   confirm: string;
   role?: string;
 }) {
-  // const supabase = await createSupabaseServerClient();
-  // const result = await supabase.auth.signUp({
-  //   email: data.email,
-  //   password: data.password,
-  // });
+  const supabaseServerClient = await createSupabaseServerClient();
 
   const supabase = await createSupabaseAdmin();
 
-  const result = await supabase.auth.admin.createUser({
+  const createResult = await supabase.auth.admin.createUser({
     email: data.email,
     password: data.password,
     email_confirm: true,
-    user_metadata: {
-      name: data.name,
-      phone: data.phone,
-      role: data.role === "staff" ? "staff" : "customer",
-      is_admin: false,
-    },
   });
 
-  return JSON.stringify(result);
+  if (createResult.error?.message) {
+    return JSON.stringify(createResult);
+  } else {
+    const memberResult = await supabaseServerClient.from("customers").insert({
+      // all new accounts are customers by default,
+      // and they can be added to be staff/ admin by the admin after
+      id: createResult.data.user?.id,
+      name: data.name,
+      phone: data.phone,
+      email: data.email,
+    });
+    if (memberResult.error?.message) {
+      return JSON.stringify(memberResult);
+    }
+  }
+  return JSON.stringify(createResult);
 }
 
 export async function signInWithEmailAndPassword(data: {

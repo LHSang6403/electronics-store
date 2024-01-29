@@ -14,11 +14,9 @@ import Create from "@/components/dashboard/actions/Create";
 import { readOrders } from "@app/_actions/order";
 import { useQuery } from "@tanstack/react-query";
 import formatReadableTime from "@utils/formatReadableTime";
-// import { useSessionStore } from "@zustand/useSessionStore";
+import formatCurrencyWithCommas from "@utils/formatCurrency";
 
 export default function Page() {
-  // const { userSession } = useSessionStore();
-
   const {
     data: orders,
     isSuccess,
@@ -39,13 +37,8 @@ export default function Page() {
     throw new Error("Error while fetching data");
   }
 
-  if (isLoading) {
-    // console.log("loading");
-  }
-
-  const ordersData = orders?.data;
+  const ordersData = orders;
   console.log("orders data", ordersData);
-  // console.log("user session", userSession);
 
   return (
     <div className="w-full h-fit">
@@ -59,12 +52,11 @@ export default function Page() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[150px]">ID</TableHead>
+              <TableHead className="text-center">Buyer</TableHead>
+              <TableHead className="text-left">Products</TableHead>
+              <TableHead className="text-center">State</TableHead>
               <TableHead>Created At</TableHead>
               <TableHead>Total Price</TableHead>
-              <TableHead className="text-center">State</TableHead>
-              <TableHead className="text-center">Buyer</TableHead>
-              <TableHead className="text-center">Products</TableHead>
               <TableHead className="text-right">
                 <p className="mr-4">Actions</p>
               </TableHead>
@@ -74,17 +66,25 @@ export default function Page() {
             {isSuccess &&
               ordersData.map((ord: any, index: any) => (
                 <TableRow key={index}>
-                  <TableCell className="font-medium">{ord.id}</TableCell>
-                  <TableCell>{formatReadableTime(ord.created_at)}</TableCell>
-                  <TableCell>{formatReadableTime(ord.total_price)}</TableCell>
+                  <TableCell className="text-center">
+                    {ord.buyer_name}
+                  </TableCell>
+                  <TableCell className="text-left font-medium">
+                    {ord.products_name.map((name: string, index: number) => (
+                      <span className="block" key={index}>
+                        {name}
+                        {index !== ord.products_name.length - 1 && ", "}
+                      </span>
+                    ))}
+                  </TableCell>
                   <TableCell className="text-center">
                     {ord.process_state}
                   </TableCell>
-                  <TableCell className="text-center">{ord.buyer_id}</TableCell>
-                  <TableCell className="text-center">
-                    {ord.products_id}
+                  <TableCell>{formatReadableTime(ord.created_at)}</TableCell>
+                  <TableCell>
+                    {formatCurrencyWithCommas(ord.total_price)}.000
                   </TableCell>
-                  <TableCell className="text-right">
+                  <TableCell className="text-center">
                     <Edit />
                     <Remove />
                   </TableCell>
