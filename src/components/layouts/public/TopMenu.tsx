@@ -24,7 +24,7 @@ export default function TopMenu(): ReturnType<React.FC> {
         <li>
           <Link
             href="#"
-            className="ssm:hidden w-fit flex flex-row items-center gap-1 pr-2 border-r-[1px] border-[#d0d1d2]"
+            className="sm:hidden w-fit flex flex-row items-center gap-1 pr-2 border-r-[1px] border-[#d0d1d2]"
             onClick={() => {}}
           >
             <div className="w-5 h-5 block">

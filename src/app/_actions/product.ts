@@ -1,6 +1,7 @@
 "use server";
 
 import createSupabaseServerClient from "@supabase/server";
+import { checkRoleAdmin } from "@app/_actions/user";
 
 export async function readProducts({ limit }: { limit: number | "read-all" }) {
   try {
@@ -26,6 +27,7 @@ export async function readProducts({ limit }: { limit: number | "read-all" }) {
 export async function readProductById(id: string) {
   try {
     const supabase = await createSupabaseServerClient();
+
     return await supabase
       .from("products")
       .select("*")
@@ -37,22 +39,30 @@ export async function readProductById(id: string) {
   }
 }
 
-export async function updateProductById<Type>(
-  id: string,
-  permission_id: string,
-  data: Type
-) {
+export async function updateProductById(id: string, data: any) {
   try {
+    const checkRoleAdminResult = await checkRoleAdmin();
+    if (checkRoleAdminResult.error) {
+      return { error: checkRoleAdminResult.error };
+    }
+
     const supabase = await createSupabaseServerClient();
-    return await supabase.from("products").update(data).eq("id", id);
+
+    return await supabase.from("products").update(data).eq("id", id).select();
   } catch (error: any) {
     return { error: error.message };
   }
 }
 
-export async function deleteProductById(id: string, permission_id: string) {
+export async function deleteProductById(id: string) {
   try {
+    const checkRoleAdminResult = await checkRoleAdmin();
+    if (checkRoleAdminResult.error) {
+      return { error: checkRoleAdminResult.error };
+    }
+
     const supabase = await createSupabaseServerClient();
+
     return await supabase
       .from("products")
       .update({ is_deleted: true })

@@ -59,22 +59,24 @@ export default function SideBar() {
   ];
 
   return (
-    <div className="bg-[#EEEEEE] shadow w-[300px] h-[600px] p-4 rounded-3xl flex flex-col justify-between">
+    <div className="bg-[#EEEEEE] xl:bg-white shadow xl:shadow-none w-[300px] xl:w-full h-[600px] xl:h-fit p-4 rounded-3xl flex flex-col justify-between">
       <div>
-        <h1 className="text-2xl font-bold mt-1">Dashboard</h1>
-        <hr className="w-full h-[2px] rounded-full bg-black my-2"></hr>
+        <h1 className="text-2xl xl:w-fit xl:mx-auto font-bold mt-1">
+          Dashboard
+        </h1>
+        <hr className="w-full xl:w-[60%] sm:w-full xl:mx-auto h-[2px] rounded-full bg-black my-2"></hr>
         {isSuccess && (
           <nav>
-            <ul className="flex flex-col gap-1">
+            <ul className="flex flex-col xl:flex-row xl:justify-center sm:w-fit sm:mx-auto sm:grid sm:grid-cols-2 gap-1 xl:pb-4">
               {links.map((link, index) => (
                 <>
                   {link.permission === "admin" ? (
                     data?.data.role === "admin" && (
                       <li
                         key={index}
-                        className={`w-24 px-2 py-1 ${
+                        className={`w-24 px-2 py-1 xl:text-center ${
                           pathname === link.href
-                            ? "text-primary bg-black rounded"
+                            ? "text-primary  bg-black rounded"
                             : ""
                         }`}
                       >
@@ -84,7 +86,7 @@ export default function SideBar() {
                   ) : (
                     <li
                       key={index}
-                      className={`w-24 px-2 py-1 ${
+                      className={`w-24 px-2 py-1 xl:text-center ${
                         pathname === link.href
                           ? "text-primary bg-black rounded"
                           : ""
@@ -100,7 +102,7 @@ export default function SideBar() {
         )}
       </div>
       <button
-        className="w-full bg-black rounded-lg text-white h-8"
+        className="w-full xl:w-[60%] xl:mx-auto bg-black rounded-lg text-white h-8"
         onClick={() => {}}
       >
         Sign out

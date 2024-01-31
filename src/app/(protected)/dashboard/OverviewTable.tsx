@@ -12,31 +12,31 @@ const invoices = [
   {
     invoice: "INV001",
     paymentStatus: "Paid",
-    totalAmount: "$250.00",
+    totalAmount: "250.00",
     paymentMethod: "Credit Card",
   },
   {
     invoice: "INV002",
     paymentStatus: "Pending",
-    totalAmount: "$150.00",
+    totalAmount: "150.000",
     paymentMethod: "PayPal",
   },
   {
     invoice: "INV003",
     paymentStatus: "Unpaid",
-    totalAmount: "$350.00",
+    totalAmount: "350.000",
     paymentMethod: "Bank Transfer",
   },
   {
     invoice: "INV004",
     paymentStatus: "Paid",
-    totalAmount: "$450.00",
+    totalAmount: "450.000",
     paymentMethod: "Credit Card",
   },
   {
     invoice: "INV005",
     paymentStatus: "Paid",
-    totalAmount: "$550.00",
+    totalAmount: "550.000",
     paymentMethod: "PayPal",
   },
 ];

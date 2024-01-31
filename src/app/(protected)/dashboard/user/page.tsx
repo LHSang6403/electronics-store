@@ -8,12 +8,11 @@ import {
   TableHeader,
   TableRow,
 } from "@components/ui-shadcn/table";
-import Edit from "@/components/dashboard/actions/Edit";
-import Remove from "@/components/dashboard/actions/Remove";
-import Create from "@/components/dashboard/actions/Create";
-import { readAllCustomers, readAllStaffs } from "@/app/_actions/user";
+import EditCustomer from "@app/(protected)/dashboard/user/EditCustomer/EditCustomer";
+import EditStaff from "@app/(protected)/dashboard/user/EditStaff/EditStaff";
+import Create from "@components/dashboard/buttons/Create";
+import { readAllCustomers, readAllStaffs, readStaff } from "@app/_actions/user";
 import { useQuery } from "@tanstack/react-query";
-import { readStaff } from "@app/_actions/user";
 
 export default async function Page(): Promise<JSX.Element> {
   const {
@@ -25,10 +24,12 @@ export default async function Page(): Promise<JSX.Element> {
     isLoading: boolean;
     isSuccess: boolean;
     error: any;
+    refetch: any;
   } = useQuery({
     queryKey: [`customers-dashboard`],
     queryFn: async () => await readAllCustomers(),
     staleTime: 1000 * 60 * 1,
+    refetchOnWindowFocus: true,
   });
 
   const {
@@ -40,10 +41,12 @@ export default async function Page(): Promise<JSX.Element> {
     isLoading: boolean;
     isSuccess: boolean;
     error: any;
+    refetch: any;
   } = useQuery({
     queryKey: [`staffs-dashboard`],
     queryFn: async () => await readAllStaffs(),
     staleTime: 1000 * 60 * 1,
+    refetchOnWindowFocus: true,
   });
 
   const {
@@ -68,27 +71,26 @@ export default async function Page(): Promise<JSX.Element> {
 
   const customersData = customers?.data;
   const staffsData = staffs?.data;
+  const staffSessionData = staffSession?.data;
 
   return (
-    <div className="w-full h-fit flex flex-col gap-4">
-      <div className="flex flex-row justify-between">
+    <div className="w-full h-fit flex flex-col gap-2">
+      <div className="flex flex-row sm:flex-col justify-between sm:items-center">
         <h1 className="w-fit ml-2 text-2xl font-medium text-center">
           Users Management
         </h1>
-        <Create />
+        <Create url="/dashboard/user/create" />
       </div>
       <div className="w-full h-fit rounded-xl bg-white border border-[#E0E0E0] overflow-hidden">
         <h2 className="mx-2 mt-1 text-lg text-center">Customers</h2>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="text-left w-[230px]">Name</TableHead>
-              <TableHead className="text-left">Phone</TableHead>
+              <TableHead className="text-left w-[220px]">Name</TableHead>
+              <TableHead className="text-left sm:hidden">Phone</TableHead>
               <TableHead className="text-center">Score</TableHead>
-              <TableHead className="text-center">Type</TableHead>
-              <TableHead className="text-right">
-                <p className="mr-4">Actions</p>
-              </TableHead>
+              <TableHead className="text-center sm:hidden">Type</TableHead>
+              <TableHead className="text-center">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -97,62 +99,74 @@ export default async function Page(): Promise<JSX.Element> {
                 <TableRow key={index}>
                   <TableCell className="font-medium">
                     {customer.name || "Unknown"}
+                    <p className="hidden sm:block font-normal text-gray-500">
+                      {customer.phone || "Unknown"}
+                      <br></br>
+                      Type: {customer.type || "Normal"}
+                    </p>
                   </TableCell>
-                  <TableCell>{customer.phone || "Unknown"}</TableCell>
+                  <TableCell className="sm:hidden">
+                    {customer.phone || "Unknown"}
+                  </TableCell>
                   <TableCell className="text-center">
                     {customer.score || 0}
                   </TableCell>
-                  <TableCell className="text-center">
+                  <TableCell className="text-center sm:hidden">
                     {customer.type || "Normal"}
                   </TableCell>
-                  <TableCell className="text-right">
-                    <Edit />
-                    <Remove />
+                  <TableCell className="text-center">
+                    <EditCustomer data={customer} />
                   </TableCell>
                 </TableRow>
               ))}
           </TableBody>
         </Table>
       </div>
-      {staffSession.data?.role === "admin" && (
-        <div className="w-full h-fit rounded-xl bg-white border border-[#E0E0E0] overflow-hidden">
-          <h2 className="mx-2 mt-1 text-lg text-center">Staffs</h2>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="text-left w-[230px]">Name</TableHead>
-                <TableHead className="text-left">Phone</TableHead>
-                <TableHead className="text-center">Role</TableHead>
-                <TableHead className="text-center">Is Admin</TableHead>
-                <TableHead className="text-right">
-                  <p className="mr-4">Actions</p>
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {isStaffsSuccess &&
-                staffsData?.map((staff: any, index: number) => (
-                  <TableRow key={index}>
-                    <TableCell className="font-medium">
-                      {staff.name || "Unknown"}
-                    </TableCell>
-                    <TableCell>{staff.phone || "Unknown"}</TableCell>
-                    <TableCell className="text-center">
-                      {staff.role || "Staff"}
-                    </TableCell>
-                    <TableCell className="text-center">
-                      {staff.is_admin ? "True" : "False"}
-                    </TableCell>
-                    <TableCell className="text-right">
-                      <Edit />
-                      <Remove />
-                    </TableCell>
-                  </TableRow>
-                ))}
-            </TableBody>
-          </Table>
-        </div>
-      )}
+      {staffSessionData &&
+        "role" in staffSessionData &&
+        staffSessionData?.role === "admin" && (
+          <div className="w-full h-fit rounded-xl bg-white border border-[#E0E0E0] overflow-hidden">
+            <h2 className="mx-2 mt-1 text-lg text-center">Staffs</h2>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="text-left w-[220px]">Name</TableHead>
+                  <TableHead className="text-left sm:hidden">Phone</TableHead>
+                  <TableHead className="text-center sm:hidden">
+                    Date of Birth
+                  </TableHead>
+                  <TableHead className="text-center">Role</TableHead>
+                  <TableHead className="text-center">Actions</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {isStaffsSuccess &&
+                  staffsData?.map((staff: any, index: number) => (
+                    <TableRow key={index}>
+                      <TableCell className="font-medium">
+                        {staff.name || "Unknown"}
+                        <p className="hidden sm:block font-normal text-gray-500">
+                          {staff.phone || "Unknown"}
+                        </p>
+                      </TableCell>
+                      <TableCell className="sm:hidden">
+                        {staff.phone || "Unknown"}
+                      </TableCell>
+                      <TableCell className="text-center sm:hidden">
+                        {staff.date_of_birth || "Unknown"}
+                      </TableCell>
+                      <TableCell className="text-center">
+                        {staff.role || "Staff"}
+                      </TableCell>
+                      <TableCell className="text-center">
+                        <EditStaff data={staff} />
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
+          </div>
+        )}
     </div>
   );
 }

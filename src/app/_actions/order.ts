@@ -1,24 +1,29 @@
 "use server";
 
 import createSupabaseServerClient from "@supabase/server";
+import { checkRoleAdminAndStaff } from "@app/_actions/user";
 
 export async function readOrders(
-  processState: "pending" | "processing" | "delivering" | "done"
+  processState: "pending" | "processing" | "delivering" | "done" | "all"
 ) {
   try {
     const supabase = await createSupabaseServerClient();
+    let result;
 
-    const result = await supabase
-      .from("orders")
-      .select("*")
-      .eq("process_state", processState);
+    if (processState === "all") {
+      result = await supabase.from("orders").select("*");
+    } else {
+      result = await supabase
+        .from("orders")
+        .select("*")
+        .eq("process_state", processState);
+    }
 
     const { data: buyers } = await supabase
       .from("orders")
       .select(`customers (id, name)`);
 
     const mergedData = mergeDataWithBuyerName(result.data, buyers);
-    // console.log("mergedData", mergedData);
 
     return mergedData;
   } catch (error: any) {
@@ -41,4 +46,27 @@ function mergeDataWithBuyerName(data: any, buyersInfo: any) {
       return order;
     }
   });
+}
+
+export async function updateOrderStateById(
+  id: string,
+  state: "pending" | "processing" | "delivering" | "done"
+) {
+  try {
+    const checkRoleAdminAndStaffResult = await checkRoleAdminAndStaff();
+    if (checkRoleAdminAndStaffResult.error) {
+      return { error: checkRoleAdminAndStaffResult.error };
+    }
+
+    const supabase = await createSupabaseServerClient();
+
+    const updateResult = await supabase
+      .from("orders")
+      .update({ process_state: state })
+      .eq("id", id);
+
+    return updateResult;
+  } catch (error: any) {
+    return { error: error.message };
+  }
 }

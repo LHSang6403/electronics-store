@@ -1,6 +1,7 @@
 import SideBar from "@components/layouts/protected/SideBar";
 import { v2 as cloudinary } from "cloudinary";
 import { readStaff } from "@app/_actions/user";
+import DrawerSideBar from "@components/dashboard/DrawerSideBar";
 
 cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
@@ -14,7 +15,6 @@ export default async function MainLayout({
   children: React.ReactNode;
 }): Promise<JSX.Element> {
   const staffData = await readStaff();
-  console.log("Staff data", staffData);
 
   if (
     !("data" in staffData) ||
@@ -34,14 +34,17 @@ export default async function MainLayout({
   return (
     <section>
       <div
-        className="max-w-[1450px] min-h-[80vh] pt-2 pb-6
-          flex flex-row gap-4
-          px-10 2xl:px-4 sm:px-2 mx-auto "
+        className="max-w-[1450px] xl:w-full min-h-[70vh] pt-1 pb-4
+          flex flex-row gap-4 xl:flex-col xl:items-start xl:justify-start xl:gap-2
+          px-10 xl:px-4 sm:px-2 mx-auto"
       >
-        <div className="mt-10">
+        <div className="mt-10 xl:hidden">
           <SideBar />
         </div>
         {children}
+      </div>
+      <div className="hidden xl:block">
+        <DrawerSideBar />
       </div>
     </section>
   );

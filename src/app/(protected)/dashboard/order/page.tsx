@@ -8,9 +8,8 @@ import {
   TableHeader,
   TableRow,
 } from "@components/ui-shadcn/table";
-import Edit from "@/components/dashboard/actions/Edit";
-import Remove from "@/components/dashboard/actions/Remove";
-import Create from "@/components/dashboard/actions/Create";
+import Edit from "./Edit/Edit";
+import Create from "@/components/dashboard/buttons/Create";
 import { readOrders } from "@app/_actions/order";
 import { useQuery } from "@tanstack/react-query";
 import formatReadableTime from "@utils/formatReadableTime";
@@ -20,17 +19,16 @@ export default function Page() {
   const {
     data: orders,
     isSuccess,
-    isLoading,
     error,
   }: {
     data: any;
     isSuccess: boolean;
-    isLoading: boolean;
     error: any;
   } = useQuery({
     queryKey: [`orders-dashboard`],
-    queryFn: async () => await readOrders("pending"),
+    queryFn: async () => await readOrders("all"),
     staleTime: 1000 * 60 * 5,
+    refetchOnWindowFocus: true,
   });
 
   if (error) {
@@ -38,15 +36,14 @@ export default function Page() {
   }
 
   const ordersData = orders;
-  console.log("orders data", ordersData);
 
   return (
-    <div className="w-full h-fit">
-      <div className="flex flex-row justify-between">
-        <h1 className="w-fit ml-2 text-2xl font-medium text-center mb-2">
+    <div className="w-full h-fit flex flex-col gap-2">
+      <div className="flex flex-row sm:flex-col justify-between sm:items-center">
+        <h1 className="w-fit ml-2 text-2xl font-medium text-center">
           Orders Management
         </h1>
-        <Create />
+        <Create url="/dashboard/order/create" />
       </div>
       <div className="w-full h-fit rounded-xl bg-white border border-[#E0E0E0] overflow-hidden">
         <Table>
@@ -54,12 +51,10 @@ export default function Page() {
             <TableRow>
               <TableHead className="text-center">Buyer</TableHead>
               <TableHead className="text-left">Products</TableHead>
-              <TableHead className="text-center">State</TableHead>
-              <TableHead>Created At</TableHead>
+              <TableHead className="text-center sm:hidden">State</TableHead>
+              <TableHead className="sm:hidden">Created At</TableHead>
               <TableHead>Total Price</TableHead>
-              <TableHead className="text-right">
-                <p className="mr-4">Actions</p>
-              </TableHead>
+              <TableHead className="text-center sm:hidden">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -77,16 +72,17 @@ export default function Page() {
                       </span>
                     ))}
                   </TableCell>
-                  <TableCell className="text-center">
+                  <TableCell className="text-center sm:hidden">
                     {ord.process_state}
                   </TableCell>
-                  <TableCell>{formatReadableTime(ord.created_at)}</TableCell>
+                  <TableCell className="sm:hidden">
+                    {formatReadableTime(ord.created_at)}
+                  </TableCell>
                   <TableCell>
                     {formatCurrencyWithCommas(ord.total_price)}.000
                   </TableCell>
-                  <TableCell className="text-center">
-                    <Edit />
-                    <Remove />
+                  <TableCell className="text-center sm:hidden">
+                    <Edit data={ord} />
                   </TableCell>
                 </TableRow>
               ))}

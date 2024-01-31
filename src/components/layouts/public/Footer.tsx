@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Footer(): JSX.Element {
   return (
-    <footer className="w-full h-fit flex flex-col gap-8 pb-10 items-center px-16 xl:px-6 sm:px-4 bg-[#EEEEEE] text-black py-10">
-      <div className="w-[84%] h-fit font-light text-justify flex justify-center items-center">
+    <footer className="w-full h-fit flex flex-col gap-8 pb-12 items-center px-16 xl:px-6 sm:px-4 bg-[#EEEEEE] text-black py-6">
+      <div className="w-[84%] sm:w-full h-fit font-light text-justify flex justify-center items-center">
         Discover a world of innovation and technology at our electronic
         emporium. Elevate your lifestyle with cutting-edge gadgets, superior
         appliances, and the latest electronics. Explore an array of premium

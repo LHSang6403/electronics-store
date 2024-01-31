@@ -1,5 +1,5 @@
 "use client";
-import { AreaChart,  Title } from "@tremor/react";
+import { AreaChart, Title } from "@tremor/react";
 
 const chartdata2 = [
   {
@@ -65,9 +65,8 @@ const chartdata2 = [
 ];
 
 export default function OverviewChart() {
-  // const [value, setValue] = useState(null);
   return (
-    <div className="w-full h-[500px] p-2 border border-[#E0E0E0] rounded-xl overflow-hidden">
+    <div className="w-full h-[500px] 2xl:h-fit p-2 border border-[#E0E0E0] rounded-xl overflow-hidden">
       <Title>Closed Pull Requests</Title>
       <AreaChart
         className="h-72 mt-4"
@@ -76,9 +75,6 @@ export default function OverviewChart() {
         categories={["2022", "2023"]}
         colors={["neutral", "indigo"]}
         yAxisWidth={30}
-        // onValueChange={(v: any) => {
-        //   setValue(v);
-        // }}
         connectNulls={true}
       />
     </div>

@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui-shadcn/skeleton";
 
 export default function Loading() {
   return (
-    <div className="w-[1050px] h-screen xl:w-full lg:w-full sm:w-full xl:px-6 lg:px-6 sm:px-0 mx-auto bg-[#f5f5f555] flex flex-col p-4">
+    <div className="w-[1050px] h-screen xl:w-full lg:w-full sm:w-full xl:px-6 lg:px-6 sm:px-2 mx-auto bg-[#f5f5f555] flex flex-col p-4">
       <div className="w-full h-fit grid grid-cols-6 gap-3">
         <div className="col-start-1 col-span-3 flex flex-col gap-3">
           <Skeleton className="h-8 rounded-lg bg-[#EEEEEE]" />

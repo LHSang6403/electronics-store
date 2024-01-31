@@ -2,7 +2,7 @@ import { BarChart, Title } from "@tremor/react";
 
 const chartdata2 = [
   {
-    name: "Topic 1",
+    name: "Drill",
     "Group A": 890,
     "Group B": 338,
     "Group C": 538,
@@ -11,7 +11,7 @@ const chartdata2 = [
     "Group F": 436,
   },
   {
-    name: "Topic 2",
+    name: "Argitator",
     "Group A": 289,
     "Group B": 233,
     "Group C": 253,
@@ -20,7 +20,7 @@ const chartdata2 = [
     "Group F": 533,
   },
   {
-    name: "Topic 3",
+    name: "Iron",
     "Group A": 380,
     "Group B": 535,
     "Group C": 352,
@@ -29,7 +29,7 @@ const chartdata2 = [
     "Group F": 234,
   },
   {
-    name: "Topic 4",
+    name: "Light",
     "Group A": 90,
     "Group B": 98,
     "Group C": 28,
@@ -45,7 +45,7 @@ const chartdata2 = [
 export default function PoleChart() {
   return (
     <div className="w-full h-auto p-2 border overflow-hidden rounded-xl border-[#E0E0E0]">
-      <Title>Writing Contest: Entries</Title>
+      <Title>Sold Categories</Title>
       <BarChart
         className="w-full file:mt-1"
         data={chartdata2}
