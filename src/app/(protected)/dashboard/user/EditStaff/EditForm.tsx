@@ -16,9 +16,10 @@ const EditForm = ({ data }: { data: any }) => {
     const result = await updateStaffById(data.id, formData);
 
     if (result.error) {
-      toast.error("Error while uploading.");
+      toast.error(`Error while updating: ${result.error}.`);
+    } else {
+      toast.success("Updated successfully.");
     }
-    toast.success("Uploaded successfully.");
   };
 
   return (

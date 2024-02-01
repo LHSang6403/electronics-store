@@ -16,10 +16,12 @@ const EditForm = ({ data }: { data: any }) => {
 
   const onSubmit = async (formData: any) => {
     const result = await updateBlogById(data.id, formData);
+
     if (result.error) {
-      toast.error("Error while uploading.");
+      toast.error(`Error while updating: ${result.error}.`);
+    } else {
+      toast.success("Updated successfully.");
     }
-    toast.success("Uploaded blog successfully.");
   };
 
   return (

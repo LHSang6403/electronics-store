@@ -20,9 +20,10 @@ const EditForm = ({ data }: { data: ProductData }) => {
     const result = await updateProductById(data.id, formData);
 
     if (result.error) {
-      toast.error("Error while uploading.");
+      toast.error(`Error while updating: ${result.error}.`);
+    } else {
+      toast.success("Updated successfully.");
     }
-    toast.success("Uploaded successfully.");
   };
 
   return (
