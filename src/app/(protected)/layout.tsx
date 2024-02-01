@@ -41,7 +41,7 @@ export default async function MainLayout({
       error?: any;
     };
 
-    if (!staffData.data || !staffData.error) {
+    if (!staffData.data || staffData.error) {
       throw new Error("Permission: Wrong account data.");
     } else if (
       staffData.data?.role !== "admin" &&
