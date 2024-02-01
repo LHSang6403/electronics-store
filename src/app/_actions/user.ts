@@ -25,6 +25,15 @@ export async function updateCustomerById(id: string, data: any) {
     if (data.role === "staff" || data.role === "admin") {
       // update customer to staff/ admin: move row from customers table to staffs table
 
+      // check if this customer already have oreder
+      const orderResult = await supabase
+        .from("orders")
+        .select("*")
+        .eq("buyer_id", id);
+      if (orderResult.data) {
+        return { error: "This customer already have order" };
+      }
+
       // add row in staffs table
       delete data.score;
       const addResult = await supabase

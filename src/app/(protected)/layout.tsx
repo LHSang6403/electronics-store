@@ -15,26 +15,6 @@ export default async function MainLayout({
 }: {
   children: React.ReactNode;
 }): Promise<JSX.Element> {
-  // bug form here
-  // const staffData = (await readStaff()) as {
-  //   data?: { role?: string };
-  //   error?: any;
-  // };
-
-  // if (!staffData.data || !staffData.error) {
-  //   // throw new Error("Permission: Wrong account data.");
-  //   redirect("/auth");
-  // } else if (
-  //   staffData.data?.role !== "admin" &&
-  //   staffData.data?.role !== "staff"
-  // ) {
-  //   // throw new Error(
-  //   // "User do not have permission. Please log in to view this area."
-  //   // );
-  //   redirect("/auth");
-  // }
-  // to here
-
   try {
     const staffData = (await readStaff()) as {
       data?: { role?: string };
