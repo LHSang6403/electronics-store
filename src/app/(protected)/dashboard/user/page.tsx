@@ -2,76 +2,76 @@
 
 import {
   Table,
-  TableBody,
-  TableCell,
+  // TableBody,
+  // TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@components/ui-shadcn/table";
-import EditCustomer from "@app/(protected)/dashboard/user/EditCustomer/EditCustomer";
-import EditStaff from "@app/(protected)/dashboard/user/EditStaff/EditStaff";
+// import EditCustomer from "@app/(protected)/dashboard/user/EditCustomer/EditCustomer";
+// import EditStaff from "@app/(protected)/dashboard/user/EditStaff/EditStaff";
 import Create from "@components/dashboard/buttons/Create";
-import { readAllCustomers, readAllStaffs, readStaff } from "@app/_actions/user";
-import { useQuery } from "@tanstack/react-query";
+// import { readAllCustomers, readAllStaffs, readStaff } from "@app/_actions/user";
+// import { useQuery } from "@tanstack/react-query";
 
 export default async function Page(): Promise<JSX.Element> {
-  const {
-    data: customers,
-    isSuccess: isCustomersSuccess,
-    error: customersError,
-  }: {
-    data: any;
-    isLoading: boolean;
-    isSuccess: boolean;
-    error: any;
-    refetch: any;
-  } = useQuery({
-    queryKey: [`customers-dashboard`],
-    queryFn: async () => await readAllCustomers(),
-    staleTime: 1000 * 60 * 1,
-    refetchOnWindowFocus: true,
-  });
+  // const {
+  //   data: customers,
+  //   isSuccess: isCustomersSuccess,
+  //   error: customersError,
+  // }: {
+  //   data: any;
+  //   isLoading: boolean;
+  //   isSuccess: boolean;
+  //   error: any;
+  //   refetch: any;
+  // } = useQuery({
+  //   queryKey: [`customers-dashboard`],
+  //   queryFn: async () => await readAllCustomers(),
+  //   staleTime: 1000 * 60 * 1,
+  //   refetchOnWindowFocus: true,
+  // });
 
-  const {
-    data: staffs,
-    isSuccess: isStaffsSuccess,
-    error: staffsError,
-  }: {
-    data: any;
-    isLoading: boolean;
-    isSuccess: boolean;
-    error: any;
-    refetch: any;
-  } = useQuery({
-    queryKey: [`staffs-dashboard`],
-    queryFn: async () => await readAllStaffs(),
-    staleTime: 1000 * 60 * 1,
-    refetchOnWindowFocus: true,
-  });
+  // const {
+  //   data: staffs,
+  //   isSuccess: isStaffsSuccess,
+  //   error: staffsError,
+  // }: {
+  //   data: any;
+  //   isLoading: boolean;
+  //   isSuccess: boolean;
+  //   error: any;
+  //   refetch: any;
+  // } = useQuery({
+  //   queryKey: [`staffs-dashboard`],
+  //   queryFn: async () => await readAllStaffs(),
+  //   staleTime: 1000 * 60 * 1,
+  //   refetchOnWindowFocus: true,
+  // });
 
-  const {
-    data: staffSession,
-    error: staffSessionError,
-  }: {
-    data: any;
-    error: any;
-  } = useQuery({
-    queryKey: [`staff-session`],
-    queryFn: async () => await readStaff(),
-    staleTime: 1000 * 60 * 5,
-  });
+  // const {
+  //   data: staffSession,
+  //   error: staffSessionError,
+  // }: {
+  //   data: any;
+  //   error: any;
+  // } = useQuery({
+  //   queryKey: [`staff-session`],
+  //   queryFn: async () => await readStaff(),
+  //   staleTime: 1000 * 60 * 5,
+  // });
 
-  if (staffSessionError) {
-    throw new Error("User not logged in.");
-  }
+  // if (staffSessionError) {
+  //   throw new Error("User not logged in.");
+  // }
 
-  if (customersError || staffsError) {
-    throw new Error("Error while fetching data");
-  }
+  // if (customersError || staffsError) {
+  //   throw new Error("Error while fetching data");
+  // }
 
-  const customersData = customers?.data;
-  const staffsData = staffs?.data;
-  const staffSessionData = staffSession?.data;
+  // const customersData = customers?.data;
+  // const staffsData = staffs?.data;
+  // const staffSessionData = staffSession?.data;
 
   return (
     <div className="w-full h-fit flex flex-col gap-2">
@@ -93,7 +93,7 @@ export default async function Page(): Promise<JSX.Element> {
               <TableHead className="text-center">Actions</TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody>
+          {/* <TableBody>
             {isCustomersSuccess &&
               customersData?.map((customer: any, index: number) => (
                 <TableRow key={index}>
@@ -119,10 +119,10 @@ export default async function Page(): Promise<JSX.Element> {
                   </TableCell>
                 </TableRow>
               ))}
-          </TableBody>
+          </TableBody> */}
         </Table>
       </div>
-      {staffSessionData &&
+      {/* {staffSessionData &&
         "role" in staffSessionData &&
         staffSessionData?.role === "admin" && (
           <div className="w-full h-fit rounded-xl bg-white border border-[#E0E0E0] overflow-hidden">
@@ -166,7 +166,7 @@ export default async function Page(): Promise<JSX.Element> {
               </TableBody>
             </Table>
           </div>
-        )}
+        )} */}
     </div>
   );
 }
