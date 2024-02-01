@@ -20,6 +20,7 @@ export default async function MainLayout({
     !("data" in staffData) ||
     staffData.data === null ||
     !("role" in staffData.data) ||
+    staffData.data.role === "customer" ||
     staffData.error
   ) {
     throw new Error("Wrong account data.");
