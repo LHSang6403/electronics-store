@@ -1,6 +1,6 @@
 import SideBar from "@components/layouts/protected/SideBar";
 import { v2 as cloudinary } from "cloudinary";
-import { readStaff } from "@app/_actions/user";
+// import { readStaff } from "@app/_actions/user";
 import DrawerSideBar from "@components/dashboard/DrawerSideBar";
 
 cloudinary.config({
@@ -14,23 +14,23 @@ export default async function MainLayout({
 }: {
   children: React.ReactNode;
 }): Promise<JSX.Element> {
-  const staffData = await readStaff();
+  // const staffData = await readStaff();
 
-  if (
-    !("data" in staffData) ||
-    staffData.data === null ||
-    !("role" in staffData.data) ||
-    staffData.data.role === "customer" ||
-    staffData.error
-  ) {
-    throw new Error("Wrong account data.");
-  }
+  // if (
+  //   !("data" in staffData) ||
+  //   staffData.data === null ||
+  //   !("role" in staffData.data) ||
+  //   staffData.data.role === "customer" ||
+  //   staffData.error
+  // ) {
+  //   throw new Error("Wrong account data.");
+  // }
 
-  if (staffData.data?.role !== "admin" && staffData.data?.role !== "staff") {
-    throw new Error(
-      "User do not have permission. Please log in to view this area."
-    );
-  }
+  // if (staffData.data?.role !== "admin" && staffData.data?.role !== "staff") {
+  //   throw new Error(
+  //     "User do not have permission. Please log in to view this area."
+  //   );
+  // }
 
   return (
     <section>
