@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui-shadcn/card";
-import { Input } from "@/components/ui-shadcn/input";
+import { Input } from "@/components/ui-shadcn-custom/input-custom";
 import { Label } from "@/components/ui-shadcn/label";
 import {
   Table,

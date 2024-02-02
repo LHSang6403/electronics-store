@@ -2,6 +2,7 @@
 
 import createSupabaseServerClient from "@supabase/server";
 import { checkRoleAdmin } from "@app/_actions/user";
+import { saveToLog } from "@app/_actions/log";
 
 export async function readProducts({ limit }: { limit: number | "read-all" }) {
   try {
@@ -41,14 +42,26 @@ export async function readProductById(id: string) {
 
 export async function updateProductById(id: string, data: any) {
   try {
-    const checkRoleAdminResult = await checkRoleAdmin();
+    const checkRoleAdminResult = (await checkRoleAdmin()) as {
+      data: any;
+      error: any;
+    };
+
     if (checkRoleAdminResult.error) {
       return { error: checkRoleAdminResult.error };
     }
 
     const supabase = await createSupabaseServerClient();
+    const result = await supabase
+      .from("products")
+      .update(data)
+      .eq("id", id)
+      .select();
 
-    return await supabase.from("products").update(data).eq("id", id).select();
+    const actorId = checkRoleAdminResult.data.id;
+    await saveToLog(`Update product ${id}`, actorId, result);
+
+    return result;
   } catch (error: any) {
     return { error: error.message };
   }
@@ -56,17 +69,25 @@ export async function updateProductById(id: string, data: any) {
 
 export async function deleteProductById(id: string) {
   try {
-    const checkRoleAdminResult = await checkRoleAdmin();
+    const checkRoleAdminResult = (await checkRoleAdmin()) as {
+      data: any;
+      error: any;
+    };
+
     if (checkRoleAdminResult.error) {
       return { error: checkRoleAdminResult.error };
     }
 
     const supabase = await createSupabaseServerClient();
-
-    return await supabase
+    const result = await supabase
       .from("products")
       .update({ is_deleted: true })
       .eq("id", id);
+
+    const actorId = checkRoleAdminResult.data.id;
+    await saveToLog(`Delete product ${id}`, actorId, result);
+
+    return result;
   } catch (error: any) {
     return { error: error.message };
   }

@@ -11,12 +11,14 @@ import {
 import EditCustomer from "@app/(protected)/dashboard/user/EditCustomer/EditCustomer";
 import { readAllCustomers } from "@app/_actions/user";
 import { useQuery } from "@tanstack/react-query";
+import createSupabaseBrowserClient from "@supabase/client";
 
 export default function Customer() {
   const {
     data: customers,
     isSuccess: isCustomersSuccess,
     error: customersError,
+    refetch,
   }: {
     data: any;
     isLoading: boolean;
@@ -34,7 +36,23 @@ export default function Customer() {
     throw new Error("Error while fetching data");
   }
 
+  const supabase = createSupabaseBrowserClient();
+
+  const handleChanges = () => {
+    refetch();
+  };
+
+  supabase
+    .channel("customers")
+    .on(
+      "postgres_changes",
+      { event: "*", schema: "public", table: "customers" },
+      handleChanges
+    )
+    .subscribe();
+
   const customersData = customers?.data;
+
   return (
     <div className="w-full h-fit rounded-xl bg-white border border-[#E0E0E0] overflow-hidden">
       <h2 className="mx-2 mt-1 text-lg text-center">Customers</h2>

@@ -32,8 +32,9 @@ export default async function MainLayout({
       );
     }
   } catch (error) {
-    console.error("Error:", error);
-    redirect("/auth");
+    throw new Error("Please refresh the page to view this area.");
+    // console.error("Error:", error);
+    // redirect("/auth");
   }
 
   return (

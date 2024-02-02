@@ -13,7 +13,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui-shadcn/form";
-import { Input } from "@/components/ui-shadcn/input";
+import { Input } from "@/components/ui-shadcn-custom/input-custom";
 import { Button } from "@/components/ui-shadcn/button";
 import { signUpWithEmailAndPassword } from "./_actions";
 import { useRouter } from "next/navigation";

@@ -1,5 +1,5 @@
-// import Create from "@/components/dashboard/buttons/Create";
 import Order from "@app/(protected)/dashboard/order/Table/Order";
+import Create from "@app/(protected)/dashboard/order/Create/Create";
 
 export default function Page() {
   return (
@@ -8,7 +8,7 @@ export default function Page() {
         <h1 className="w-fit ml-2 text-2xl font-medium text-center">
           Orders Management
         </h1>
-        {/* <Create url="/dashboard/order/create" /> */}
+        <Create />
       </div>
       <Order />
     </div>

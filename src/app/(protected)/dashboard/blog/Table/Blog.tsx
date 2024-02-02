@@ -9,10 +9,11 @@ import {
   TableRow,
 } from "@components/ui-shadcn/table";
 import Edit from "@app/(protected)/dashboard/blog/Edit/Edit";
-import Remove from "@/components/dashboard/popups/Remove";
-import { readBlogs } from "@/app/_actions/blog";
+import Remove from "@components/dashboard/popups/Remove";
+import { readBlogs } from "@app/_actions/blog";
 import { useQuery } from "@tanstack/react-query";
 import formatReadableTime from "@utils/formatReadableTime";
+import createSupabaseBrowserClient from "@supabase/client";
 
 import type BlogData from "@app/(main)/blog/interface";
 
@@ -21,11 +22,13 @@ export default function Blog() {
     data: blogs,
     isSuccess,
     error,
+    refetch,
   }: {
     data: any;
     isSuccess: boolean;
     isLoading: boolean;
     error: any;
+    refetch: any;
   } = useQuery({
     queryKey: [`products-dashboard`],
     queryFn: async () => await readBlogs({ limit: "read-all" }),
@@ -36,6 +39,21 @@ export default function Blog() {
   if (error) {
     throw new Error("Error while fetching data");
   }
+
+  const supabase = createSupabaseBrowserClient();
+
+  const handleChanges = () => {
+    refetch();
+  };
+
+  supabase
+    .channel("blogs")
+    .on(
+      "postgres_changes",
+      { event: "*", schema: "public", table: "blogs" },
+      handleChanges
+    )
+    .subscribe();
 
   const blogsData = blogs?.data;
 

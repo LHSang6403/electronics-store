@@ -13,16 +13,20 @@ import { readOrders } from "@app/_actions/order";
 import { useQuery } from "@tanstack/react-query";
 import formatReadableTime from "@utils/formatReadableTime";
 import formatCurrencyWithCommas from "@utils/formatCurrency";
+import createSupabaseBrowserClient from "@supabase/client";
+import Remove from "@components/dashboard/popups/Remove";
 
 export default function Order() {
   const {
     data: orders,
     isSuccess,
     error,
+    refetch,
   }: {
     data: any;
     isSuccess: boolean;
     error: any;
+    refetch: any;
   } = useQuery({
     queryKey: [`orders-dashboard`],
     queryFn: async () => await readOrders("all"),
@@ -34,7 +38,23 @@ export default function Order() {
     throw new Error("Error while fetching data");
   }
 
+  const supabase = createSupabaseBrowserClient();
+
+  const handleChanges = () => {
+    refetch();
+  };
+
+  supabase
+    .channel("orders")
+    .on(
+      "postgres_changes",
+      { event: "*", schema: "public", table: "orders" },
+      handleChanges
+    )
+    .subscribe();
+
   const ordersData = orders;
+
   return (
     <div className="w-full h-fit rounded-xl bg-white border border-[#E0E0E0] overflow-hidden">
       <Table>
@@ -72,6 +92,7 @@ export default function Order() {
                 </TableCell>
                 <TableCell className="text-center sm:hidden">
                   <Edit data={ord} />
+                  <Remove id={ord.id} table="orders" />
                 </TableCell>
               </TableRow>
             ))}

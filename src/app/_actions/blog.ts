@@ -2,6 +2,7 @@
 
 import createSupabaseServerClient from "@supabase/server";
 import { checkRoleAdmin, checkRoleAdminAndStaff } from "@app/_actions/user";
+import { saveToLog } from "@app/_actions/log";
 
 import type BlogData from "@app/(main)/blog/interface";
 
@@ -50,13 +51,22 @@ export async function readBlogById(id: string) {
 
 export async function createBlog(blog: BlogData) {
   try {
-    const checkRoleAdminAndStaffResult = await checkRoleAdminAndStaff();
+    const checkRoleAdminAndStaffResult = (await checkRoleAdminAndStaff()) as {
+      data: any;
+      error: any;
+    };
+
     if (checkRoleAdminAndStaffResult.error) {
       return { error: checkRoleAdminAndStaffResult.error };
     }
 
     const supabase = await createSupabaseServerClient();
-    return await supabase.from("blogs").insert(blog).single();
+    const result = await supabase.from("blogs").insert(blog).single();
+
+    const actorId = checkRoleAdminAndStaffResult.data.id;
+    await saveToLog("Create a blog", actorId, result);
+
+    return result;
   } catch (error: any) {
     return { error: error.message };
   }
@@ -64,13 +74,22 @@ export async function createBlog(blog: BlogData) {
 
 export async function updateBlogById(id: string, data: any) {
   try {
-    const checkRoleAdminResult = await checkRoleAdmin();
+    const checkRoleAdminResult = (await checkRoleAdmin()) as {
+      data: any;
+      error: any;
+    };
+
     if (checkRoleAdminResult.error) {
       return { error: checkRoleAdminResult.error };
     }
 
     const supabase = await createSupabaseServerClient();
-    return await supabase.from("blogs").update(data).eq("id", id);
+    const result = await supabase.from("blogs").update(data).eq("id", id);
+
+    const actorId = checkRoleAdminResult.data.id;
+    await saveToLog(`Update blog ${id}`, actorId, result);
+
+    return result;
   } catch (error: any) {
     return { error: error.message };
   }
@@ -78,17 +97,23 @@ export async function updateBlogById(id: string, data: any) {
 
 export async function deleteBlogById(id: string) {
   try {
-    const checkRoleAdminAndStaffResult = await checkRoleAdminAndStaff();
+    const checkRoleAdminAndStaffResult = (await checkRoleAdminAndStaff()) as {
+      data: any;
+      error: any;
+    };
+
     if (checkRoleAdminAndStaffResult.error) {
       return { error: checkRoleAdminAndStaffResult.error };
     }
 
     const supabase = await createSupabaseServerClient();
-
     const deleteResult = await supabase
       .from("blogs")
       .update({ is_deleted: true })
       .eq("id", id);
+
+    const actorId = checkRoleAdminAndStaffResult.data.id;
+    await saveToLog(`Delete blog ${id}`, actorId, deleteResult);
 
     return deleteResult;
   } catch (error: any) {

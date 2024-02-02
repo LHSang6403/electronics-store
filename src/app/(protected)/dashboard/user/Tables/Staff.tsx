@@ -11,12 +11,14 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { readAllStaffs } from "@app/_actions/user";
 import EditStaff from "@app/(protected)/dashboard/user/EditStaff/EditStaff";
+import createSupabaseBrowserClient from "@supabase/client";
 
 export default function Staff() {
   const {
     data: staffs,
     isSuccess: isStaffsSuccess,
     error: staffsError,
+    refetch,
   }: {
     data: any;
     isLoading: boolean;
@@ -33,7 +35,24 @@ export default function Staff() {
   if (staffsError) {
     throw new Error("Error while fetching data");
   }
+
+  const supabase = createSupabaseBrowserClient();
+
+  const handleChanges = () => {
+    refetch();
+  };
+
+  supabase
+    .channel("staffs")
+    .on(
+      "postgres_changes",
+      { event: "*", schema: "public", table: "staffs" },
+      handleChanges
+    )
+    .subscribe();
+
   const staffsData = staffs?.data;
+
   return (
     <div className="w-full h-fit rounded-xl bg-white border border-[#E0E0E0] overflow-hidden">
       <h2 className="mx-2 mt-1 text-lg text-center">Staffs</h2>

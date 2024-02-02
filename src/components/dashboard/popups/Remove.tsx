@@ -10,6 +10,7 @@ import {
 } from "@components/ui-shadcn/dialog";
 import { deleteProductById } from "@app/_actions/product";
 import { deleteBlogById } from "@app/_actions/blog";
+import { deleteOrderById } from "@app/_actions/order";
 import { toast } from "sonner";
 
 export default function Remove({ id, table }: { id: string; table: string }) {
@@ -20,6 +21,8 @@ export default function Remove({ id, table }: { id: string; table: string }) {
       result = await deleteProductById(id);
     } else if (table === "blogs") {
       result = await deleteBlogById(id);
+    } else if (table === "orders") {
+      result = await deleteOrderById(id);
     } else {
       toast.error("Error: can not be deleted.");
     }

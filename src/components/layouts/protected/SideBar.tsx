@@ -56,6 +56,12 @@ export default function SideBar() {
       icon: "",
       permission: "staff",
     },
+    {
+      href: "/dashboard/log",
+      text: "Logs",
+      icon: "",
+      permission: "admin",
+    },
   ];
 
   return (

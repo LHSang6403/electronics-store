@@ -13,6 +13,7 @@ import Remove from "@components/dashboard/popups/Remove";
 import { readProducts } from "@app/_actions/product";
 import { useQuery } from "@tanstack/react-query";
 import formatCurrencyWithCommas from "@utils/formatCurrency";
+import createSupabaseBrowserClient from "@supabase/client";
 
 import { type ProductData } from "@app/(main)/product/interface";
 
@@ -21,13 +22,15 @@ export default function Product() {
     data: products,
     isSuccess,
     error,
+    refetch,
   }: {
     data: any;
     isSuccess: boolean;
     error: any;
+    refetch: any;
   } = useQuery({
     queryKey: [`products-dashboard`],
-    queryFn: async () => await readProducts({ limit: "read-all" }),
+    queryFn: async () => await readProducts({ limit: 10 }),
     staleTime: 1000 * 60 * 5,
     refetchOnWindowFocus: true,
   });
@@ -36,7 +39,23 @@ export default function Product() {
     throw new Error("Error while fetching data");
   }
 
+  const supabase = createSupabaseBrowserClient();
+
+  const handleChanges = () => {
+    refetch();
+  };
+
+  supabase
+    .channel("products")
+    .on(
+      "postgres_changes",
+      { event: "*", schema: "public", table: "products" },
+      handleChanges
+    )
+    .subscribe();
+
   const productsData = products?.data;
+
   return (
     <div className="w-full h-fit rounded-xl bg-white border border-[#E0E0E0] overflow-hidden">
       <Table>
