@@ -2,7 +2,6 @@ import SideBar from "@components/layouts/protected/SideBar";
 import { v2 as cloudinary } from "cloudinary";
 import { readStaff } from "@app/_actions/user";
 import DrawerSideBar from "@components/dashboard/DrawerSideBar";
-import { redirect } from "next/navigation";
 
 cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
@@ -33,8 +32,6 @@ export default async function MainLayout({
     }
   } catch (error) {
     throw new Error("Please refresh the page to view this area.");
-    // console.error("Error:", error);
-    // redirect("/auth");
   }
 
   return (
