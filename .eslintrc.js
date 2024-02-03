@@ -34,6 +34,7 @@ module.exports = {
       },
     ],
     "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-unnecessary-type-assertion": "off",
   },
   settings: {
     react: {
