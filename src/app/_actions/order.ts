@@ -11,9 +11,11 @@ export async function createOrder(data: any) {
     const order = {
       buyer_id: data.buyer_id,
       products_name: data.items,
-      quantity: data.quantities,
+      products_quantity: [],
       process_state: "pending",
       total_price: 1000,
+      address: data.address,
+      payment_method: data.payment_method,
     };
     const result = await supabase.from("orders").insert(order);
 

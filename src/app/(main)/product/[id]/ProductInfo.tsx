@@ -9,13 +9,7 @@ import Image from "next/image";
 import { type ProductData } from "@/app/(main)/product/interface";
 import { toast } from "sonner";
 
-import { type ProductImages } from "@/app/(main)/product/[id]/interface";
-
-export default async function ProductInfo({
-  productImages,
-  productData,
-}: {
-  productImages: ProductImages;
+export default async function ProductInfo(data: {
   productData: ProductData;
 }): Promise<JSX.Element> {
   const router = useRouter();
@@ -23,7 +17,7 @@ export default async function ProductInfo({
 
   const handleOnBuyNow = () => {
     console.log("buy now");
-    addProd(productData);
+    addProd(data.productData);
     router.push("/cart");
   };
 
@@ -34,7 +28,7 @@ export default async function ProductInfo({
           <ul className="w-fit h-fit py-2 border-[1px] ml-8 xl:ml-4 rounded-lg border-white flex flex-col justify-center items-center">
             <li className="w-12 h-12 mr-1">
               <Image
-                src={productData.image}
+                src={data.productData.image}
                 alt="Product selector"
                 width={512}
                 height={512}
@@ -42,7 +36,7 @@ export default async function ProductInfo({
             </li>
             <li className="w-12 h-12 mr-1">
               <Image
-                src={productData.image}
+                src={data.productData.image}
                 alt="Product selector"
                 width={512}
                 height={512}
@@ -50,7 +44,7 @@ export default async function ProductInfo({
             </li>
             <li className="w-12 h-12 mr-1">
               <Image
-                src={productData.image}
+                src={data.productData.image}
                 alt="Product selector"
                 width={512}
                 height={512}
@@ -58,7 +52,7 @@ export default async function ProductInfo({
             </li>
             <li className="w-12 h-12 mr-1">
               <Image
-                src={productData.image}
+                src={data.productData.image}
                 alt="Product selector"
                 width={512}
                 height={512}
@@ -68,7 +62,7 @@ export default async function ProductInfo({
           <div className="w-full h-full absolute scale-125 xl:scale-110 left-12 xl:left-0 lg:left-8 sm:left-8 top-[10%] xl:top-0 lg:top-[18%] sm:-top-[5%] ssm:top-[2%]">
             <div className="w-[180%] xl:w-[280%] lg:w-[260%] sm:w-[210%] h-full object-cover rounded-3xl [transition:transform_0.5s_ease] group-hover:scale-[1.01]">
               <Image
-                src={productData.image}
+                src={data.productData.image}
                 alt="sale-square-banner"
                 layout="responsive"
                 width={512}
@@ -89,23 +83,23 @@ export default async function ProductInfo({
         </div>
         <div className="w-full h-full flex flex-col lg:ml-2 sm:m-0">
           <h1 className="text-2xl sm:ml-4 font-semibold break-words line-clamp-3 leading-8">
-            {productData.name}
+            {data.productData.name}
           </h1>
-          {productData.sale && (
+          {data.productData.sale && (
             <div className="w-fit max-w-[400px] h-fit sm:ml-4 font-semibold px-2 py-1 text-primary rounded-lg shadow-lg bg-black">
-              {productData.sale}
+              {data.productData.sale}
             </div>
           )}
           <div className="text-lg sm:ml-4 text-primary mt-4 -mb-2">
-            <RatingStars rating={productData.rating} />
+            <RatingStars rating={data.productData.rating} />
           </div>
           <h2 className="text-2xl sm:ml-4 font-semibold text-primary">
-            {formatCurrencyWithCommas(productData.price)}.000 VND
+            {formatCurrencyWithCommas(data.productData.price)}.000 VND
           </h2>
           <div className="bg-black h-44 sm:h-fit text-white rounded-2xl shadow-lg p-4 mt-2">
-            <h4 className="text-xl">{productData.category}</h4>
+            <h4 className="text-xl">{data.productData.category}</h4>
             <p className="text-sm text-justify break-words line-clamp-3 leading-5">
-              {productData.description}
+              {data.productData.description}
             </p>
           </div>
           <div className="flex flex-row justify-center gap-6 pt-6 sm:pt-10">
@@ -120,7 +114,7 @@ export default async function ProductInfo({
             <button
               className="w-28 h-10 text-xl bg-primary shadow-lg font-semibold"
               onClick={() => {
-                addProd(productData);
+                addProd(data.productData);
                 toast.success("Add to cart successfully.");
               }}
             >

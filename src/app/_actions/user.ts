@@ -128,6 +128,28 @@ export async function updateStaffById(id: string, data: any) {
   }
 }
 
+export async function checkRoleCustomer() {
+  try {
+    const session = await readUserSession();
+    const userId = session.data.session?.user.id;
+
+    const supabase = await createSupabaseServerClient();
+    const result = await supabase
+      .from("customers")
+      .select("*")
+      .eq("id", userId)
+      .single();
+
+    if (result.error) {
+      return { error: result.error };
+    }
+
+    return result;
+  } catch (error: any) {
+    return { error: error.message };
+  }
+}
+
 export async function checkRoleAdmin() {
   try {
     const staff = await readStaff();

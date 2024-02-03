@@ -24,6 +24,7 @@ export default function ProductsContainer({
       variants={fadeInAminationVariants}
       initial="initial"
       whileInView="animate"
+      viewport={{ once: true }}
       className="w-auto h-full mx-48 2xl:mx-10 xl:mx-1.5 overflow-hidden rounded-3xl xl:rounded-2xl sm:rounded-2xl border-2 border-black"
     >
       <div className="w-full h-[70px] bg-primary text-3xl font-semibold flex justify-center items-center">
