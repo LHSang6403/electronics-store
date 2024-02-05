@@ -16,6 +16,7 @@ import { useRouter } from "next/navigation";
 // utils
 import convertBlobUrlToFile from "@utils/convertBlobUrlToFile";
 import uploadFileToCloudinary from "@utils/uploadFileToCloudinary";
+import extractImageUrls from "@utils/extractImageUrls";
 
 // cloudinary's plugins
 import FroalaEditorComponent from "react-froala-wysiwyg";
@@ -105,10 +106,7 @@ const CreateBlogForm = (): JSX.Element => {
 
   return (
     <div className="w-full flex flex-col justify-center">
-      <form
-        className="w-full h-fit flex flex-col gap-1"
-        onSubmit={handleSubmit(onSubmitHandler)}
-      >
+      <form className="w-full h-fit flex flex-col gap-1" onSubmit={handleSubmit(onSubmitHandler)}>
         <div className="w-full h-full grid grid-cols-2 sm:flex sm:flex-col gap-4">
           <div className="w-full h-full hidden sm:block">
             <WriterInformation />
@@ -183,13 +181,3 @@ const CreateBlogForm = (): JSX.Element => {
 };
 
 export default CreateBlogForm;
-
-const extractImageUrls = (htmlContent: string) => {
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(htmlContent, "text/html");
-
-  const images = doc.querySelectorAll("img");
-  const imageUrls = Array.from(images).map((img) => img.src);
-
-  return imageUrls;
-};

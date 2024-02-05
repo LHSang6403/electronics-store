@@ -4,11 +4,7 @@ import { readProductById } from "@/app/_actions/product";
 
 import { type ProductData } from "@/app/(main)/product/interface";
 
-export default async function Product({
-  params,
-}: {
-  params: { id: string };
-}): Promise<JSX.Element> {
+export default async function Product({ params }: { params: { id: string } }): Promise<JSX.Element> {
   const response: any = await readProductById(params.id);
 
   if (response?.error) {
@@ -18,7 +14,7 @@ export default async function Product({
 
   return (
     <>
-      <div className="w-full xflex justify-center">
+      <div className="w-full flex justify-center">
         <ProductInfo productData={productData} />
       </div>
       <ProductDetail productData={productData} />

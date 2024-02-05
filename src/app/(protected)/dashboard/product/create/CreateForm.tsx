@@ -9,14 +9,7 @@ import WriterInformation from "@/app/(protected)/dashboard/blog/create/WriterInf
 import { toast } from "sonner";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@components/ui-shadcn/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@components/ui-shadcn/form";
 import {
   SelectValue,
   SelectTrigger,
@@ -33,6 +26,7 @@ import { createProduct } from "@app/_actions/product";
 // utils
 import convertBlobUrlToFile from "@utils/convertBlobUrlToFile";
 import uploadFileToCloudinary from "@utils/uploadFileToCloudinary";
+import extractImageUrls from "@utils/extractImageUrls";                                
 
 // cloudinary's plugins
 import FroalaEditorComponent from "react-froala-wysiwyg";
@@ -57,7 +51,7 @@ const formSchema = z
     (data) => {
       return Object.values(data).every((value) => value !== null);
     },
-    { message: "This field cannot be null" }
+    { message: "The fields cannot be null" }
   );
 
 const CreateForm = (): JSX.Element => {
@@ -71,9 +65,7 @@ const CreateForm = (): JSX.Element => {
   }, []);
 
   const productLocalData = localStorage.getItem("product-create");
-  const productLocalDataJson = productLocalData
-    ? JSON.parse(productLocalData)
-    : {};
+  const productLocalDataJson = productLocalData ? JSON.parse(productLocalData) : {};
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -113,6 +105,7 @@ const CreateForm = (): JSX.Element => {
     queryFn: async () => await readCategories(),
     staleTime: 1000 * 60 * 5,
   });
+
   const {
     data: adminAndStaffs,
     error: adminAndStaffsError,
@@ -134,9 +127,7 @@ const CreateForm = (): JSX.Element => {
   const adminAndStaffsData = adminAndStaffs?.data;
 
   const [productImageFile, setProductImageFile] = useState<File | null>(null);
-  const [productImageFileString, setProductImageFileString] = useState<
-    string | null
-  >(null);
+  const [productImageFileString, setProductImageFileString] = useState<string | null>(null);
 
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
     if (!productImageFile) {
@@ -145,21 +136,15 @@ const CreateForm = (): JSX.Element => {
     }
     const uploadImageResult = await uploadFileToCloudinary(productImageFile);
 
-    const productDescriptionImages: string[] =
-      extractImageUrls(descriptionContent);
+    const productDescriptionImages: string[] = extractImageUrls(descriptionContent);
+    const uploadProductDescriptionPromises = productDescriptionImages.map(async (image) => {
+      const fileName = `product_desctiption_${Date.now()}.png`;
+      const file = await convertBlobUrlToFile(image, fileName);
+      const uploadImageUrl = await uploadFileToCloudinary(file);
 
-    const uploadProductDescriptionPromises = productDescriptionImages.map(
-      async (image) => {
-        const fileName = `product_desctiption_${Date.now()}.png`;
-        const file = await convertBlobUrlToFile(image, fileName);
-        const uploadImageUrl = await uploadFileToCloudinary(file);
-
-        return uploadImageUrl;
-      }
-    );
-    const uploadedProductDescriptionFiles = await Promise.all(
-      uploadProductDescriptionPromises
-    );
+      return uploadImageUrl;
+    });
+    const uploadedProductDescriptionFiles = await Promise.all(uploadProductDescriptionPromises);
 
     const createdProductDesccription = {
       creator_id: adminAndStaffsData.id,
@@ -167,9 +152,7 @@ const CreateForm = (): JSX.Element => {
       images: uploadedProductDescriptionFiles,
     };
 
-    const createdProductDescriptionResult = await createProductDescription(
-      createdProductDesccription
-    );
+    const createdProductDescriptionResult = await createProductDescription(createdProductDesccription);
 
     if (createdProductDescriptionResult.error) {
       toast.error("Error while creating product description.");
@@ -189,22 +172,15 @@ const CreateForm = (): JSX.Element => {
     const createdProductResult = await createProduct(createdProduct);
     if (createdProductResult.error) {
       toast.error("Error while creating product.");
-      return;
     } else {
       toast.success("Product created successfully.");
     }
-
-    console.log("--- createdProductDesccription", createdProductDesccription);
-    console.log("--- createdProduct", createdProduct);
   };
 
   return (
     <div className="w-full h-full flex flex-col justify-center">
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(handleSubmit)}
-          className="w-full h-auto grid grid-cols-2 gap-4"
-        >
+        <form onSubmit={form.handleSubmit(handleSubmit)} className="w-full h-auto grid grid-cols-2 gap-4">
           <div className="w-full h-full flex flex-col gap-4 p-4 bg-white rounded-lg border border-[#CCCCCC]">
             <FormField
               control={form.control}
@@ -214,11 +190,7 @@ const CreateForm = (): JSX.Element => {
                   <FormItem>
                     <FormLabel>Name</FormLabel>
                     <FormControl>
-                      <Input
-                        placeholder="Enter product name"
-                        type="text"
-                        {...field}
-                      />
+                      <Input placeholder="Enter product name" type="text" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -244,12 +216,7 @@ const CreateForm = (): JSX.Element => {
                             <SelectItem key={index} value={cat.name}>
                               <div className="flex flex-row gap-2">
                                 <div className="w-5 h-5 rounded overflow-hidden">
-                                  <Image
-                                    src={cat.image}
-                                    alt="Category"
-                                    width={500}
-                                    height={500}
-                                  />
+                                  <Image src={cat.image} alt="Category" width={500} height={500} />
                                 </div>
                                 <p>{cat.name}</p>
                               </div>
@@ -271,11 +238,7 @@ const CreateForm = (): JSX.Element => {
                   <FormItem>
                     <FormLabel>Sale</FormLabel>
                     <FormControl>
-                      <Input
-                        placeholder="Enter product sale"
-                        type="text"
-                        {...field}
-                      />
+                      <Input placeholder="Enter product sale" type="text" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -290,11 +253,7 @@ const CreateForm = (): JSX.Element => {
                   <FormItem>
                     <FormLabel>Price</FormLabel>
                     <FormControl>
-                      <Input
-                        placeholder="Enter product price"
-                        type="text"
-                        {...field}
-                      />
+                      <Input placeholder="Enter product price" type="text" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -322,6 +281,7 @@ const CreateForm = (): JSX.Element => {
                         reader.onloadend = () => {
                           setProductImageFileString(reader.result as string);
                         };
+
                         reader.readAsDataURL(file);
                       }
                     }}
@@ -340,21 +300,14 @@ const CreateForm = (): JSX.Element => {
                 </div>
                 {productImageFileString && (
                   <div className="w-44 h-28 rounded overflow-hidden shadow">
-                    <Image
-                      src={productImageFileString}
-                      alt="Preview"
-                      width={500}
-                      height={500}
-                    />
+                    <Image src={productImageFileString} alt="Preview" width={500} height={500} />
                   </div>
                 )}
               </div>
             </FormItem>
           </div>
           <div className="w-full">
-            <h2 className="ml-2 text-base font-medium text-[#12181C]">
-              Product description
-            </h2>
+            <h2 className="ml-2 text-base font-medium text-[#12181C]">Product description</h2>
             <FroalaEditorComponent
               model={descriptionContent}
               onModelChange={(model: string) => {
@@ -365,10 +318,7 @@ const CreateForm = (): JSX.Element => {
                 saveInterval: 1000,
                 events: {
                   "save.before": function (html: any) {
-                    localStorage.setItem(
-                      "saved-product-description-content",
-                      html
-                    );
+                    localStorage.setItem("saved-product-description-content", html);
                   },
                 },
               }}
@@ -376,9 +326,7 @@ const CreateForm = (): JSX.Element => {
             />
           </div>
           <div className="w-full">
-            <h2 className="ml-2 text-base font-medium text-[#12181C]">
-              Description Preview
-            </h2>
+            <h2 className="ml-2 text-base font-medium text-[#12181C]">Description Preview</h2>
             <div className="min-h-[200px] px-4 py-2 bg-[#FFFFFF] border border-[#CCCCCC] shadow-sm rounded-lg">
               <FroalaEditorView model={descriptionContent} />
             </div>
@@ -393,13 +341,3 @@ const CreateForm = (): JSX.Element => {
 };
 
 export default CreateForm;
-
-const extractImageUrls = (htmlContent: string) => {
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(htmlContent, "text/html");
-
-  const images = doc.querySelectorAll("img");
-  const imageUrls = Array.from(images).map((img) => img.src);
-
-  return imageUrls;
-};

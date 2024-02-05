@@ -34,7 +34,5 @@ export default async function uploadProductImage(formData: FormData) {
       .end(buffer);
   });
 
-  console.log("image result on server", result);
-
   return result;
 }

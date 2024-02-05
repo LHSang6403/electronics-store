@@ -3,30 +3,11 @@
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@components/ui-shadcn/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@components/ui-shadcn/form";
 import { Input } from "@components/ui-shadcn-custom/input-custom";
 import { Button } from "@components/ui-shadcn/button";
-import {
-  SelectValue,
-  SelectTrigger,
-  SelectContent,
-  SelectItem,
-  Select,
-} from "@components/ui-shadcn/select";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui-shadcn/card";
+import { SelectValue, SelectTrigger, SelectContent, SelectItem, Select } from "@components/ui-shadcn/select";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui-shadcn/card";
 import { checkRoleCustomer } from "@app/_actions/user";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -105,23 +86,14 @@ export default function Payments(): JSX.Element {
       <CardHeader className="w-full">
         <CardTitle>Payment</CardTitle>
         <CardDescription>
-          <p className="w-full h-fit text-xl font-medium">
-            {formatCurrencyWithCommas(totalPrice)}.000 VND
-          </p>
-          {isSuccess && (
-            <p className="w-full max-w-[280px] h-fit text-base">
-              {customerSessionData?.name}
-            </p>
-          )}
+          <p className="w-full h-fit text-xl font-medium">{formatCurrencyWithCommas(totalPrice)}.000 VND</p>
+          {isSuccess && <p className="w-full max-w-[280px] h-fit text-base">{customerSessionData?.name}</p>}
         </CardDescription>
       </CardHeader>
       <CardContent className="w-full h-fit flex flex-col justify-start mx-auto">
         <div className="flex flex-col items-center justify-between">
           <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(handleSubmit)}
-              className="max-w-md w-full flex flex-col gap-4"
-            >
+            <form onSubmit={form.handleSubmit(handleSubmit)} className="max-w-md w-full flex flex-col gap-4">
               <FormField
                 control={form.control}
                 name="address"
@@ -130,11 +102,7 @@ export default function Payments(): JSX.Element {
                     <FormItem>
                       <FormLabel>Your address</FormLabel>
                       <FormControl>
-                        <Input
-                          placeholder="Your address"
-                          type="text"
-                          {...field}
-                        />
+                        <Input placeholder="Your address" type="text" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -174,11 +142,6 @@ export default function Payments(): JSX.Element {
           </Form>
         </div>
       </CardContent>
-      {/* <CardFooter>
-        <Button className="h-9 bg-primary text-black" onClick={() => {}}>
-          Check out
-        </Button>
-      </CardFooter> */}
     </Card>
   );
 }

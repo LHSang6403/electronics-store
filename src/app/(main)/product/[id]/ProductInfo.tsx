@@ -9,14 +9,11 @@ import Image from "next/image";
 import { type ProductData } from "@/app/(main)/product/interface";
 import { toast } from "sonner";
 
-export default async function ProductInfo(data: {
-  productData: ProductData;
-}): Promise<JSX.Element> {
+export default async function ProductInfo(data: { productData: ProductData }): Promise<JSX.Element> {
   const router = useRouter();
   const { addProd } = useCartStore() as { addProd: any };
 
   const handleOnBuyNow = () => {
-    console.log("buy now");
     addProd(data.productData);
     router.push("/cart");
   };
@@ -27,36 +24,16 @@ export default async function ProductInfo(data: {
         <div className="w-[40%] h-full flex items-center relative rounded-2xl bg-black">
           <ul className="w-fit h-fit py-1 border-[1px] ml-8 xl:ml-4 rounded-lg border-white flex flex-col gap-1 px-2 justify-center items-center">
             <li className="w-12 lg:w-10 h-12 rounded overflow-hidden">
-              <Image
-                src={data.productData.image}
-                alt="Product selector"
-                width={512}
-                height={512}
-              />
+              <Image src={data.productData.image} alt="Product selector" width={512} height={512} />
             </li>
             <li className="w-12 lg:w-10 h-12 rounded overflow-hidden">
-              <Image
-                src={data.productData.image}
-                alt="Product selector"
-                width={512}
-                height={512}
-              />
+              <Image src={data.productData.image} alt="Product selector" width={512} height={512} />
             </li>
             <li className="w-12 lg:w-10 h-12 rounded overflow-hidden">
-              <Image
-                src={data.productData.image}
-                alt="Product selector"
-                width={512}
-                height={512}
-              />
+              <Image src={data.productData.image} alt="Product selector" width={512} height={512} />
             </li>
             <li className="w-12 lg:w-10 h-12 rounded overflow-hidden">
-              <Image
-                src={data.productData.image}
-                alt="Product selector"
-                width={512}
-                height={512}
-              />
+              <Image src={data.productData.image} alt="Product selector" width={512} height={512} />
             </li>
           </ul>
           <div className="w-full h-fit absolute scale-125 xl:scale-110 left-36 xl:left-28 lg:left-24 sm:left-24 top-[22%] lg:top-[25%] sm:top-[11%] ssm:top-[14%]">
@@ -82,9 +59,7 @@ export default async function ProductInfo(data: {
           </Link>
         </div>
         <div className="w-full h-full flex flex-col lg:ml-2 sm:m-0">
-          <h1 className="text-2xl sm:ml-4 font-semibold break-words line-clamp-3 leading-8">
-            {data.productData.name}
-          </h1>
+          <h1 className="text-2xl sm:ml-4 font-semibold break-words line-clamp-3 leading-8">{data.productData.name}</h1>
           {data.productData.sale && (
             <div className="w-fit max-w-[400px] h-fit sm:ml-4 font-semibold px-2 py-1 text-primary rounded-lg shadow-lg bg-black">
               {data.productData.sale}
@@ -98,9 +73,7 @@ export default async function ProductInfo(data: {
           </h2>
           <div className="bg-black h-44 sm:h-fit text-white rounded-2xl shadow-lg p-4 mt-2">
             <h4 className="text-xl">{data.productData.category}</h4>
-            <p className="text-sm text-justify break-words line-clamp-3 leading-5">
-              A short description hehe.
-            </p>
+            <p className="text-sm text-justify break-words line-clamp-3 leading-5">A short description hehe.</p>
           </div>
           <div className="flex flex-row justify-center gap-6 pt-6 sm:pt-10">
             <button
