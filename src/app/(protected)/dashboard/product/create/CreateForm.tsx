@@ -182,7 +182,10 @@ const CreateForm = (): JSX.Element => {
   return (
     <div className="w-full h-full flex flex-col justify-center">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(handleSubmit)} className="w-full h-auto grid grid-cols-2 gap-4">
+        <form
+          onSubmit={form.handleSubmit(handleSubmit)}
+          className="w-full h-auto grid grid-cols-2 sm:flex sm:flex-col gap-4"
+        >
           <div className="w-full h-full flex flex-col gap-4 p-4 bg-white rounded-lg border border-[#CCCCCC]">
             <FormField
               control={form.control}
