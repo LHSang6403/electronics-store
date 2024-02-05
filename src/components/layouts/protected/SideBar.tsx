@@ -80,7 +80,7 @@ export default function SideBar() {
                     data?.data.role === "admin" && (
                       <li
                         key={index}
-                        className={`w-24 px-2 py-1 xl:text-center ${
+                        className={`w-52 px-3 py-1 xl:text-center ${
                           pathname === link.href
                             ? "text-primary  bg-black rounded"
                             : ""
@@ -92,7 +92,7 @@ export default function SideBar() {
                   ) : (
                     <li
                       key={index}
-                      className={`w-24 px-2 py-1 xl:text-center ${
+                      className={`w-52 px-3 py-1 xl:text-center ${
                         pathname === link.href
                           ? "text-primary bg-black rounded"
                           : ""
@@ -108,7 +108,7 @@ export default function SideBar() {
         )}
       </div>
       <button
-        className="w-full xl:w-[60%] xl:mx-auto bg-black rounded-lg text-white h-8"
+        className="w-full xl:w-[60%] xl:mx-auto bg-[#1F2937] rounded-lg text-white h-8"
         onClick={() => {}}
       >
         Sign out

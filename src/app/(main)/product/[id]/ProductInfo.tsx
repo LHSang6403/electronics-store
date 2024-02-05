@@ -25,8 +25,8 @@ export default async function ProductInfo(data: {
     <div className="w-full max-w-[1300px] px-10 xl:px-0 h-[560px] sm:h-[800px] flex flex-row sm:flex-col justify-center items-center gap-2">
       <div className="w-1/2 sm:w-full h-full sm:overflow-hidden">
         <div className="w-[40%] h-full flex items-center relative rounded-2xl bg-black">
-          <ul className="w-fit h-fit py-2 border-[1px] ml-8 xl:ml-4 rounded-lg border-white flex flex-col justify-center items-center">
-            <li className="w-12 h-12 mr-1">
+          <ul className="w-fit h-fit py-1 border-[1px] ml-8 xl:ml-4 rounded-lg border-white flex flex-col gap-1 px-2 justify-center items-center">
+            <li className="w-12 lg:w-10 h-12 rounded overflow-hidden">
               <Image
                 src={data.productData.image}
                 alt="Product selector"
@@ -34,7 +34,7 @@ export default async function ProductInfo(data: {
                 height={512}
               />
             </li>
-            <li className="w-12 h-12 mr-1">
+            <li className="w-12 lg:w-10 h-12 rounded overflow-hidden">
               <Image
                 src={data.productData.image}
                 alt="Product selector"
@@ -42,7 +42,7 @@ export default async function ProductInfo(data: {
                 height={512}
               />
             </li>
-            <li className="w-12 h-12 mr-1">
+            <li className="w-12 lg:w-10 h-12 rounded overflow-hidden">
               <Image
                 src={data.productData.image}
                 alt="Product selector"
@@ -50,7 +50,7 @@ export default async function ProductInfo(data: {
                 height={512}
               />
             </li>
-            <li className="w-12 h-12 mr-1">
+            <li className="w-12 lg:w-10 h-12 rounded overflow-hidden">
               <Image
                 src={data.productData.image}
                 alt="Product selector"
@@ -59,8 +59,8 @@ export default async function ProductInfo(data: {
               />
             </li>
           </ul>
-          <div className="w-full h-full absolute scale-125 xl:scale-110 left-12 xl:left-0 lg:left-8 sm:left-8 top-[10%] xl:top-0 lg:top-[18%] sm:-top-[5%] ssm:top-[2%]">
-            <div className="w-[180%] xl:w-[280%] lg:w-[260%] sm:w-[210%] h-full object-cover rounded-3xl [transition:transform_0.5s_ease] group-hover:scale-[1.01]">
+          <div className="w-full h-fit absolute scale-125 xl:scale-110 left-36 xl:left-28 lg:left-24 sm:left-24 top-[22%] lg:top-[25%] sm:top-[11%] ssm:top-[14%]">
+            <div className="w-[140%] lg:w-[165%] sm:w-[140%] h-fit object-cover rounded-xl overflow-hidden [transition:transform_0.5s_ease] group-hover:scale-[1.01]">
               <Image
                 src={data.productData.image}
                 alt="sale-square-banner"
@@ -99,7 +99,7 @@ export default async function ProductInfo(data: {
           <div className="bg-black h-44 sm:h-fit text-white rounded-2xl shadow-lg p-4 mt-2">
             <h4 className="text-xl">{data.productData.category}</h4>
             <p className="text-sm text-justify break-words line-clamp-3 leading-5">
-              {data.productData.description}
+              A short description hehe.
             </p>
           </div>
           <div className="flex flex-row justify-center gap-6 pt-6 sm:pt-10">

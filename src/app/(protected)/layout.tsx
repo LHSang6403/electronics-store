@@ -37,11 +37,11 @@ export default async function MainLayout({
   return (
     <section>
       <div
-        className="max-w-[1450px] xl:w-full min-h-[70vh] pt-1 pb-4
+        className="max-w-[1550px] xl:w-full min-h-[70vh] pt-1 pb-4
           flex flex-row gap-4 xl:flex-col xl:items-start xl:justify-start xl:gap-2
           px-10 xl:px-4 sm:px-2 mx-auto"
       >
-        <div className="mt-10 xl:hidden">
+        <div className="xl:hidden">
           <SideBar />
         </div>
         {children}

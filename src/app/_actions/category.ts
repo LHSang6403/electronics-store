@@ -2,6 +2,12 @@
 
 import createSupabaseServerClient from "@/supabase/server";
 
+export async function readCategories() {
+  const supabase = await createSupabaseServerClient();
+  const result = await supabase.from("category").select("*");
+  return result;
+}
+
 export async function readCategoryById(id: string) {
   const supabase = await createSupabaseServerClient();
   const { data: product } = await supabase

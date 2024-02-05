@@ -18,7 +18,6 @@ export default async function uploadFileToCloudinary(
 
     const cloudinaryData = await cloudinaryResponse.json();
     const imageUrl = cloudinaryData.secure_url;
-    console.log("Uploaded, this is image:", imageUrl);
 
     return imageUrl;
   } catch (error) {

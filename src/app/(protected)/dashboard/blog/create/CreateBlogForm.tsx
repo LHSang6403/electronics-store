@@ -165,7 +165,7 @@ const CreateBlogForm = (): JSX.Element => {
           </div>
           <div className="w-full">
             <h2 className="ml-2 text-lg">Content Preview</h2>
-            <div className="min-h-[152px] px-4 py-2 bg-[#FFFFFF] border border-[#CCCCCC] shadow-sm rounded-lg">
+            <div className="min-h-[200px] px-4 py-2 bg-[#FFFFFF] border border-[#CCCCCC] shadow-sm rounded-lg">
               <FroalaEditorView model={content} />
             </div>
           </div>

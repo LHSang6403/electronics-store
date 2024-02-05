@@ -76,6 +76,11 @@ export default function Payments(): JSX.Element {
   });
 
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
+    if (!customerSessionData) {
+      toast.error("Only customer account can buy.");
+      return;
+    }
+
     const order = {
       buyer_id: customerSessionData.id,
       items: cartList.map((product: ProductData) => product.name),
@@ -83,7 +88,7 @@ export default function Payments(): JSX.Element {
       address: values.address,
       payment_method: values.paymentMethod,
     };
-    console.log("order", order);
+
     const result = await createOrder(order);
     if (result.error) {
       toast.error("The order is failed to create!");

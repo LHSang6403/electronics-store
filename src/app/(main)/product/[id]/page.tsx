@@ -10,6 +10,7 @@ export default async function Product({
   params: { id: string };
 }): Promise<JSX.Element> {
   const response: any = await readProductById(params.id);
+
   if (response?.error) {
     throw new Error("Product not found");
   }
@@ -20,7 +21,7 @@ export default async function Product({
       <div className="w-full xflex justify-center">
         <ProductInfo productData={productData} />
       </div>
-      {<ProductDetail productData={productData} />}
+      <ProductDetail productData={productData} />
     </>
   );
 }

@@ -4,6 +4,29 @@ import createSupabaseServerClient from "@supabase/server";
 import { checkRoleAdmin } from "@app/_actions/user";
 import { saveToLog } from "@app/_actions/log";
 
+export async function createProduct(insertData: any) {
+  try {
+    const checkRoleAdminResult = (await checkRoleAdmin()) as {
+      data: any;
+      error: any;
+    };
+
+    if (checkRoleAdminResult.error) {
+      return { error: checkRoleAdminResult.error };
+    }
+
+    const supabase = await createSupabaseServerClient();
+    const result = await supabase.from("products").insert(insertData).select();
+
+    const actorId = checkRoleAdminResult.data.id;
+    await saveToLog(`Create product ${insertData.name}`, actorId, result);
+
+    return result;
+  } catch (error: any) {
+    return { error: error.message };
+  }
+}
+
 export async function readProducts({ limit }: { limit: number | "read-all" }) {
   try {
     const supabase = await createSupabaseServerClient();
@@ -29,12 +52,19 @@ export async function readProductById(id: string) {
   try {
     const supabase = await createSupabaseServerClient();
 
-    return await supabase
+    const result = await supabase
       .from("products")
-      .select("*")
+      .select(
+        `
+  *,
+  products_description (id, content, images)
+`
+      )
       .eq("id", id)
       .eq("is_deleted", false)
       .single();
+
+    return result;
   } catch (error: any) {
     return { error: error.message };
   }
