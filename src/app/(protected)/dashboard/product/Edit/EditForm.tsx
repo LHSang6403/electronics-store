@@ -49,7 +49,6 @@ const EditForm = ({ data }: { data: ProductData }) => {
           onClick={() => {
             reset({
               name: data.name,
-              description: data.description ?? "",
               sale: data.sale ?? "",
               price: data.price,
             });
