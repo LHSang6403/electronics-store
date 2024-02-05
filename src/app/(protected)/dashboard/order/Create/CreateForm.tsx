@@ -5,28 +5,9 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@components/ui-shadcn/button";
 import { Checkbox } from "@/components/ui-shadcn-custom/checkbox-custom";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-} from "@components/ui-shadcn/form";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@components/ui-shadcn/table";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@components/ui-shadcn/select";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@components/ui-shadcn/form";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@components/ui-shadcn/table";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@components/ui-shadcn/select";
 import { useQuery } from "@tanstack/react-query";
 import { readAllAvailableProducts } from "@app/_actions/storage";
 import { readAllCustomers } from "@app/_actions/user";
@@ -34,8 +15,8 @@ import { createOrder } from "@app/_actions/order";
 import { toast } from "sonner";
 
 const FormSchema = z.object({
-  items: z.array(z.string()),
-  buyer_id: z.string(),
+  items: z.array(z.string()).refine((val) => val !== null, "Items cannot be null"),
+  buyer_id: z.string().refine((val) => val !== null, "Buyer cannot be null"),
 });
 
 export default function CreateForm() {
@@ -114,6 +95,7 @@ export default function CreateForm() {
                     ))}
                 </SelectContent>
               </Select>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -122,9 +104,7 @@ export default function CreateForm() {
             <TableHeader>
               <TableRow>
                 <TableHead className="text-left">Name</TableHead>
-                <TableHead className="text-center">
-                  Available quantity
-                </TableHead>
+                <TableHead className="text-center">Available quantity</TableHead>
                 <TableHead className="text-center sm:hidden">Storage</TableHead>
                 <TableHead className="text-center">Select</TableHead>
               </TableRow>
@@ -133,15 +113,9 @@ export default function CreateForm() {
               {isSuccessProducts &&
                 products.data.map((prod: any, index: number) => (
                   <TableRow key={index}>
-                    <TableCell className="text-left font-medium">
-                      {prod.product_name}
-                    </TableCell>
-                    <TableCell className="text-center">
-                      {prod.product_quantity}
-                    </TableCell>
-                    <TableCell className="text-center sm:hidden">
-                      {prod.storage_name}
-                    </TableCell>
+                    <TableCell className="text-left font-medium">{prod.product_name}</TableCell>
+                    <TableCell className="text-center">{prod.product_quantity}</TableCell>
+                    <TableCell className="text-center sm:hidden">{prod.storage_name}</TableCell>
                     <TableCell className="text-center">
                       <FormField
                         key={prod.id}
@@ -149,30 +123,18 @@ export default function CreateForm() {
                         name="items"
                         render={({ field }) => {
                           return (
-                            <FormItem
-                              key={prod.id}
-                              className="mr-4 flex justify-center items-center"
-                            >
+                            <FormItem key={prod.id} className="mr-4 flex justify-center items-center">
                               <FormControl>
                                 <Checkbox
-                                  checked={field.value?.includes(
-                                    prod.product_name
-                                  )}
+                                  checked={field.value?.includes(prod.product_name)}
                                   onCheckedChange={(checked) => {
                                     checked
-                                      ? field.onChange([
-                                          ...field.value,
-                                          prod.product_name,
-                                        ])
-                                      : field.onChange(
-                                          field.value?.filter(
-                                            (value) =>
-                                              value !== prod.product_name
-                                          )
-                                        );
+                                      ? field.onChange([...field.value, prod.product_name])
+                                      : field.onChange(field.value?.filter((value) => value !== prod.product_name));
                                   }}
                                 />
                               </FormControl>
+                              <FormMessage />
                             </FormItem>
                           );
                         }}

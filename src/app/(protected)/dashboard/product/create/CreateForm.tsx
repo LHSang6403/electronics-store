@@ -26,7 +26,7 @@ import { createProduct } from "@app/_actions/product";
 // utils
 import convertBlobUrlToFile from "@utils/convertBlobUrlToFile";
 import uploadFileToCloudinary from "@utils/uploadFileToCloudinary";
-import extractImageUrls from "@utils/extractImageUrls";                                
+import extractImageUrls from "@utils/extractImageUrls";
 
 // cloudinary's plugins
 import FroalaEditorComponent from "react-froala-wysiwyg";
@@ -51,7 +51,9 @@ const formSchema = z
     (data) => {
       return Object.values(data).every((value) => value !== null);
     },
-    { message: "The fields cannot be null" }
+    {
+      message: "The fields cannot be null.",
+    }
   );
 
 const CreateForm = (): JSX.Element => {
